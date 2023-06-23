@@ -1,4 +1,4 @@
-import "./styles/Shop.css";
+import "./Shop.css";
 
 
 const Shop = () => {

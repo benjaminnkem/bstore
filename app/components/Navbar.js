@@ -1,8 +1,7 @@
 "use client";
-import { useEffect } from "react";
-import NavControl from "./NavbarControl";
 import "./styles/Navbar.css";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -11,34 +10,42 @@ const Navbar = () => {
     <>
       <nav>
         <ul className="flex items-center justify-center space-x-8 select-none py-14 text-slate-900">
-          <li
-            className={`relative font-semibold duration-100 hover:text-green-700 ${
-              pathname === "/" ? "border-b-4 border-green-500" : "n-links"
-            }`}
-          >
-            Home
-          </li>
-          <li
-            className={`relative font-semibold duration-100 hover:text-green-700 n-links ${
-              pathname === "/shop" ? "border-b-4 border-green-500" : "n-links"
-            }`}
-          >
-            Shop
-          </li>
-          <li
-            className={`relative font-semibold duration-100 hover:text-green-700 n-links ${
-              pathname === "/about" ? "border-b-4 border-green-500" : "n-links"
-            }`}
-          >
-            About
-          </li>
-          <li
-            className={`relative font-semibold duration-100 hover:text-green-700 n-links ${
-              pathname === "/contact" ? "border-b-4 border-green-500" : "n-links"
-            }`}
-          >
-            Contact
-          </li>
+          <Link href="/">
+            <li
+              className={`relative font-semibold duration-100 hover:text-green-700 ${
+                pathname === "/" ? "border-b-4 border-green-500 text-lg" : "n-links"
+              }`}
+            >
+              Home
+            </li>
+          </Link>
+          <Link href="/shop">
+            <li
+              className={`relative font-semibold duration-100 hover:text-green-700 ${
+                pathname === "/shop" ? "border-b-4 border-green-500 text-lg" : "n-links"
+              }`}
+            >
+              Shop
+            </li>
+          </Link>
+          <Link href="/about">
+            <li
+              className={`relative font-semibold duration-100 hover:text-green-700 ${
+                pathname === "/about" ? "border-b-4 border-green-500 text-lg" : "n-links"
+              }`}
+            >
+              About
+            </li>
+          </Link>
+          <Link href="#">
+            <li
+              className={`relative font-semibold duration-100 hover:text-green-700 ${
+                pathname === "/contact" ? "border-b-4 border-green-500 text-lg" : "n-links"
+              }`}
+            >
+              Contact
+            </li>
+          </Link>
         </ul>
       </nav>
     </>

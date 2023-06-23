@@ -1,5 +1,8 @@
 import "./Shop.css";
 
+export const metadata = {
+  title: "Shop - BStore"
+}
 
 const Shop = () => {
   return (

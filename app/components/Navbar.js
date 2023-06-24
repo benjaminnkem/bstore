@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <>
       <nav>
-        <ul className="flex items-center justify-center space-x-8 select-none py-14 text-slate-900">
+        <ul className="flex items-center justify-center py-8 space-x-8 select-none md:py-14 text-slate-900">
           <Link href="/">
             <li
               className={`relative font-semibold duration-100 hover:text-green-700 ${

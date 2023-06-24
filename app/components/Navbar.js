@@ -10,7 +10,7 @@ const Navbar = () => {
     <>
       <nav>
         <ul className="flex items-center justify-center py-8 space-x-8 select-none md:py-14 text-slate-900">
-          <Link href="/">
+          <Link href="/" passHref>
             <li
               className={`relative font-semibold duration-100 hover:text-green-700 ${
                 pathname === "/" ? "border-b-4 border-green-500 text-lg" : "n-links"
@@ -19,7 +19,7 @@ const Navbar = () => {
               Home
             </li>
           </Link>
-          <Link href="/shop">
+          <Link href="/shop" passHref>
             <li
               className={`relative font-semibold duration-100 hover:text-green-700 ${
                 pathname === "/shop" ? "border-b-4 border-green-500 text-lg" : "n-links"
@@ -28,7 +28,7 @@ const Navbar = () => {
               Shop
             </li>
           </Link>
-          <Link href="/about">
+          <Link href="/about" passHref>
             <li
               className={`relative font-semibold duration-100 hover:text-green-700 ${
                 pathname === "/about" ? "border-b-4 border-green-500 text-lg" : "n-links"
@@ -47,7 +47,7 @@ const Navbar = () => {
             </li>
           </Link>
           <li className={`font-semibold duration-100 hover:text-green-700 relative`}>
-            <i className="text-2xl ri-shopping-cart-2-line" id="nav-cart" data-shopping-items="20"></i>
+            <i className="text-2xl ri-shopping-cart-2-line" id="nav-cart" data-shopping-items={`0`}></i>
           </li>
         </ul>
       </nav>

@@ -1,4 +1,5 @@
 import "remixicon/fonts/remixicon.css";
+import Navbar from "../components/Navbar";
 
 export const metadata = {
   title: "About - BStore",
@@ -30,7 +31,7 @@ const About = () => {
 
           <div className="my-16">
             <div className="flex flex-wrap justify-evenly">
-              <div className="grid max-w-xs p-6 m-4 mx-auto text-center rounded-md shadow-md place-content-center">
+              <div className="grid max-w-xs p-6 m-4 mx-auto text-center rounded-md shadow-md place-content-center hover:shadow-2xl cursor-default duration-200">
                 <i className="text-5xl text-green-400 ri-time-line"></i>
                 <div className="mt-3">
                   <h3 className="text-lg font-semibold">Active 24/7</h3>
@@ -40,23 +41,21 @@ const About = () => {
                   </p>
                 </div>
               </div>
-              <div className="grid max-w-xs p-6 m-4 mx-auto text-center rounded-md shadow-md place-content-center">
+              <div className="grid max-w-xs p-6 m-4 mx-auto text-center rounded-md shadow-md place-content-center hover:shadow-2xl cursor-default duration-200">
                 <i className="text-5xl text-red-400 ri-phone-fill"></i>
                 <div className="mt-3">
                   <h3 className="text-lg font-semibold">Response Time</h3>
                   <p>
-                    We <span className="font-bold text-green-800">@Bstore</span> response quickly to any request sent by our users and visitors, to give you the users the
-                    best Xperience on our website. 😎
+                    We <span className="font-bold text-green-800">@Bstore</span> response quickly to any request sent by
+                    our users and visitors, to give you the users the best Xperience on our website. 😎
                   </p>
                 </div>
               </div>
-              <div className="grid max-w-xs p-6 m-4 mx-auto text-center rounded-md shadow-md place-content-center">
+              <div className="grid max-w-xs p-6 m-4 mx-auto text-center rounded-md shadow-md place-content-center hover:shadow-2xl cursor-default duration-200">
                 <i className="text-5xl text-green-400 ri-shopping-cart-2-line"></i>
                 <div className="mt-3">
                   <h3 className="text-lg font-semibold">Shipping</h3>
-                  <p>
-                    We ship products worldwide and as fast as possible, we got you covered at all times 💖
-                  </p>
+                  <p>We ship products worldwide and as fast as possible, we got you covered at all times 💖</p>
                 </div>
               </div>
             </div>

@@ -23,7 +23,7 @@ const DefaultProducts = () => {
           </div>
         </div>
 
-        <h className="h-96"></h>
+        <div className="h-[200px]"></div>
       </div>
     </>
   );

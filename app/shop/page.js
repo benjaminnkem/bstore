@@ -33,7 +33,7 @@ const Shop = () => {
 
                   <div className="flex items-center justify-center space-x-2">
                     <button className="p-1 duration-100 border hover:bg-white hover:text-slate-900">
-                      Buy <i className="ri-shopping-bag-line"></i>
+                      Add to cart <i className="ri-shopping-bag-line"></i>
                     </button>
                     <button className="p-1 duration-100 border hover:bg-white hover:text-slate-900">
                       Details <i className="ri-information-line"></i>
@@ -62,7 +62,7 @@ const Shop = () => {
 
                   <div className="flex items-center justify-center space-x-2">
                     <button className="p-1 duration-100 border hover:bg-white hover:text-slate-900">
-                      Buy <i className="ri-shopping-bag-line"></i>
+                      Add to cart <i className="ri-shopping-bag-line"></i>
                     </button>
                     <button className="p-1 duration-100 border hover:bg-white hover:text-slate-900">
                       Details <i className="ri-information-line"></i>
@@ -91,7 +91,7 @@ const Shop = () => {
 
                   <div className="flex items-center justify-center space-x-2">
                     <button className="p-1 duration-100 border hover:bg-white hover:text-slate-900">
-                      Buy <i className="ri-shopping-bag-line"></i>
+                      Add to cart <i className="ri-shopping-bag-line"></i>
                     </button>
                     <button className="p-1 duration-100 border hover:bg-white hover:text-slate-900">
                       Details <i className="ri-information-line"></i>
@@ -120,7 +120,7 @@ const Shop = () => {
 
                   <div className="flex items-center justify-center space-x-2">
                     <button className="p-1 duration-100 border hover:bg-white hover:text-slate-900">
-                      Buy <i className="ri-shopping-bag-line"></i>
+                      Add to cart <i className="ri-shopping-bag-line"></i>
                     </button>
                     <button className="p-1 duration-100 border hover:bg-white hover:text-slate-900">
                       Details <i className="ri-information-line"></i>

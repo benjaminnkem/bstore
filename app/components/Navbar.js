@@ -46,6 +46,9 @@ const Navbar = () => {
               Contact
             </li>
           </Link>
+          <li className={`font-semibold duration-100 hover:text-green-700 relative`}>
+            <i className="text-2xl ri-shopping-cart-2-line" id="nav-cart" data-shopping-items="20"></i>
+          </li>
         </ul>
       </nav>
     </>

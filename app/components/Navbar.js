@@ -10,14 +10,13 @@ const Navbar = () => {
 
   useEffect(() => {
     setAllItems(localStorage.getItem("cartItems"));
-    console.log(typeof allItems);
   }, [allItems])
 
   return (
     <>
       <nav>
         <ul className="flex items-center justify-center py-8 space-x-8 select-none md:py-14 text-slate-900 dark:text-slate-50">
-          <Link href="/" passHref>
+          <Link href="/">
             <li
               className={`relative font-semibold duration-100 dark:hover:text-green-200 hover:text-green-700 ${
                 pathname === "/" ? "border-b-4 border-green-500 text-lg" : "n-links"
@@ -26,7 +25,7 @@ const Navbar = () => {
               Home
             </li>
           </Link>
-          <Link href="/shop" passHref>
+          <Link href="/shop">
             <li
               className={`relative font-semibold duration-100 dark:hover:text-green-200 hover:text-green-700 ${
                 pathname === "/shop" ? "border-b-4 border-green-500 text-lg" : "n-links"
@@ -35,7 +34,7 @@ const Navbar = () => {
               Shop
             </li>
           </Link>
-          <Link href="/about" passHref>
+          <Link href="/about">
             <li
               className={`relative font-semibold duration-100 dark:hover:text-green-200 hover:text-green-700 ${
                 pathname === "/about" ? "border-b-4 border-green-500 text-lg" : "n-links"
@@ -44,7 +43,7 @@ const Navbar = () => {
               About
             </li>
           </Link>
-          <Link href="#">
+          <Link href="/contact">
             <li
               className={`relative font-semibold duration-100 dark:hover:text-green-200 hover:text-green-700 ${
                 pathname === "/contact" ? "border-b-4 border-green-500 text-lg" : "n-links"

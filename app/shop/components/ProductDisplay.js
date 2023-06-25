@@ -1,20 +1,20 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
-import AddToCartButtonAction from "./AddToCartButtonAction";
 import "remixicon/fonts/remixicon.css";
+import ProductTemplate from "./ProductTemplate";
 
 const ProductDisplay = ({ items }) => {
   const [addedItems, setAddedItems] = useState([]);
   const [quantityMeasure, setQuantityMeasure] = useState([]);
   const [sideCartItemDisplay, setSideCartItemDisplay] = useState(false);
 
+
   function addItemToCart(item) {
     // I tried my best e no work
     function algorithmToFixLater() {
       const exists = addedItems.find((cartItem) => cartItem.id === item.id);
       if (exists) {
-        function incrementQuantity(itemToIncrement) {
+        function incrementQuantityProperty(itemToIncrement) {
           const itemCheck = quantityMeasure.find((existingItem) => existingItem.id === itemToIncrement.id);
           if (itemCheck) {
             quantityMeasure.splice(quantityMeasure.indexOf(itemCheck));
@@ -31,7 +31,7 @@ const ProductDisplay = ({ items }) => {
           }
           return itemToIncrement;
         }
-        setQuantityMeasure([...quantityMeasure, incrementQuantity(item)]);
+        setQuantityMeasure([...quantityMeasure, incrementQuantityProperty(item)]);
       }
     }
 
@@ -75,32 +75,10 @@ const ProductDisplay = ({ items }) => {
           <div
             className={`grid items-center grid-cols-1 gap-4 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p duration-100`}
           >
+          {/* Product Template Location */}
             {items &&
               items.map((item) => (
-                <div
-                  className="p-4 space-y-4 duration-100 bg-gray-300 rounded-md shadow-md hover:shadow-lg bg-opacity-70 dark:bg-gray-800"
-                  key={item.id}
-                >
-                  <div className="grid items-center gap-4" style={{ gridTemplateColumns: "1fr 4fr" }}>
-                    <div className="overflow-hidden bg-gray-300">
-                      <Image
-                        src={item.image_url}
-                        alt={item.name}
-                        width={64}
-                        height={64}
-                        className="object-cover rounded-full aspect-square"
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">{item.name}</p>
-                      <p className="text-lg font-semibold text-slate-700 dark:text-slate-100">${item.price}</p>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="dark:text-slate-200">{item.description}</p>
-                  </div>
-                  <AddToCartButtonAction setAddedItems={setAddedItems} item={item} addItemToCart={addItemToCart} />
-                </div>
+                <ProductTemplate key={item} item={item} addItemToCart={addItemToCart}/>
               ))}
           </div>
 

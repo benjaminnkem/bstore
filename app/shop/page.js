@@ -1,4 +1,3 @@
-import "remixicon/fonts/remixicon.css";
 import ProductDisplay from "./components/ProductDisplay";
 
 export const metadata = {

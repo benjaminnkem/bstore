@@ -6,6 +6,7 @@ import AddToCartButtonAction from "./AddToCartButtonAction";
 const ProductDisplay = ({ items }) => {
   const [addedItems, setAddedItems] = useState([]);
   const [quantityMeasure, setQuantityMeasure] = useState([]);
+  const [sideCartItemDisplay, setSideCartItemDisplay] = useState(false);
 
   function addItemToCart(item) {
     setAddedItems([...addedItems, item]);
@@ -22,9 +23,10 @@ const ProductDisplay = ({ items }) => {
               name: itemToIncrement.name,
               description: itemToIncrement.description,
               image_url: itemToIncrement.image_url,
-              quantity: itemToIncrement.defaultQuantity === 1 && !itemCheck.quantity
-                ? itemToIncrement.defaultQuantity + 1
-                : itemCheck.quantity + 1,
+              quantity:
+                itemToIncrement.defaultQuantity === 1 && !itemCheck.quantity
+                  ? itemToIncrement.defaultQuantity + 1
+                  : itemCheck.quantity + 1,
             };
           }
 
@@ -32,8 +34,15 @@ const ProductDisplay = ({ items }) => {
         }
 
         setQuantityMeasure([...quantityMeasure, incrementQuantity(item)]);
-        console.log(quantityMeasure);
       }
+    }
+  }
+
+  function toggleSideCartView() {
+    if (!sideCartItemDisplay) {
+      setSideCartItemDisplay(true);
+    } else {
+      setSideCartItemDisplay(false);
     }
   }
 
@@ -44,7 +53,9 @@ const ProductDisplay = ({ items }) => {
           *Hover/Click products to view info.*
         </p>
         <div className="flex items-start space-x-4">
-          <div className="grid items-center grid-cols-1 gap-4 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p">
+          <div className={`grid items-center grid-cols-1 gap-4 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p duration-100 ${
+              sideCartItemDisplay ? "lg:mr-[200px]" : "mr-0"
+            }`}>
             {items &&
               items.map((item) => (
                 <div
@@ -63,6 +74,7 @@ const ProductDisplay = ({ items }) => {
                     </div>
                     <div className="space-y-1">
                       <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">{item.name}</p>
+                      <p className="text-lg font-semibold text-slate-700 dark:text-slate-100">${item.price}</p>
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -77,19 +89,20 @@ const ProductDisplay = ({ items }) => {
               className="text-2xl duration-100 ri-shopping-cart-2-line"
               id="nav-cart"
               data-shopping-items={`${addedItems.length}`}
+              onClick={toggleSideCartView}
             ></i>
           </div>
-          {/* <div className="fixed right-0 space-y-2 top-0 h-full overflow-x-hidden w-[320px] z-10 bg-green-100">
+          <div
+            className={`fixed right-0 space-y-2 top-0 h-full overflow-x-hidden duration-100 z-10 bg-green-100 ${
+              sideCartItemDisplay ? "md:w-[360px] sm:w-[320px] w-[300px]" : "w-[.05px]"
+            }`}
+          >
             <div className="relative w-full h-full">
-              <div className="absolute bottom-0 left-0 w-full py-3 text-center bg-green-200 text-slate-950">
-                <div className="grid grid-cols-2">
-                  <button className="w-full">Close</button>
-                  <button className="w-full">Clear</button>
-                </div>
-                <button>Checkout</button>
+              <div className="absolute bottom-0 left-0 w-full text-center text-slate-950">
+                <button className="w-full py-3 text-white duration-100 bg-green-600 rounded-md hover:bg-green-700">Checkout</button>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
         <div className="py-4"></div>
       </div>

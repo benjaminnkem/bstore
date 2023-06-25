@@ -26,7 +26,7 @@ const Shop = async () => {
         </p>
         <div className="md:max-w-[1024px] w-11/12 mx-auto">
           <div className="grid items-center grid-cols-1 gap-4 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p">
-            <ProductDisplay items={items}/>
+            <ProductDisplay items={items} />
           </div>
         </div>
       </div>

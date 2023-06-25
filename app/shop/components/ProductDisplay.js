@@ -5,9 +5,36 @@ import AddToCartButtonAction from "./AddToCartButtonAction";
 
 const ProductDisplay = ({ items }) => {
   const [addedItems, setAddedItems] = useState([]);
+  const [quantityMeasure, setQuantityMeasure] = useState([]);
 
   function addItemToCart(item) {
     setAddedItems([...addedItems, item]);
+
+    function algorithmToFixLater() {
+      const exists = addedItems.find((cartItem) => cartItem.id === item.id);
+      if (exists) {
+        function incrementQuantity(itemToIncrement) {
+          const itemCheck = quantityMeasure.find((existingItem) => existingItem.id === itemToIncrement.id);
+          if (itemCheck) {
+            quantityMeasure.splice(quantityMeasure.indexOf(itemCheck));
+            return {
+              id: itemToIncrement.id,
+              name: itemToIncrement.name,
+              description: itemToIncrement.description,
+              image_url: itemToIncrement.image_url,
+              quantity: itemToIncrement.defaultQuantity === 1 && !itemCheck.quantity
+                ? itemToIncrement.defaultQuantity + 1
+                : itemCheck.quantity + 1,
+            };
+          }
+
+          return itemToIncrement;
+        }
+
+        setQuantityMeasure([...quantityMeasure, incrementQuantity(item)]);
+        console.log(quantityMeasure);
+      }
+    }
   }
 
   return (
@@ -41,12 +68,16 @@ const ProductDisplay = ({ items }) => {
                   <div className="space-y-2">
                     <p className="dark:text-slate-200">{item.description}</p>
                   </div>
-                  <AddToCartButtonAction setAddedItems={setAddedItems} item={item} addItemToCart={addItemToCart}/>
+                  <AddToCartButtonAction setAddedItems={setAddedItems} item={item} addItemToCart={addItemToCart} />
                 </div>
               ))}
           </div>
           <div className={`font-semibold duration-100 dark:hover:text-green-200 hover:text-green-700 sticky top-6`}>
-            <i className="text-2xl duration-100 ri-shopping-cart-2-line" id="nav-cart" data-shopping-items={`0`}></i>
+            <i
+              className="text-2xl duration-100 ri-shopping-cart-2-line"
+              id="nav-cart"
+              data-shopping-items={`${addedItems.length}`}
+            ></i>
           </div>
           {/* <div className="fixed right-0 space-y-2 top-0 h-full overflow-x-hidden w-[320px] z-10 bg-green-100">
             <div className="relative w-full h-full">

@@ -1,4 +1,3 @@
-import "./Shop.css";
 import "remixicon/fonts/remixicon.css";
 import ProductDisplay from "./components/ProductDisplay";
 
@@ -24,11 +23,8 @@ const Shop = async () => {
         <p className="py-4 text-sm font-light text-center text-green-800 dark:text-green-200">
           *Hover/Click products to view info.*
         </p>
-        <div className="md:max-w-[1024px] w-11/12 mx-auto">
-          <div className="grid items-center grid-cols-1 gap-4 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p">
-            <ProductDisplay items={items} />
-          </div>
-        </div>
+        <ProductDisplay items={items} />
+        <div className="py-4"></div>
       </div>
     </>
   );

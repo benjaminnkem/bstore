@@ -35,6 +35,18 @@
       "name": "Some Product 6",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim at ipsam inventore nobis impedit\ndistinctio earum",
       "image_url": "/images/uploads/4.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Some Product 7",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim at ipsam inventore nobis impedit\ndistinctio earum",
+      "image_url": "/images/uploads/3.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Some Product 8",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim at ipsam inventore nobis impedit\ndistinctio earum",
+      "image_url": "/images/uploads/4.jpg"
     }
   ]
 }

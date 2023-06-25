@@ -1,5 +1,4 @@
 import "remixicon/fonts/remixicon.css";
-import Navbar from "../components/Navbar";
 
 export const metadata = {
   title: "About - BStore",
@@ -31,7 +30,7 @@ const About = () => {
 
           <div className="my-16">
             <div className="flex flex-wrap justify-evenly">
-              <div className="grid max-w-xs p-6 m-4 mx-auto text-center rounded-md shadow-md place-content-center hover:shadow-2xl cursor-default duration-200">
+              <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-200 rounded-md shadow-md cursor-default place-content-center hover:shadow-2xl">
                 <i className="text-5xl text-green-400 ri-time-line"></i>
                 <div className="mt-3">
                   <h3 className="text-lg font-semibold">Active 24/7</h3>
@@ -41,7 +40,7 @@ const About = () => {
                   </p>
                 </div>
               </div>
-              <div className="grid max-w-xs p-6 m-4 mx-auto text-center rounded-md shadow-md place-content-center hover:shadow-2xl cursor-default duration-200">
+              <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-200 rounded-md shadow-md cursor-default place-content-center hover:shadow-2xl">
                 <i className="text-5xl text-red-400 ri-phone-fill"></i>
                 <div className="mt-3">
                   <h3 className="text-lg font-semibold">Response Time</h3>
@@ -51,7 +50,7 @@ const About = () => {
                   </p>
                 </div>
               </div>
-              <div className="grid max-w-xs p-6 m-4 mx-auto text-center rounded-md shadow-md place-content-center hover:shadow-2xl cursor-default duration-200">
+              <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-200 rounded-md shadow-md cursor-default place-content-center hover:shadow-2xl">
                 <i className="text-5xl text-green-400 ri-shopping-cart-2-line"></i>
                 <div className="mt-3">
                   <h3 className="text-lg font-semibold">Shipping</h3>

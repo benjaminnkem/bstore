@@ -2,9 +2,16 @@
 import "./styles/Navbar.css";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const [allItems, setAllItems] = useState(null);
+
+  useEffect(() => {
+    setAllItems(localStorage.getItem("cartItems"));
+    console.log(typeof allItems);
+  }, [allItems])
 
   return (
     <>

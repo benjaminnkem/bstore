@@ -52,9 +52,9 @@ const Navbar = () => {
               Contact
             </li>
           </Link>
-          <li className={`font-semibold duration-100 dark:hover:text-green-200 hover:text-green-700 relative`}>
+          {/* <li className={`font-semibold duration-100 dark:hover:text-green-200 hover:text-green-700 relative`}>
             <i className="text-2xl ri-shopping-cart-2-line" id="nav-cart" data-shopping-items={`0`}></i>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </>

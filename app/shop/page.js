@@ -19,13 +19,7 @@ const Shop = async () => {
   const items = await getItems();
   return (
     <>
-      <div id="shop">
-        <p className="py-4 text-sm font-light text-center text-green-800 dark:text-green-200">
-          *Hover/Click products to view info.*
-        </p>
-        <ProductDisplay items={items} />
-        <div className="py-4"></div>
-      </div>
+      <ProductDisplay items={items} />
     </>
   );
 };

@@ -8,6 +8,14 @@ const ProductDisplay = ({ items }) => {
   const [quantityMeasure, setQuantityMeasure] = useState([]);
   const [sideCartItemDisplay, setSideCartItemDisplay] = useState(false);
 
+  function toggleSideCartView() {
+    if (!sideCartItemDisplay) {
+      setSideCartItemDisplay(true);
+    } else {
+      setSideCartItemDisplay(false);
+    }
+  }
+
   function addItemToCart(item) {
     // I tried my best e no work
     function algorithmToFixLater() {
@@ -42,17 +50,15 @@ const ProductDisplay = ({ items }) => {
       });
     }
 
+    const itemExists = addedItems.find((itemCheck) => itemCheck.id === item.id);
+    if (itemExists) {
+      toggleSideCartView();
+      return;
+    }
+
     // Adding the items to the list
     setAddedItems([...addedItems, item]);
     sortAllSelectedItems();
-  }
-
-  function toggleSideCartView() {
-    if (!sideCartItemDisplay) {
-      setSideCartItemDisplay(true);
-    } else {
-      setSideCartItemDisplay(false);
-    }
   }
 
   return (
@@ -91,7 +97,7 @@ const ProductDisplay = ({ items }) => {
 
           {/* Sidebar that opens */}
           <div
-            className={`fixed right-0 space-y-2 top-0 h-full overflow-x-hidden duration-100 z-20 bg-green-100 ${
+            className={`fixed right-0 space-y-2 top-0 h-full overflow-x-hidden duration-100 z-20 bg-green-100 dark:bg-green-800 ${
               sideCartItemDisplay ? "md:w-[360px] sm:w-[320px] w-full" : "w-[.05px]"
             }`}
           >
@@ -102,16 +108,22 @@ const ProductDisplay = ({ items }) => {
                     <p className="text-2xl font-semibold text-center">Checkout</p>
                   </div>
 
-                  <div className="p-2 space-y-2 select-none">
-                    {addedItems.map((item) => (
-                      <div
-                        className="py-8 duration-100 border rounded-md shadow-md hover:shadow-lg"
-                        key={item.id}
-                      ></div>
-                    ))}
+                  <div className="p-2 select-none">
+                    <div className="space-y-2">
+                      {addedItems.map((item) => (
+                        <div
+                          className="py-8 duration-100 border rounded-md shadow-md hover:shadow-lg"
+                          key={item.id}
+                        ></div>
+                      ))}
+                    </div>
                     <button className="w-full py-3 mt-4 text-white duration-100 bg-green-600 rounded-md hover:bg-green-700">
                       Checkout <i className="ri-truck-line"></i>
                     </button>
+
+                    <div className="mt-4 text-center">
+                      <span className="py-2 border-b-2 border-green-200 cursor-pointer" onClick={toggleSideCartView}>Close Panel</span>
+                    </div>
                   </div>
                 </div>
               </div>

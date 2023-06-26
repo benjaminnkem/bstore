@@ -2,6 +2,7 @@
 import { useState } from "react";
 import "remixicon/fonts/remixicon.css";
 import ProductTemplate from "./ProductTemplate";
+import Image from "next/image";
 
 const ProductDisplay = ({ items }) => {
   const [addedItems, setAddedItems] = useState([]);
@@ -108,13 +109,32 @@ const ProductDisplay = ({ items }) => {
                     <p className="text-2xl font-semibold text-center">Checkout</p>
                   </div>
 
-                  <div className="p-2 select-none">
+                  <div className="p-2">
                     <div className="space-y-2">
                       {addedItems.map((item) => (
-                        <div
-                          className="py-8 duration-100 border rounded-md shadow-md hover:shadow-lg"
-                          key={item.id}
-                        ></div>
+                        <div className="p-2 duration-100 border border-green-300 rounded-md shadow-md hover:shadow-lg" key={item.id}>
+                          <div className="flex items-center justify-between space-x-3">
+                            <div className="flex items-center space-x-3">
+                              <div>
+                                <Image
+                                  src={item.image_url}
+                                  alt={`${item.name} Image Cover`}
+                                  width={32}
+                                  height={32}
+                                  className="rounded-full aspect-square"
+                                  draggable={false}
+                                />
+                              </div>
+                              <div>
+                                <p className="font-semibold">{item.name}</p>
+                              </div>
+                            </div>
+
+                            <p>
+                              x<span>{item.quantity}</span>
+                            </p>
+                          </div>
+                        </div>
                       ))}
                     </div>
                     <button className="w-full py-3 mt-4 text-white duration-100 bg-green-600 rounded-md hover:bg-green-700">
@@ -122,7 +142,9 @@ const ProductDisplay = ({ items }) => {
                     </button>
 
                     <div className="mt-4 text-center">
-                      <span className="py-2 border-b-2 border-green-200 cursor-pointer" onClick={toggleSideCartView}>Close Panel</span>
+                      <span className="py-2 border-b-2 border-green-200 cursor-pointer" onClick={toggleSideCartView}>
+                        Close Panel
+                      </span>
                     </div>
                   </div>
                 </div>

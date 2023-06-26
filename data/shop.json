@@ -2,7 +2,7 @@
   "items": [
     {
       "id": 1,
-      "name": "Some Product 1",
+      "name": "Love",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim at ipsam",
       "image_url": "/images/uploads/2.jpg",
       "defaultQuantity": 1,
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "name": "Some Product 2",
+      "name": "Banana",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim at ipsam inventore nobis \ndistinctio earum",
       "image_url": "/images/uploads/4.jpg",
       "defaultQuantity": 1,
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "name": "Some Product 3",
+      "name": "Groceries",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim at ipsam  impedit\ndistinctio earum",
       "image_url": "/images/uploads/3.jpg",
       "defaultQuantity": 1,
@@ -26,7 +26,7 @@
     },
     {
       "id": 4,
-      "name": "Some Product 4",
+      "name": "Palm Oil",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing  inventore nobis impedit\ndistinctio earum",
       "image_url": "/images/uploads/1.jpg",
       "defaultQuantity": 1,
@@ -34,7 +34,7 @@
     },
     {
       "id": 5,
-      "name": "Some Product 5",
+      "name": "Music Album",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim at ipsam inventore nobis impedit\ndistinctio earum",
       "image_url": "/images/uploads/3.jpg",
       "defaultQuantity": 1,
@@ -42,7 +42,7 @@
     },
     {
       "id": 6,
-      "name": "Some Product 6",
+      "name": "Furniture",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim at ipsam indit\ndistinctio earum",
       "image_url": "/images/uploads/4.jpg",
       "defaultQuantity": 1,
@@ -50,7 +50,7 @@
     },
     {
       "id": 7,
-      "name": "Some Product 7",
+      "name": "MacBook Pro",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing epsam inventore nobis impedit\ndistinctio earum",
       "image_url": "/images/uploads/3.jpg",
       "defaultQuantity": 1,
@@ -58,7 +58,7 @@
     },
     {
       "id": 8,
-      "name": "Some Product 8",
+      "name": "Tech Keyboard",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim at ipsam inventore nobis imptio earum",
       "image_url": "/images/uploads/4.jpg",
       "defaultQuantity": 1,

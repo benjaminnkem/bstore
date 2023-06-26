@@ -3,22 +3,22 @@ import AddToCartButtonAction from "./AddToCartButtonAction";
 import { useState } from "react";
 
 const ProductTemplate = ({ item, addItemToCart }) => {
-  const [defaultItemQuantity, setDefaultItemQuantity] = useState(0);
+  const [itemQuantity, setItemQuantity] = useState(0);
 
   function incrementQuantity() {
-    if (defaultItemQuantity >= 0) setDefaultItemQuantity(parseInt(defaultItemQuantity) + 1);
+    if (itemQuantity >= 0) setItemQuantity(parseInt(itemQuantity) + 1);
   }
 
   function decrementQuantity() {
-    if (defaultItemQuantity > 0) setDefaultItemQuantity(parseInt(defaultItemQuantity) - 1);
+    if (itemQuantity > 0) setItemQuantity(parseInt(itemQuantity) - 1);
   }
 
   function changeItemQuantityManually(el) {
     const currentValue = el.target.value;
     if (currentValue === "") {
-      setDefaultItemQuantity(0);
+      setItemQuantity(0);
     } else if (!isNaN(parseInt(currentValue))) {
-      setDefaultItemQuantity(currentValue);
+      setItemQuantity(currentValue);
     }
     return;
   }
@@ -49,8 +49,8 @@ const ProductTemplate = ({ item, addItemToCart }) => {
           addItemToCart={addItemToCart}
           incrementQuantity={incrementQuantity}
           decrementQuantity={decrementQuantity}
-          defaultItemQuantity={defaultItemQuantity}
-          setDefaultItemQuantity={setDefaultItemQuantity}
+          itemQuantity={itemQuantity}
+          setItemQuantity={setItemQuantity}
           changeItemQuantityManually={changeItemQuantityManually}
         />
       </div>

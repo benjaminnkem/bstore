@@ -158,14 +158,14 @@ const ProductDisplay = ({ items }) => {
 
                                 <div className="flex mt-1 space-x-3">
                                   <p
-                                    className="font-semibold text-red-300 cursor-pointer select-none"
+                                    className="font-semibold text-red-500 cursor-pointer select-none dark:text-red-300"
                                     onClick={() => {
                                       removeItemFromCart(item);
                                     }}
                                   >
                                     Remove
                                   </p>
-                                  <p className="font-semibold text-green-300 cursor-pointer">Details</p>
+                                  <p className="font-semibold text-green-500 cursor-pointer dark:text-green-300">Details</p>
                                 </div>
                               </div>
                             </div>
@@ -188,8 +188,8 @@ const ProductDisplay = ({ items }) => {
 
                     <div>
                       {totalItemsCost > 0 && (
-                        <div className="flex items-center justify-between p-2">
-                          <p className="text-2xl font-semibold">Total</p>
+                        <div className="flex items-center justify-between p-2 text-2xl">
+                          <p className="font-semibold">Total</p>
 
                           <p className="font-semibold">${totalItemsCost.toFixed(2)}</p>
                         </div>

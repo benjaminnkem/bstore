@@ -1,0 +1,9 @@
+#def-p {
+  background-color: rgba(0, 0, 0, 0.183);
+  background: url("/images/bg/bg1.jpg") no-repeat center fixed;
+  background-size: cover;
+}
+
+#def-con {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.658);
+}

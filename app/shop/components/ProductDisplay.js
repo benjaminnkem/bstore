@@ -8,7 +8,6 @@ const ProductDisplay = ({ items }) => {
   const [quantityMeasure, setQuantityMeasure] = useState([]);
   const [sideCartItemDisplay, setSideCartItemDisplay] = useState(false);
 
-
   function addItemToCart(item) {
     // I tried my best e no work
     function algorithmToFixLater() {
@@ -75,11 +74,8 @@ const ProductDisplay = ({ items }) => {
           <div
             className={`grid items-center grid-cols-1 gap-4 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p duration-100`}
           >
-          {/* Product Template Location */}
-            {items &&
-              items.map((item) => (
-                <ProductTemplate key={item} item={item} addItemToCart={addItemToCart}/>
-              ))}
+            {/* Product Template Location */}
+            {items && items.map((item) => <ProductTemplate key={item.id} item={item} addItemToCart={addItemToCart} />)}
           </div>
 
           {/* Shopping cart icon */}
@@ -113,11 +109,10 @@ const ProductDisplay = ({ items }) => {
                         key={item.id}
                       ></div>
                     ))}
+                    <button className="w-full py-3 mt-4 text-white duration-100 bg-green-600 rounded-md hover:bg-green-700">
+                      Checkout <i className="ri-truck-line"></i>
+                    </button>
                   </div>
-
-                  <button className="w-full py-3 mt-4 text-white duration-100 bg-green-600 rounded-md hover:bg-green-700">
-                    Checkout <i className="ri-truck-line"></i>
-                  </button>
                 </div>
               </div>
             ) : (

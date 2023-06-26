@@ -7,12 +7,17 @@ const AddToCartButtonAction = ({
   incrementQuantity,
   decrementQuantity,
   setDefaultItemQuantity,
+  changeItemQuantityManually,
 }) => {
   function changeTextAfterAction(e) {
-    e.target.innerHTML = "Added to cart ✅";
+    if (defaultItemQuantity > 0) {
+      e.target.textContent = "Added to cart ✅";
+    } else {
+      e.target.textContent = "Enter Quantity ☝";
+    }
     setTimeout(() => {
-      e.target.innerHTML = `Add to cart <i className="ri-shopping-bag-line"></i>`;
-    }, 1000);
+      e.target.textContent = `Add to cart`;
+    }, 2000);
   }
 
   return (
@@ -30,6 +35,7 @@ const AddToCartButtonAction = ({
             value={defaultItemQuantity}
             className="text-center bg-transparent rounded-md w-14 white focus:outline-none"
             placeholder="Quantity"
+            onChange={(e) => changeItemQuantityManually(e)}
           />
           <button
             className="px-2 py-1 text-sm duration-100 border border-green-600 rounded-full md:text-base hover:bg-green-600 hover:text-green-50 dark:hover:text-slate-900 dark:hover:bg-white dark:border-slate-600"
@@ -43,7 +49,7 @@ const AddToCartButtonAction = ({
           <button
             className="px-2 py-1 text-sm duration-100 border border-green-600 rounded-md md:text-base hover:bg-green-600 hover:text-green-50 dark:hover:text-slate-900 dark:hover:bg-white dark:border-slate-600"
             onClick={(e) => {
-              addItemToCart(item);
+              if (defaultItemQuantity > 0) addItemToCart(item);
               changeTextAfterAction(e);
               setDefaultItemQuantity(0);
             }}

@@ -6,26 +6,28 @@ const ProductTemplate = ({ item, addItemToCart }) => {
   const [defaultItemQuantity, setDefaultItemQuantity] = useState(0);
 
   function incrementQuantity() {
-    if (defaultItemQuantity >= 0) setDefaultItemQuantity(defaultItemQuantity + 1);
+    if (defaultItemQuantity >= 0) setDefaultItemQuantity(parseInt(defaultItemQuantity) + 1);
   }
 
   function decrementQuantity() {
-    if (defaultItemQuantity > 0) setDefaultItemQuantity(defaultItemQuantity - 1);
+    if (defaultItemQuantity > 0) setDefaultItemQuantity(parseInt(defaultItemQuantity) - 1);
   }
 
   function changeItemQuantityManually(el) {
-    const currentValue = parseInt(el.target.value);
-    setDefaultItemQuantity(currentValue);
+    const currentValue = el.target.value;
+    if (currentValue === "") {
+      setDefaultItemQuantity(0);
+    } else if (!isNaN(parseInt(currentValue))) {
+      setDefaultItemQuantity(currentValue);
+    }
+    return;
   }
 
   return (
     <>
-      <div
-        className="p-4 space-y-4 duration-100 bg-gray-300 rounded-md shadow-md hover:shadow-lg bg-opacity-70 dark:bg-gray-800"
-        key={item.id}
-      >
+      <div className="p-4 space-y-4 duration-100 bg-gray-300 rounded-md shadow-md hover:shadow-lg bg-opacity-70 dark:bg-gray-800">
         <div className="grid items-center gap-4" style={{ gridTemplateColumns: "1fr 4fr" }}>
-          <div className="overflow-hidden bg-gray-300">
+          <div className="overflow-hidden bg-gray-300 rounded-full bg-opacity-10">
             <Image
               src={item.image_url}
               alt={item.name}

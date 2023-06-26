@@ -8,6 +8,7 @@ const AddToCartButtonAction = ({
   decrementQuantity,
   setItemQuantity,
   changeItemQuantityManually,
+  calculateTotalCosts,
 }) => {
   function changeTextAfterAction(e) {
     const element = e.target;
@@ -60,6 +61,7 @@ const AddToCartButtonAction = ({
                   price: item.price,
                   quantity: itemQuantity,
                 });
+              calculateTotalCosts();
               setItemQuantity(0);
             }}
           >

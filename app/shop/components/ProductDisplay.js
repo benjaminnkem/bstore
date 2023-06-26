@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "remixicon/fonts/remixicon.css";
 import ProductTemplate from "./ProductTemplate";
 import Image from "next/image";
@@ -8,6 +8,7 @@ const ProductDisplay = ({ items }) => {
   const [addedItems, setAddedItems] = useState([]);
   const [quantityMeasure, setQuantityMeasure] = useState([]);
   const [sideCartItemDisplay, setSideCartItemDisplay] = useState(false);
+  const [totalItemsCost, setAddedItemsCost] = useState(0);
 
   function toggleSideCartView() {
     if (!sideCartItemDisplay) {
@@ -67,6 +68,14 @@ const ProductDisplay = ({ items }) => {
     setAddedItems(newItemList);
   }
 
+  function calculateTotalCosts() {
+    if (addedItems.length === 0) return;
+    const totalCost = addedItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    setAddedItemsCost(totalCost);
+  }
+
+  useEffect(() => calculateTotalCosts());
+
   return (
     <>
       {/* Translucent Black Layer after sidebar opens */}
@@ -87,7 +96,15 @@ const ProductDisplay = ({ items }) => {
             className={`grid items-center grid-cols-1 gap-4 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p duration-100`}
           >
             {/* Product Template Location */}
-            {items && items.map((item) => <ProductTemplate key={item.id} item={item} addItemToCart={addItemToCart} />)}
+            {items &&
+              items.map((item) => (
+                <ProductTemplate
+                  key={item.id}
+                  item={item}
+                  addItemToCart={addItemToCart}
+                  calculateTotalCosts={calculateTotalCosts}
+                />
+              ))}
           </div>
 
           {/* Shopping cart icon */}
@@ -153,16 +170,35 @@ const ProductDisplay = ({ items }) => {
                               </div>
                             </div>
 
-                            <p>
-                              x<span>{item.quantity}</span>
-                            </p>
+                            <div>
+                              <p>
+                                <span>{item.quantity}</span> x <span>${item.price}</span>
+                              </p>
+                              <p>
+                                ={" "}
+                                <span className="text-sm font-semibold">
+                                  ${(item.quantity * item.price).toFixed(2)}
+                                </span>
+                              </p>
+                            </div>
                           </div>
                         </div>
                       ))}
                     </div>
-                    <button className="w-full py-3 mt-4 text-white duration-100 bg-green-600 rounded-md hover:bg-green-700">
-                      Checkout <i className="ri-truck-line"></i>
-                    </button>
+
+                    <div>
+                      {totalItemsCost > 0 && (
+                        <div className="flex items-center justify-between p-2">
+                          <p className="text-2xl font-semibold">Total</p>
+
+                          <p className="font-semibold">${totalItemsCost.toFixed(2)}</p>
+                        </div>
+                      )}
+
+                      <button className="w-full py-3 mt-3 text-white duration-100 bg-green-600 rounded-md shadow-sm hover:bg-green-700">
+                        Checkout <i className="ri-truck-line"></i>
+                      </button>
+                    </div>
 
                     <div className="mt-4 text-center">
                       <span className="py-2 border-b-2 border-green-200 cursor-pointer" onClick={toggleSideCartView}>

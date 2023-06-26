@@ -2,7 +2,7 @@ import Image from "next/image";
 import AddToCartButtonAction from "./AddToCartButtonAction";
 import { useState } from "react";
 
-const ProductTemplate = ({ item, addItemToCart }) => {
+const ProductTemplate = ({ item, addItemToCart, calculateTotalCosts }) => {
   const [itemQuantity, setItemQuantity] = useState(0);
 
   function incrementQuantity() {
@@ -52,6 +52,7 @@ const ProductTemplate = ({ item, addItemToCart }) => {
           itemQuantity={itemQuantity}
           setItemQuantity={setItemQuantity}
           changeItemQuantityManually={changeItemQuantityManually}
+          calculateTotalCosts={calculateTotalCosts}
         />
       </div>
     </>

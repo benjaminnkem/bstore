@@ -10,11 +10,11 @@ const About = () => {
       <div>
         <div className="md:max-w-[1024px] w-11/12 mx-auto">
           <div className="flex justify-center py-20">
-            <div className="grid items-center grid-cols-2 gap-4">
+            <div className="grid items-center gap-6 space-y-4 md:space-y-0 md:grid-cols-2">
               <div>
                 <div className="w-64 h-64 mx-auto border-4 border-green-600 rounded-md"></div>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-3 text-center md:text-start">
                 <h1 className="text-4xl">BStore</h1>
                 <p className="font-light leading-relaxed">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas libero aliquid ab, laudantium delectus
@@ -30,7 +30,7 @@ const About = () => {
 
           <div className="my-16">
             <div className="flex flex-wrap justify-evenly">
-              <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-200 rounded-md shadow-md cursor-default place-content-center hover:shadow-2xl">
+              <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-200 shadow-md cursor-default rounded-2xl hover:rounded-3xl bg-slate-800 place-content-center hover:shadow-2xl">
                 <i className="text-5xl text-green-400 ri-time-line"></i>
                 <div className="mt-3">
                   <h3 className="text-lg font-semibold">Active 24/7</h3>
@@ -40,7 +40,7 @@ const About = () => {
                   </p>
                 </div>
               </div>
-              <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-200 rounded-md shadow-md cursor-default place-content-center hover:shadow-2xl">
+              <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-200 shadow-md cursor-default rounded-2xl hover:rounded-3xl bg-slate-800 place-content-center hover:shadow-2xl">
                 <i className="text-5xl text-red-400 ri-phone-fill"></i>
                 <div className="mt-3">
                   <h3 className="text-lg font-semibold">Response Time</h3>
@@ -50,7 +50,7 @@ const About = () => {
                   </p>
                 </div>
               </div>
-              <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-200 rounded-md shadow-md cursor-default place-content-center hover:shadow-2xl">
+              <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-200 shadow-md cursor-default rounded-2xl hover:rounded-3xl bg-slate-800 place-content-center hover:shadow-2xl">
                 <i className="text-5xl text-green-400 ri-shopping-cart-2-line"></i>
                 <div className="mt-3">
                   <h3 className="text-lg font-semibold">Shipping</h3>

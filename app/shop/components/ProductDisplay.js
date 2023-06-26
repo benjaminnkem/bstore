@@ -62,6 +62,11 @@ const ProductDisplay = ({ items }) => {
     sortAllSelectedItems();
   }
 
+  function removeItemFromCart(item) {
+    const newItemList = addedItems.filter((itemIt) => itemIt.id !== item.id);
+    setAddedItems(newItemList);
+  }
+
   return (
     <>
       {/* Translucent Black Layer after sidebar opens */}
@@ -106,27 +111,45 @@ const ProductDisplay = ({ items }) => {
               <div className="relative w-full h-full">
                 <div className="mb-5">
                   <div className="py-3 border-b border-green-500">
-                    <p className="text-2xl font-semibold text-center">Checkout</p>
+                    <p className="text-2xl font-semibold text-center">Selected Items</p>
                   </div>
 
                   <div className="p-2">
                     <div className="space-y-2">
                       {addedItems.map((item) => (
-                        <div className="p-2 duration-100 border border-green-300 rounded-md shadow-md hover:shadow-lg" key={item.id}>
+                        <div
+                          className="p-2 duration-100 border border-green-300 rounded-md shadow-md hover:shadow-lg"
+                          key={item.id}
+                        >
                           <div className="flex items-center justify-between space-x-3">
                             <div className="flex items-center space-x-3">
                               <div>
                                 <Image
                                   src={item.image_url}
                                   alt={`${item.name} Image Cover`}
-                                  width={32}
-                                  height={32}
+                                  width={40}
+                                  height={40}
                                   className="rounded-full aspect-square"
                                   draggable={false}
                                 />
                               </div>
                               <div>
                                 <p className="font-semibold">{item.name}</p>
+                                <p>
+                                  Quantity: <span>{item.quantity}</span>
+                                </p>
+
+                                <div className="flex mt-1 space-x-3">
+                                  <p
+                                    className="font-semibold text-red-300 cursor-pointer select-none"
+                                    onClick={() => {
+                                      removeItemFromCart(item);
+                                    }}
+                                  >
+                                    Remove
+                                  </p>
+                                  <p className="font-semibold text-green-300 cursor-pointer">Details</p>
+                                </div>
                               </div>
                             </div>
 

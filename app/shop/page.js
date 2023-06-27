@@ -1,3 +1,5 @@
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import ProductDisplay from "./components/ProductDisplay";
 
 export const metadata = {
@@ -18,7 +20,9 @@ const Shop = async () => {
   const items = await getItems();
   return (
     <>
+      <Navbar />
       <ProductDisplay items={items} />
+      <Footer />
     </>
   );
 };

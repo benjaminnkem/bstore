@@ -1,4 +1,6 @@
 import "remixicon/fonts/remixicon.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export const metadata = {
   title: "About - BStore",
@@ -7,6 +9,7 @@ export const metadata = {
 const About = () => {
   return (
     <>
+      <Navbar />
       <div>
         <div className="md:max-w-[1024px] w-11/12 mx-auto">
           <div className="flex justify-center py-20">
@@ -61,6 +64,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

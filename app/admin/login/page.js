@@ -1,4 +1,5 @@
 "use client";
+import dbConnection from "@/data/mysql_db";
 import { useState } from "react";
 
 const SignIn = () => {
@@ -9,23 +10,25 @@ const SignIn = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     const loginData = {
-      username,
-      email,
-      password,
+      username: username,
+      email: email,
+      password: password,
     };
 
-    const response = await fetch(`/api/create/new-admin`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(loginData),
-    });
+    const connection = await dbConnection.getConnection();
+    try {
+      const query = `INSERT INTO  (id, username, is_master, email, password)
+        VALUES (${uuid()}, ${loginData.username}, ${1}, ${loginData.email}, ${loginData.password})
+      `;
 
-    if (!response.ok) {
-      console.log("An error occurred");
+      await connection.query(query);
+      console.log("User Created successfully");
+    } catch (err) {
+      console.log(err.message);
       return;
+    } finally {
+      connection.release();
     }
-
-    console.log("User created");
   }
 
   function check() {
@@ -57,7 +60,6 @@ const SignIn = () => {
                     value={username}
                     onChange={(e) => {
                       setUsername(e.target.value);
-                      check();
                     }}
                   />
                 </div>
@@ -72,7 +74,6 @@ const SignIn = () => {
                     value={email}
                     onChange={(e) => {
                       setEmail(e.target.value);
-                      check();
                     }}
                   />
                 </div>
@@ -87,7 +88,6 @@ const SignIn = () => {
                     value={password}
                     onChange={(e) => {
                       setPassword(e.target.value);
-                      check();
                     }}
                   />
                 </div>

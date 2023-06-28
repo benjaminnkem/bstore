@@ -3,14 +3,12 @@ import { useState } from "react";
 
 const SignIn = () => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
     const loginData = {
       username,
-      email,
       password,
     };
 
@@ -52,20 +50,6 @@ const SignIn = () => {
                     value={username}
                     onChange={(e) => {
                       setUsername(e.target.value);
-                    }}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email"></label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    className="w-full p-2 bg-transparent border-b rounded-md focus:outline-none border-slate-600 bg-slate-900"
-                    placeholder="Enter email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
                     }}
                   />
                 </div>

@@ -1,18 +1,25 @@
 import dbConnection from "@/data/mysql_db";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 const uuid = require("uuid").v4;
+const bcrypt = require("bcryptjs");
 
 export async function POST(req) {
   const loginData = await req.json();
-  // const connection = await dbConnection.getConnection();
-  // try {
-  //   console.log();
-  //   const query = `INSERT INTO ${process.env.DB_NAME} (id, name, email, password)
-  //   VALUES (${uuid()}, ${""}, ${""}, ${""})`;
+  const connection = await dbConnection.getConnection();
 
-  // } catch (err) {
-  //   console.log(err.message);
-  // }
+  try {
+    if (loginData) {
+      const hashedPassword = await bcrypt.hash(loginData.password, 12);
+      const queryString = `INSERT INTO admin_users (id, is_master, username, password)
+      VALUES ("${uuid()}", ${0}, "${loginData.username}", "${hashedPassword}")`;
 
-  return NextResponse.json({ data: loginData });
+      await connection.query(queryString);
+      return new NextResponse("User created successfully", { status: 200 });
+    } else {
+      return new NextResponse("No Data", { status: 204 });
+    }
+  } catch (err) {
+    console.log(err.message);
+    return new NextResponse("An error occurred", { status: 500 });
+  }
 }

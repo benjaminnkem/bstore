@@ -1,22 +1,21 @@
-"use client"
+"use client";
 import { useState } from "react";
 
 const LoginForm = ({ handleSubmit }) => {
-
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
+
   return (
     <>
       <div className="p-5 border-2 rounded-md border-slate-700">
         <h1 className="mb-4 text-xl font-semibold">Login</h1>
-
         <div className="min-w-[20rem]">
           <form
             className="space-y-3"
-            onSubmit={(e) => {
-              handleSubmit(e);
+            onSubmit={async (e) => {
+              await handleSubmit(e);
             }}
           >
             <div>

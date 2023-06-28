@@ -1,5 +1,4 @@
 "use client";
-import dbConnection from "@/data/mysql_db";
 import { useState } from "react";
 
 const SignIn = () => {
@@ -10,29 +9,23 @@ const SignIn = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     const loginData = {
-      username: username,
-      email: email,
-      password: password,
+      username,
+      email,
+      password,
     };
 
-    const connection = await dbConnection.getConnection();
-    try {
-      const query = `INSERT INTO  (id, username, is_master, email, password)
-        VALUES (${uuid()}, ${loginData.username}, ${1}, ${loginData.email}, ${loginData.password})
-      `;
+    const res = await fetch("/api/create/new-admin", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(loginData),
+    });
 
-      await connection.query(query);
-      console.log("User Created successfully");
-    } catch (err) {
-      console.log(err.message);
-      return;
-    } finally {
-      connection.release();
+    if (!res.ok) {
+      console.log("An error occurred");
     }
-  }
 
-  function check() {
-    console.log(username, email, password);
+    console.log("It looks okay");
+    return;
   }
 
   return (
@@ -41,7 +34,6 @@ const SignIn = () => {
         <div className="grid w-full h-full place-content-center">
           <div className="p-5 border-2 rounded-md border-slate-700">
             <h1 className="mb-4 text-xl font-semibold">Login</h1>
-
             <div className="min-w-[20rem]">
               <form
                 className="space-y-3"

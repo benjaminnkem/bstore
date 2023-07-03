@@ -1,3 +1,4 @@
+import { SessionProvider } from "next-auth/react";
 import "./globals.css";
 
 export const metadata = {
@@ -7,10 +8,12 @@ export const metadata = {
   keywords: "Online Store, Online Shopping, Gadgets, Products, Appliances, Buy",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ Component, pageProps: { session, ...children } }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <SessionProvider session={session}>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </SessionProvider>
   );
 }

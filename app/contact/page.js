@@ -5,7 +5,6 @@ import "./styles/contact.css";
 const ContactPage = () => {
   return (
     <>
-      <Navbar />
       <div className="md:max-w-[1024px] w-11/12 mx-auto">
         <div className="grid items-center grid-cols-1 gap-4 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p">
           <div className="p-4 space-y-4 bg-gray-300 rounded-md dark:bg-gray-800" key={Math.random()}>
@@ -34,7 +33,6 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

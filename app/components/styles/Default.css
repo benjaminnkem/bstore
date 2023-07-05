@@ -1,6 +1,6 @@
 #def-p {
   background-color: rgba(0, 0, 0, 0.183);
-  background: url("/images/bg/bg1.jpg") no-repeat center fixed;
+  background: url("/images/bg/bg.jpg") no-repeat center center;
   background-size: cover;
 }
 

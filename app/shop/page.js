@@ -20,8 +20,6 @@ const Shop = async () => {
   const items = await getItems();
   return (
     <>
-      <Navbar />
-      <div className="py-4 border"></div>
       <div className="my-10">
         <ProductDisplay items={items} />
       </div>

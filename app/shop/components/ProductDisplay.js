@@ -88,9 +88,6 @@ const ProductDisplay = ({ items }) => {
 
       {/* Mains */}
       <div className="md:max-w-[1024px] w-11/12 mx-auto">
-        <p className="py-4 text-sm font-light text-center text-green-800 dark:text-green-200">
-          *Hover/Click products to view info.*
-        </p>
         <div className="flex items-start space-x-4">
           <div
             className={`grid items-center grid-cols-1 gap-4 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p duration-100`}
@@ -165,7 +162,9 @@ const ProductDisplay = ({ items }) => {
                                   >
                                     Remove
                                   </p>
-                                  <p className="font-semibold text-green-500 cursor-pointer dark:text-green-300">Details</p>
+                                  <p className="font-semibold text-green-500 cursor-pointer dark:text-green-300">
+                                    Details
+                                  </p>
                                 </div>
                               </div>
                             </div>

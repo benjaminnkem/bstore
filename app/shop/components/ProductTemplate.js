@@ -25,7 +25,7 @@ const ProductTemplate = ({ item, addItemToCart, calculateTotalCosts }) => {
 
   return (
     <>
-      <div className="p-6 space-y-4 duration-100 bg-gray-300 rounded-md shadow-md md:p-4 hover:shadow-lg bg-opacity-70 dark:bg-gray-800">
+      <div className="p-6 space-y-4 duration-100 bg-gray-300 rounded-md shadow-md md:p-4 hover:shadow-lg bg-opacity-70 dark:bg-[#212121]">
         <div className="grid items-center gap-4" style={{ gridTemplateColumns: "1fr 4fr" }}>
           <div className="overflow-hidden bg-gray-300 rounded-full bg-opacity-10">
             <Image

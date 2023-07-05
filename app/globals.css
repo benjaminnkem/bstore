@@ -10,7 +10,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: rgb(255, 255, 255);
-    --background-rgb: #111827;
+    --background-rgb: #121212;
   }
 }
 
@@ -21,6 +21,7 @@ html {
 body {
   color: var(--foreground-rgb);
   background: var(--background-rgb);
+  transition: color .5s, background-color .5s;
 }
 
 ::-webkit-scrollbar {

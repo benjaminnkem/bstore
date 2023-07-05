@@ -21,7 +21,10 @@ const Shop = async () => {
   return (
     <>
       <Navbar />
-      <ProductDisplay items={items} />
+      <div className="py-4 border"></div>
+      <div className="my-10">
+        <ProductDisplay items={items} />
+      </div>
       <Footer />
     </>
   );

@@ -5,7 +5,6 @@ const ShopLoading = () => {
   const loadingElementCount = [1, 2, 3, 4, 5, 6];
   return (
     <>
-      <Navbar />
       <div className="md:max-w-[1024px] w-11/12 mx-auto">
         <p className="py-4 text-sm font-light text-center text-green-800 dark:text-green-200">*Please Hold...*</p>
 

@@ -20,8 +20,9 @@ const Shop = async () => {
   const items = await getItems();
   return (
     <>
-      <Navbar />
-      <ProductDisplay items={items} />
+      <div className="my-10">
+        <ProductDisplay items={items} />
+      </div>
       <Footer />
     </>
   );

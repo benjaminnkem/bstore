@@ -13,14 +13,8 @@ const LoginForm = () => {
       username,
       password,
     };
+
     setStatus({ ...status, loading: true });
-
-    // const res = await fetch("/api/auth/signin", {
-    //   method: "POST",
-    //   headers: { "Content-type": "application/json" },
-    //   body: JSON.stringify(loginData),
-    // });
-
     const res = await signIn("credentials", loginData);
 
     if (!res.ok) {

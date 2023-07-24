@@ -1,3 +1,4 @@
+import DefaultWrapper from "../DefaultWrapper";
 import ProductDisplay from "./components/ProductDisplay";
 
 export const metadata = {
@@ -16,9 +17,11 @@ const Shop = async () => {
   const items = await getItems();
   return (
     <>
+    <DefaultWrapper>
       <div className="my-10">
         <ProductDisplay items={items} />
       </div>
+    </DefaultWrapper>
     </>
   );
 };

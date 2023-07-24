@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <>
       <div className={`z-50 shadow-sm`}>
-        <div className="px-10">
+        <div className="md:max-w-[1488px] w-11/12 mx-auto">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold">
@@ -19,11 +19,11 @@ const Navbar = () => {
               <ul className="flex items-center py-4 space-x-2 select-none">
                 <Link href={"/"}>
                   <li
-                    className={`relative duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
+                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
                       pathname === "/" ? "text-orange-400" : ""
                     }`}
                   >
-                    <i className="text-lg ri-home-7-line"></i>
+                    Home
                   </li>
                 </Link>
                 <Link href={"/shop"}>
@@ -32,7 +32,7 @@ const Navbar = () => {
                       pathname === "/shop" ? "text-orange-400" : ""
                     }`}
                   >
-                    Shop
+                    Explore
                   </li>
                 </Link>
                 <Link href={"/about"}>

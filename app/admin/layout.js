@@ -1,9 +1,10 @@
 export const metadata = {
-  title: "Administrator's page",
+  title: "Bstore - Administrator's page",
+  robots: "noindex",
 };
 
-const AdminLayout = ({ children }) => {
+const RootAdminLayout = ({ children }) => {
   return <>{children}</>;
 };
 
-export default AdminLayout;
+export default RootAdminLayout;

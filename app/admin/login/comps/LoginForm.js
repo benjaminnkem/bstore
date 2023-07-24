@@ -5,6 +5,7 @@ import { signIn } from "next-auth/react";
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [status, setStatus] = useState({ loading: false });
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -12,6 +13,7 @@ const LoginForm = () => {
       username,
       password,
     };
+    setStatus({ ...status, loading: true });
 
     // const res = await fetch("/api/auth/signin", {
     //   method: "POST",
@@ -28,6 +30,7 @@ const LoginForm = () => {
     console.log("It looks okay");
     setUsername("");
     setPassword("");
+    setStatus({ ...status, loading: false });
   }
 
   return (
@@ -73,8 +76,11 @@ const LoginForm = () => {
                 </div>
 
                 <div>
-                  <button className="w-full py-2 transition-colors duration-200 rounded-md bg-slate-700 hover:bg-slate-800">
-                    Login
+                  <button
+                    className="w-full py-2 transition-colors duration-200 rounded-md bg-slate-700 hover:bg-slate-800"
+                    disabled={status.loading}
+                  >
+                    {status.loading ? "Validating..." : "Login"}
                   </button>
                 </div>
               </form>

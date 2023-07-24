@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import "remixicon/fonts/remixicon.css";
 import ProductTemplate from "./ProductTemplate";
 import Image from "next/image";
 
@@ -105,7 +104,7 @@ const ProductDisplay = ({ items }) => {
           </div>
 
           {/* Shopping cart icon */}
-          <div className={`font-semibold duration-100 dark:hover:text-green-200 hover:text-green-700 sticky top-6`}>
+          <div className={`font-semibold duration-100 dark:hover:text-orange-100 hover:text-orange-700 sticky top-6`}>
             <i
               className="text-2xl duration-100 ri-shopping-cart-2-line"
               id="nav-cart"
@@ -117,14 +116,14 @@ const ProductDisplay = ({ items }) => {
 
           {/* Sidebar that opens */}
           <div
-            className={`fixed right-0 space-y-2 top-0 h-full overflow-x-hidden duration-100 z-20 bg-green-100 dark:bg-[#212121] ${
+            className={`fixed right-0 space-y-2 top-0 h-full overflow-x-hidden duration-100 z-20 bg-orange-50 dark:bg-[#212121] ${
               sideCartItemDisplay ? "md:w-[360px] sm:w-[320px] w-full" : "w-[.05px]"
             }`}
           >
             {addedItems && addedItems.length > 0 ? (
               <div className="relative w-full h-full">
                 <div className="mb-5">
-                  <div className="py-3 border-b border-green-500">
+                  <div className="py-3 border-b border-orange-200">
                     <p className="text-2xl font-semibold text-center">Selected Items</p>
                   </div>
 
@@ -132,7 +131,7 @@ const ProductDisplay = ({ items }) => {
                     <div className="space-y-2">
                       {addedItems.map((item) => (
                         <div
-                          className="p-2 duration-100 border border-green-300 rounded-md shadow-md hover:shadow-lg"
+                          className="p-2 duration-100 border border-orange-300 border-opacity-20 rounded-md shadow-md hover:shadow-lg"
                           key={item.id}
                         >
                           <div className="flex items-center justify-between space-x-3">
@@ -162,7 +161,7 @@ const ProductDisplay = ({ items }) => {
                                   >
                                     Remove
                                   </p>
-                                  <p className="font-semibold text-green-500 cursor-pointer dark:text-green-300">
+                                  <p className="font-semibold text-orange-500 cursor-pointer dark:text-orange-300">
                                     Details
                                   </p>
                                 </div>
@@ -194,13 +193,13 @@ const ProductDisplay = ({ items }) => {
                         </div>
                       )}
 
-                      <button className="w-full py-3 mt-3 text-white duration-100 bg-green-600 rounded-md shadow-sm hover:bg-green-700">
+                      <button className="w-full py-3 mt-3 text-white duration-100 bg-orange-600 rounded-md shadow-sm hover:bg-orange-700">
                         Checkout <i className="ri-truck-line"></i>
                       </button>
                     </div>
 
                     <div className="mt-4 text-center">
-                      <span className="py-2 border-b-2 border-green-200 cursor-pointer" onClick={toggleSideCartView}>
+                      <span className="py-2 border-b-2 border-orange-200 cursor-pointer" onClick={toggleSideCartView}>
                         Close Panel
                       </span>
                     </div>
@@ -211,7 +210,7 @@ const ProductDisplay = ({ items }) => {
               <div className="relative grid w-full h-full space-y-5 place-content-center">
                 <p className="text-xl font-semibold md:text-2xl">No Items Selected</p>
                 <button
-                  className="py-2 text-green-500 duration-100 border border-green-500 rounded-md hover:bg-green-500 hover:text-green-50"
+                  className="py-2 text-orange-500 duration-100 border border-orange-500 rounded-md hover:bg-orange-500 hover:text-orange-50"
                   onClick={toggleSideCartView}
                 >
                   Close

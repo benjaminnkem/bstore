@@ -1,5 +1,6 @@
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import "remixicon/fonts/remixicon.css";
 import "./globals.css";
 
 export const metadata = {
@@ -13,7 +14,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Navbar />
-        <div className="py-4 border"></div>
         {children}
         <Footer />
       </body>

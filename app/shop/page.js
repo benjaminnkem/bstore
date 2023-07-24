@@ -1,5 +1,3 @@
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import ProductDisplay from "./components/ProductDisplay";
 
 export const metadata = {
@@ -8,11 +6,9 @@ export const metadata = {
 
 export async function getItems() {
   const response = await fetch("http://localhost:8000/items", { cache: "no-cache" });
-
   if (!response.ok) {
     throw new Error("Failed to fetch items");
   }
-
   return response.json();
 }
 
@@ -23,7 +19,6 @@ const Shop = async () => {
       <div className="my-10">
         <ProductDisplay items={items} />
       </div>
-      <Footer />
     </>
   );
 };

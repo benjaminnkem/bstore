@@ -40,7 +40,7 @@ const AddToCartButtonAction = ({
             onChange={(e) => changeItemQuantityManually(e)}
           />
           <div
-            className="px-2 py-1 duration-100 border border-green-600 rounded-full cursor-pointer md:text-base hover:bg-green-600 hover:text-green-50 dark:hover:text-slate-900 dark:hover:bg-white dark:border-slate-600"
+            className="px-2 py-1 duration-100 border border-orange-600 rounded-full cursor-pointer md:text-base hover:bg-orange-600 hover:text-orange-50 dark:hover:text-slate-900 dark:hover:bg-white dark:border-slate-600"
             onClick={incrementQuantity}
           >
             <i className="ri-add-line"></i>
@@ -49,7 +49,7 @@ const AddToCartButtonAction = ({
 
         <div className="flex items-center justify-center space-x-3">
           <button
-            className="px-2 py-1 text-base duration-100 border border-green-600 rounded-md md:text-base hover:bg-green-600 hover:text-green-50 dark:hover:text-slate-900 dark:hover:bg-white dark:border-slate-600"
+            className="px-2 py-1 text-base duration-100 border border-orange-600 rounded-md md:text-base hover:bg-orange-600 hover:text-orange-50 dark:hover:text-slate-900 dark:hover:bg-white dark:border-slate-600"
             onClick={(e) => {
               changeTextAfterAction(e);
               if (itemQuantity > 0)

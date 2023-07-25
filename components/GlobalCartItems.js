@@ -1,15 +1,23 @@
 "use client";
 import { createContext, useState } from "react";
 
-const GlobalCartItems = () => {
+export const CartItemContext = createContext();
+const CartItemsProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([{}]);
-  const CartItemContext = createContext(cartItems);
 
   const updateCartItems = (items) => {
     setCartItems((prev) => [...prev, items]);
   };
 
-  return <></>;
+  const removeCartItems = (items) => {};
+
+  const cartContext = {
+    cartItems,
+    updateCartItems,
+    removeCartItems,
+  };
+
+  return <CartItemContext.Provider value={cartContext}>{children}</CartItemContext.Provider>;
 };
 
-export default GlobalCartItems;
+export default CartItemsProvider;

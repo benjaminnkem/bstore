@@ -2,9 +2,12 @@
 import Link from "next/link";
 import "./styles/Navbar.css";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const { status } = useSession();
+
   return (
     <>
       <div className={`z-50 shadow-sm`}>
@@ -20,7 +23,7 @@ const Navbar = () => {
                 <Link href={"/"}>
                   <li
                     className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
-                      pathname === "/" ? "text-orange-400" : ""
+                      pathname === "/" && "text-orange-400"
                     }`}
                   >
                     Home
@@ -29,7 +32,7 @@ const Navbar = () => {
                 <Link href={"/shop"}>
                   <li
                     className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
-                      pathname === "/shop" ? "text-orange-400" : ""
+                      pathname === "/shop" && "text-orange-400"
                     }`}
                   >
                     Explore
@@ -38,7 +41,7 @@ const Navbar = () => {
                 <Link href={"/about"}>
                   <li
                     className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
-                      pathname === "/about" ? "text-orange-400" : ""
+                      pathname === "/about" && "text-orange-400"
                     }`}
                   >
                     About
@@ -47,7 +50,7 @@ const Navbar = () => {
                 <Link href={"/contact"}>
                   <li
                     className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
-                      pathname === "/contact" ? "text-orange-400 " : ""
+                      pathname === "/contact" && "text-orange-400"
                     }`}
                   >
                     Contact
@@ -66,11 +69,6 @@ const Navbar = () => {
                 </div>
               </ul>
             </nav>
-            {/* <div className="flex items-center space-x-3">
-              <i className="text-2xl duration-200 cursor-pointer hover:text-blue-600 ri-facebook-fill"></i>
-              <i className="text-2xl duration-200 cursor-pointer hover:text-red-500 ri-instagram-fill"></i>
-              <i className="text-2xl duration-200 cursor-pointer hover:text-cyan-600 ri-telegram-fill"></i>
-            </div> */}
           </div>
         </div>
       </div>

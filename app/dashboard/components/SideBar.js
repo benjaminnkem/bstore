@@ -6,6 +6,7 @@ const DashboardSidebar = () => {
     { name: "Dashboard", href: "/dashboard", icon: "ri-dashboard-2-fill" },
     { name: "Sales", href: "#", icon: "ri-money-dollar-circle-line" },
     { name: "Reviews", href: "#", icon: "ri-message-3-line" },
+    { name: "New Product", href: "#", icon: "ri-add-line" },
   ]);
 
   return (

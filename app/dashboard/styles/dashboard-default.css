@@ -46,14 +46,6 @@
   transition: all 0.5s;
 }
 
-.card:hover {
-  transform: scale(1.05);
-}
-
-.card:hover::after {
-  transform: scale(1.05);
-}
-
 .card-head {
   font-size: 1.1rem;
   font-weight: 600;
@@ -64,4 +56,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.stat1-con {
+  margin-top: 2rem;
+}
+
+.stat1 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.stat1 > div {
+  padding: var(--base-padding);
+  border: 1px var(--base-background-lightish-color) solid;
+  border-radius: 4px;
 }

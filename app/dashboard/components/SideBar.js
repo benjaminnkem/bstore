@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 const DashboardSidebar = () => {
-  const [links, setLinks] = useState([
+  const [links] = useState([
     { name: "Dashboard", href: "/dashboard", icon: "ri-dashboard-2-fill" },
     { name: "Sales", href: "#", icon: "ri-money-dollar-circle-line" },
     { name: "Reviews", href: "#", icon: "ri-message-3-line" },

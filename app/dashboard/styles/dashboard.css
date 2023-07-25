@@ -26,7 +26,7 @@ body {
 }
 
 .sidebar-links {
-  padding: 0.5rem;
+  padding: 0.5rem 0.8rem;
   transition: all 0.5s;
   border-radius: 0.5rem;
   display: flex;
@@ -35,7 +35,7 @@ body {
 }
 
 .link-container p {
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 
 .sidebar-links:hover {
@@ -43,7 +43,7 @@ body {
 }
 
 .dash-container {
-  margin-left: 300px;
+  margin-left: 240px;
 }
 
 .user-img-con {

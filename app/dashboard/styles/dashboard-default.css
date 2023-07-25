@@ -1,0 +1,67 @@
+.dashboard-default {
+  min-height: 10rem;
+  display: flex;
+  align-items: center;
+  padding-inline: var(--base-padding);
+  background: linear-gradient(var(--base-accent-1-darker-color), var(--base-accent-2-darker-color));
+  background: -o-linear-gradient(var(--base-accent-1-darker-color), var(--base-accent-2-darker-color));
+  background: -moz-linear-gradient(var(--base-accent-1-darker-color), var(--base-accent-2-darker-color));
+  background: -webkit-linear-gradient(var(--base-accent-1-darker-color), var(--base-accent-2-darker-color));
+}
+
+.welcome-text {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.cards-con {
+  margin-top: 1rem;
+  padding: var(--base-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.card {
+  padding: var(--base-padding);
+  background: var(--base-background-lightish-color);
+  border: purple;
+  min-width: 100px;
+  max-width: 300px;
+  border-radius: 0.5rem;
+  position: relative;
+  transition: all 0.5s;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: -0.5%;
+  left: -0.5%;
+  width: 101%;
+  height: 101%;
+  border-radius: 0.5rem;
+  background: linear-gradient(var(--base-accent-1-darker-color), var(--base-accent-2-darker-color));
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card:hover::after {
+  transform: scale(1.05);
+}
+
+.card-head {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.card-con {
+  margin-top: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

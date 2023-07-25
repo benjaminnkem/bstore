@@ -11,10 +11,12 @@ const DashboardLayout = ({ children }) => {
   return (
     <>
       <NextAuthProvider>
-        <DashboardSidebar />
-        <div className="dash-container">
-          <DashboardNavbar />
-          <div className="dash-main-content">{children}</div>
+        <div className="dash-clamper">
+          <DashboardSidebar />
+          <div className="dash-container">
+            <DashboardNavbar />
+            <div className="dash-main-content">{children}</div>
+          </div>
         </div>
       </NextAuthProvider>
     </>

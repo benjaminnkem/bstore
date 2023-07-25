@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -8,11 +8,12 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState({ loading: false });
 
-  const { data: session, status: sessionStatus } = useSession();
+  const { status: sessionStatus } = useSession();
   const router = useRouter();
 
   if (sessionStatus === "authenticated") {
-    router.replace("/dashboard");
+    router.push("/dashboard");
+    return;
   }
 
   if (sessionStatus === "unauthenticated") {
@@ -24,7 +25,7 @@ const LoginForm = () => {
       };
 
       setStatus({ ...status, loading: true });
-      const res = await signIn("credentials", loginData);
+      const res = await signIn("credentials", loginData, );
 
       if (!res.ok) {
         console.log("An error occurred");

@@ -1,3 +1,6 @@
+'use client'
+import { signOut } from "next-auth/react";
+
 const DashboardNavbar = () => {
   return (
     <>
@@ -17,12 +20,12 @@ const DashboardNavbar = () => {
             <li>
               <p>Plan</p> <i className="ri-rest-time-line"></i>
             </li>
-            <li>
+            <li onClick={() => signOut()}>
               <p>Logout</p> <i className="ri-logout-box-r-line"></i>
             </li>
-            <li>
+            <li className="focus-within:border-[#4a4c61] border border-transparent">
               <div className="nav-search-box">
-                <input type="text" placeholder="Search" autoComplete="off"/>
+                <input type="text" placeholder="Search" autoComplete="off" />
                 <i className="ri-search-2-line"></i>
               </div>
             </li>

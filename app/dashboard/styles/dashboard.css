@@ -1,0 +1,116 @@
+:root {
+  --base-background-color: #17181f;
+  --base-background-darkish-color: #1f2029;
+  --base-background-darkish-2-color: #383946;
+  --base-foreground-color: #eeeff0;
+  --base-accent-1-color: #6c72cb;
+  --base-accent-2-color: #cb69c1;
+}
+
+body {
+  background-color: var(--base-background-color);
+  color: var(--base-foreground-color);
+}
+
+.sidebar-container {
+  position: relative;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  background: var(--base-background-darkish-color);
+}
+
+.sidebar-links {
+  padding: 0.5rem;
+  transition: all 0.5s;
+  border-radius: 0.5rem;
+  display: flex;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.link-container p {
+  margin-left: 1rem;
+}
+
+.sidebar-links:hover {
+  background: var(--base-background-darkish-2-color);
+}
+
+.dash-container {
+  margin-left: 300px;
+}
+
+.user-img-con {
+  padding: 0.5rem;
+}
+
+.user-img {
+  width: 80px;
+  height: 80px;
+  transition: all 0.5s;
+  border-radius: 50%;
+  margin-inline: auto;
+  background: linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
+  background: -o-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
+  background: -moz-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
+  background: -webkit-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
+}
+
+.bottom-profile {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: var(--base-background-darkish-2-color);
+  padding: 1rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mini-user-details-container {
+  display: flex;
+  align-items: center;
+}
+
+.mini-user-details-container div:nth-child(2) {
+  margin-left: 0.5rem;
+}
+
+.mini-username {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.mini-status {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.mini-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
+  background: -o-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
+  background: -moz-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
+  background: -webkit-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
+}
+
+.setting-icon:hover {
+  cursor: pointer;
+}
+
+.bottom-container i {
+  font-size: 1.2rem;
+}

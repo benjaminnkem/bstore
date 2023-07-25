@@ -1,9 +1,9 @@
-import { SessionProvider } from "next-auth/react";
+import NextAuthProvider from "../components/NextAuthProvider";
 
-const DashboardLayout = ({ Component, pageProps: { session, ...pageProps } }) => {
+const DashboardLayout = ({ children }) => {
   return (
     <>
-      <SessionProvider session={session}>{pageProps}</SessionProvider>
+      <NextAuthProvider>{children}</NextAuthProvider>
     </>
   );
 };

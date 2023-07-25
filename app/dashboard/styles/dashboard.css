@@ -1,10 +1,13 @@
 :root {
   --base-background-color: #17181f;
+  --base-background-darker-color: #0c0d10;
   --base-background-darkish-color: #1f2029;
   --base-background-darkish-2-color: #383946;
   --base-foreground-color: #eeeff0;
   --base-accent-1-color: #6c72cb;
   --base-accent-2-color: #cb69c1;
+
+  --base-padding: 1rem;
 }
 
 body {
@@ -44,6 +47,8 @@ body {
 
 .dash-container {
   margin-left: 240px;
+  position: relative;
+  min-height: 100vh;
 }
 
 .user-img-con {
@@ -67,7 +72,7 @@ body {
   bottom: 0;
   width: 100%;
   background: var(--base-background-darkish-2-color);
-  padding: 1rem;
+  padding: var(--base-padding);
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
@@ -113,4 +118,70 @@ body {
 
 .bottom-container i {
   font-size: 1.2rem;
+}
+
+/* Main content */
+.dash-main-content {
+  padding: calc(var(--base-padding) * 4.5) var(--base-padding);
+}
+
+/* Dashboard Navbar */
+.dashboard-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--base-padding);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.202);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-content h1 {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.nav-content > ul {
+  display: flex;
+}
+
+.nav-content > ul > li {
+  margin: 0 0.2rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.nav-content > ul i {
+  margin-left: 0.2rem;
+}
+
+.nav-content > ul > li:hover {
+  background: var(--base-background-darkish-2-color);
+}
+
+/* 
+.dash-text {
+  font-size: 2rem;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background: -webkit-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
+  -webkit-text-fill-color: transparent;
+} */
+/* .nav-search-box {
+  background: var(--base-background-darker-color);
+  padding: calc(var(--base-padding) * 0.5);
+} */
+
+.nav-search-box > input {
+  background: transparent !important;
+  outline: none;
 }

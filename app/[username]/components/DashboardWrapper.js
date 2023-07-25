@@ -1,11 +1,10 @@
 "use client";
-
 import LoadingIcon from "@/partials/LoadingIcon";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 const DashboardWrapper = ({ children }) => {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
 
   if (status === "loading")
     return (
@@ -36,8 +35,7 @@ const DashboardWrapper = ({ children }) => {
       </div>
     );
 
-  if (!session) return null;
-  if (session) return <>{children}</>;
+  if (status === "authenticated") return <>{children}</>;
 };
 
 export default DashboardWrapper;

@@ -42,7 +42,7 @@ const handler = NextAuth({
           if (!isPassword) {
             throw new Error("Invalid credentials");
           }
-          return { id: user._id, username: user.username };
+          return { id: user._id, name: user.username };
         } catch (e) {
           return null;
         }

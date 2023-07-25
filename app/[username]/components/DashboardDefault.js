@@ -1,9 +1,11 @@
 import "../styles/dashboard-default.css";
+import DashTest from "./Test";
 
 const DashboardDefault = () => {
   return (
     <>
       <div className="dashboard-default">
+        <DashTest />
         <div>
           <h2 className="welcome-text">Welcome Back</h2>
           <p className="welcome-tip">

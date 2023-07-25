@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 
 const DashboardSidebar = () => {
@@ -6,7 +7,7 @@ const DashboardSidebar = () => {
     { name: "Dashboard", href: "/dashboard", icon: "ri-dashboard-2-fill" },
     { name: "Sales", href: "#", icon: "ri-money-dollar-circle-line" },
     { name: "Reviews", href: "#", icon: "ri-message-3-line" },
-    { name: "Create", href: "#", icon: "ri-add-line" },
+    { name: "Create", href: "/dashboard/create", icon: "ri-add-line" },
   ]);
 
   return (
@@ -19,10 +20,12 @@ const DashboardSidebar = () => {
 
           <div className="link-container">
             {links.map((link, i) => (
-              <div key={i} className="sidebar-links">
-                <i className={link.icon}></i>
-                <p>{link.name}</p>
-              </div>
+              <Link href={link.href} key={i} passHref>
+                <div className="sidebar-links">
+                  <i className={link.icon}></i>
+                  <p>{link.name}</p>
+                </div>
+              </Link>
             ))}
           </div>
 

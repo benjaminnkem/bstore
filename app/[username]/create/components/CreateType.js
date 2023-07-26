@@ -9,7 +9,7 @@ const CreateType = () => {
     <>
       <div>
         <h2 className="font-extrabold text-2xl py-2">Content Type</h2>
-        <div className="md:space-y-2 md:space-x-0 space-y-0 space-x-2 flex md:block items-center">
+        <div className="md:space-y-2 md:space-x-0 space-y-0 space-x-2 flex md:block items-center mt-2">
           <div
             className={`cat-el p-2 bg-[#1f2029]  duration-200 rounded-md w-full ${
               curSelection === "product" && "bg-[#383946]"

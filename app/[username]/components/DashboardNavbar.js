@@ -9,7 +9,7 @@ const DashboardNavbar = () => {
 
   return (
     <>
-      <div className="md:p-4 p-3 sticky top-0 w-full left-0">
+      <div className="md:p-4 p-3 sticky top-0 w-full left-0 dash-nav">
         <div className="nav-content">
           <h1>
             <span className="dash-text">Dashboard</span>
@@ -51,13 +51,7 @@ const DashboardNavbar = () => {
               <i className="ri-search-2-line"></i>
             </li>
             <li className="border border-transparent" role="menubar" aria-label="Open Menu List" title="Open Menu">
-              <i
-                className="ri-menu-4-line"
-                onClick={() => {
-                  toggleMenu();
-                  console.log("Menu toggled");
-                }}
-              ></i>
+              <i className="ri-menu-4-line" onClick={() => toggleMenu()}></i>
             </li>
           </ul>
         </div>

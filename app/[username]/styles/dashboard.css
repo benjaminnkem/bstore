@@ -28,7 +28,7 @@ body {
   position: relative;
   max-width: 1688px;
   margin-inline: auto;
-  border-radius: 1rem;
+  border-radius: .5rem;
   overflow: hidden;
 }
 
@@ -40,7 +40,6 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
   background: var(--base-background-lightish-color);
 }
 
@@ -51,6 +50,10 @@ body {
   display: flex;
   margin: 0.5rem 0;
   cursor: pointer;
+}
+
+.dash-nav {
+  background: var(--base-background-lightish-2-color);
 }
 
 .link-container p {
@@ -64,10 +67,6 @@ body {
 .dash-container {
   position: relative;
   min-height: 100vh;
-}
-
-.user-img-con {
-  padding: 0.5rem;
 }
 
 .user-img {
@@ -167,7 +166,7 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: .2rem;
+  gap: 0.2rem;
 }
 
 .nav-content > ul > li:hover {

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Create",
+  title: "Administrator - Create New Post",
 };
 
 const CreateNew = () => {

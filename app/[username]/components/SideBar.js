@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from "react";
 
 const DashboardSidebar = () => {
   const [username, setUsername] = useState("");
-  const { isMenuOpen } = useContext(DashMenuContext);
+  const { isMenuOpen, toggleMenu } = useContext(DashMenuContext);
   const { data: session, status } = useSession();
 
   useEffect(() => {
@@ -24,12 +24,19 @@ const DashboardSidebar = () => {
     <>
       <div className="sidebar-container">
         <div
-          className={`sidebar overflow-hidden duration-200 ${
-            isMenuOpen ? "w-full md:w-[240px] sm:w-[180px] h-full z-20" : "md:w-[240px] sm:w-[180px] w-0"
+          className={`sidebar overflow-hidden duration-200 h-screen ${
+            isMenuOpen ? "w-full md:w-[240px] sm:w-[180px] z-20 right-0" : "md:w-[240px] sm:w-[180px] w-0"
           }`}
         >
-          <div className="user-img-con">
-            <div className="user-img"></div>
+          <div className="user-img-con p-4">
+            <div className="flex justify-between items-center">
+              <div></div>
+              <div className="user-img"></div>
+              <i
+                className="ri-close-line text-2xl opacity-80 sm:hidden hover:cursor-pointer"
+                onClick={toggleMenu}
+              ></i>
+            </div>
           </div>
 
           <div className="link-container">

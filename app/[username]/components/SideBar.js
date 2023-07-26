@@ -1,14 +1,22 @@
 "use client";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 const DashboardSidebar = () => {
-  const [links] = useState([
-    { name: "Dashboard", href: "/dashboard", icon: "ri-dashboard-2-fill" },
+  const [username, setUsername] = useState("");
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    if (status === "authenticated") setUsername(session.user.name);
+  }, [session, status]);
+
+  const links = [
+    { name: "Dashboard", href: "/" + username, icon: "ri-dashboard-2-fill" },
     { name: "Sales", href: "#", icon: "ri-money-dollar-circle-line" },
     { name: "Reviews", href: "#", icon: "ri-message-3-line" },
-    { name: "Create", href: "/dashboard/create", icon: "ri-add-line" },
-  ]);
+    { name: "Create", href: `/${username}/create`, icon: "ri-add-line" },
+  ];
 
   return (
     <>

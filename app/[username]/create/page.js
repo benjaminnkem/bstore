@@ -1,18 +1,13 @@
-import DashboardLayout from "../layout";
-
 export const metadata = {
-  title: "Create New Product",
+  title: "Create",
 };
 
-// for authorized users
-const CreateProduct = () => {
+const CreateNew = () => {
   return (
     <>
-      <DashboardLayout>
-        <h1>Create new product</h1>
-      </DashboardLayout>
+      <h1>Create something</h1>
     </>
   );
 };
 
-export default CreateProduct;
+export default CreateNew;

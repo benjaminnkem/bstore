@@ -8,24 +8,26 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState({ loading: false });
 
-  const { status: sessionStatus } = useSession();
+  const { status: sessionStatus, data: session } = useSession();
   const router = useRouter();
 
   if (sessionStatus === "authenticated") {
-    router.push("/dashboard");
+    router.push("/" + session.user.name);
     return;
   }
 
   if (sessionStatus === "unauthenticated") {
     async function handleSubmit(e) {
       e.preventDefault();
+
+      if (!username || !password) return; 
       const loginData = {
         username,
         password,
       };
 
       setStatus({ ...status, loading: true });
-      const res = await signIn("credentials", loginData, );
+      const res = await signIn("credentials", loginData);
 
       if (!res.ok) {
         console.log("An error occurred");

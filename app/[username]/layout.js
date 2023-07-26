@@ -1,6 +1,7 @@
 import NextAuthProvider from "../components/NextAuthProvider";
+import DashboardMenuProvider from "../context/DashboardMenu";
 import DashboardNavbar from "./components/DashboardNavbar";
-import DashboardWrapper from "./components/DashboardWrapper";
+import DashboardAuthWrapper from "./components/DashboardWrapper";
 import DashboardSidebar from "./components/SideBar";
 import "./styles/dashboard.css";
 
@@ -9,13 +10,17 @@ const MainDashboardLayout = ({ children }) => {
     <>
       <NextAuthProvider>
         <div className="dash-clamper">
-          <DashboardWrapper>
-            <DashboardSidebar />
-            <div className="dash-container">
-              <DashboardNavbar />
-              <div className="dash-main-content">{children}</div>
-            </div>
-          </DashboardWrapper>
+          <DashboardAuthWrapper>
+            <DashboardMenuProvider>
+              <DashboardSidebar />
+
+              <div className="dash-container md:ml-[240px] sm:ml-[180px] duration-200">
+                <DashboardNavbar />
+
+                <div className="dash-main-content">{children}</div>
+              </div>
+            </DashboardMenuProvider>
+          </DashboardAuthWrapper>
         </div>
       </NextAuthProvider>
     </>

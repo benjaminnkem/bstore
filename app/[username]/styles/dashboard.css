@@ -40,7 +40,6 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 240px;
   height: 100vh;
   background: var(--base-background-lightish-color);
 }
@@ -63,7 +62,6 @@ body {
 }
 
 .dash-container {
-  margin-left: 240px;
   position: relative;
   min-height: 100vh;
 }
@@ -138,9 +136,9 @@ body {
 }
 
 /* Main content */
-.dash-main-content {
+/* .dash-main-content {
   padding: calc(var(--base-padding) * 4.5) 0;
-}
+} */
 
 /* Dashboard Navbar */
 .dashboard-navbar {
@@ -148,7 +146,6 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  padding: var(--base-padding);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.202);
 }
 
@@ -163,40 +160,19 @@ body {
   font-size: 1.1rem;
 }
 
-.nav-content > ul {
-  display: flex;
-}
-
 .nav-content > ul > li {
-  margin: 0 0.2rem;
   padding: 0.4rem 0.8rem;
   border-radius: 0.4rem;
   transition: all 0.5s;
   cursor: pointer;
   display: flex;
   align-items: center;
-}
-
-.nav-content > ul i {
-  margin-left: 0.2rem;
+  gap: .2rem;
 }
 
 .nav-content > ul > li:hover {
   background: var(--base-background-lightish-2-color);
 }
-
-/* 
-.dash-text {
-  font-size: 2rem;
-  background-clip: text;
-  -webkit-background-clip: text;
-  background: -webkit-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
-  -webkit-text-fill-color: transparent;
-} */
-/* .nav-search-box {
-  background: var(--base-background-darker-color);
-  padding: calc(var(--base-padding) * 0.5);
-} */
 
 .nav-search-box > input {
   background: transparent !important;

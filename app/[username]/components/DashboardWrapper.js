@@ -3,7 +3,7 @@ import LoadingIcon from "@/partials/LoadingIcon";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 
-const DashboardWrapper = ({ children }) => {
+const DashboardAuthWrapper = ({ children }) => {
   const { status } = useSession();
 
   if (status === "loading")
@@ -38,4 +38,4 @@ const DashboardWrapper = ({ children }) => {
   if (status === "authenticated") return <>{children}</>;
 };
 
-export default DashboardWrapper;
+export default DashboardAuthWrapper;

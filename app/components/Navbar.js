@@ -18,9 +18,10 @@ const Navbar = () => {
                 <Link href={"/"}>BStore</Link>
               </h1>
             </div>
+            
             <nav>
               <ul className="flex items-center py-4 space-x-2 select-none">
-                <Link href={"/"}>
+                <Link passHref href={"/"}>
                   <li
                     className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
                       pathname === "/" && "text-orange-400"
@@ -29,7 +30,7 @@ const Navbar = () => {
                     Home
                   </li>
                 </Link>
-                <Link href={"/shop"}>
+                <Link passHref href={"/shop"}>
                   <li
                     className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
                       pathname === "/shop" && "text-orange-400"
@@ -38,7 +39,7 @@ const Navbar = () => {
                     Explore
                   </li>
                 </Link>
-                <Link href={"/about"}>
+                <Link passHref href={"/about"}>
                   <li
                     className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
                       pathname === "/about" && "text-orange-400"
@@ -47,7 +48,7 @@ const Navbar = () => {
                     About
                   </li>
                 </Link>
-                <Link href={"/contact"}>
+                <Link passHref href={"/contact"}>
                   <li
                     className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
                       pathname === "/contact" && "text-orange-400"

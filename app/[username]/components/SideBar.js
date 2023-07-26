@@ -1,10 +1,12 @@
 "use client";
+import { DashMenuContext } from "@/app/context/DashboardMenu";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const DashboardSidebar = () => {
   const [username, setUsername] = useState("");
+  const { isMenuOpen } = useContext(DashMenuContext);
   const { data: session, status } = useSession();
 
   useEffect(() => {
@@ -21,7 +23,11 @@ const DashboardSidebar = () => {
   return (
     <>
       <div className="sidebar-container">
-        <div className="sidebar">
+        <div
+          className={`sidebar overflow-hidden duration-200 ${
+            isMenuOpen ? "w-full md:w-[240px] sm:w-[180px] h-full z-20" : "md:w-[240px] sm:w-[180px] w-0"
+          }`}
+        >
           <div className="user-img-con">
             <div className="user-img"></div>
           </div>

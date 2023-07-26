@@ -25,7 +25,7 @@ const DashboardSidebar = () => {
       <div className="sidebar-container">
         <div
           className={`sidebar overflow-hidden duration-200 h-screen ${
-            isMenuOpen ? "w-full md:w-[240px] sm:w-[180px] z-20 right-0" : "md:w-[240px] sm:w-[180px] w-0"
+            isMenuOpen ? "w-full md:w-[240px] sm:w-[180px] z-50 right-0" : "md:w-[240px] sm:w-[180px] w-0"
           }`}
         >
           <div className="user-img-con p-4">
@@ -41,7 +41,7 @@ const DashboardSidebar = () => {
 
           <div className="link-container">
             {links.map((link, i) => (
-              <Link href={link.href} key={i} passHref>
+              <Link href={link.href} key={i} passHref onClick={toggleMenu}>
                 <div className="sidebar-links">
                   <i className={link.icon}></i>
                   <p>{link.name}</p>

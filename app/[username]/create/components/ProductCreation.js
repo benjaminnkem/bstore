@@ -6,9 +6,7 @@ const ProductCreation = () => {
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ loading: false, success: false, err: false });
 
-  const validateForm = () => {
-
-  }
+  const validateForm = () => {};
 
   const handleProductCreation = (e) => {
     e.preventDefault();
@@ -22,7 +20,7 @@ const ProductCreation = () => {
         <div className="mt-2">
           <form onSubmit={(e) => handleProductCreation(e)}>
             <div className="grid gap-4">
-              <div className="space-y-1 ">
+              <div className="space-y-1">
                 <label htmlFor="itemName" className="font-semibold text-[#b4b8d8]">
                   Item Name
                 </label>
@@ -36,30 +34,57 @@ const ProductCreation = () => {
               </div>
               <div className="">
                 <div className="space-y-1">
-                  <label htmlFor="itemName" className="font-semibold text-[#b4b8d8]">
+                  <label htmlFor="otherName" className="font-semibold text-[#b4b8d8]">
                     Other Name (Optional)
                   </label>
                   <input
                     type="text"
-                    name="itemName"
-                    id="itemName"
+                    name="otherName"
+                    id="otherName"
                     placeholder="This will be used in keywords"
                     className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-[#2a2b35] focus:border-[#444554] placeholder:text-[#5e6174]"
                   />
                 </div>
-                <p className="text-xs font-semibold text-[#5e6174]">Hint: Separate with a comma</p>
+                <p className="text-xs font-bold text-[#5e6174]">Hint: Separate with a comma</p>
               </div>
-              <div className="space-y-1 ">
-                <label htmlFor="itemName" className="font-semibold text-[#b4b8d8]">
+              <div className="space-y-1">
+                <label htmlFor="price" className="font-semibold text-[#b4b8d8]">
                   Price In USD ($)
                 </label>
                 <input
                   type="text"
-                  name="itemName"
-                  id="itemName"
+                  name="price"
+                  id="price"
                   className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-[#2a2b35] focus:border-[#444554] placeholder:text-[#5e6174]"
                   placeholder="Item Price e.g 1.99, 200, 129.99"
                 />
+              </div>
+
+              <div className="space-y-1">
+                <label htmlFor="category" className="font-semibold text-[#b4b8d8]">
+                  Category
+                </label>
+                <input
+                  type="text"
+                  name="category"
+                  id="category"
+                  className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-[#2a2b35] focus:border-[#444554] placeholder:text-[#5e6174]"
+                  placeholder="Tech, Phone, Automobile"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label htmlFor="category" className="font-semibold text-[#b4b8d8]">
+                  Description
+                </label>
+                <textarea
+                  name="description"
+                  id="description"
+                  cols="30"
+                  rows="5"
+                  placeholder="Describe the item you're selling..."
+                  className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-[#2a2b35] focus:border-[#444554] placeholder:text-[#5e6174]"
+                ></textarea>
               </div>
 
               <div className="">
@@ -67,7 +92,7 @@ const ProductCreation = () => {
                   type="submit"
                   className="w-full py-2 rounded-md border border-[#2a2b35] duration-200 hover:bg-[#2a2b35] hover:text-inherit"
                 >
-                  Create Product <i className="ri-creative-commons-line"></i>
+                  Post Product <i className="ri-rocket-line"></i>
                 </button>
               </div>
             </div>

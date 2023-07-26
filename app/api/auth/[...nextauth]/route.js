@@ -1,4 +1,3 @@
-import dbConnection from "@/data/mysql_db";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
@@ -12,26 +11,8 @@ const handler = NextAuth({
       credentials: {},
       async authorize(credentials, _req) {
         const { username, password } = credentials;
-        // const connection = await dbConnection.getConnection();
 
         try {
-          // const [[existsUsername]] = await connection.query(
-          //   `SELECT username FROM admin_users WHERE username = ${username}`
-          // );
-
-          // console.log("got here 2", existsUsername);
-
-          // if (!existsUsername) {
-          //   throw new Error("User not found");
-          // }
-
-          // console.log("got here 3");
-
-          // const isPassword = await compare(password, existsUsername.password);
-          // if (!isPassword) {
-          //   throw new Error("Invalid credentials");
-          // }
-
           await connectToDB();
           const user = await AdminUser.findOne({ username: username }, { username: 1, password: 1 });
           if (!user) {
@@ -42,7 +23,8 @@ const handler = NextAuth({
           if (!isPassword) {
             throw new Error("Invalid credentials");
           }
-          return { id: user._id, name: user.username };
+
+          return { id: user.id, something: { id: user.id, name: user.username }, name: user.username };
         } catch (e) {
           return null;
         }
@@ -51,6 +33,13 @@ const handler = NextAuth({
   ],
   session: {
     strategy: "jwt",
+  },
+  callbacks: {
+    async session({ session, token, user }) {
+      session.user.id = token.sub;
+
+      return session;
+    },
   },
   pages: {
     signIn: "/admin/login",

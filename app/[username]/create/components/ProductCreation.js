@@ -1,12 +1,12 @@
 "use client";
-
-import { parse } from "postcss";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CustomSessionDataContext } from "../../components/DashboardWrapper";
 
 const ProductCreation = () => {
   const [formInput, setFormInput] = useState({ itemName: "", otherName: "", price: "", category: "", description: "" });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ loading: false, success: false, err: false });
+  const sessionContent = useContext(CustomSessionDataContext);
 
   const validateForm = () => {
     const errors = {};
@@ -36,7 +36,27 @@ const ProductCreation = () => {
       return;
     } else {
       // Form is valid
-      await new Promise((resolve) => setTimeout(() => resolve(), 2000));
+      const { itemName, otherName, price, category, description } = formInput;
+      const response = await fetch("/api/create/product", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          itemName,
+          otherName,
+          price,
+          category,
+          description,
+          seller_id: sessionContent.user.id && sessionContent.user.id,
+        }),
+      });
+
+      if (!response.ok) {
+        setStatus({ ...status, loading: true });
+        console.log("There was an error", response.error, response.message);
+        return;
+      }
+
+      console.log("Gotten successfully");
       setStatus({ ...status, loading: false, success: true });
     }
   };

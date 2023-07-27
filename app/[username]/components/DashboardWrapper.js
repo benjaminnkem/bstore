@@ -2,9 +2,17 @@
 import LoadingIcon from "@/partials/LoadingIcon";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { createContext, useEffect, useState } from "react";
+
+export const CustomSessionDataContext = createContext();
 
 const DashboardAuthWrapper = ({ children }) => {
-  const { status } = useSession();
+  const { status, data: session } = useSession();
+  const [sessionContent, setSessionContent] = useState({});
+
+  useEffect(() => {
+    if (status === "authenticated" && session) setSessionContent(session);
+  }, [session, status]);
 
   if (status === "loading")
     return (
@@ -18,7 +26,7 @@ const DashboardAuthWrapper = ({ children }) => {
     return (
       <div className="fixed z-50 top-0 left-0 w-full h-full grid place-content-center">
         <div className="text-center p-4 rounded-md bg-[#1f2029] text-slate-100 shadow-md max-w-md mx-auto">
-          <h1 className="text-lg">You are not authorized to view this page</h1>
+          <h1 className="text-lg">You are not logged in</h1>
           <div className="space-x-2">
             <Link href={"/"} passHref>
               <button className="mt-2 bg-[#191a23] px-2 py-1 rounded-lg duration-200 border border-transparent hover:border-[#4a4c61] hover:bg-[#22242f]">
@@ -35,7 +43,13 @@ const DashboardAuthWrapper = ({ children }) => {
       </div>
     );
 
-  if (status === "authenticated") return <>{children}</>;
+  if (status === "authenticated") {
+    return (
+      <>
+        <CustomSessionDataContext.Provider value={sessionContent}>{children}</CustomSessionDataContext.Provider>
+      </>
+    );
+  }
 };
 
 export default DashboardAuthWrapper;

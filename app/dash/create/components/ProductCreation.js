@@ -53,8 +53,6 @@ const ProductCreation = () => {
     const validator = validateForm();
     setErrors(validator);
 
-    console.log(validator, errors);
-
     if (Object.keys(errors).length > 0) {
       setStatus({ ...status, loading: false });
       return;

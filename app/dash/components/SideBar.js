@@ -14,10 +14,10 @@ const DashboardSidebar = () => {
   }, [session, status]);
 
   const links = [
-    { name: "Dashboard", href: "/" + username, icon: "ri-dashboard-2-fill" },
+    { name: "Dashboard", href: "/dash", icon: "ri-dashboard-2-fill" },
     { name: "Sales", href: "#", icon: "ri-money-dollar-circle-line" },
     { name: "Reviews", href: "#", icon: "ri-message-3-line" },
-    { name: "Create", href: `/${username}/create`, icon: "ri-add-line" },
+    { name: "Create", href: `/dash/create`, icon: "ri-add-line" },
   ];
 
   return (

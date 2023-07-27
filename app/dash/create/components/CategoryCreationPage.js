@@ -45,6 +45,8 @@ const CategoryCreation = () => {
     const validator = validateForm();
     setErrors(validator);
 
+    console.log(validator, errors);
+
     if (Object.keys(errors).length > 0) {
       setStatus({ ...status, loading: false });
       return;
@@ -64,7 +66,6 @@ const CategoryCreation = () => {
         return;
       }
 
-      console.log("Gotten successfully", await response.json());
       setStatus({ ...status, loading: false, success: true, err: false });
     }
   };

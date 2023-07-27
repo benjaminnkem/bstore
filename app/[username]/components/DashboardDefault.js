@@ -1,7 +1,22 @@
+"use client";
+import { usePathname } from "next/navigation";
 import "../styles/dashboard-default.css";
-import DashTest from "./Test";
+import { useContext, useEffect } from "react";
+import { CustomSessionDataContext } from "./DashboardWrapper";
+import { useRouter } from "next/navigation";
 
 const DashboardDefault = () => {
+  const pathname = usePathname();
+  const sessionContent = useContext(CustomSessionDataContext);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!sessionContent) return null;
+    console.log("From verification");
+    const verifiedUsername = sessionContent.user?.name;
+    if (pathname === verifiedUsername.substring(1, verifiedUsername.length)) router.push(`/${verifiedUsername}`);
+  }, [pathname, sessionContent, router]);
+
   return (
     <>
       <div className="dashboard-default">

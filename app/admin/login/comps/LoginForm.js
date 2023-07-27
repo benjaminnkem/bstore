@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import LoadingIcon from "@/partials/LoadingIcon";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -10,6 +11,17 @@ const LoginForm = () => {
 
   const { status: sessionStatus, data: session } = useSession();
   const router = useRouter();
+
+  if (sessionStatus === "loading") {
+    return (
+      <>
+        <div className="fixed z-50 top-0 left-0 w-full h-full grid place-content-center">
+          <LoadingIcon />
+          <p className="text-center">Checking Login Status... Please hold</p>
+        </div>
+      </>
+    );
+  }
 
   if (sessionStatus === "authenticated") {
     router.push("/" + session.user.name);
@@ -20,7 +32,7 @@ const LoginForm = () => {
     async function handleSubmit(e) {
       e.preventDefault();
 
-      if (!username || !password) return; 
+      if (!username || !password) return;
       const loginData = {
         username,
         password,

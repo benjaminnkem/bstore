@@ -1,6 +1,6 @@
 "use client";
 import { useContext } from "react";
-import CreateContextProvider, { DashCreateContext } from "../context/CreateContextProvider";
+import CreationContextProvider, { DashCreateContext } from "../context/CreateContextProvider";
 
 const CreateType = () => {
   const { curSelection, setCurSelection } = useContext(DashCreateContext);

@@ -3,16 +3,20 @@ import { DashMenuContext } from "@/app/context/DashboardMenu";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { useContext, useEffect } from "react";
+import { CustomSessionDataContext } from "./DashboardWrapper";
 
 const DashboardNavbar = () => {
   const { toggleMenu, isMenuOpen } = useContext(DashMenuContext);
-
+  const sessionContent = useContext(CustomSessionDataContext);
+  
   return (
     <>
       <div className="md:p-4 p-3 sticky top-0 w-full left-0 dash-nav">
         <div className="nav-content">
           <h1>
-            <span className="dash-text">Dashboard</span>
+            <Link href={`/dashboard`} passHref>
+              <span className="dash-text">Dashboard</span>
+            </Link>
           </h1>
 
           <ul className="sm:flex hidden space-x-1">

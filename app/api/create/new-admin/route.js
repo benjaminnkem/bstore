@@ -20,7 +20,7 @@ export async function POST(req) {
       await connection.query(queryString);
 
       // Storing in MongoDB
-      await AdminUser.create({ ...loginData, password: hashedPassword, date_joined: new Date() });
+      await AdminUser.create({ ...loginData, password: hashedPassword });
 
       return NextResponse.json({ message: "User created successfully" });
     } else {

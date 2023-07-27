@@ -1,7 +1,7 @@
 import mongoose, { Schema, model, models } from "mongoose";
 
 const productsSchema = new Schema({
-  name: { type: String, required: true },
+  itemName: { type: String, required: true },
   price: { type: Number, required: true },
   category: { type: String, required: true },
   is_available: Boolean,

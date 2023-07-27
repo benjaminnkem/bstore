@@ -1,4 +1,6 @@
+import connectToDB from "@/utils/db";
 import ProductsCreateSchema from "@/utils/schemas/ProductsCreateSchema";
+import { ObjectId } from "mongodb";
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
@@ -9,11 +11,18 @@ export async function POST(req, _res) {
   }
 
   try {
+    await connectToDB();
     const productData = await req.json();
-    // await ProductsCreateSchema.create({...productData, images: [''], seller_id: session && session.user.id})
+    await ProductsCreateSchema.create({
+      ...productData,
+      is_available: true,
+      images: [""],
+      seller_id: new ObjectId(productData.seller_id),
+    });
 
     return NextResponse.json({ msg: "Product Created" });
   } catch (err) {
+    console.log("Upload err", err);
     throw new Error("An error occurred while posting the product");
   }
 }

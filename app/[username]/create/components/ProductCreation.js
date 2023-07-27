@@ -1,12 +1,38 @@
 "use client";
 import { useContext, useEffect, useState } from "react";
 import { CustomSessionDataContext } from "../../components/DashboardWrapper";
+import CustAlert from "@/components/Alert";
 
 const ProductCreation = () => {
   const [formInput, setFormInput] = useState({ itemName: "", otherName: "", price: "", category: "", description: "" });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ loading: false, success: false, err: false });
   const sessionContent = useContext(CustomSessionDataContext);
+
+  const [alertShow, setAlertShow] = useState(false);
+  const [alertText, setAlertText] = useState("");
+
+  useEffect(() => {
+    if (status.success) {
+      setAlertShow(true);
+      setAlertText("Posted Successfully ✅☑");
+      setTimeout(() => setAlertShow(false), 4000);
+    }
+
+    if (status.err) {
+      setAlertShow(true);
+      setAlertText("Sorry, An error occurred ❌😢");
+      setTimeout(() => setAlertShow(false), 4000);
+    }
+  }, [status.success, status.err]);
+
+  // useEffect(() => {
+  //   if (status.err) {
+  //     setAlertShow(true);
+  //     setAlertText('Sorry, An error occurred ❌😢')
+  //     setTimeout(() => setAlertShow(false), 4000);
+  //   }
+  // }, [status.err]);
 
   const validateForm = () => {
     const errors = {};
@@ -26,7 +52,7 @@ const ProductCreation = () => {
   const handleUpdateFormInput = (event) => setFormInput({ ...formInput, [event.target.name]: event.target.value });
   const handleProductCreation = async (e) => {
     e.preventDefault();
-    setStatus({ ...status, loading: true });
+    setStatus({ ...status, loading: true, success: false, err: false });
 
     const validator = validateForm();
     setErrors(validator);
@@ -51,19 +77,19 @@ const ProductCreation = () => {
       });
 
       if (!response.ok) {
-        setStatus({ ...status, loading: true });
-        console.log("There was an error", response.error, response.message);
+        setStatus({ ...status, loading: false, err: true });
+        console.log("There was an error");
         return;
       }
 
       console.log("Gotten successfully");
-      setStatus({ ...status, loading: false, success: true });
+      setStatus({ ...status, loading: false, success: true, err: false });
     }
   };
 
   return (
     <>
-      <div>
+      <div className="relative">
         <h2 className="font-extrabold text-2xl py-2">Product Details</h2>
 
         <div className="mt-2">
@@ -185,6 +211,8 @@ const ProductCreation = () => {
             </div>
           </form>
         </div>
+
+        {alertShow && <CustAlert message={alertText} status={alertText.startsWith("Sorry") ? "red" : "green"} />}
       </div>
     </>
   );

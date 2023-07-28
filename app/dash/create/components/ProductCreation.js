@@ -53,11 +53,7 @@ const ProductCreation = () => {
     const validator = validateForm();
     setErrors(validator);
 
-    if (Object.keys(errors).length > 0) {
-      setStatus({ ...status, loading: false });
-      return;
-    } else {
-      // Form is valid
+    if (Object.keys(validator).length === 0) {
       const { itemName, otherName, price, category, description } = formInput;
       const response = await fetch("/api/create/product", {
         method: "POST",
@@ -78,6 +74,9 @@ const ProductCreation = () => {
       }
 
       setStatus({ ...status, loading: false, success: true, err: false });
+    } else {
+      setStatus({ ...status, loading: false });
+      return;
     }
   };
 

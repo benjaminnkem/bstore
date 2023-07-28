@@ -8,12 +8,11 @@ export async function POST(req, res) {
     await connectToDB();
 
     const { name } = body;
-    const categoryExists = await CategorySchema.find({ name });
-    console.log(categoryExists);
+    const categoryExists = await CategorySchema.findOne({ name });
     if (categoryExists) {
       return new NextResponse(
         { message: "Category already exists" },
-        { status: 403, statusText: "Category already exists..." }
+        { status: 403, statusText: "Category already exists" }
       );
     }
 

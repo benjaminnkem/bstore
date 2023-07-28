@@ -15,6 +15,8 @@ const CategoryCreation = () => {
   const [alertShow, setAlertShow] = useState(false);
   const [alertText, setAlertText] = useState("");
 
+  const [serverErrMessage, setServerErrMessage] = useState("");
+
   useEffect(() => {
     if (status.success) {
       setAlertShow(true);
@@ -45,12 +47,7 @@ const CategoryCreation = () => {
     const validator = validateForm();
     setErrors(validator);
 
-    console.log(validator, errors);
-
-    if (Object.keys(errors).length > 0) {
-      setStatus({ ...status, loading: false });
-      return;
-    } else {
+    if (Object.keys(validator).length === 0) {
       const { name } = formInput;
       const response = await fetch("/api/create/category", {
         method: "POST",
@@ -63,10 +60,14 @@ const CategoryCreation = () => {
 
       if (!response.ok) {
         setStatus({ ...status, loading: false, err: true });
+        setServerErrMessage(response.statusText);
         return;
       }
 
+      setServerErrMessage("");
       setStatus({ ...status, loading: false, success: true, err: false });
+    } else {
+      setStatus({ ...status, loading: false });
     }
   };
 
@@ -94,6 +95,9 @@ const CategoryCreation = () => {
                       onChange={(e) => handleUpdateFormInput(e)}
                     />
                   </div>
+                  {serverErrMessage && (
+                    <p className="text-red-500 text-opacity-75 text-xs font-bold">{serverErrMessage}</p>
+                  )}
                   {errors.name && <p className="text-red-500 text-opacity-75 text-xs font-bold">{errors.name}</p>}
                 </div>
 

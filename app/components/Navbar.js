@@ -18,12 +18,12 @@ const Navbar = () => {
                 <Link href={"/"}>BStore</Link>
               </h1>
             </div>
-            
+
             <nav>
-              <ul className="flex items-center py-4 space-x-2 select-none">
+              <ul className="sm:flex hidden items-center py-4 space-x-1 select-none">
                 <Link passHref href={"/"}>
                   <li
-                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
+                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
                       pathname === "/" && "text-orange-400"
                     }`}
                   >
@@ -32,7 +32,7 @@ const Navbar = () => {
                 </Link>
                 <Link passHref href={"/shop"}>
                   <li
-                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
+                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
                       pathname === "/shop" && "text-orange-400"
                     }`}
                   >
@@ -41,7 +41,7 @@ const Navbar = () => {
                 </Link>
                 <Link passHref href={"/about"}>
                   <li
-                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
+                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
                       pathname === "/about" && "text-orange-400"
                     }`}
                   >
@@ -50,7 +50,7 @@ const Navbar = () => {
                 </Link>
                 <Link passHref href={"/contact"}>
                   <li
-                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-700 ${
+                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
                       pathname === "/contact" && "text-orange-400"
                     }`}
                   >
@@ -59,15 +59,46 @@ const Navbar = () => {
                 </Link>
 
                 <div>
-                  <div className="dark:bg-[#212121] bg-gray-300 rounded-md px-2 py-1">
+                  <div
+                    className={`dark:bg-[#212121] bg-gray-300 rounded-md border-2 border-white border-opacity-25 px-2 py-1 ${
+                      pathname === "/" && "bg-opacity-20"
+                    }`}
+                  >
                     <input
                       type="text"
-                      className="dark:text-gray-300 text-gray-700 bg-transparent focus:outline-none"
+                      className={`dark:text-gray-300 text-gray-700 duration-200 bg-transparent outline-none ${
+                        pathname === "/" && "bg-opacity-20 text-gray-100"
+                      }`}
                       placeholder="Search"
                     />
                     <i className="ri-search-2-line"></i>
                   </div>
                 </div>
+              </ul>
+
+              <ul className="flex sm:hidden items-center py-4 space-x-1 select-none">
+                <Link passHref href={"/"}>
+                  <li
+                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
+                      pathname === "/" && "text-orange-400"
+                    }`}
+                  >
+                    <i className="ri-home-4-line"></i>
+                  </li>
+                </Link>
+                <Link passHref href={"/shop"}>
+                  <li
+                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
+                      pathname === "/shop" && "text-orange-400"
+                    }`}
+                  >
+                    Explore
+                  </li>
+                </Link>
+
+                <li className="">
+                  <i className="ri-menu-3-line text-2xl cursor-pointer"></i>
+                </li>
               </ul>
             </nav>
           </div>

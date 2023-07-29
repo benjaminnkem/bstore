@@ -12,8 +12,10 @@ const Home = () => {
             <div className="flex h-[30rem] items-center text-white">
               <div className="mt-[75px]">
                 <div>
-                  <h1 className="lg:text-6xl md:text-5xl text-4xl font-extrabold">Happy Shopping (😊)</h1>
-                  <p className="max-w-3xl mx-auto mt-4 leading-relaxed lg:text-lg text-base">
+                  <h1 className="lg:text-6xl md:text-5xl text-4xl font-extrabold duration-200">
+                    Happy Shopping (<span className="hover:animate-spin hover:scale-150 cursor-pointer">😊</span>)
+                  </h1>
+                  <p className="max-w-3xl mx-auto mt-4 leading-relaxed lg:text-lg text-base duration-200">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam ratione deleniti vitae animi
                     nemo libero! Iste voluptates amet praesentium ipsa? Et error iure ratione eaque numquam quas aliquam
                     voluptatum?
@@ -34,40 +36,53 @@ const Home = () => {
           </div>
         </header>
 
-        <section className="mt-20">
-          <div className="flex justify-evenly flex-wrap gap-4 md:max-w-[1488px] w-11/12 mx-auto">
-            <div className="shadow-md self-start text-center rounded-md mx-auto min-w-[5rem] max-w-sm p-5 bg-white dark:bg-[#363636]">
-              <div className="text-center">
-                <i className="ri-time-line text-5xl text-orange-400"></i>
-              </div>
-              <h3 className="font-bold text-xl my-1">100% Uptime</h3>
-
-              <p className="mt-2 text-center text-lg text-gray-700 dark:text-gray-100 font-light">
-                Lorem ipsum dolor sit amet consectetu quia, earum ullam sint odit culpa distinctio in autem impedit quo!
-              </p>
-            </div>
-            <div className="shadow-md self-start text-center rounded-md mx-auto min-w-[5rem] max-w-sm p-5 bg-white dark:bg-[#363636]">
-              <div className="text-center">
-                <i className="ri-rocket-2-line text-5xl text-orange-400"></i>
-              </div>
-              <h3 className="font-bold text-xl my-1">100% Uptime</h3>
-
-              <p className="mt-2 text-center text-lg text-gray-700 dark:text-gray-100 font-light">
-                Lorem ipsum dolor sit amet consectetu quia, earum ullam sint odit culpa distinctio in autem impedit quo!
-              </p>
-            </div>
-            <div className="shadow-md self-start text-center rounded-md mx-auto min-w-[5rem] max-w-sm p-5 bg-white dark:bg-[#363636]">
-              <div className="text-center">
-                <i className="ri-knife-blood-line text-5xl text-orange-400"></i>
-              </div>
-              <h3 className="font-bold text-xl my-1">100% Uptime</h3>
-
-              <p className="mt-2 text-center text-lg text-gray-700 dark:text-gray-100 font-light">
-                Lorem ipsum dolor sit amet consectetu quia, earum ullam sint odit culpa distinctio in autem impedit quo!
-              </p>
-            </div>
+        <div className="md:max-w-[1488px] w-11/12 mx-auto">
+          <div className="flex justify-center">
+            <input
+              type="text"
+              className="w-full dark:bg-[#363636] md:p-4 p-2 text-base md:text-lg text-gray-700 dark:text-gray-100 rounded-md outline-none max-w-lg md:max-w-xl border-4 dark:border-transparent border-[#e4e4e4] shadow-md duration-200 dark:focus:border-[#5b5b5b] focus:border-[#d3d3d3]"
+              placeholder="Search for anything..."
+            />
           </div>
-        </section>
+
+          <section className="mt-20">
+            <div className="flex justify-evenly flex-wrap gap-4">
+              <div className="shadow-md self-start text-center rounded-md mx-auto min-w-[5rem] max-w-sm p-5 bg-white dark:bg-[#363636]">
+                <div className="text-center">
+                  <i className="ri-time-line text-5xl text-orange-400"></i>
+                </div>
+                <h3 className="font-bold text-xl my-1">100% Uptime</h3>
+
+                <p className="mt-2 text-center text-lg text-gray-700 dark:text-gray-100 font-light">
+                  Lorem ipsum dolor sit amet consectetu quia, earum ullam sint odit culpa distinctio in autem impedit
+                  quo!
+                </p>
+              </div>
+              <div className="shadow-md self-start text-center rounded-md mx-auto min-w-[5rem] max-w-sm p-5 bg-white dark:bg-[#363636]">
+                <div className="text-center">
+                  <i className="ri-rocket-2-line text-5xl text-orange-400"></i>
+                </div>
+                <h3 className="font-bold text-xl my-1">100% Uptime</h3>
+
+                <p className="mt-2 text-center text-lg text-gray-700 dark:text-gray-100 font-light">
+                  Lorem ipsum dolor sit amet consectetu quia, earum ullam sint odit culpa distinctio in autem impedit
+                  quo!
+                </p>
+              </div>
+              <div className="shadow-md self-start text-center rounded-md mx-auto min-w-[5rem] max-w-sm p-5 bg-white dark:bg-[#363636]">
+                <div className="text-center">
+                  <i className="ri-knife-blood-line text-5xl text-orange-400"></i>
+                </div>
+                <h3 className="font-bold text-xl my-1">100% Uptime</h3>
+
+                <p className="mt-2 text-center text-lg text-gray-700 dark:text-gray-100 font-light">
+                  Lorem ipsum dolor sit amet consectetu quia, earum ullam sint odit culpa distinctio in autem impedit
+                  quo!
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
 
         <section className="mt-24">
           <div className=" md:max-w-[1488px] w-11/12 mx-auto">

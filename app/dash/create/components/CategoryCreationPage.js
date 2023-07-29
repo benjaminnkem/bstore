@@ -65,6 +65,7 @@ const CategoryCreation = () => {
       }
 
       setServerErrMessage("");
+      setFormInput({ ...formInput, name: "" });
       setStatus({ ...status, loading: false, success: true, err: false });
     } else {
       setStatus({ ...status, loading: false });

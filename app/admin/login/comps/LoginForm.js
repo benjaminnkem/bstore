@@ -24,7 +24,7 @@ const LoginForm = () => {
   }
 
   if (sessionStatus === "authenticated") {
-    router.push("/" + session.user.name);
+    router.push("/dash");
     return;
   }
 

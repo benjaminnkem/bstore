@@ -7,3 +7,39 @@
 #def-con {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.658);
 }
+
+.first-showcase {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 250px);
+}
+
+.first-showcase div:first-child {
+  grid-row: 1 / 3;
+  grid-column: 1 / 3;
+}
+
+.first-showcase div:last-child {
+  grid-column: 3 / 5;
+}
+
+.tp-text::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  left: -7px;
+  bottom: -15px;
+  height: 30px;
+  background-color: #fb923c;
+}
+
+.tp-text::after {
+  content: "";
+  position: absolute;
+  height: 8px;
+  left: -7px;
+  bottom: -15px;
+  width: 50%;
+  background-color: #fb923c;
+}

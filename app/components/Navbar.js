@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`z-50 shadow-sm`}>
+      <div className={`z-50 shadow-sm ${pathname === "/" && "text-white"}`}>
         <div className="md:max-w-[1488px] w-11/12 mx-auto">
           <div className="flex items-center justify-between">
             <div>

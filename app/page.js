@@ -1,6 +1,7 @@
 import Image from "next/image";
 import DefaultWrapper from "./DefaultWrapper";
 import "./components/styles/Default.css";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -71,17 +72,19 @@ const Home = () => {
         <section className="mt-24">
           <div className=" md:max-w-[1488px] w-11/12 mx-auto">
             <h2 className="text-4xl font-extrabold my-8 tp-text relative inline-block">Top Products</h2>
-            
+
             <div className="first-showcase">
-              {["11.png", "22.png", "33.png", "44.png"].map((img, idx) => (
-                <div key={idx} className="max-h-[36rem] overflow-hidden">
-                  <Image
-                    src={`/images/default/${img}`}
-                    alt="idx"
-                    width={500}
-                    height={500}
-                    className="rounded-md object-cover w-full h-full"
-                  />
+              {["", "", "", "", "", "", "", ""].map((img, idx) => (
+                <div key={idx} className="max-h-[36rem] overflow-hidden rounded-md relative duration-200">
+                  <Link href={"#"} passHref>
+                    <Image
+                      src={`/images/products/prod${idx + 1}.jpg`}
+                      alt="idx"
+                      width={800}
+                      height={800}
+                      className="rounded-md object-cover aspect-square h-full"
+                    />
+                  </Link>
                 </div>
               ))}
             </div>

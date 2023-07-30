@@ -6,7 +6,7 @@ export const metadata = {
 };
 
 export async function getItems() {
-  const response = await fetch("http://localhost:8000/items", { cache: "no-cache" });
+  const response = await fetch(`${process.env.BASE_URL}/api/test-shop`);
   if (!response.ok) {
     throw new Error("Failed to fetch items");
   }

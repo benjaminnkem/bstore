@@ -60,7 +60,7 @@ const Navbar = () => {
 
                 <div>
                   <div
-                    className={`dark:bg-[#212121] bg-gray-300 rounded-md border-2 border-white border-opacity-25 px-2 py-1 ${
+                    className={`dark:bg-[#212121] bg-gray-300 rounded-md border-2 border-transparent duration-200 focus-within:border-white border-opacity-25 px-2 py-1 ${
                       pathname === "/" && "bg-opacity-20"
                     }`}
                   >

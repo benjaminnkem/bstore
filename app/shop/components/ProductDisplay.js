@@ -3,11 +3,26 @@ import { useEffect, useState } from "react";
 import ProductTemplate from "./ProductTemplate";
 import Image from "next/image";
 
-const ProductDisplay = ({ items }) => {
+const ProductDisplay = ({items}) => {
   const [addedItems, setAddedItems] = useState([]);
   const [quantityMeasure, setQuantityMeasure] = useState([]);
   const [sideCartItemDisplay, setSideCartItemDisplay] = useState(false);
   const [totalItemsCost, setAddedItemsCost] = useState(0);
+
+  // const [items, setItems] = useState([]);
+
+  // async function getItems() {
+  //   try {
+  //     const response = await fetch(`/api/test-shop`);
+  //     if (!response.ok) {
+  //       console.log("problem");
+  //     }
+
+  //     const data = await response.json();
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // }
 
   function toggleSideCartView() {
     if (!sideCartItemDisplay) {

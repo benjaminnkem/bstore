@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <DefaultWrapper>
-        <header id="def-p" className="-mt-20 min-h-[30rem] relative -z-10 flex items-center justify-between overflow-hidden">
+        <header className="-mt-20 min-h-[30rem] max-h-[34rem] overflow-hidden relative -z-10 flex items-center justify-between">
           <Image
             src={`/images/bg/bg.jpg`}
             alt="Heading illus"
@@ -20,7 +20,7 @@ const Home = () => {
             <div className="flex items-center text-white">
               <div className="mt-[75px]">
                 <div>
-                  <h1 className="lg:text-6xl md:text-5xl text-4xl font-extrabold duration-200">
+                  <h1 className="lg:text-6xl md:text-5xl lg:text-4xl text-3xl font-extrabold duration-200">
                     Happy Shopping (<span className="hover:scale-150 cursor-pointer">😊</span>)
                   </h1>
                   <p className="max-w-3xl mx-auto mt-4 leading-relaxed lg:text-lg text-base duration-200">
@@ -90,7 +90,7 @@ const Home = () => {
           </div>
           <section className="my-24">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <h2 className="text-4xl font-extrabold my-8 tp-text">Top Products</h2>
+              <h2 className="lg:text-4xl text-3xl font-extrabold my-8 tp-text">Top Products</h2>
               <div className="first-showcase">
                 {["", "", "", "", "", "", "", ""].map((img, idx) => (
                   <div key={idx} className="max-h-[36rem] overflow-hidden rounded-md relative duration-200">
@@ -108,22 +108,23 @@ const Home = () => {
               </div>
             </div>
           </section>
+
           <section className="my-48">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
                 <div>
-                  <h3 className="font-extrabold text-4xl tp-text">Tech, Gadgets & Accessories</h3>
+                  <h3 className="font-extrabold lg:text-4xl text-3xl tp-text">Tech, Gadgets & Accessories</h3>
                   <div className="space-y-4 mt-4">
-                    <p className="font-light">
+                    <p className="font-light text-lg">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
                       Voluptatum minima perspiciatis magni neque error nihil.
                     </p>
-                    <p className="font-light">
+                    <p className="font-light text-lg">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia Lorem ipsum dolor sit amet
                       consectetur adipisicing elit. Soluta, doloremque., et dolorum velit nostrum impedit magnam earum!
                     </p>
-                    <p className="font-light">
+                    <p className="font-light text-lg">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia, et dolorum velit nostrum
                       impedit magnam earum!
@@ -135,7 +136,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="overflow-hidden max-h-96 rounded-md">
+                <div className="overflow-hidden max-h-96 rounded-md category-image">
                   <Image
                     src={`/images/products/prod1.jpg`}
                     alt="Some image"
@@ -147,10 +148,11 @@ const Home = () => {
               </div>
             </div>
           </section>
+          
           <section className="my-48">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="overflow-hidden max-h-96 rounded-md">
+              <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
+                <div className="overflow-hidden max-h-96 rounded-md category-image">
                   <Image
                     src={`/images/products/prod4.jpg`}
                     alt="Some image"
@@ -160,13 +162,13 @@ const Home = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-4xl tp-text">Kitchen Utensils & Gadgets</h3>
+                  <h3 className="font-extrabold lg:text-4xl text-3xl tp-text">Kitchen Utensils & Gadgets</h3>
                   <div className="space-y-4 mt-4">
-                    <p className="font-light">
+                    <p className="font-light text-lg">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
                       Voluptatum minima perspiciatis magni neque error nihil.
                     </p>
-                    <p className="font-light">
+                    <p className="font-light text-lg">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia, et dolorum velit nostrum
                       impedit magnam earum!
@@ -181,13 +183,13 @@ const Home = () => {
           </section>
           <section className="my-48">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
                 <div>
-                  <h3 className="font-extrabold text-4xl tp-text">Food & Groceries</h3>
+                  <h3 className="font-extrabold lg:text-4xl text-3xl tp-text">Food & Groceries</h3>
                   <div className="space-y-4 mt-4">
-                    <p className="font-light">
+                    <p className="font-light text-lg">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
-                      Voluptatum minima perspiciatis magni neque error nihil. Lorem ipsum dolor sit amet consectetur
+                      Voluptatum minima perspiciatis magni neque error nihil <br /> Lorem ipsum dolor sit amet consectetur
                       adipisicing elit. Eos quae voluptate obcaecati commodi consectetur nostrum vitae, veritatis
                       consequatur debitis? Quidem.
                     </p>
@@ -198,7 +200,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="overflow-hidden max-h-96 rounded-md">
+                <div className="overflow-hidden max-h-96 rounded-md category-image">
                   <Image
                     src={`/images/products/prod2.jpg`}
                     alt="Some image"

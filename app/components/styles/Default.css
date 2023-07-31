@@ -2,14 +2,20 @@
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
-  transform-style: preserve-3d;
   perspective: 10px;
 }
 
-#def-p {
-  background-color: rgba(0, 0, 0, 0.183);
-  background: url("/images/bg/bg.jpg") no-repeat center center;
-  background-size: cover;
+header {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.hero-img {
+  transform: translateZ(-10px) scale(2);
+  /* -webkit-transform: translateZ(-10px);
+  -o-transform: translateZ(-10px) scale(2);
+  -ms-transform: translateZ(-10px) scale(2);
+  -moz-transform: translateZ(-10px) scale(2); */
 }
 
 #def-con {
@@ -57,9 +63,12 @@
   background-color: #fb923c;
 }
 
-.s1-sect {
-  background: url("/images/products/bgg.jpg") center no-repeat;
-  background-size: cover;
+.para-con {
+  transform-style: preserve-3d;
+}
+
+.para-child {
+  transform: translateZ(-10px);
 }
 
 @media screen and (max-width: 1024px) {

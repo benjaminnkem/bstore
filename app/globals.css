@@ -29,12 +29,12 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgba(113, 113, 113, 0.449);
+  background-color: rgba(113, 113, 113, 0.086);
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background-color: rgba(83, 170, 83, 0.833);
+  background: linear-gradient(to top, rgb(218, 71, 8), rgb(237, 96, 1));
 }
 
 /* Custom */

@@ -1,3 +1,11 @@
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform-style: preserve-3d;
+  perspective: 10px;
+}
+
 #def-p {
   background-color: rgba(0, 0, 0, 0.183);
   background: url("/images/bg/bg.jpg") no-repeat center center;
@@ -24,24 +32,34 @@
   grid-column: 3 / 5;
 }
 
+.tp-text {
+  position: relative;
+  display: inline-block;
+}
+
 .tp-text::before {
   content: "";
   position: absolute;
-  width: 8px;
-  left: -7px;
-  bottom: -15px;
-  height: 30px;
+  width: 3px;
+  left: -10px;
+  bottom: -12px;
+  height: 14px;
   background-color: #fb923c;
 }
 
 .tp-text::after {
   content: "";
   position: absolute;
-  height: 8px;
-  left: -7px;
-  bottom: -15px;
-  width: 50%;
+  height: 3px;
+  left: -8px;
+  bottom: -8px;
+  width: calc(100% + 8px);
   background-color: #fb923c;
+}
+
+.s1-sect {
+  background: url("/images/products/bgg.jpg") center no-repeat;
+  background-size: cover;
 }
 
 @media screen and (max-width: 1024px) {
@@ -67,7 +85,7 @@
     grid-row: 2/4;
     grid-column: 4/5;
   }
- 
+
   .first-showcase div:nth-child(8) {
     grid-column: 2/4;
   }

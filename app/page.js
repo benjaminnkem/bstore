@@ -84,9 +84,9 @@ const Home = () => {
           </section>
         </div>
 
-        <section className="mt-24">
-          <div className=" md:max-w-[1488px] w-11/12 mx-auto">
-            <h2 className="text-4xl font-extrabold my-8 tp-text relative inline-block">Top Products</h2>
+        <section className="my-24">
+          <div className="md:max-w-[1488px] w-11/12 mx-auto">
+            <h2 className="text-4xl font-extrabold my-8 tp-text">Top Products</h2>
 
             <div className="first-showcase">
               {["", "", "", "", "", "", "", ""].map((img, idx) => (
@@ -102,6 +102,82 @@ const Home = () => {
                   </Link>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* <section className="min-h-[15rem] max-h-[20rem] my-24 overflow-hidden flex items-center justify-center relative">
+          <Image src="/images/products/bgg.jpg" alt="Some image" className="w-full h-full object-cover absolute" width={1499} height={400} />
+          <h3 className="text-6xl font-bold"></h3>
+        </section> */}
+
+        <section className="my-48">
+          <div className="md:max-w-[1488px] w-11/12 mx-auto">
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <h3 className="font-extrabold text-4xl tp-text">Food & Groceries</h3>
+                <div className="space-y-4 mt-4">
+                  <p className="font-light">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
+                    Voluptatum minima perspiciatis magni neque error nihil. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Eos quae voluptate obcaecati commodi consectetur nostrum vitae, veritatis
+                    consequatur debitis? Quidem.
+                  </p>
+
+                  <div>
+                    <button className="px-4 py-2 border-2 border-orange-500 duration-200 hover:bg-orange-500 rounded-md">
+                      Food & Groceries <i className="ri-menu-unfold-line"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="overflow-hidden max-h-96 rounded-md">
+                <Image
+                  src={`/images/products/prod2.jpg`}
+                  alt="Some image"
+                  className="w-full h-full object-cover"
+                  width={500}
+                  height={500}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="my-48">
+          <div className="md:max-w-[1488px] w-11/12 mx-auto">
+            <div className="grid grid-cols-2 gap-6">
+              <div className="overflow-hidden max-h-96 rounded-md">
+                <Image
+                  src={`/images/products/prod4.jpg`}
+                  alt="Some image"
+                  className="w-full h-full object-cover"
+                  width={500}
+                  height={500}
+                />
+              </div>
+
+              <div>
+                <h3 className="font-extrabold text-4xl tp-text">Kitchen Utensils & Gadgets</h3>
+                <div className="space-y-4 mt-4">
+                  <p className="font-light">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
+                    Voluptatum minima perspiciatis magni neque error nihil.
+                  </p>
+
+                  <p className="font-light">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia suscipit
+                    sed illum? Nulla facilis, minima labore nesciunt, mollitia, et dolorum velit nostrum impedit magnam
+                    earum!
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <button className="px-4 py-2 border-2 border-orange-500 duration-200 hover:bg-orange-500 rounded-md">
+                  Kitchen Utensils & Gadgets <i className="ri-menu-unfold-line"></i>
+                </button>
+              </div>
             </div>
           </div>
         </section>

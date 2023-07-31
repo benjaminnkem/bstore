@@ -74,6 +74,7 @@ const ProductCreation = () => {
       }
 
       setStatus({ ...status, loading: false, success: true, err: false });
+      setFormInput({ itemName: "", otherName: "", price: "", category: "", description: "" });
     } else {
       setStatus({ ...status, loading: false });
       return;

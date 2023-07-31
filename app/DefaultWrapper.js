@@ -7,11 +7,13 @@ import NextAuthProvider from "./components/NextAuthProvider";
 const DefaultWrapper = ({ children }) => {
   return (
     <>
-      <NextAuthProvider>
-        <Navbar />
-      </NextAuthProvider>
-      <SessionProvider>{children}</SessionProvider>
-      <Footer />
+      <div className="wrapper">
+        <NextAuthProvider>
+          <Navbar />
+        </NextAuthProvider>
+        <SessionProvider>{children}</SessionProvider>
+        <Footer />
+      </div>
     </>
   );
 };

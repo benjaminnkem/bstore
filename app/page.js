@@ -7,44 +7,35 @@ const Home = () => {
   return (
     <>
       <DefaultWrapper>
-        <header
-          className="-mt-20 min-h-[30rem] max-h-[34rem] overflow-hidden relative -z-20 flex items-center justify-between w-full"
-          id="header-con"
-        >
-          {/* <Image
-            src={`/images/bg/bg.jpg`}
-            alt="Heading illus"
-            className="absolute w-full h-full object-cover hero-img -z-10"
-            width={1488}
-            height={700}
-            draggable="false"
-          /> */}
-          <div className="md:max-w-[1488px] w-11/12 mx-auto">
-            <div className="flex items-center text-white">
-              <div className="mt-[75px]">
-                <div>
-                  <h1 className="lg:text-6xl md:text-5xl text-3xl font-extrabold duration-200">
-                    Happy Shopping (<span className="hover:scale-150 cursor-pointer">😊</span>)
-                  </h1>
-                  <p className="max-w-3xl mx-auto mt-4 leading-relaxed lg:text-lg text-base duration-200">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam ratione deleniti vitae animi
-                    nemo libero! Iste voluptates amet praesentium ipsa? Et error iure ratione eaque numquam quas aliquam
-                    voluptatum?
-                  </p>
+        <header className="relative w-full -mt-20 overflow-hidden -z-10" id="header-con">
+          <div className="w-full min-h-[30rem] flex justify-center items-center">
+            <div className="md:max-w-[1488px] w-11/12 mx-auto">
+              <div className="flex items-center text-white">
+                <div className="mt-[75px]">
+                  <div>
+                    <h1 className="text-3xl font-extrabold duration-200 lg:text-6xl md:text-5xl">
+                      Happy Shopping (<span className="cursor-pointer hover:scale-150">😊</span>)
+                    </h1>
+                    <p className="max-w-3xl mx-auto mt-4 text-base leading-relaxed duration-200 lg:text-lg">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam ratione deleniti vitae
+                      animi nemo libero! Iste voluptates amet praesentium ipsa? Et error iure ratione eaque numquam quas
+                      aliquam voluptatum?
+                    </p>
+                  </div>
+                  <div></div>
                 </div>
-                <div></div>
               </div>
             </div>
-          </div>
 
-          {/* <div className="h-[150px] overflow-hidden">
-            <svg viewBox="0 0 500 149" preserveAspectRatio="none" className="h-full w-full">
-              <path
-                d="M-6.71,123.95 C255.78,87.95 360.78,43.95 502.66,102.95 L500.00,149.99 L0.01,149.99 Z"
-                className="stroke-none fill-[#F8FAFB] dark:fill-[#131313] duration-500"
-              ></path>
-            </svg>
-          </div> */}
+            {/* <div className="h-[150px] overflow-hidden">
+              <svg viewBox="0 0 500 149" preserveAspectRatio="none" className="w-full h-full">
+                <path
+                  d="M-6.71,123.95 C255.78,87.95 360.78,43.95 502.66,102.95 L500.00,149.99 L0.01,149.99 Z"
+                  className="stroke-none fill-[#F8FAFB] dark:fill-[#131313] duration-500"
+                ></path>
+              </svg>
+            </div> */}
+          </div>
         </header>
 
         <main className="py-12">
@@ -57,33 +48,33 @@ const Home = () => {
               />
             </div>
             <section className="mt-20">
-              <div className="flex justify-evenly flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 justify-evenly">
                 <div className="shadow-md self-start text-center rounded-md mx-auto min-w-[5rem] max-w-sm p-5 bg-white dark:bg-[#363636]">
                   <div className="text-center">
-                    <i className="ri-time-line text-5xl text-orange-400"></i>
+                    <i className="text-5xl text-orange-400 ri-time-line"></i>
                   </div>
-                  <h3 className="font-bold text-xl my-1">100% Uptime</h3>
-                  <p className="mt-2 text-center text-lg text-gray-700 dark:text-gray-100 font-light">
+                  <h3 className="my-1 text-xl font-bold">100% Uptime</h3>
+                  <p className="mt-2 text-lg font-light text-center text-gray-700 dark:text-gray-100">
                     Lorem ipsum dolor sit amet consectetu quia, earum ullam sint odit culpa distinctio in autem impedit
                     quo!
                   </p>
                 </div>
                 <div className="shadow-md self-start text-center rounded-md mx-auto min-w-[5rem] max-w-sm p-5 bg-white dark:bg-[#363636]">
                   <div className="text-center">
-                    <i className="ri-rocket-2-line text-5xl text-orange-400"></i>
+                    <i className="text-5xl text-orange-400 ri-rocket-2-line"></i>
                   </div>
-                  <h3 className="font-bold text-xl my-1">100% Uptime</h3>
-                  <p className="mt-2 text-center text-lg text-gray-700 dark:text-gray-100 font-light">
+                  <h3 className="my-1 text-xl font-bold">100% Uptime</h3>
+                  <p className="mt-2 text-lg font-light text-center text-gray-700 dark:text-gray-100">
                     Lorem ipsum dolor sit amet consectetu quia, earum ullam sint odit culpa distinctio in autem impedit
                     quo!
                   </p>
                 </div>
                 <div className="shadow-md self-start text-center rounded-md mx-auto min-w-[5rem] max-w-sm p-5 bg-white dark:bg-[#363636]">
                   <div className="text-center">
-                    <i className="ri-lightbulb-flash-line text-5xl text-orange-400"></i>
+                    <i className="text-5xl text-orange-400 ri-lightbulb-flash-line"></i>
                   </div>
-                  <h3 className="font-bold text-xl my-1">100% Uptime</h3>
-                  <p className="mt-2 text-center text-lg text-gray-700 dark:text-gray-100 font-light">
+                  <h3 className="my-1 text-xl font-bold">100% Uptime</h3>
+                  <p className="mt-2 text-lg font-light text-center text-gray-700 dark:text-gray-100">
                     Lorem ipsum dolor sit amet consectetu quia, earum ullam sint odit culpa distinctio in autem impedit
                     quo!
                   </p>
@@ -93,7 +84,7 @@ const Home = () => {
           </div>
           <section className="my-24">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <h2 className="lg:text-4xl text-3xl font-extrabold my-8 tp-text">Top Products</h2>
+              <h2 className="my-8 text-3xl font-extrabold lg:text-4xl tp-text">Top Products</h2>
               <div className="first-showcase">
                 {["", "", "", "", "", "", "", ""].map((img, idx) => (
                   <div key={idx} className="max-h-[36rem] overflow-hidden rounded-md relative duration-200">
@@ -103,7 +94,7 @@ const Home = () => {
                         alt="idx"
                         width={800}
                         height={800}
-                        className="rounded-md object-cover aspect-square h-full"
+                        className="object-cover h-full rounded-md aspect-square"
                       />
                     </Link>
                   </div>
@@ -114,38 +105,38 @@ const Home = () => {
 
           <section className="md:my-48 my-36">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
-                  <h3 className="font-extrabold lg:text-4xl md:text-3xl text-2xl tp-text">
+                  <h3 className="text-2xl font-extrabold lg:text-4xl md:text-3xl tp-text">
                     Tech, Gadgets & Accessories
                   </h3>
-                  <div className="space-y-4 mt-4">
-                    <p className="font-light md:text-lg text-base">
+                  <div className="mt-4 space-y-4">
+                    <p className="text-base font-light">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
                       Voluptatum minima perspiciatis magni neque error nihil.
                     </p>
-                    <p className="font-light md:text-lg text-base">
+                    <p className="text-base font-light">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia Lorem ipsum dolor sit amet
                       consectetur adipisicing elit. Soluta, doloremque., et dolorum velit nostrum impedit magnam earum!
                     </p>
-                    <p className="font-light md:text-lg text-base">
+                    <p className="text-base font-light">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia, et dolorum velit nostrum
                       impedit magnam earum!
                     </p>
                     <div>
-                      <button className="px-4 py-2 border-2 border-orange-500 duration-200 hover:bg-orange-500 rounded-md">
+                      <button className="px-4 py-2 duration-200 border-2 border-orange-500 rounded-md hover:bg-orange-500">
                         Tech, Gadgets & Accessories <i className="ri-menu-unfold-line"></i>
                       </button>
                     </div>
                   </div>
                 </div>
-                <div className="overflow-hidden md:max-h-96 max-h-56 rounded-md category-image">
+                <div className="overflow-hidden rounded-md md:max-h-96 max-h-56 category-image">
                   <Image
                     src={`/images/products/prod1.jpg`}
                     alt="Some image"
-                    className="w-full h-full object-cover"
+                    className="object-cover w-full h-full"
                     width={600}
                     height={600}
                   />
@@ -156,31 +147,31 @@ const Home = () => {
 
           <section className="md:my-48 my-36">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
-                <div className="overflow-hidden md:max-h-96 max-h-56 rounded-md category-image">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div className="overflow-hidden rounded-md md:max-h-96 max-h-56 category-image">
                   <Image
                     src={`/images/products/prod4.jpg`}
                     alt="Some image"
-                    className="w-full h-full object-cover"
+                    className="object-cover w-full h-full"
                     width={600}
                     height={600}
                   />
                 </div>
                 <div>
-                  <h3 className="font-extrabold lg:text-4xl md:text-3xl text-2xl tp-text">
+                  <h3 className="text-2xl font-extrabold lg:text-4xl md:text-3xl tp-text">
                     Kitchen Utensils & Gadgets
                   </h3>
-                  <div className="space-y-4 mt-4">
-                    <p className="font-light md:text-lg text-base">
+                  <div className="mt-4 space-y-4">
+                    <p className="text-base font-light">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
                       Voluptatum minima perspiciatis magni neque error nihil.
                     </p>
-                    <p className="font-light md:text-lg text-base">
+                    <p className="text-base font-light">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia, et dolorum velit nostrum
                       impedit magnam earum!
                     </p>
-                    <button className="px-4 py-2 border-2 border-orange-500 duration-200 hover:bg-orange-500 rounded-md">
+                    <button className="px-4 py-2 duration-200 border-2 border-orange-500 rounded-md hover:bg-orange-500">
                       Kitchen Utensils & Gadgets <i className="ri-menu-unfold-line"></i>
                     </button>
                   </div>
@@ -190,28 +181,28 @@ const Home = () => {
           </section>
           <section className="md:my-48 my-36">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
-                  <h3 className="font-extrabold lg:text-4xl md:text-3xl text-2xl tp-text">Food & Groceries</h3>
-                  <div className="space-y-4 mt-4">
-                    <p className="font-light md:text-lg text-base">
+                  <h3 className="text-2xl font-extrabold lg:text-4xl md:text-3xl tp-text">Food & Groceries</h3>
+                  <div className="mt-4 space-y-4">
+                    <p className="text-base font-light">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
                       Voluptatum minima perspiciatis magni neque error nihil <br /> Lorem ipsum dolor sit amet
                       consectetur adipisicing elit. Eos quae voluptate obcaecati commodi consectetur nostrum vitae,
                       veritatis consequatur debitis? Quidem.
                     </p>
                     <div>
-                      <button className="px-4 py-2 border-2 border-orange-500 duration-200 hover:bg-orange-500 rounded-md">
+                      <button className="px-4 py-2 duration-200 border-2 border-orange-500 rounded-md hover:bg-orange-500">
                         Food & Groceries <i className="ri-menu-unfold-line"></i>
                       </button>
                     </div>
                   </div>
                 </div>
-                <div className="overflow-hidden md:max-h-96 max-h-56 rounded-md category-image">
+                <div className="overflow-hidden rounded-md md:max-h-96 max-h-56 category-image">
                   <Image
                     src={`/images/products/prod2.jpg`}
                     alt="Some image"
-                    className="w-full h-full object-cover"
+                    className="object-cover w-full h-full"
                     width={600}
                     height={600}
                   />

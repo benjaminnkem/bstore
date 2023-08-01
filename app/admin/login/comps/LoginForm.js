@@ -9,13 +9,13 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState({ loading: false });
 
-  const { status: sessionStatus, data: session } = useSession();
+  const { status: sessionStatus } = useSession();
   const router = useRouter();
 
   if (sessionStatus === "loading") {
     return (
       <>
-        <div className="fixed z-50 top-0 left-0 w-full h-full grid place-content-center">
+        <div className="fixed top-0 left-0 z-50 grid w-full h-full place-content-center">
           <LoadingIcon />
           <p className="text-center">Checking Login Status... Please hold</p>
         </div>

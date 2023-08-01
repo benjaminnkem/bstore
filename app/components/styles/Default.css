@@ -24,8 +24,8 @@ header::before {
   background: url("/images/bg/bg.jpg") top no-repeat;
   background-size: cover;
   z-index: -1;
-  transform: translateZ(-10px) scale(2);
-  -webkit-transform: translateZ(-10px) scale(2);
+  /* transform: translateZ(-10px) scale(2);
+  -webkit-transform: translateZ(-10px) scale(2); */
 }
 
 .first-showcase {
@@ -166,31 +166,31 @@ header::before {
 }
 
 @media screen and (min-width: 1024px) {
-  header::before {
+  /* header::before {
     transform: translateZ(-10px) scale(3);
-  }
+  } */
 }
 
 @media screen and (min-width: 2048px) {
-  header::before {
+  /* header::before {
     transform: translateZ(-10px) scale(3.5);
-  }
+  } */
 }
 
 @media screen and (min-width: 2094) {
-  header::before {
+  /* header::before {
     transform: translateZ(-10px) scale(5);
-  }
+  } */
 }
 
 @media screen and (min-width: 2800px) {
-  header::before {
+  /* header::before {
     transform: translateZ(-10px) scale(5.5);
-  }
+  } */
 }
 
 @media screen and (min-width: 3400px) {
-  header::before {
+  /* header::before {
     transform: translateZ(-10px) scale(6);
-  }
+  } */
 }

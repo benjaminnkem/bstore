@@ -1,8 +1,9 @@
 "use client";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { CustomSessionDataContext } from "../../components/DashboardWrapper";
 import CustAlert from "@/components/Alert";
 import { DashCreateContext } from "../context/CreateContextProvider";
+import Image from "next/image";
 
 const ProductCreation = () => {
   const [formInput, setFormInput] = useState({ itemName: "", otherName: "", price: "", category: "", description: "" });
@@ -15,6 +16,13 @@ const ProductCreation = () => {
 
   const [alertShow, setAlertShow] = useState(false);
   const [alertText, setAlertText] = useState("");
+
+  // File Upload
+  const hiddenFileInput = useRef(null);
+
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+  };
 
   useEffect(() => {
     if (status.success) {
@@ -85,11 +93,25 @@ const ProductCreation = () => {
     return (
       <>
         <div className="relative">
-          <h2 className="font-extrabold text-2xl py-2">Product Details</h2>
+          <h2 className="py-2 text-2xl font-extrabold">Product Details</h2>
 
           <div className="mt-2">
             <form onSubmit={(e) => handleProductCreation(e)}>
               <div className="grid gap-4">
+                <div className="space-y-1">
+                  <input type="file" accept="image/jpeg, image/png" className="hidden" ref={hiddenFileInput}/>
+                  <button
+                    className="w-full p-10 duration-200 border-2 border-opacity-50 rounded-md border-slate-400"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleClick();
+                    }}
+                  >
+                    Upload Image <i className="ri-upload-2-line"></i>
+                  </button>
+                  <Image src={'/images/products/prod1.jpg'}  alt="Product Image" width={600} height={600}/>
+                </div>
+
                 <div>
                   <div className="space-y-1">
                     <label htmlFor="itemName" className="font-semibold text-[#b4b8d8]">
@@ -106,7 +128,7 @@ const ProductCreation = () => {
                     />
                   </div>
                   {errors.itemName && (
-                    <p className="text-red-500 text-opacity-75 text-xs font-bold">{errors.itemName}</p>
+                    <p className="text-xs font-bold text-red-500 text-opacity-75">{errors.itemName}</p>
                   )}
                 </div>
 
@@ -126,7 +148,7 @@ const ProductCreation = () => {
                     />
                   </div>
                   {errors.otherName && (
-                    <p className="text-red-500 text-opacity-75 text-xs font-bold">{errors.otherName}</p>
+                    <p className="text-xs font-bold text-red-500 text-opacity-75">{errors.otherName}</p>
                   )}
                   <p className="text-xs font-bold text-[#5e6174]">Hint: Separate with a comma</p>
                 </div>
@@ -146,7 +168,7 @@ const ProductCreation = () => {
                       onChange={(e) => handleUpdateFormInput(e)}
                     />
                   </div>
-                  {errors.price && <p className="text-red-500 text-opacity-75 text-xs font-bold">{errors.price}</p>}
+                  {errors.price && <p className="text-xs font-bold text-red-500 text-opacity-75">{errors.price}</p>}
                 </div>
 
                 <div>
@@ -165,7 +187,7 @@ const ProductCreation = () => {
                     />
                   </div>
                   {errors.category && (
-                    <p className="text-red-500 text-opacity-75 text-xs font-bold">{errors.category}</p>
+                    <p className="text-xs font-bold text-red-500 text-opacity-75">{errors.category}</p>
                   )}
                 </div>
 
@@ -186,7 +208,7 @@ const ProductCreation = () => {
                     ></textarea>
                   </div>
                   {errors.description && (
-                    <p className="text-red-500 text-opacity-75 text-xs font-bold">{errors.description}</p>
+                    <p className="text-xs font-bold text-red-500 text-opacity-75">{errors.description}</p>
                   )}
                 </div>
 

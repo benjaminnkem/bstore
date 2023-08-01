@@ -1,5 +1,6 @@
 import "remixicon/fonts/remixicon.css";
 import "./globals.css";
+import { Poppins } from "next/font/google";
 
 export const metadata = {
   title: "BStore - Your Store, Our Store",
@@ -7,9 +8,15 @@ export const metadata = {
   keywords: "Online Store, Online Shopping, Gadgets, Products, Appliances, Buy",
 };
 
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "800", "100"],
+});
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={poppins.className}>
       <body>{children}</body>
     </html>
   );

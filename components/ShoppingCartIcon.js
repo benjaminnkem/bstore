@@ -1,11 +1,8 @@
-import { useId } from "react";
-
 const ShoppingCartIcon = () => {
-  const cartId = useId();
   return (
     <>
       <div>
-        <i className="ri-shopping-cart-line cursor-pointer" id={cartId} title="View Shopping Cart"></i>
+        <i className="cursor-pointer ri-shopping-cart-line" id="cart-ico" title="View Shopping Cart"></i>
       </div>
     </>
   );

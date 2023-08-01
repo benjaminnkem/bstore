@@ -4,14 +4,13 @@ import "./styles/Navbar.css";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import ShoppingCartIcon from "@/components/ShoppingCartIcon";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { MenuOpenContext } from "../DefaultWrapper";
 
 const Navbar = () => {
   const pathname = usePathname();
   const { status } = useSession();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  const { toggleMenu } = useContext(MenuOpenContext);
 
   return (
     <>
@@ -105,47 +104,6 @@ const Navbar = () => {
                 </li>
               </ul>
             </nav>
-          </div>
-        </div>
-        
-        <div
-          className={`fixed top-0 right-0 h-full bg-black bg-opacity-80 z-[100] duration-500 overflow-hidden md:hidden block ${
-            mobileMenuOpen ? "w-full" : "w-[.5px]"
-          }`}
-        >
-          <div className="grid w-full h-full p-6 place-content-center">
-            <div>
-              {/* Close button */}
-              <i
-                className="absolute mx-auto text-3xl text-center -translate-y-4 cursor-pointer ri-close-circle-line top-1/2 right-4"
-                onClick={toggleMenu}
-              ></i>
-
-              <ul className="space-y-4 text-center">
-                <li>
-                  <Link href={"/"} passHref onClick={toggleMenu}>
-                    <p className={`text-lg font-semibold ${pathname === "/" && "text-orange-500"}`}>Home</p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={"/about"} passHref onClick={toggleMenu}>
-                    <p className={`text-lg font-semibold ${pathname === "/about" && "text-orange-500"}`}>About</p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={"/contact"} passHref onClick={toggleMenu}>
-                    <p className={`text-lg font-semibold ${pathname === "/contact" && "text-orange-500"}`}>Contact</p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={"/dash"} passHref onClick={toggleMenu} target="_blank">
-                    <p className="text-lg font-semibold text-gray-300">
-                      Dashboard <i className="ri-external-link-line"></i>
-                    </p>
-                  </Link>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>

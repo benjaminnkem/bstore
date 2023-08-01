@@ -1,4 +1,4 @@
-html {
+/* html {
   overflow: hidden;
 } 
 
@@ -9,7 +9,7 @@ body {
   overflow-y: scroll;
   transform-style: preserve-3d;
   perspective: 10px;
-}
+} */
 
 header {
   transform-style: preserve-3d;

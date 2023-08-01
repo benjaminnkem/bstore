@@ -1,11 +1,13 @@
-body {
+html {
   overflow: hidden;
-}
+} 
 
-.wrapper {
+body {
+  width: 100vw;
   height: 100vh;
-  overflow-y: auto;
   overflow-x: hidden;
+  overflow-y: scroll;
+  transform-style: preserve-3d;
   perspective: 10px;
 }
 
@@ -23,10 +25,7 @@ header::before {
   background-size: cover;
   z-index: -1;
   transform: translateZ(-10px) scale(2);
-}
-
-.hero-img {
-  transform: translateZ(-10px) scale(2);
+  -webkit-transform: translateZ(-10px) scale(2);
 }
 
 .first-showcase {

@@ -7,20 +7,23 @@ const Home = () => {
   return (
     <>
       <DefaultWrapper>
-        <header className="-mt-20 min-h-[30rem] max-h-[34rem] overflow-hidden relative -z-10 flex items-center justify-between">
-          <Image
+        <header
+          className="-mt-20 min-h-[30rem] max-h-[34rem] overflow-hidden relative -z-20 flex items-center justify-between w-full"
+          id="header-con"
+        >
+          {/* <Image
             src={`/images/bg/bg.jpg`}
             alt="Heading illus"
             className="absolute w-full h-full object-cover hero-img -z-10"
             width={1488}
             height={700}
             draggable="false"
-          />
+          /> */}
           <div className="md:max-w-[1488px] w-11/12 mx-auto">
             <div className="flex items-center text-white">
               <div className="mt-[75px]">
                 <div>
-                  <h1 className="lg:text-6xl md:text-5xl lg:text-4xl text-3xl font-extrabold duration-200">
+                  <h1 className="lg:text-6xl md:text-5xl text-3xl font-extrabold duration-200">
                     Happy Shopping (<span className="hover:scale-150 cursor-pointer">😊</span>)
                   </h1>
                   <p className="max-w-3xl mx-auto mt-4 leading-relaxed lg:text-lg text-base duration-200">
@@ -109,22 +112,24 @@ const Home = () => {
             </div>
           </section>
 
-          <section className="my-48">
+          <section className="md:my-48 my-36">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
               <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
                 <div>
-                  <h3 className="font-extrabold lg:text-4xl text-3xl tp-text">Tech, Gadgets & Accessories</h3>
+                  <h3 className="font-extrabold lg:text-4xl md:text-3xl text-2xl tp-text">
+                    Tech, Gadgets & Accessories
+                  </h3>
                   <div className="space-y-4 mt-4">
-                    <p className="font-light text-lg">
+                    <p className="font-light md:text-lg text-base">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
                       Voluptatum minima perspiciatis magni neque error nihil.
                     </p>
-                    <p className="font-light text-lg">
+                    <p className="font-light md:text-lg text-base">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia Lorem ipsum dolor sit amet
                       consectetur adipisicing elit. Soluta, doloremque., et dolorum velit nostrum impedit magnam earum!
                     </p>
-                    <p className="font-light text-lg">
+                    <p className="font-light md:text-lg text-base">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia, et dolorum velit nostrum
                       impedit magnam earum!
@@ -136,7 +141,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="overflow-hidden max-h-96 rounded-md category-image">
+                <div className="overflow-hidden md:max-h-96 max-h-56 rounded-md category-image">
                   <Image
                     src={`/images/products/prod1.jpg`}
                     alt="Some image"
@@ -148,11 +153,11 @@ const Home = () => {
               </div>
             </div>
           </section>
-          
-          <section className="my-48">
+
+          <section className="md:my-48 my-36">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
               <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
-                <div className="overflow-hidden max-h-96 rounded-md category-image">
+                <div className="overflow-hidden md:max-h-96 max-h-56 rounded-md category-image">
                   <Image
                     src={`/images/products/prod4.jpg`}
                     alt="Some image"
@@ -162,13 +167,15 @@ const Home = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="font-extrabold lg:text-4xl text-3xl tp-text">Kitchen Utensils & Gadgets</h3>
+                  <h3 className="font-extrabold lg:text-4xl md:text-3xl text-2xl tp-text">
+                    Kitchen Utensils & Gadgets
+                  </h3>
                   <div className="space-y-4 mt-4">
-                    <p className="font-light text-lg">
+                    <p className="font-light md:text-lg text-base">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
                       Voluptatum minima perspiciatis magni neque error nihil.
                     </p>
-                    <p className="font-light text-lg">
+                    <p className="font-light md:text-lg text-base">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia, et dolorum velit nostrum
                       impedit magnam earum!
@@ -181,17 +188,17 @@ const Home = () => {
               </div>
             </div>
           </section>
-          <section className="my-48">
+          <section className="md:my-48 my-36">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
               <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
                 <div>
-                  <h3 className="font-extrabold lg:text-4xl text-3xl tp-text">Food & Groceries</h3>
+                  <h3 className="font-extrabold lg:text-4xl md:text-3xl text-2xl tp-text">Food & Groceries</h3>
                   <div className="space-y-4 mt-4">
-                    <p className="font-light text-lg">
+                    <p className="font-light md:text-lg text-base">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
-                      Voluptatum minima perspiciatis magni neque error nihil <br /> Lorem ipsum dolor sit amet consectetur
-                      adipisicing elit. Eos quae voluptate obcaecati commodi consectetur nostrum vitae, veritatis
-                      consequatur debitis? Quidem.
+                      Voluptatum minima perspiciatis magni neque error nihil <br /> Lorem ipsum dolor sit amet
+                      consectetur adipisicing elit. Eos quae voluptate obcaecati commodi consectetur nostrum vitae,
+                      veritatis consequatur debitis? Quidem.
                     </p>
                     <div>
                       <button className="px-4 py-2 border-2 border-orange-500 duration-200 hover:bg-orange-500 rounded-md">
@@ -200,7 +207,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="overflow-hidden max-h-96 rounded-md category-image">
+                <div className="overflow-hidden md:max-h-96 max-h-56 rounded-md category-image">
                   <Image
                     src={`/images/products/prod2.jpg`}
                     alt="Some image"

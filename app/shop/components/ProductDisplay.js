@@ -108,9 +108,9 @@ const ProductDisplay = ({items}) => {
             <i
               className="text-2xl duration-100 ri-shopping-cart-2-line"
               id="nav-cart"
+              title="Show Selected Items"
               data-shopping-items={`${addedItems.length}`}
               onClick={toggleSideCartView}
-              title="Show Selected Items"
             ></i>
           </div>
 

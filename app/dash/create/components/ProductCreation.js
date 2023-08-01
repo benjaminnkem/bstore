@@ -6,9 +6,17 @@ import { DashCreateContext } from "../context/CreateContextProvider";
 import Image from "next/image";
 
 const ProductCreation = () => {
-  const [formInput, setFormInput] = useState({ itemName: "", otherName: "", price: "", category: "", description: "" });
   const [errors, setErrors] = useState({});
+  const [localImageUrl, seLocalImageUrl] = useState("/images/products/prod2.jpg");
   const [status, setStatus] = useState({ loading: false, success: false, err: false });
+  const [formInput, setFormInput] = useState({
+    itemName: "",
+    otherName: "",
+    price: "",
+    category: "",
+    description: "",
+    productImage: undefined,
+  });
 
   // Contexts
   const sessionContent = useContext(CustomSessionDataContext);
@@ -16,13 +24,6 @@ const ProductCreation = () => {
 
   const [alertShow, setAlertShow] = useState(false);
   const [alertText, setAlertText] = useState("");
-
-  // File Upload
-  const hiddenFileInput = useRef(null);
-
-  const handleClick = (event) => {
-    hiddenFileInput.current.click();
-  };
 
   useEffect(() => {
     if (status.success) {
@@ -51,6 +52,23 @@ const ProductCreation = () => {
     if (!formInput.description) errors.description = "Please enter a description for the product";
 
     return errors;
+  };
+
+  // File Upload
+  const hiddenFileInput = useRef(null);
+
+  const handleClick = () => {
+    hiddenFileInput.current.click();
+  };
+
+  const handleFilePick = (e) => {
+    const imageFiles = e.target.files;
+
+    if (!imageFiles || !imageFiles.length === 0) return;
+    const mainImgFile = imageFiles[0];
+
+    setFormInput({ ...formInput, productImage: mainImgFile });
+    seLocalImageUrl(URL.createObjectURL(mainImgFile));
   };
 
   const handleUpdateFormInput = (event) => setFormInput({ ...formInput, [event.target.name]: event.target.value });
@@ -98,18 +116,35 @@ const ProductCreation = () => {
           <div className="mt-2">
             <form onSubmit={(e) => handleProductCreation(e)}>
               <div className="grid gap-4">
-                <div className="space-y-1">
-                  <input type="file" accept="image/jpeg, image/png" className="hidden" ref={hiddenFileInput}/>
-                  <button
-                    className="w-full p-10 duration-200 border-2 border-opacity-50 rounded-md border-slate-400"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleClick();
-                    }}
-                  >
-                    Upload Image <i className="ri-upload-2-line"></i>
-                  </button>
-                  <Image src={'/images/products/prod1.jpg'}  alt="Product Image" width={600} height={600}/>
+                <div className="space-y-2">
+                  <input
+                    type="file"
+                    accept="image/jpeg, image/png"
+                    name="productImage"
+                    className="hidden"
+                    ref={hiddenFileInput}
+                    onChange={(e) => handleFilePick(e)}
+                  />
+                  <div className="w-64 h-64 mx-auto overflow-hidden duration-200 border-2 rounded-md border-[#474856] focus:border-[#444554] hover:border-opacity-50">
+                    <Image
+                      src={localImageUrl}
+                      alt="Product Image"
+                      width={320}
+                      height={320}
+                      className="object-cover w-full h-full mx-auto"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <button
+                      className="w-40 py-2 duration-200 border-2 border-opacity-50 rounded-md border-slate-400"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleClick();
+                      }}
+                    >
+                      Upload Image <i className="ri-upload-2-line"></i>
+                    </button>
+                  </div>
                 </div>
 
                 <div>

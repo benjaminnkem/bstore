@@ -4,6 +4,7 @@ import { CustomSessionDataContext } from "../../components/DashboardWrapper";
 import CustAlert from "@/components/Alert";
 import { DashCreateContext } from "../context/CreateContextProvider";
 import Image from "next/image";
+import axios from "axios";
 
 const ProductCreation = () => {
   const [errors, setErrors] = useState({});
@@ -83,26 +84,15 @@ const ProductCreation = () => {
     if (Object.keys(validator).length === 0) {
       const { itemName, otherName, price, category, description } = formInput;
       try {
-        const body = new FormData();
+        const formData = new FormData();
         for (const keys of Object.keys(formInput)) {
-          console.log(keys, formInput[keys]);
-          body.append(`${keys}`, formInput[keys]);
+          console.log(keys, "-", formInput[keys]);
+          formData.append(keys, formInput[keys]);
         }
 
-        const response = await fetch("/api/create-prod", {
-          method: "POST",
-          headers: { "Content-type": "multipart/form-data" },
-          // body: JSON.stringify({
-          //   itemName,
-          //   otherName,
-          //   price,
-          //   category,
-          //   description,
-          //   seller_id: sessionContent.user.id && sessionContent.user.id,
-          // }),
-          body: body,
+        const response = await axios.post("/api/tests/nextc", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
         });
-
         if (!response.ok) {
           setStatus({ ...status, loading: false, err: true });
           return;

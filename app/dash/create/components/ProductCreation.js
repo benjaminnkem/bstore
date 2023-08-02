@@ -50,6 +50,7 @@ const ProductCreation = () => {
 
     if (!formInput.category) errors.category = "A category must be specified";
     if (!formInput.description) errors.description = "Please enter a description for the product";
+    if (!formInput.productImage) errors.productImage = "Product image is required";
 
     return errors;
   };
@@ -81,26 +82,38 @@ const ProductCreation = () => {
 
     if (Object.keys(validator).length === 0) {
       const { itemName, otherName, price, category, description } = formInput;
-      const response = await fetch("/api/create/product", {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({
-          itemName,
-          otherName,
-          price,
-          category,
-          description,
-          seller_id: sessionContent.user.id && sessionContent.user.id,
-        }),
-      });
+      try {
+        const body = new FormData();
+        for (const keys of Object.keys(formInput)) {
+          console.log(keys, formInput[keys]);
+          body.append(`${keys}`, formInput[keys]);
+        }
 
-      if (!response.ok) {
+        const response = await fetch("/api/create-prod", {
+          method: "POST",
+          headers: { "Content-type": "multipart/form-data" },
+          // body: JSON.stringify({
+          //   itemName,
+          //   otherName,
+          //   price,
+          //   category,
+          //   description,
+          //   seller_id: sessionContent.user.id && sessionContent.user.id,
+          // }),
+          body: body,
+        });
+
+        if (!response.ok) {
+          setStatus({ ...status, loading: false, err: true });
+          return;
+        }
+
+        setStatus({ ...status, loading: false, success: true, err: false });
+        setFormInput({ itemName: "", otherName: "", price: "", category: "", description: "" });
+      } catch (e) {
         setStatus({ ...status, loading: false, err: true });
-        return;
+        console.log(e);
       }
-
-      setStatus({ ...status, loading: false, success: true, err: false });
-      setFormInput({ itemName: "", otherName: "", price: "", category: "", description: "" });
     } else {
       setStatus({ ...status, loading: false });
       return;
@@ -114,7 +127,7 @@ const ProductCreation = () => {
           <h2 className="py-2 text-2xl font-extrabold">Product Details</h2>
 
           <div className="mt-2">
-            <form onSubmit={(e) => handleProductCreation(e)}>
+            <form onSubmit={(e) => handleProductCreation(e)} encType="multipart/form-data">
               <div className="grid gap-4">
                 <div className="space-y-2">
                   <input
@@ -145,6 +158,9 @@ const ProductCreation = () => {
                       Upload Image <i className="ri-upload-2-line"></i>
                     </button>
                   </div>
+                  {errors.productImage && (
+                    <p className="text-xs font-bold text-center text-red-500 text-opacity-75">{errors.productImage}</p>
+                  )}
                 </div>
 
                 <div>

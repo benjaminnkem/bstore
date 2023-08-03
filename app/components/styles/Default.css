@@ -77,6 +77,15 @@ header::before {
   transform: translateZ(-10px);
 }
 
+.product-text {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.393);
+}
+
+/* Slider */
+#slider::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .first-showcase {
     grid-template-rows: repeat(3, 200px);

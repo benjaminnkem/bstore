@@ -3,6 +3,7 @@ import DefaultWrapper from "./DefaultWrapper";
 import "./components/styles/Default.css";
 import Link from "next/link";
 import { headers } from "next/headers";
+import HorizontalProductShow from "@/components/HorizontalProductShow";
 
 const getInitialProducts = async () => {
   const host = headers().get("host");
@@ -49,68 +50,10 @@ const Home = async () => {
         </header>
 
         <main className="py-12">
-          <div className="md:max-w-[1488px] w-11/12 mx-auto">
-            <div className="flex justify-center">
-              <input
-                type="text"
-                className="w-full dark:bg-[#363636] md:p-4 p-2 text-base md:text-lg text-gray-700 dark:text-gray-100 rounded-md outline-none max-w-lg md:max-w-xl border-4 dark:border-transparent border-[#e4e4e4] shadow-md duration-200 dark:focus:border-[#5b5b5b] focus:border-[#d3d3d3]"
-                placeholder="Search for anything..."
-              />
-            </div>
-            <section className="mt-20">
-              <div className="flex flex-wrap gap-4 justify-evenly">
-                <div className="shadow-md self-start text-center rounded-md mx-auto min-w-[5rem] max-w-sm p-5 bg-white dark:bg-[#363636]">
-                  <div className="text-center">
-                    <i className="text-5xl text-orange-400 ri-time-line"></i>
-                  </div>
-                  <h3 className="my-1 text-xl font-bold">100% Uptime</h3>
-                  <p className="mt-2 text-lg font-light text-center text-gray-700 dark:text-gray-100">
-                    Lorem ipsum dolor sit amet consectetu quia, earum ullam sint odit culpa distinctio in autem impedit
-                    quo!
-                  </p>
-                </div>
-                <div className="shadow-md self-start text-center rounded-md mx-auto min-w-[5rem] max-w-sm p-5 bg-white dark:bg-[#363636]">
-                  <div className="text-center">
-                    <i className="text-5xl text-orange-400 ri-rocket-2-line"></i>
-                  </div>
-                  <h3 className="my-1 text-xl font-bold">100% Uptime</h3>
-                  <p className="mt-2 text-lg font-light text-center text-gray-700 dark:text-gray-100">
-                    Lorem ipsum dolor sit amet consectetu quia, earum ullam sint odit culpa distinctio in autem impedit
-                    quo!
-                  </p>
-                </div>
-                <div className="shadow-md self-start text-center rounded-md mx-auto min-w-[5rem] max-w-sm p-5 bg-white dark:bg-[#363636]">
-                  <div className="text-center">
-                    <i className="text-5xl text-orange-400 ri-lightbulb-flash-line"></i>
-                  </div>
-                  <h3 className="my-1 text-xl font-bold">100% Uptime</h3>
-                  <p className="mt-2 text-lg font-light text-center text-gray-700 dark:text-gray-100">
-                    Lorem ipsum dolor sit amet consectetu quia, earum ullam sint odit culpa distinctio in autem impedit
-                    quo!
-                  </p>
-                </div>
-              </div>
-            </section>
-          </div>
-
           <section className="my-24">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <h2 className="my-8 text-3xl font-extrabold lg:text-4xl tp-text">Top Products</h2>
-              <div className="first-showcase">
-                {["", "", "", "", "", "", "", ""].map((img, idx) => (
-                  <div key={idx} className="max-h-[36rem] overflow-hidden rounded-md relative duration-200">
-                    <Link href={"#"} passHref>
-                      <Image
-                        src={`/images/products/prod${idx + 1}.jpg`}
-                        alt="idx"
-                        width={800}
-                        height={800}
-                        className="object-cover h-full rounded-md aspect-square"
-                      />
-                    </Link>
-                  </div>
-                ))}
-              </div>
+              <h2 className="my-8 text-3xl font-extrabold lg:text-4xl tp-text">Top Categories</h2>
+              <HorizontalProductShow products={products}/>
             </div>
           </section>
 
@@ -119,7 +62,7 @@ const Home = async () => {
               <h2 className="my-8 text-3xl font-extrabold lg:text-4xl tp-text">Top Products</h2>
               <div className="first-showcase">
                 {products.map((product) => (
-                  <div key={product.id} className="max-h-[36rem] overflow-hidden rounded-md relative duration-200">
+                  <div key={product.id} className="max-h-[36rem] overflow-hidden rounded-md relative duration-300">
                     <Link href={"#"} passHref>
                       <Image
                         src={product.images[0]}
@@ -128,6 +71,13 @@ const Home = async () => {
                         height={800}
                         className="object-cover h-full rounded-md aspect-square"
                       />
+
+                      <div className="absolute top-0 left-0 w-full h-full p-2 duration-300 ease-in-out bg-black bg-opacity-0 group hover:bg-opacity-20">
+                        <div className="relative w-full h-full duration-300 group-hover:scale-95">
+                          <p className="text-base font-bold left-2 top-2 md:text-lg product-text">{product.itemName}</p>
+                          <i className="absolute text-lg font-bold duration-300 bottom-2 right-2 md:text-3xl sm:text-2xl product-text ri-heart-2-line"></i>
+                        </div>
+                      </div>
                     </Link>
                   </div>
                 ))}

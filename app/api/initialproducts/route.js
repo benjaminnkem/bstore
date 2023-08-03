@@ -7,7 +7,7 @@ export async function GET(req) {
   const showcaseProducts = await ProductsCreateSchema.aggregate([
     { $match: {} },
     { $sort: { date_posted: -1 } },
-    { $limit: 6 },
+    { $limit: 8 },
   ]);
 
   return NextResponse.json(showcaseProducts ? showcaseProducts : []);

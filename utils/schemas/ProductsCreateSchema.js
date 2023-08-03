@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import mongoose, { Schema, model, models } from "mongoose";
 
 const productsSchema = new Schema({
   itemName: { type: String, required: true },
@@ -13,4 +13,4 @@ const productsSchema = new Schema({
   date_posted: { type: Date, default: () => new Date() },
 });
 
-export default model("Products", productsSchema);
+export default mongoose.models?.Products || mongoose.model('Products', productsSchema);

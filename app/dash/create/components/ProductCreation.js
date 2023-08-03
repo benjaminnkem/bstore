@@ -145,17 +145,18 @@ const ProductCreation = () => {
                       className="object-cover w-full h-full mx-auto"
                     />
                   </div>
-                  <div className="text-center">
-                    <button
-                      className="w-40 py-2 duration-200 border-2 border-opacity-50 rounded-md border-slate-400"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleClick();
-                      }}
-                    >
-                      Upload Image <i className="ri-upload-2-line"></i>
-                    </button>
+
+                  {/* Upload buttony */}
+                  <div
+                    className="w-40 py-2 duration-200 text-center mx-auto border-2 border-opacity-50 rounded-md border-slate-400"
+                    role="button"
+                    onClick={(e) => {
+                      handleClick();
+                    }}
+                  >
+                    Upload Image <i className="ri-upload-2-line"></i>
                   </div>
+
                   {errors.productImage && (
                     <p className="text-xs font-bold text-center text-red-500 text-opacity-75">{errors.productImage}</p>
                   )}
@@ -287,6 +288,5 @@ const ProductCreation = () => {
       </>
     );
 };
-
 
 export default ProductCreation;

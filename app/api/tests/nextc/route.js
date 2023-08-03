@@ -14,6 +14,8 @@ const upload = multer({
 router.use(upload.single("productImage"));
 router.post("/api/tests/nextc", async (req) => {
   try {
+    const d = await req.json();
+
     const formData = await req.formData();
     const itemName = formData.get("itemName");
     const otherName = formData.get("otherName");
@@ -21,8 +23,6 @@ router.post("/api/tests/nextc", async (req) => {
     const category = formData.get("category");
     const description = formData.get("description");
     const productImage = formData.get("productImage");
-
-    console.log(productImage, req);
 
     return NextResponse.json(
       { msg: "Product created successfully" },

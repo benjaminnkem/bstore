@@ -90,7 +90,7 @@ const ProductCreation = () => {
           formData.append(keys, formInput[keys]);
         }
 
-        const response = await axios.post("/api/create-prod", formData, {
+        const response = await axios.post("/api/pagecreate", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
         if (!response.ok) {

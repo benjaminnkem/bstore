@@ -1,18 +1,32 @@
-import { createRouter } from "next-connect";
+import multer from "multer";
+import nc from "next-connect";
 
-const router = createRouter();
+const handler = nc({
+  onError: (err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).end("Something broke!");
+  },
+  onNoMatch: (req, res) => {
+    res.status(404).end("Page is not found");
+  },
+});
 
-router.get('/api/pagecreate', (req, res) => {
-  res.json({ message: "it worked" });
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: "public/uploads/products",
+    filename: (req, file, cb) => cb(null, file.fieldname + "-" + Date.now() + file.originalname),
+  }),
+});
+
+handler.use(upload.single("productImage")).post("/api/pagecreate", (req, res) => {
+  const body = req.body;
+  res.json({ message: 'worked'});
 });
 
 export const config = {
-  runtime: "edge",
+  api: {
+    bodyParser: false,
+  },
 };
 
-export default router.handler({
-  onError: (err, req, res) => {
-    console.error(err.stack);
-    res.status(err.statusCode || 500).end(err.message);
-  },
-});
+export default handler;

@@ -5,7 +5,7 @@ const productsSchema = new Schema({
   price: { type: Number, required: true },
   seller_id: mongoose.SchemaTypes.ObjectId,
   category: { type: String, required: true },
-  is_available: Boolean,
+  is_available: { type: Boolean, default: true },
   images: { type: [String], required: true },
   description: { type: String, required: true, trim: true },
   comments: [String],

@@ -25,7 +25,6 @@ const LoginForm = () => {
 
   if (sessionStatus === "authenticated") {
     router.push("/dash");
-    return;
   }
 
   if (sessionStatus === "unauthenticated") {

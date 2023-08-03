@@ -111,16 +111,16 @@ const Home = () => {
                     Tech, Gadgets & Accessories
                   </h3>
                   <div className="mt-4 space-y-4">
-                    <p className="text-base font-light">
+                    <p className="text-base font-lightj">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
                       Voluptatum minima perspiciatis magni neque error nihil.
                     </p>
-                    <p className="text-base font-light">
+                    <p className="text-base font-lightj">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia Lorem ipsum dolor sit amet
                       consectetur adipisicing elit. Soluta, doloremque., et dolorum velit nostrum impedit magnam earum!
                     </p>
-                    <p className="text-base font-light">
+                    <p className="text-base font-lightj">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia, et dolorum velit nostrum
                       impedit magnam earum!
@@ -162,11 +162,11 @@ const Home = () => {
                     Kitchen Utensils & Gadgets
                   </h3>
                   <div className="mt-4 space-y-4">
-                    <p className="text-base font-light">
+                    <p className="text-base font-lightj">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
                       Voluptatum minima perspiciatis magni neque error nihil.
                     </p>
-                    <p className="text-base font-light">
+                    <p className="text-base font-lightj">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non ipsa corporis qui. Mollitia
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia, et dolorum velit nostrum
                       impedit magnam earum!
@@ -185,7 +185,7 @@ const Home = () => {
                 <div>
                   <h3 className="text-2xl font-extrabold lg:text-4xl md:text-3xl tp-text">Food & Groceries</h3>
                   <div className="mt-4 space-y-4">
-                    <p className="text-base font-light">
+                    <p className="text-base font-lightj">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum quas possimus rem.
                       Voluptatum minima perspiciatis magni neque error nihil <br /> Lorem ipsum dolor sit amet
                       consectetur adipisicing elit. Eos quae voluptate obcaecati commodi consectetur nostrum vitae,
@@ -215,5 +215,3 @@ const Home = () => {
     </>
   );
 };
-
-export default Home;

@@ -1,14 +1,15 @@
 "use client";
 import { useContext, useEffect, useRef, useState } from "react";
-import { CustomSessionDataContext } from "../../components/DashboardWrapper";
 import CustAlert from "@/components/Alert";
 import { DashCreateContext } from "../context/CreateContextProvider";
 import Image from "next/image";
 import axios from "axios";
+import connectToDB from "@/utils/db";
+import ProductsCreateSchema from "@/utils/schemas/ProductsCreateSchema";
 
 const ProductCreation = () => {
   const [errors, setErrors] = useState({});
-  const [localImageUrl, seLocalImageUrl] = useState("/images/products/prod2.jpg");
+  const [localImageUrl, seLocalImageUrl] = useState("/images/default/default-img.png");
   const [status, setStatus] = useState({ loading: false, success: false, err: false });
   const [formInput, setFormInput] = useState({
     itemName: "",
@@ -20,7 +21,6 @@ const ProductCreation = () => {
   });
 
   // Contexts
-  const sessionContent = useContext(CustomSessionDataContext);
   const { curSelection } = useContext(DashCreateContext);
 
   const [alertShow, setAlertShow] = useState(false);
@@ -66,13 +66,14 @@ const ProductCreation = () => {
   const handleFilePick = (e) => {
     const imageFiles = e.target.files;
 
-    if (!imageFiles || !imageFiles.length === 0) return;
-    const mainImgFile = imageFiles[0];
-
-    setFormInput({ ...formInput, productImage: mainImgFile });
-    seLocalImageUrl(URL.createObjectURL(mainImgFile));
+    if (imageFiles && imageFiles.length > 0) {
+      const mainImgFile = imageFiles[0];
+      setFormInput({ ...formInput, productImage: mainImgFile });
+      seLocalImageUrl(URL.createObjectURL(mainImgFile));
+    }
   };
 
+  // Text fields
   const handleUpdateFormInput = (event) => setFormInput({ ...formInput, [event.target.name]: event.target.value });
   const handleProductCreation = async (e) => {
     e.preventDefault();
@@ -82,24 +83,31 @@ const ProductCreation = () => {
     setErrors(validator);
 
     if (Object.keys(validator).length === 0) {
-      const { itemName, otherName, price, category, description } = formInput;
       try {
         const formData = new FormData();
         for (const keys of Object.keys(formInput)) {
-          console.log(keys, "-", formInput[keys]);
           formData.append(keys, formInput[keys]);
         }
 
-        const response = await axios.post("/api/pagecreate", formData, {
+        const response = await axios.post("/api/pages/create/product", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
-        if (!response.ok) {
+
+        if (response.statusText.toLocaleLowerCase() != "ok") {
           setStatus({ ...status, loading: false, err: true });
           return;
         }
 
         setStatus({ ...status, loading: false, success: true, err: false });
-        setFormInput({ itemName: "", otherName: "", price: "", category: "", description: "" });
+        setFormInput({
+          itemName: "",
+          otherName: "",
+          price: "",
+          category: "",
+          description: "",
+          productImage: undefined,
+        });
+        seLocalImageUrl("/images/default/default-img.png");
       } catch (e) {
         setStatus({ ...status, loading: false, err: true });
         console.log(e);
@@ -279,5 +287,6 @@ const ProductCreation = () => {
       </>
     );
 };
+
 
 export default ProductCreation;

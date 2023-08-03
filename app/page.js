@@ -2,8 +2,18 @@ import Image from "next/image";
 import DefaultWrapper from "./DefaultWrapper";
 import "./components/styles/Default.css";
 import Link from "next/link";
+import { headers } from "next/headers";
 
-const Home = () => {
+const getInitialProducts = async () => {
+  const host = headers().get("host");
+  const protocol = process?.env.NODE_ENV === "development" ? "http" : "https";
+  const response = await fetch(`${protocol}://${host}/api/initialproducts`, { next: { revalidate: 300 } });
+  return response.json();
+};
+
+const Home = async () => {
+  const products = await getInitialProducts();
+
   return (
     <>
       <DefaultWrapper>
@@ -82,6 +92,7 @@ const Home = () => {
               </div>
             </section>
           </div>
+
           <section className="my-24">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
               <h2 className="my-8 text-3xl font-extrabold lg:text-4xl tp-text">Top Products</h2>
@@ -92,6 +103,27 @@ const Home = () => {
                       <Image
                         src={`/images/products/prod${idx + 1}.jpg`}
                         alt="idx"
+                        width={800}
+                        height={800}
+                        className="object-cover h-full rounded-md aspect-square"
+                      />
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="my-24">
+            <div className="md:max-w-[1488px] w-11/12 mx-auto">
+              <h2 className="my-8 text-3xl font-extrabold lg:text-4xl tp-text">Top Products</h2>
+              <div className="first-showcase">
+                {products.map((product) => (
+                  <div key={product.id} className="max-h-[36rem] overflow-hidden rounded-md relative duration-200">
+                    <Link href={"#"} passHref>
+                      <Image
+                        src={product.images[0]}
+                        alt="Some Image"
                         width={800}
                         height={800}
                         className="object-cover h-full rounded-md aspect-square"
@@ -215,3 +247,5 @@ const Home = () => {
     </>
   );
 };
+
+export default Home;

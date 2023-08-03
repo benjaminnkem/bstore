@@ -1,9 +1,9 @@
-import mongoose, { Schema, model, models } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
 const productsSchema = new Schema({
   itemName: { type: String, required: true },
   price: { type: Number, required: true },
-  seller_id: mongoose.SchemaTypes.ObjectId,
+  seller_id: Schema.Types.ObjectId,
   category: { type: String, required: true },
   is_available: { type: Boolean, default: true },
   images: { type: [String], required: true },

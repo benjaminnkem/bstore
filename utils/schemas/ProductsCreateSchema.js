@@ -13,4 +13,4 @@ const productsSchema = new Schema({
   date_posted: { type: Date, default: () => new Date() },
 });
 
-export default models.Products || model("Products", productsSchema);
+export default model("Products", productsSchema);

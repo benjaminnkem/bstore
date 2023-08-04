@@ -10,7 +10,7 @@ const About = () => {
     <>
       <div className="wrapper">
         <DefaultWrapper>
-          <header className="min-h-[34rem] flex items-center -mt-[5rem]">
+          <header className="min-h-[34rem] flex items-center -mt-[5rem] about-header">
             <div className="md:max-w-[1488px] w-11/12 mx-auto mt-[2.5rem]">
               <div className="space-y-4 text-white">
                 <h1 className="inline-block text-3xl font-extrabold duration-200 md:text-5xl sm:text-4xl bstore">

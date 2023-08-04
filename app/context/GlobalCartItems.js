@@ -16,13 +16,7 @@ const GlobalCartItemsProvider = ({ children }) => {
 
   useEffect(() => localStorage.setItem("cartItems", JSON.stringify(cartItems)), [cartItems]);
 
-  const toggleSideCartView = () => {
-    if (!sideCartItemDisplay) {
-      setSideCartItemDisplay(true);
-    } else {
-      setSideCartItemDisplay(false);
-    }
-  };
+  const toggleSideCartView = () => setSideCartItemDisplay(!sideCartItemDisplay);
 
   const updateCartItems = (item) => {
     const itemExists = cartItems.find((itemCheck) => itemCheck._id === item._id);
@@ -55,6 +49,7 @@ const GlobalCartItemsProvider = ({ children }) => {
     totalItemsCost,
     sideCartItemDisplay,
     setSideCartItemDisplay,
+    toggleSideCartView,
   };
 
   return <GlobalCartItemContext.Provider value={cartContext}>{children}</GlobalCartItemContext.Provider>;

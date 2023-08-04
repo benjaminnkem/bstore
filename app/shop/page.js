@@ -26,12 +26,8 @@ const Shop = async () => {
   return (
     <>
       <DefaultWrapper>
-        <GlobalCartItemsProvider>
-          <HorizontalCategory />
-          <div className="my-10">
-            <ProductDisplay items={items} />
-          </div>
-        </GlobalCartItemsProvider>
+        <HorizontalCategory />
+        <ProductDisplay items={items} />
       </DefaultWrapper>
     </>
   );

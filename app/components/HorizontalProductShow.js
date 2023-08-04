@@ -4,7 +4,7 @@ import Link from "next/link";
 import useCustomSlider from "../hooks/useCustomSlider";
 
 const HorizontalProductShow = ({ products }) => {
-  const { slider, slideLeft, slideRight } = useCustomSlider(1000);
+  const { slider, slideLeft, slideRight } = useCustomSlider();
 
   return (
     <>

@@ -4,7 +4,7 @@ import "./styles/Navbar.css";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import ShoppingCartIcon from "@/components/ShoppingCartIcon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`z-50 shadow-sm ${pathname === "/" || "/about" ? "dark:text-white bg-transparent" : "bg-white dark:bg-transparent"}`}>
+      <div className={`z-50 ${(pathname === "/" || pathname === "/about") && "text-white bg-transparent"}`}>
         <div className="md:max-w-[1488px] w-11/12 mx-auto">
           <div className="flex items-center justify-between">
             <div>

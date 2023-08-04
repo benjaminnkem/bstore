@@ -2,16 +2,37 @@
 import useCustomSlider from "@/app/hooks/useCustomSlider";
 
 const HorizontalCategory = () => {
-  const { slider, slideLeft, slideRight } = useCustomSlider(200);
+  const { slider, slideLeft, slideRight } = useCustomSlider();
 
   return (
     <>
-      <div className="relative md:max-w-[1488px] w-11/12 mx-auto">
+      <div className="relative md:max-w-[1488px] w-11/12 mx-auto -mt-2">
         <div className="flex items-center p-2 space-x-4 overflow-y-auto scroll-smooth horizontal-cat" ref={slider}>
-          {["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""].map((item, idx) => (
+          {[
+            "Games",
+            "Clothes",
+            "Food",
+            "Tech",
+            "Pets",
+            "Automobiles",
+            "Aqua",
+            "Shoes",
+            "PC",
+            "Art",
+            "Lab",
+            "Utensils",
+            "Gadgets",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+          ].map((item, idx) => (
             <div key={idx}>
-              <button className="px-3 py-1 rounded-lg text-sm duration-200 hover:bg-[#2d2d2d] bg-[#212121]">
-                Category
+              <button className="px-5 py-1 min-w-[2rem] rounded-lg text-sm duration-200 dark:hover:bg-[#2d2d2d] dark:bg-[#212121] bg-white hover:bg-[#f6f6f6]">
+                {item ? item : "Category"}
               </button>
             </div>
           ))}

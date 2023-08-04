@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect } from "react";
 import ProductTemplate from "./ProductTemplate";
 import Image from "next/image";
 import { GlobalCartItemContext } from "@/app/context/GlobalCartItems";
@@ -14,18 +14,10 @@ const ProductDisplay = ({ items }) => {
     calculateTotalCosts,
     totalItemsCost,
     sideCartItemDisplay,
-    setSideCartItemDisplay,
+    toggleSideCartView,
   } = useContext(GlobalCartItemContext);
 
-  const toggleSideCartView = () => {
-    if (!sideCartItemDisplay) {
-      setSideCartItemDisplay(true);
-    } else {
-      setSideCartItemDisplay(false);
-    }
-  }
-
-  const addItemToCart = (item) => updateCartItems(item)
+  const addItemToCart = (item) => updateCartItems(item);
   useEffect(() => calculateTotalCosts(), []);
 
   const contextValue = {
@@ -45,7 +37,7 @@ const ProductDisplay = ({ items }) => {
           onClick={toggleSideCartView}
         ></div>
 
-        <div className="md:max-w-[1024px] w-11/12 mx-auto">
+        <div className="md:max-w-[1024px] w-11/12 mx-auto my-8">
           <div className="flex items-start space-x-4">
             <div
               className={`grid items-center grid-cols-1 gap-4 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p duration-100`}
@@ -54,6 +46,7 @@ const ProductDisplay = ({ items }) => {
               {items && items.map((item) => <ProductTemplate key={item._id} item={item} />)}
             </div>
 
+            {/* Shopping Cart Icon */}
             <div className={`font-semibold duration-100 dark:hover:text-orange-100 hover:text-orange-700 sticky top-6`}>
               <i
                 className="text-2xl duration-100 ri-shopping-cart-2-line"
@@ -82,7 +75,7 @@ const ProductDisplay = ({ items }) => {
                         {cartItems &&
                           cartItems.map((item, idx) => (
                             <div
-                              className="p-2 duration-100 border border-orange-300 border-opacity-20 rounded-md shadow-md hover:shadow-lg"
+                              className="p-2 duration-100 border border-orange-300 rounded-md shadow-md border-opacity-20 hover:shadow-lg"
                               key={idx}
                             >
                               <div className="flex items-center justify-between space-x-3">

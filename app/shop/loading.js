@@ -1,4 +1,3 @@
-import LoadingIcon from "@/partials/LoadingIcon";
 import DefaultWrapper from "../DefaultWrapper";
 import "./styles/loading.css";
 
@@ -7,8 +6,16 @@ const ShopLoading = () => {
   return (
     <>
       <DefaultWrapper>
-        <div className="md:max-w-[1024px] w-11/12 mx-auto">
-          <div className="grid items-center grid-cols-1 gap-8 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p">
+        <div className="md:max-w-[1488px] w-11/12 mx-auto">
+          <div className="flex items-center p-2 space-x-4 overflow-y-auto scroll-smooth horizontal-cat">
+            {["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""].map((item, idx) => (
+              <div key={idx}>
+                <div className="px-3 w-20 h-6 py-1 rounded-lg skeleton text-sm duration-200 dark:hover:bg-[#2d2d2d] dark:bg-[#212121] bg-white hover:bg-[#f6f6f6]"></div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid items-center grid-cols-1 gap-8 my-6 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p">
             {loadingElementCount.map((element) => (
               <div className="p-4 space-y-4 bg-white rounded-lg dark:bg-[#212121]" key={element}>
                 <div className="grid items-center gap-4" style={{ gridTemplateColumns: "1fr 4fr" }}>

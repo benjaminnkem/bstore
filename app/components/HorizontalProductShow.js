@@ -43,7 +43,7 @@ const HorizontalProductShow = ({ products }) => {
         </div>
 
         {/* Right arrow */}
-        <div className="absolute -right-4 top-1/2">
+        <div className="absolute -right-2 top-1/2">
           <i
             className="z-20 text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl ri-arrow-right-circle-fill hover:opacity-75 dark:text-gray-300"
             onClick={slideRight}

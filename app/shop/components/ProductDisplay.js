@@ -39,10 +39,10 @@ const ProductDisplay = ({ items }) => {
 
         <main>
           <div
-            className="grid gap-4 md:max-w-[1488px] w-11/12 mx-auto my-8"
+            className="sm:grid gap-4 md:max-w-[1488px] w-11/12 mx-auto my-8"
             style={{ gridTemplateColumns: "1.5fr 5fr" }}
           >
-            <div className="sticky self-start p-2 overflow-hidden bg-white rounded-lg shadow-lg top-4">
+            <div className="sm:sticky self-start p-2 overflow-hidden mb-4 sm:mb-0 bg-white dark:bg-[#212121] duration-200 rounded-lg shadow-lg top-4">
               <h2 className="text-xl font-semibold">Categories</h2>
 
               <div className="flex flex-wrap mt-2 space-x-2">
@@ -73,7 +73,7 @@ const ProductDisplay = ({ items }) => {
                 ].map((cat, id) => (
                   <button
                     key={id}
-                    className="px-3 py-1 my-2 text-xs font-semibold text-black border border-orange-500 rounded-lg bg-orange-50"
+                    className="px-3 py-1 my-2 sm:text-xs text-[.5rem] font-semibold text-black duration-200 border border-orange-500 rounded-lg bg-orange-50 dark:bg-transparent dark:text-white"
                   >
                     {cat ? cat : "Tag"}
                   </button>

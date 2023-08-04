@@ -27,7 +27,7 @@ const Navbar = () => {
               <ul className="items-center hidden py-4 space-x-2 select-none sm:flex">
                 <Link passHref href={"/"}>
                   <li
-                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
+                    className={`relative font-semibold duration-300 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
                       pathname === "/" && "text-orange-400"
                     }`}
                   >
@@ -36,7 +36,7 @@ const Navbar = () => {
                 </Link>
                 <Link passHref href={"/shop"}>
                   <li
-                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
+                    className={`relative font-semibold duration-300 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
                       pathname === "/shop" && "text-orange-400"
                     }`}
                   >
@@ -45,7 +45,7 @@ const Navbar = () => {
                 </Link>
                 <Link passHref href={"/about"}>
                   <li
-                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
+                    className={`relative font-semibold duration-300 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
                       pathname === "/about" && "text-orange-400"
                     }`}
                   >
@@ -54,7 +54,7 @@ const Navbar = () => {
                 </Link>
                 <Link passHref href={"/contact"}>
                   <li
-                    className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
+                    className={`relative font-semibold duration-300 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
                       pathname === "/contact" && "text-orange-400"
                     }`}
                   >
@@ -76,7 +76,7 @@ const Navbar = () => {
                       passHref
                       title={`${status === "authenticated" ? "Go to dashboard" : "Login"}`}
                     >
-                      <div className="grid w-8 h-8 duration-200 bg-gray-300 border border-gray-300 border-opacity-25 rounded-full cursor-pointer dark:bg-black bg-opacity-40 place-content-center">
+                      <div className="grid w-8 h-8 duration-300 bg-gray-300 border border-gray-300 border-opacity-25 rounded-full cursor-pointer dark:bg-black bg-opacity-40 place-content-center">
                         <i className="ri-user-5-fill"></i>
                       </div>
                     </Link>

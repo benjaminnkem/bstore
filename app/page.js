@@ -62,7 +62,10 @@ const Home = async () => {
               <h2 className="my-8 text-2xl font-extrabold md:text-3xl lg:text-4xl tp-text">Top Products</h2>
               <div className="first-showcase">
                 {products.map((product) => (
-                  <div key={product._id} className="max-h-[36rem] overflow-hidden rounded-md text-white relative duration-300">
+                  <div
+                    key={product._id}
+                    className="max-h-[36rem] overflow-hidden rounded-md text-white relative duration-300"
+                  >
                     <Link href={"#"} passHref>
                       <Image
                         src={product.images[0]}
@@ -71,7 +74,6 @@ const Home = async () => {
                         height={800}
                         className="object-cover h-full rounded-md aspect-square"
                       />
-
                       <div className="absolute top-0 left-0 w-full h-full p-2 duration-300 ease-in-out bg-black bg-opacity-0 group hover:bg-opacity-20">
                         <div className="relative w-full h-full duration-300 group-hover:scale-95">
                           <p className="text-base font-bold left-2 top-2 md:text-lg product-text">{product.itemName}</p>

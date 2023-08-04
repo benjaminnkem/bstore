@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 import DefaultWrapper from "../DefaultWrapper";
 import ProductDisplay from "./components/ProductDisplay";
+import GlobalCartItemsProvider from "../context/GlobalCartItems";
 
 async function getShopItems() {
   try {
@@ -24,7 +25,9 @@ const Shop = async () => {
     <>
       <DefaultWrapper>
         <div className="my-10">
-          <ProductDisplay items={items} />
+          <GlobalCartItemsProvider>
+            <ProductDisplay items={items} />
+          </GlobalCartItemsProvider>
         </div>
       </DefaultWrapper>
     </>

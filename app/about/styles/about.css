@@ -29,4 +29,7 @@ header {
   .bstore {
     font-size: 3rem;
   }
+  header {
+    background-attachment: scroll;
+  }
 }

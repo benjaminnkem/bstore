@@ -53,14 +53,7 @@ const AddToCartButtonAction = ({
             onClick={(e) => {
               changeTextAfterAction(e);
               if (itemQuantity > 0)
-                addItemToCart({
-                  id: item.id,
-                  name: item.name,
-                  description: item.description,
-                  image_url: item.image_url,
-                  price: item.price,
-                  quantity: itemQuantity,
-                });
+                addItemToCart(item);
               calculateTotalCosts();
               setItemQuantity(0);
             }}

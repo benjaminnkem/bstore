@@ -10,12 +10,13 @@ const AddToCartButtonAction = ({
   changeItemQuantityManually,
 }) => {
   const { addItemToCart, calculateTotalCosts } = useContext(ShopContext);
-  function changeTextAfterAction(e) {
+  
+  const changeTextAfterAction = (e) => {
     const element = e.target;
     if (itemQuantity > 0) {
-      element.textContent = "Added to cart ✅";
+      element.innerText = "Added to cart ✅";
     } else {
-      element.textContent = "Enter Quantity ☝";
+      element.innerText = "Enter Quantity ☝";
     }
     setTimeout(() => {
       element.innerHTML = 'Add to cart <i className="ri-shopping-bag-line">';
@@ -53,7 +54,15 @@ const AddToCartButtonAction = ({
             onClick={(e) => {
               changeTextAfterAction(e);
               if (itemQuantity > 0)
-                addItemToCart(item);
+                addItemToCart({
+                  _id: item._id,
+                  itemName: item.itemName,
+                  price: item.price,
+                  quantity: itemQuantity,
+                  images: item.images,
+                  description: item.description,
+                  date_posted: item.date_posted,
+                });
               calculateTotalCosts();
               setItemQuantity(0);
             }}

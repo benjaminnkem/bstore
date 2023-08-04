@@ -114,7 +114,7 @@ const Navbar = () => {
           {/* Side Menu panel */}
           <div
             className={`fixed top-0 right-0 h-full bg-black bg-opacity-80 z-[100] duration-500 overflow-hidden md:hidden block ${
-              mobileMenuOpen ? "w-full" : "w-[.5px]"
+              mobileMenuOpen ? "w-full" : "w-[.05px]"
             }`}
           >
             <div className="grid w-full h-full p-6 place-content-center">

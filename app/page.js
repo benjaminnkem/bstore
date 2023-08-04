@@ -8,7 +8,7 @@ import HorizontalProductShow from "@/components/HorizontalProductShow";
 const getInitialProducts = async () => {
   const host = headers().get("host");
   const protocol = process?.env.NODE_ENV === "development" ? "http" : "https";
-  const response = await fetch(`${protocol}://${host}/api/initialproducts`, { next: { revalidate: 300 } });
+  const response = await fetch(`${protocol}://${host}/api/initialproducts`, { next: { revalidate: 60 } });
   return response.json();
 };
 

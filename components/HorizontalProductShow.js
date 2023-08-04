@@ -16,7 +16,7 @@ const HorizontalProductShow = ({ products }) => {
         {/* Left arrow */}
         <div className="absolute left-0 top-1/2">
           <i
-            className="text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl z-20 ri-arrow-left-circle-fill hover:opacity-75 dark:text-gray-100"
+            className="text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl z-20 ri-arrow-left-circle-fill hover:opacity-75 dark:text-gray-300"
             onClick={slideLeft}
           ></i>
         </div>
@@ -25,7 +25,7 @@ const HorizontalProductShow = ({ products }) => {
         <div
           id="slider"
           ref={slider}
-          className="w-full h-full px-2 py-4 space-x-8 -z-10 overflow-x-scroll scroll whitespace-nowrap scroll-smooth"
+          className="w-full h-full px-2 py-4 space-x-8 -z-10 overflow-x-scroll overflow-y-auto scroll whitespace-nowrap scroll-smooth"
         >
           {products
             .sort((pA, pB) => (pB.date_posted > pA.date_posted ? -1 : 1))
@@ -48,9 +48,9 @@ const HorizontalProductShow = ({ products }) => {
         </div>
 
         {/* Right arrow */}
-        <div className="absolute right-0 top-1/2">
+        <div className="absolute -right-4 top-1/2">
           <i
-            className="text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl z-20 ri-arrow-right-circle-fill hover:opacity-75 dark:text-gray-100"
+            className="text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl z-20 ri-arrow-right-circle-fill hover:opacity-75 dark:text-gray-300"
             onClick={slideRight}
           ></i>
         </div>

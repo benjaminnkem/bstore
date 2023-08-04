@@ -7,11 +7,18 @@ import { GlobalCartItemContext } from "@/app/context/GlobalCartItems";
 export const ShopContext = createContext();
 
 const ProductDisplay = ({ items }) => {
-  const [sideCartItemDisplay, setSideCartItemDisplay] = useState(false);
-  const [totalItemsCost, setTotalItemsCost] = useState(0);
-  const { cartItems, setCartItems, updateCartItems, removeCartItem } = useContext(GlobalCartItemContext);
+  const {
+    cartItems,
+    setCartItems,
+    updateCartItems,
+    removeCartItem,
+    calculateTotalCosts,
+    totalItemsCost,
+    sideCartItemDisplay,
+    setSideCartItemDisplay,
+  } = useContext(GlobalCartItemContext);
 
-  function toggleSideCartView() {
+  const toggleSideCartView = () => {
     if (!sideCartItemDisplay) {
       setSideCartItemDisplay(true);
     } else {
@@ -19,31 +26,7 @@ const ProductDisplay = ({ items }) => {
     }
   }
 
-  function addItemToCart(item) {
-    // function sortAllSelectedItems() {
-    //   cartItems.sort((a, b) => {
-    //     if (a.id > b.id) return 1;
-    //     return -1;
-    //   });
-    // }
-
-    // const itemExists = cartItems.find((itemCheck) => itemCheck.id === item.id);
-    // if (itemExists) {
-    //   toggleSideCartView();
-    //   return;
-    // }
-
-    // Adding the items to the list
-    updateCartItems(item);
-    // sortAllSelectedItems();
-  }
-
-  function calculateTotalCosts() {
-    if (cartItems.length === 0) return;
-    const totalCost = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-    setTotalItemsCost(totalCost);
-  }
-
+  const addItemToCart = (item) => updateCartItems(item)
   useEffect(() => calculateTotalCosts(), []);
 
   const contextValue = {
@@ -63,7 +46,6 @@ const ProductDisplay = ({ items }) => {
           onClick={toggleSideCartView}
         ></div>
 
-        {/* Mains */}
         <div className="md:max-w-[1024px] w-11/12 mx-auto">
           <div className="flex items-start space-x-4">
             <div
@@ -73,7 +55,6 @@ const ProductDisplay = ({ items }) => {
               {items && items.map((item) => <ProductTemplate key={item._id} item={item} />)}
             </div>
 
-            {/* Shopping cart icon */}
             <div className={`font-semibold duration-100 dark:hover:text-orange-100 hover:text-orange-700 sticky top-6`}>
               <i
                 className="text-2xl duration-100 ri-shopping-cart-2-line"
@@ -97,7 +78,7 @@ const ProductDisplay = ({ items }) => {
                       <p className="text-2xl font-semibold text-center">Selected Items</p>
                     </div>
 
-                    <div className="p-2">
+                    <div className="px-2 py-5">
                       <div className="space-y-2">
                         {cartItems &&
                           cartItems.map((item, idx) => (
@@ -168,7 +149,7 @@ const ProductDisplay = ({ items }) => {
                       </div>
 
                       <div className="mt-4 text-center">
-                        <span className="py-2 border-b-2 border-orange-200 cursor-pointer" onClick={toggleSideCartView}>
+                        <span className="py-1 border-b-2 border-orange-200 cursor-pointer" onClick={toggleSideCartView}>
                           Close Panel
                         </span>
                       </div>

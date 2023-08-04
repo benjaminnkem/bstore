@@ -73,15 +73,6 @@
   display: none;
 }
 
-#slider::-moz-scrollbar {
-  display: none;
-}
-
-#slider::scrollbar {
-  display: none;
-}
-
-
 @media screen and (max-width: 1024px) {
   .first-showcase {
     grid-template-rows: repeat(3, 200px);

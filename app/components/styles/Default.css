@@ -86,6 +86,15 @@ body {
   display: none;
 }
 
+#slider::-moz-scrollbar {
+  display: none;
+}
+
+#slider::-webkit-scrollbar-thumb {
+  height: 0;
+  width: 0;
+}
+
 @media screen and (max-width: 1024px) {
   .first-showcase {
     grid-template-rows: repeat(3, 200px);

@@ -43,7 +43,7 @@ const About = () => {
                   <div className="mt-3">
                     <h3 className="text-lg font-semibold">Response Time</h3>
                     <p>
-                      <span className="font-bold text-orange-800">@Bstore</span> Our upmost priority is response time,
+                      <span className="font-bold text-orange-500">@Bstore</span> Our upmost priority is response time,
                       we make sure no ones has any questions left unanswered
                     </p>
                   </div>

@@ -10,8 +10,11 @@ export async function GET(req, res) {
     const db = client.db("bstore");
     const products = db.collection("products");
     const query = {};
-    
-    const results = await products.find(query).toArray();
+
+    const results = await products
+      .find(query)
+      .project({ _id: 1, itemName: 1, images: 1, price: 1, description: 1 })
+      .toArray();
 
     return NextResponse.json(results);
   } catch (e) {

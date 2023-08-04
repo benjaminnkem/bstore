@@ -1,22 +1,24 @@
-"use client";
+import { headers } from "next/headers";
 import DefaultWrapper from "../DefaultWrapper";
 import ProductDisplay from "./components/ProductDisplay";
 
-const Shop = async () => {
-  async function getItems() {
-    try {
-      const response = await fetch(`/api/test-shop`);
-      if (!response.ok) {
-        throw new Error("Failed to fetch items");
-      }
-
-      return await response.json();
-    } catch (e) {
-      console.log(e);
+async function getShopItems() {
+  try {
+    const host = headers().get("host");
+    const protocol = process?.env.NODE_ENV === "development" ? "http://" : "https://";
+    const response = await fetch(`${protocol}${host}/api/test-shop`, { next: { revalidate: 3600 } });
+    if (!response.ok) {
+      throw new Error("Failed to fetch items");
     }
-  }
 
-  const items = await getItems();
+    return await response.json();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+const Shop = async () => {
+  const items = await getShopItems();
 
   return (
     <>

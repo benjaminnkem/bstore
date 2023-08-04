@@ -62,7 +62,7 @@ const Home = async () => {
               <h2 className="my-8 md:text-3xl text-2xl font-extrabold lg:text-4xl tp-text">Top Products</h2>
               <div className="first-showcase">
                 {products.map((product) => (
-                  <div key={product.id} className="max-h-[36rem] overflow-hidden rounded-md relative duration-300">
+                  <div key={product._id} className="max-h-[36rem] overflow-hidden rounded-md relative duration-300">
                     <Link href={"#"} passHref>
                       <Image
                         src={product.images[0]}

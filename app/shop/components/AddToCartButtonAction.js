@@ -1,15 +1,15 @@
-"use client";
+import { useContext } from "react";
+import { ShopContext } from "./ProductDisplay";
 
 const AddToCartButtonAction = ({
   item,
-  addItemToCart,
   itemQuantity,
   incrementQuantity,
   decrementQuantity,
   setItemQuantity,
   changeItemQuantityManually,
-  calculateTotalCosts,
 }) => {
+  const { addItemToCart, calculateTotalCosts } = useContext(ShopContext);
   function changeTextAfterAction(e) {
     const element = e.target;
     if (itemQuantity > 0) {

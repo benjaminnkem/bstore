@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`z-50 shadow-sm ${pathname === "/" && "text-white"}`}>
+      <div className={`z-50 shadow-sm ${pathname === "/" ? "text-white bg-transparent" : "bg-white dark:bg-transparent"}`}>
         <div className="md:max-w-[1488px] w-11/12 mx-auto">
           <div className="flex items-center justify-between">
             <div>
@@ -76,7 +76,7 @@ const Navbar = () => {
                       passHref
                       title={`${status === "authenticated" ? "Go to dashboard" : "Login"}`}
                     >
-                      <div className="grid w-8 h-8 duration-200 bg-black border border-gray-300 border-opacity-25 rounded-full cursor-pointer bg-opacity-40 place-content-center">
+                      <div className="grid w-8 h-8 duration-200 dark:bg-black bg-gray-300 border border-gray-300 border-opacity-25 rounded-full cursor-pointer bg-opacity-40 place-content-center">
                         <i className="ri-user-5-fill"></i>
                       </div>
                     </Link>

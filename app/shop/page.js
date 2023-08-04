@@ -12,7 +12,7 @@ async function getShopItems() {
       throw new Error("Failed to fetch items");
     }
 
-    return await response.json();
+    return response.json();
   } catch (e) {
     console.log(e);
   }

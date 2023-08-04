@@ -12,11 +12,11 @@ const About = () => {
         <DefaultWrapper>
           <header className="min-h-[34rem] flex items-center -mt-[5rem]">
             <div className="md:max-w-[1488px] w-11/12 mx-auto mt-[2.5rem]">
-              <div className="space-y-4">
-                <h1 className="md:text-5xl sm:text-4xl text-3xl duration-200 font-extrabold inline-block bstore">
+              <div className="space-y-4 text-white">
+                <h1 className="inline-block text-3xl font-extrabold duration-200 md:text-5xl sm:text-4xl bstore">
                   Bstore: Your Store
                 </h1>
-                <p className="text-shadow max-w-3xl text-lg">
+                <p className="max-w-3xl text-lg text-shadow">
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas ratione nihil, voluptatem nam quae
                   esse sint consequuntur debitis cum optio ea pariatur nostrum dolor culpa tempore harum impedit, velit
                   ad?
@@ -27,9 +27,9 @@ const About = () => {
 
           <main>
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <div className="-mt-8 mb-16">
+              <div className="mb-16 -mt-8">
                 <div className="flex flex-wrap justify-evenly">
-                  <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-300 bg-orange-100 shadow-md cursor-default hover:-translate-y-3 ease-in-out rounded-2xl dark:bg-[#272727] place-content-center hover:shadow-2xl">
+                  <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-300 bg-white shadow-md cursor-default hover:-translate-y-3 ease-in-out rounded-2xl dark:bg-[#272727] place-content-center hover:shadow-2xl">
                     <i className="text-5xl text-orange-400 ri-time-line"></i>
                     <div className="mt-3">
                       <h3 className="text-lg font-semibold">Active 24/7</h3>
@@ -39,7 +39,7 @@ const About = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-300 bg-orange-100 shadow-md cursor-default hover:-translate-y-3 ease-in-out rounded-2xl dark:bg-[#272727] place-content-center hover:shadow-2xl">
+                  <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-300 bg-white shadow-md cursor-default hover:-translate-y-3 ease-in-out rounded-2xl dark:bg-[#272727] place-content-center hover:shadow-2xl">
                     <i className="text-5xl text-red-400 ri-phone-fill"></i>
                     <div className="mt-3">
                       <h3 className="text-lg font-semibold">Response Time</h3>
@@ -49,7 +49,7 @@ const About = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-300 bg-orange-100 shadow-md cursor-default hover:-translate-y-3 ease-in-out rounded-2xl dark:bg-[#272727] place-content-center hover:shadow-2xl">
+                  <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-300 bg-white shadow-md cursor-default hover:-translate-y-3 ease-in-out rounded-2xl dark:bg-[#272727] place-content-center hover:shadow-2xl">
                     <i className="text-5xl text-orange-400 ri-shopping-cart-2-line"></i>
                     <div className="mt-3">
                       <h3 className="text-lg font-semibold">Shipping</h3>

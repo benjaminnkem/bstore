@@ -9,7 +9,6 @@ export const ShopContext = createContext();
 const ProductDisplay = ({ items }) => {
   const {
     cartItems,
-    setCartItems,
     updateCartItems,
     removeCartItem,
     calculateTotalCosts,

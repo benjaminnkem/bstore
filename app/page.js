@@ -52,17 +52,17 @@ const Home = async () => {
         <main className="py-12">
           <section className="my-24">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <h2 className="my-8 md:text-3xl text-2xl font-extrabold lg:text-4xl tp-text">Recommended For You</h2>
+              <h2 className="my-8 text-2xl font-extrabold md:text-3xl lg:text-4xl tp-text">Recommended For You</h2>
               <HorizontalProductShow products={products} />
             </div>
           </section>
 
           <section className="my-24">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <h2 className="my-8 md:text-3xl text-2xl font-extrabold lg:text-4xl tp-text">Top Products</h2>
+              <h2 className="my-8 text-2xl font-extrabold md:text-3xl lg:text-4xl tp-text">Top Products</h2>
               <div className="first-showcase">
                 {products.map((product) => (
-                  <div key={product._id} className="max-h-[36rem] overflow-hidden rounded-md relative duration-300">
+                  <div key={product._id} className="max-h-[36rem] overflow-hidden rounded-md text-white relative duration-300">
                     <Link href={"#"} passHref>
                       <Image
                         src={product.images[0]}

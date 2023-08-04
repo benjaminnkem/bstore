@@ -49,7 +49,6 @@ const GlobalCartItemsProvider = ({ children }) => {
 
   const cartContext = {
     cartItems,
-    setCartItems,
     updateCartItems,
     removeCartItem,
     calculateTotalCosts,

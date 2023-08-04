@@ -3,7 +3,7 @@ import DefaultWrapper from "./DefaultWrapper";
 import "./components/styles/Default.css";
 import Link from "next/link";
 import { headers } from "next/headers";
-import HorizontalProductShow from "@/components/HorizontalProductShow";
+import HorizontalProductShow from "@/app/components/HorizontalProductShow";
 
 const getInitialProducts = async () => {
   const host = headers().get("host");

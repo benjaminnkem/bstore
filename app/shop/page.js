@@ -2,6 +2,8 @@ import { headers } from "next/headers";
 import DefaultWrapper from "../DefaultWrapper";
 import ProductDisplay from "./components/ProductDisplay";
 import GlobalCartItemsProvider from "../context/GlobalCartItems";
+import HorizontalCategory from "./components/HorizontalCategory";
+import "./styles/shop.css";
 
 async function getShopItems() {
   try {
@@ -24,11 +26,12 @@ const Shop = async () => {
   return (
     <>
       <DefaultWrapper>
-        <div className="my-10">
-          <GlobalCartItemsProvider>
+        <GlobalCartItemsProvider>
+          <HorizontalCategory />
+          <div className="my-10">
             <ProductDisplay items={items} />
-          </GlobalCartItemsProvider>
-        </div>
+          </div>
+        </GlobalCartItemsProvider>
       </DefaultWrapper>
     </>
   );

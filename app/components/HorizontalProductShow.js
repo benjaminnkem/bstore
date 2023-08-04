@@ -1,14 +1,10 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import useCustomSlider from "../hooks/useCustomSlider";
 
 const HorizontalProductShow = ({ products }) => {
-  const slider = useRef();
-  useEffect(() => console.log(products), [])
-
-  const slideLeft = () => (slider.current.scrollLeft -= 500);
-  const slideRight = () => (slider.current.scrollLeft += 500);
+  const { slider, slideLeft, slideRight } = useCustomSlider(1000);
 
   return (
     <>
@@ -16,16 +12,15 @@ const HorizontalProductShow = ({ products }) => {
         {/* Left arrow */}
         <div className="absolute left-0 top-1/2">
           <i
-            className="text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl z-20 ri-arrow-left-circle-fill hover:opacity-75 dark:text-gray-300"
+            className="z-20 text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl ri-arrow-left-circle-fill hover:opacity-75 dark:text-gray-300"
             onClick={slideLeft}
           ></i>
         </div>
 
         {/* Slider */}
         <div
-          id="slider"
           ref={slider}
-          className="w-full h-full px-2 py-4 space-x-8 -z-10 overflow-x-scroll overflow-y-auto scroll whitespace-nowrap scroll-smooth"
+          className="w-full h-full px-2 py-4 space-x-8 overflow-x-scroll overflow-y-auto -z-10 scroll whitespace-nowrap scroll-smooth slider"
         >
           {products
             .sort((pA, pB) => (pB.date_posted > pA.date_posted ? -1 : 1))
@@ -50,7 +45,7 @@ const HorizontalProductShow = ({ products }) => {
         {/* Right arrow */}
         <div className="absolute -right-4 top-1/2">
           <i
-            className="text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl z-20 ri-arrow-right-circle-fill hover:opacity-75 dark:text-gray-300"
+            className="z-20 text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl ri-arrow-right-circle-fill hover:opacity-75 dark:text-gray-300"
             onClick={slideRight}
           ></i>
         </div>

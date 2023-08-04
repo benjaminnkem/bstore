@@ -1,7 +1,6 @@
 import { headers } from "next/headers";
 import DefaultWrapper from "../DefaultWrapper";
 import ProductDisplay from "./components/ProductDisplay";
-import GlobalCartItemsProvider from "../context/GlobalCartItems";
 import HorizontalCategory from "./components/HorizontalCategory";
 import "./styles/shop.css";
 
@@ -26,7 +25,9 @@ const Shop = async () => {
   return (
     <>
       <DefaultWrapper>
-        <HorizontalCategory />
+        <header>
+          <HorizontalCategory />
+        </header>
         <ProductDisplay items={items} />
       </DefaultWrapper>
     </>

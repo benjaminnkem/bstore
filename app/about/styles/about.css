@@ -1,6 +1,14 @@
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
 header {
   background: url("/images/bg/about-bg.jpg") no-repeat top;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .bstore {
@@ -9,4 +17,16 @@ header {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 368px) {
+  .bstore {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bstore {
+    font-size: 3rem;
+  }
 }

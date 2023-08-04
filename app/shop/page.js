@@ -6,7 +6,7 @@ async function getShopItems() {
   try {
     const host = headers().get("host");
     const protocol = process?.env.NODE_ENV === "development" ? "http://" : "https://";
-    const response = await fetch(`${protocol}${host}/api/test-shop`, { next: { revalidate: 3600 } });
+    const response = await fetch(`${protocol}${host}/api/initialproducts`, { next: { revalidate: 60 } });
     if (!response.ok) {
       throw new Error("Failed to fetch items");
     }

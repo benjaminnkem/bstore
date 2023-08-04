@@ -1,16 +1,3 @@
-/* html {
-  overflow: hidden;
-} 
-
-body {
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  transform-style: preserve-3d;
-  perspective: 10px;
-} */
-
 #header-con {
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
@@ -90,10 +77,10 @@ body {
   display: none;
 }
 
-#slider::-webkit-scrollbar-thumb {
-  height: 0;
-  width: 0;
+#slider::scrollbar {
+  display: none;
 }
+
 
 @media screen and (max-width: 1024px) {
   .first-showcase {

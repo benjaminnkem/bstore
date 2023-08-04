@@ -86,7 +86,7 @@ const ProductDisplay = ({ items }) => {
               className={`grid items-center grid-cols-1 gap-4 mb-3 sm:grid-cols-2 md:grid-cols-3 justify-evenly def-p duration-100`}
             >
               {/* Product Template */}
-              {items && items.map((item) => <ProductTemplate key={item.id} item={item} />)}
+              {items && items.map((item) => <ProductTemplate key={item._id} item={item} />)}
             </div>
 
             {/* Shopping cart icon */}

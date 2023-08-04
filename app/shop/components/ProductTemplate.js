@@ -1,7 +1,6 @@
 import Image from "next/image";
 import AddToCartButtonAction from "./AddToCartButtonAction";
-import { useContext, useState } from "react";
-import { ShopContext } from "./ProductDisplay";
+import { useEffect, useState } from "react";
 
 const ProductTemplate = ({ item }) => {
   const [itemQuantity, setItemQuantity] = useState(0);

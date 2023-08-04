@@ -1,0 +1,12 @@
+header {
+  background: url("/images/bg/about-bg.jpg") no-repeat top;
+  background-size: cover;
+}
+
+.bstore {
+  font-size: 5rem;
+  background: -webkit-linear-gradient(left, rgb(246, 187, 246), rgb(138, 224, 239), rgb(234, 122, 32));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

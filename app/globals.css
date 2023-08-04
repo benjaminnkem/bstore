@@ -21,7 +21,7 @@ html {
 body {
   color: var(--foreground-rgb);
   background: var(--background-rgb);
-  transition: color .8s, background-color 0.5s;
+  transition: color 0.8s, background-color 0.5s;
 }
 
 ::-webkit-scrollbar {
@@ -40,6 +40,26 @@ body {
 /* Custom */
 .cust-alert {
   animation: show-alert 4s ease-in-out;
+}
+
+.text-shadow {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.688);
+}
+
+.cart-ico::after {
+  content: "3";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -4px;
+  right: -9px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f97316;
+  font-weight: 800;
+  font-size: 0.6rem;
 }
 
 @keyframes show-alert {

@@ -20,7 +20,7 @@ const HorizontalProductShow = ({ products }) => {
           ></i>
         </div>
 
-        {/* Slider */}
+        {/* Slider */} 
         <div
           id="slider"
           ref={slider}
@@ -30,7 +30,7 @@ const HorizontalProductShow = ({ products }) => {
             .sort((pA, pB) => (pB.date_posted > pA.date_posted ? -1 : 1))
             .map((product) => (
               <Link href={"#"} passHref key={product.id}>
-                <div className="relative inline-block duration-300 ease-in-out border-4 rounded-lg shadow-md w-80 h-80 hover:scale-105">
+                <div className="relative inline-block duration-300 ease-in-out border-4 rounded-lg shadow-md w-80 h-80 hover:scale-105" title={product.itemName}>
                   <Image
                     src={product.images[0]}
                     alt="Some Image"

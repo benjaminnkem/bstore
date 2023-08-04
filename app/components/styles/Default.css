@@ -11,12 +11,12 @@ body {
   perspective: 10px;
 } */
 
-header {
+#header-con {
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
 }
 
-header::before {
+#header-con::before {
   content: "";
   position: absolute;
   width: 100%;

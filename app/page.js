@@ -19,10 +19,10 @@ const Home = async () => {
     <>
       <DefaultWrapper>
         <header className="relative w-full -mt-20 overflow-hidden -z-10" id="header-con">
-          <div className="w-full min-h-[30rem] flex justify-center items-center">
+          <div className="w-full min-h-[36rem] flex justify-center items-center">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
               <div className="flex items-center text-white">
-                <div className="mt-[75px]">
+                <div className="mt-10">
                   <div>
                     <h1 className="text-3xl font-extrabold duration-200 lg:text-6xl md:text-5xl">
                       Happy Shopping (<span className="cursor-pointer hover:scale-150">😊</span>)
@@ -52,14 +52,14 @@ const Home = async () => {
         <main className="py-12">
           <section className="my-24">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <h2 className="my-8 text-3xl font-extrabold lg:text-4xl tp-text">Top Categories</h2>
-              <HorizontalProductShow products={products}/>
+              <h2 className="my-8 md:text-3xl text-2xl font-extrabold lg:text-4xl tp-text">Recommended For You</h2>
+              <HorizontalProductShow products={products} />
             </div>
           </section>
 
           <section className="my-24">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
-              <h2 className="my-8 text-3xl font-extrabold lg:text-4xl tp-text">Top Products</h2>
+              <h2 className="my-8 md:text-3xl text-2xl font-extrabold lg:text-4xl tp-text">Top Products</h2>
               <div className="first-showcase">
                 {products.map((product) => (
                   <div key={product.id} className="max-h-[36rem] overflow-hidden rounded-md relative duration-300">

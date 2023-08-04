@@ -12,10 +12,10 @@ const GlobalCartItemsProvider = ({ children }) => {
       : setCartItems([]);
   }, []);
 
+  useEffect(() => localStorage.setItem("cartItems", JSON.stringify(cartItems)), [cartItems]);
+
   const updateCartItems = (item) => {
     setCartItems((prev) => [...prev, item]);
-    console.log(cartItems);
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
 
   const removeCartItem = (item) => {
@@ -24,7 +24,6 @@ const GlobalCartItemsProvider = ({ children }) => {
 
     const updatedItems = cartItems.filter((item) => item._id != cartItems[itemIndex]._id);
     setCartItems(updatedItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedItems));
   };
 
   const cartContext = {

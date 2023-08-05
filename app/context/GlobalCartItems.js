@@ -15,6 +15,7 @@ const GlobalCartItemsProvider = ({ children }) => {
   }, []);
 
   useEffect(() => localStorage.setItem("cartItems", JSON.stringify(cartItems)), [cartItems]);
+  useEffect(() => calculateTotalCosts(), [cartItems]);
 
   const toggleSideCartView = () => setSideCartItemDisplay(!sideCartItemDisplay);
 
@@ -26,6 +27,7 @@ const GlobalCartItemsProvider = ({ children }) => {
     }
 
     setCartItems((prev) => [...prev, item]);
+    calculateTotalCosts();
   };
 
   const removeCartItem = (item) => {
@@ -33,6 +35,7 @@ const GlobalCartItemsProvider = ({ children }) => {
     if (itemIndex < 0) return;
     const updatedItems = cartItems.filter((item) => itemIndex !== cartItems.indexOf(item));
     setCartItems(updatedItems);
+    calculateTotalCosts();
   };
 
   function calculateTotalCosts() {

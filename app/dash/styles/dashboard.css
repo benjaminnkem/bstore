@@ -43,14 +43,6 @@ body {
   background: var(--base-background-lightish-color);
 }
 
-.sidebar-links {
-  padding: 0.5rem 0.8rem;
-  transition: all 0.5s;
-  border-radius: 0.5rem;
-  display: flex;
-  margin: 0.5rem 0;
-  cursor: pointer;
-}
 
 .dash-nav {
   background: var(--base-background-lightish-2-color);
@@ -58,10 +50,6 @@ body {
 
 .link-container p {
   margin-left: 2rem;
-}
-
-.sidebar-links:hover {
-  background: var(--base-background-lightish-2-color);
 }
 
 .dash-container {

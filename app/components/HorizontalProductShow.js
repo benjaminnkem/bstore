@@ -23,6 +23,7 @@ const HorizontalProductShow = ({ products }) => {
           className="w-full h-full px-2 py-4 space-x-8 overflow-x-scroll overflow-y-auto -z-10 scroll whitespace-nowrap scroll-smooth slider"
         >
           {products
+            .slice(0, 12)
             .sort((pA, pB) => (pB.date_posted > pA.date_posted ? -1 : 1))
             .map((product) => (
               <Link href={"#"} passHref key={product._id}>

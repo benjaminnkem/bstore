@@ -1,17 +1,12 @@
 "use client";
 import { DashMenuContext } from "@/app/context/DashboardMenu";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useContext, useState } from "react";
 
 const DashboardSidebar = () => {
-  const [username, setUsername] = useState("");
+  const pathname = usePathname();
   const { isMenuOpen, toggleMenu } = useContext(DashMenuContext);
-  const { data: session, status } = useSession();
-
-  useEffect(() => {
-    if (status === "authenticated") setUsername(session.user.name);
-  }, [session, status]);
 
   const links = [
     { name: "Dashboard", href: "/dash", icon: "ri-dashboard-2-fill" },
@@ -32,17 +27,18 @@ const DashboardSidebar = () => {
             <div className="flex justify-between items-center">
               <div></div>
               <div className="user-img"></div>
-              <i
-                className="ri-close-line text-2xl opacity-80 sm:hidden hover:cursor-pointer"
-                onClick={toggleMenu}
-              ></i>
+              <i className="ri-close-line text-2xl opacity-80 sm:hidden hover:cursor-pointer" onClick={toggleMenu}></i>
             </div>
           </div>
 
           <div className="link-container">
             {links.map((link, i) => (
               <Link href={link.href} key={i} passHref onClick={toggleMenu}>
-                <div className="sidebar-links">
+                <div
+                  className={`py-2 px-3 duration-500 flex my-2 cursor-pointer rounded-lg hover:bg-[#383946] ${
+                    pathname === link.href && "bg-[#383946]"
+                  }`}
+                >
                   <i className={link.icon}></i>
                   <p>{link.name}</p>
                 </div>

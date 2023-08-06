@@ -8,7 +8,7 @@ export async function GET(req) {
     { $match: {} },
     { $project: { _id: 1, itemName: 1, price: 1, images: 1, description: 1, date_posted: 1 } },
     { $sort: { date_posted: -1 } },
-    { $limit: 12 },
+    { $limit: 20 },
   ]);
 
   return NextResponse.json(showcaseProducts ? showcaseProducts : []);

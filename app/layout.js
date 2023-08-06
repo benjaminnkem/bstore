@@ -11,7 +11,7 @@ export const metadata = {
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "800", "100"],
+  weight: ["100", "300", "500", "800"],
 });
 
 export default function RootLayout({ children }) {

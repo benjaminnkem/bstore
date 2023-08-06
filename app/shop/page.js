@@ -4,6 +4,11 @@ import ProductDisplay from "./components/ProductDisplay";
 import HorizontalCategory from "./components/HorizontalCategory";
 import "./styles/shop.css";
 
+export const metadata = {
+  title: "Find or Search For Products - Bstore",
+  description: "Looking for a product? search, compare, rate any product here...",
+};
+
 async function getShopItems() {
   try {
     const host = headers().get("host");

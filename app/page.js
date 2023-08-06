@@ -8,6 +8,7 @@ import HorizontalProductShow from "@/app/components/HorizontalProductShow";
 const getInitialProducts = async () => {
   const host = headers().get("host");
   const protocol = process?.env.NODE_ENV === "development" ? "http" : "https";
+  
   const response = await fetch(`${protocol}://${host}/api/initialproducts`, { next: { revalidate: 60 } });
   return response.json();
 };
@@ -37,15 +38,6 @@ const Home = async () => {
                 </div>
               </div>
             </div>
-
-            {/* <div className="h-[150px] overflow-hidden">
-              <svg viewBox="0 0 500 149" preserveAspectRatio="none" className="w-full h-full">
-                <path
-                  d="M-6.71,123.95 C255.78,87.95 360.78,43.95 502.66,102.95 L500.00,149.99 L0.01,149.99 Z"
-                  className="stroke-none fill-[#F8FAFB] dark:fill-[#131313] duration-500"
-                ></path>
-              </svg>
-            </div> */}
           </div>
         </header>
 
@@ -66,7 +58,7 @@ const Home = async () => {
                     key={product._id}
                     className="max-h-[36rem] overflow-hidden rounded-md text-white relative duration-300"
                   >
-                    <Link href={"#"} passHref>
+                    <Link href={`/products/${product._id}`} passHref>
                       <Image
                         src={product.images[0]}
                         alt="Some Image"

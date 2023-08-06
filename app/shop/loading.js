@@ -50,7 +50,7 @@ const ShopLoading = () => {
                 ].map((cat, id) => (
                   <div
                     key={id}
-                    className="w-20 h-6 px-3 py-1 my-2 duration-200 border border-gray-500 rounded-lg skeleton"
+                    className="w-20 h-6 px-3 py-1 my-2 duration-200 rounded-lg skeleton"
                   >
                   </div>
                 ))}

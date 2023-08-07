@@ -5,7 +5,6 @@ import { DashCreateContext } from "../context/CreateContextProvider";
 import Image from "next/image";
 import axios from "axios";
 
-
 const ProductCreation = () => {
   const [errors, setErrors] = useState({});
   const [localImageUrl, seLocalImageUrl] = useState("/images/default/default-img.png");
@@ -19,7 +18,10 @@ const ProductCreation = () => {
     productImage: undefined,
   });
 
-  // Contexts
+  // For tag
+  const [tagList, setTagList] = useState([]);
+  const [tagInput, setTagInput] = useState("");
+
   const { curSelection } = useContext(DashCreateContext);
 
   const [alertShow, setAlertShow] = useState(false);
@@ -38,6 +40,17 @@ const ProductCreation = () => {
       setTimeout(() => setAlertShow(false), 4000);
     }
   }, [status.success, status.err]);
+
+  // Tag creation implementation
+  // useEffect(() => createTag(), [tagInput]);
+  const checkForTag = (e) => {
+    const curValue = e.target?.value.trim();
+    if (curValue === "" || curValue.indexOf(",") <= 1) return;
+
+    const taggyString = curValue.substring(0, curValue.indexOf(","));
+    setTagList((prev) => [...prev, taggyString]);
+    setTagInput("");
+  };
 
   const validateForm = () => {
     const errors = {};
@@ -186,15 +199,27 @@ const ProductCreation = () => {
                     <label htmlFor="tags" className="font-semibold text-[#b4b8d8]">
                       Tags (Optional: for SEO)
                     </label>
-                    <input
-                      type="text"
-                      name="tags"
-                      id="tags"
-                      placeholder="This will be used in tags for searches"
-                      className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-[#2a2b35] focus:border-[#444554] placeholder:text-[#5e6174]"
-                      value={formInput.tags}
-                      onChange={(e) => handleUpdateFormInput(e)}
-                    />
+                    <div className="border-[#2a2b35] flex space-x-1 items-center border rounded-md outline-none overflow-y-auto duration-200 focus-within:border-[#444554] bg-transparent p-2">
+                      <div className="flex space-x-1 items-center flex-shrink-0">
+                        {tagList.map((tag, id) => (
+                          <div key={id} className="px-2 py-1 rounded-md flex-shrink-0 bg-gray-500">
+                            {tag}
+                          </div>
+                        ))}
+                      </div>
+                      <input
+                        type="text"
+                        name="tags"
+                        id="tags"
+                        placeholder="Create tag..."
+                        className="w-full bg-transparent outline-none placeholder:text-[#5e6174]"
+                        value={tagInput}
+                        onChange={(e) => {
+                          setTagInput(e.target.value);
+                          checkForTag(e);
+                        }}
+                      />
+                    </div>
                   </div>
                   {errors.otherName && (
                     <p className="text-xs font-bold text-red-500 text-opacity-75">{errors.otherName}</p>

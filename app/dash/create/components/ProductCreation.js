@@ -4,8 +4,7 @@ import CustAlert from "@/components/Alert";
 import { DashCreateContext } from "../context/CreateContextProvider";
 import Image from "next/image";
 import axios from "axios";
-import connectToDB from "@/utils/db";
-import ProductsCreateSchema from "@/utils/schemas/ProductsCreateSchema";
+
 
 const ProductCreation = () => {
   const [errors, setErrors] = useState({});
@@ -184,16 +183,16 @@ const ProductCreation = () => {
 
                 <div>
                   <div className="space-y-1">
-                    <label htmlFor="otherName" className="font-semibold text-[#b4b8d8]">
-                      Keywords (Optional)
+                    <label htmlFor="tags" className="font-semibold text-[#b4b8d8]">
+                      Tags (Optional: for SEO)
                     </label>
                     <input
                       type="text"
-                      name="otherName"
-                      id="otherName"
-                      placeholder="This will be used in keywords for searches"
+                      name="tags"
+                      id="tags"
+                      placeholder="This will be used in tags for searches"
                       className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-[#2a2b35] focus:border-[#444554] placeholder:text-[#5e6174]"
-                      value={formInput.otherName}
+                      value={formInput.tags}
                       onChange={(e) => handleUpdateFormInput(e)}
                     />
                   </div>

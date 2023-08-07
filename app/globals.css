@@ -65,6 +65,11 @@ body {
     "Helvetica Neue", sans-serif;
 }
 
+/* Horizontal layouts... */
+.horizontal-cat::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes show-alert {
   10% {
     transform: translateX(0);

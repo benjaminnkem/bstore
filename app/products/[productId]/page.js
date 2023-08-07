@@ -2,6 +2,8 @@ import DefaultWrapper from "@/app/DefaultWrapper";
 import HorizontalCategory from "@/app/shop/components/HorizontalCategory";
 import { headers } from "next/headers";
 import Image from "next/image";
+import ProductFullImagePreview from "./components/FullImagePreview";
+import "./styles/product-details.css";
 
 export const dynamicParams = true;
 
@@ -51,28 +53,17 @@ const ProductDetails = async ({ params }) => {
           </header>
           <div className="md:max-w-[1488px] w-11/12 mx-auto">
             <section className="grid gap-4 my-10" style={{ gridTemplateColumns: "2fr 3fr" }}>
-              <div className="rounded-lg overflow-hidden shadow-md hover:shadow-xl max-h-96 duration-300 ease-in-out">
-                <Image
-                  src={post.images[0]}
-                  alt={`${post.itemName}`}
-                  width={600}
-                  height={600}
-                  draggable="false"
-                  className="object-cover w-full h-full"
-                />
-              </div>
+              <ProductFullImagePreview post={post} />
 
               <div>
-                <h1 className="font-bold text-4xl duration-200 my-4">
-                  {post.itemName}{" "}
-                  <span className="text-sm font-light">
-                    posted by <span className="text-orange-500">{post.seller[0].username}</span>
-                  </span>
-                </h1>
+                <h1 className="font-bold text-4xl duration-200 my-4">{post.itemName} </h1>
+                <p className="text-sm font-light">
+                  posted by <span className="text-orange-500">{post.seller[0].username}</span>
+                </p>
 
                 <div className="mt-4">
                   <h2 className="font-semibold text-2xl">Details:</h2>
-                  <ul className="ml-4 font-light list-disc">
+                  <ul className="ml-10 font-light list-disc">
                     <li>Item Name: {post.itemName}</li>
                   </ul>
                 </div>

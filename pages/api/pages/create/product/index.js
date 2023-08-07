@@ -1,5 +1,5 @@
 import connectToDB from "@/utils/db";
-import ProductsCreateSchema from "@/utils/schemas/ProductsCreateSchema";
+import ProductsCreateSchema from "@/utils/schemas/ProductsSchema";
 import { ObjectId } from "mongodb";
 import multer from "multer";
 import { getServerSession } from "next-auth/next";
@@ -33,7 +33,7 @@ handler.use(upload.single("productImage")).post("/api/pages/create/product", asy
 
   await connectToDB();
 
-  const { itemName, price, category, description } = body;
+  const { itemName, price, category, description, tags } = body;
   const session = await getServerSession(req, res, authOptions);
 
   if (!session) {
@@ -41,13 +41,15 @@ handler.use(upload.single("productImage")).post("/api/pages/create/product", asy
   }
 
   const defaultProductImagePath = "/images/uploads/products/";
+  const mainTag = tags.split(",");
 
   const productData = {
     itemName: itemName.trim(),
     price,
+    tags: mainTag,
     category: category.trim(),
     description: description.trim(),
-    images: [defaultProductImagePath + productImage],
+    images: [`${defaultProductImagePath}${productImage}`], // describing the file path
     seller_id: new ObjectId(session.user.id),
   };
 

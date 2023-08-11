@@ -70,7 +70,7 @@ const Home = async () => {
                       <div className="absolute top-0 left-0 w-full h-full p-2 duration-300 ease-in-out bg-black bg-opacity-0 group hover:bg-opacity-20">
                         <div className="relative w-full h-full duration-300 group-hover:scale-[0.97]">
                           <p className="text-base font-bold left-2 top-2 md:text-lg product-text">{product.itemName}</p>
-                          <HeartReaction />
+                          <HeartReaction product={product} />
                         </div>
                       </div>
                     </Link>

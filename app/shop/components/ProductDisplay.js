@@ -6,12 +6,8 @@ import { GlobalCartItemContext } from "@/app/context/GlobalCartItems";
 export const ShopContext = createContext();
 
 const ProductDisplay = ({ items }) => {
-  const {
-    updateCartItems,
-    calculateTotalCosts,
-    sideCartItemDisplay,
-    toggleSideCartView,
-  } = useContext(GlobalCartItemContext);
+  const { updateCartItems, calculateTotalCosts, sideCartItemDisplay, toggleSideCartView } =
+    useContext(GlobalCartItemContext);
 
   const addItemToCart = (item) => updateCartItems(item);
   useEffect(() => calculateTotalCosts(), []);
@@ -25,14 +21,6 @@ const ProductDisplay = ({ items }) => {
   return (
     <>
       <ShopContext.Provider value={contextValue}>
-        {/* Translucent Black Layer after sidebar opens */}
-        <div
-          className={`fixed top-0 left-0 w-full h-full bg-black duration-100 ${
-            sideCartItemDisplay ? "z-10 bg-opacity-80" : "-z-10 bg-opacity-0"
-          }`}
-          onClick={toggleSideCartView}
-        ></div>
-
         <main>
           <div
             className="sm:grid gap-4 md:max-w-[1488px] w-11/12 mx-auto my-8"

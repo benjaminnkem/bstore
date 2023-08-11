@@ -10,7 +10,7 @@ export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
   const productId = params.productId;
-  const host = checkHost()
+  const host = checkHost();
   const protocol = checkProtocol();
 
   const response = await fetch(`${protocol}${host}/api/products/get-product-metadata/${productId}`, {
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
 }
 
 const getPost = async (param) => {
-  const host = checkHost()
+  const host = checkHost();
   const protocol = checkProtocol();
 
   const response = await fetch(`${protocol}${host}/api/products/get-product-details/${param.productId}`, {
@@ -41,6 +41,9 @@ const getPost = async (param) => {
 
   return response.json();
 };
+
+// custom class
+const itemDescClass = "flex justify-between items-center py-1 border-[#666666] border-t border-opacity-50";
 
 const ProductDetails = async ({ params }) => {
   const [post] = await getPost(params); // Requires destructuring
@@ -73,31 +76,31 @@ const ProductDetails = async ({ params }) => {
                   <div className="mt-4 bg-[#282828] p-4 rounded-lg">
                     <h2 className="text-2xl font-semibold">Details:</h2>
                     <div className="mt-2">
-                      <div className="flex justify-between items-center py-1 border-[#666666] border-t border-opacity-50">
+                      <div className={`${itemDescClass}`}>
                         <p className="font-semibold">Item Name:</p>
                         <p>
                           <span className="font-light">{post.itemName}</span>
                         </p>
                       </div>
-                      <div className="flex justify-between items-center py-1 border-[#666666] border-t border-opacity-50">
+                      <div className={`${itemDescClass}`}>
                         <p className="font-semibold">Price:</p>
                         <p>
                           <span className="font-light">${post.price}</span>
                         </p>
                       </div>
-                      <div className="flex justify-between items-center py-1 border-[#666666] border-t border-opacity-50">
+                      <div className={`${itemDescClass}`}>
                         <p className="font-semibold">Is Currently Available: </p>
                         <p>
                           <span className="font-light">{post.is_available ? "Yes ✅" : "Out of stock 😐❌"}</span>
                         </p>
                       </div>
-                      <div className="flex justify-between items-center py-1 border-[#666666] border-t border-opacity-50">
+                      <div className={`${itemDescClass}`}>
                         <p className="font-semibold">Category: </p>
                         <p>
                           <span className="font-light">{post.category}</span>
                         </p>
                       </div>
-                      <div className="flex justify-between items-center py-1 border-[#666666] border-t border-opacity-50">
+                      <div className={`${itemDescClass}`}>
                         <p className="font-semibold">Date Posted:</p>
                         <p>
                           <span className="font-light"> {new Date(post.date_posted).toDateString()}</span>

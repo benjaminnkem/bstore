@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useContext } from "react";
 import { GlobalCartItemContext } from "../context/GlobalCartItems";
+import Link from "next/link";
 
 const SelectedItemDisplay = () => {
   const { cartItems, removeCartItem, totalItemsCost, sideCartItemDisplay, toggleSideCartView } =
@@ -60,9 +61,11 @@ const SelectedItemDisplay = () => {
                                 >
                                   Remove
                                 </p>
-                                <p className="font-semibold text-orange-500 cursor-pointer dark:text-orange-300">
-                                  Details
-                                </p>
+                                <Link href={`/products/${item._id}`} passHref onClick={toggleSideCartView}>
+                                  <p className="font-semibold text-orange-500 cursor-pointer dark:text-orange-300">
+                                    Details
+                                  </p>
+                                </Link>
                               </div>
                             </div>
                           </div>

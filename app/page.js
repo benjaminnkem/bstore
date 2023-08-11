@@ -4,11 +4,12 @@ import "./components/styles/Default.css";
 import Link from "next/link";
 import { headers } from "next/headers";
 import HorizontalProductShow from "@/app/components/HorizontalProductShow";
+import HeartReaction from "./components/HeartReaction";
 
 const getInitialProducts = async () => {
   const host = headers().get("host");
   const protocol = process?.env.NODE_ENV === "development" ? "http" : "https";
-  
+
   const response = await fetch(`${protocol}://${host}/api/initialproducts`, { next: { revalidate: 60 } });
   return response.json();
 };
@@ -28,7 +29,7 @@ const Home = async () => {
                     <h1 className="text-3xl font-extrabold duration-200 lg:text-6xl md:text-5xl">
                       Happy Shopping (<span className="cursor-pointer hover:scale-150">😊</span>)
                     </h1>
-                    <p className="max-w-3xl mx-auto mt-4 text-base leading-relaxed duration-200 lg:text-lg font-light">
+                    <p className="max-w-3xl mx-auto mt-4 text-base font-light leading-relaxed duration-200 lg:text-lg">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam ratione deleniti vitae
                       animi nemo libero! Iste voluptates amet praesentium ipsa? Et error iure ratione eaque numquam quas
                       aliquam voluptatum?
@@ -69,7 +70,7 @@ const Home = async () => {
                       <div className="absolute top-0 left-0 w-full h-full p-2 duration-300 ease-in-out bg-black bg-opacity-0 group hover:bg-opacity-20">
                         <div className="relative w-full h-full duration-300 group-hover:scale-95">
                           <p className="text-base font-bold left-2 top-2 md:text-lg product-text">{product.itemName}</p>
-                          <i className="absolute text-lg font-bold duration-300 bottom-2 right-2 md:text-3xl sm:text-2xl product-text ri-heart-2-line"></i>
+                          <HeartReaction />
                         </div>
                       </div>
                     </Link>

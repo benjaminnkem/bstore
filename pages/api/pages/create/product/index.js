@@ -6,6 +6,7 @@ import { getServerSession } from "next-auth/next";
 import { getToken } from "next-auth/jwt";
 import nc from "next-connect";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+// import recentPostsScheme from "@/utils/schemas/partials/recentPostsScheme";
 
 const handler = nc({
   onError: (err, req, res, next) => {
@@ -33,28 +34,33 @@ handler.use(upload.single("productImage")).post("/api/pages/create/product", asy
 
   await connectToDB();
 
-  const { itemName, price, category, description, tags } = body;
-  const session = await getServerSession(req, res, authOptions);
+  try {
+    const { itemName, price, category, description, tags } = body;
+    const session = await getServerSession(req, res, authOptions);
 
-  if (!session) {
-    return res.status(401).json({ message: "You must be logged in." });
+    if (!session) {
+      return res.status(401).json({ message: "You must be logged in." });
+    }
+
+    const defaultProductImagePath = "/images/uploads/products/";
+    const mainTag = tags.split(",");
+
+    const productData = {
+      itemName: itemName.trim(),
+      price,
+      tags: mainTag,
+      category: category.trim(),
+      description: description.trim(),
+      images: [`${defaultProductImagePath}${productImage}`], // describing the file path
+      seller_id: new ObjectId(session.user.id),
+    };
+
+    await ProductsCreateSchema.create(productData);
+    res.status(200).json({ message: "product created successfully" });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ message: "An error occurred" });
   }
-
-  const defaultProductImagePath = "/images/uploads/products/";
-  const mainTag = tags.split(",");
-
-  const productData = {
-    itemName: itemName.trim(),
-    price,
-    tags: mainTag,
-    category: category.trim(),
-    description: description.trim(),
-    images: [`${defaultProductImagePath}${productImage}`], // describing the file path
-    seller_id: new ObjectId(session.user.id),
-  };
-
-  await ProductsCreateSchema.create(productData);
-  res.status(200).json({ message: "product created successfully" });
 });
 
 export const config = {

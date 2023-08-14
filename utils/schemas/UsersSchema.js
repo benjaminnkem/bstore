@@ -1,13 +1,11 @@
 import mongoose, { Schema, models } from "mongoose";
 
 const userSchema = new Schema({
-  name: String,
-  age: Number,
-  role: { type: String, default: "user" },
-  email: {
-    type: String,
-    lowercase: true,
-  },
+  username: { type: String, required: true },
+  password: { type: String, required: true },
+  email: { type: String, required: false, trim: true, lowercase: true },
+  role: { type: String, required: true, default: "user" },
+  date_joined: { type: Date, required: false, default: () => new Date() },
 });
 
 export default models.Users || mongoose.model("Users", userSchema);

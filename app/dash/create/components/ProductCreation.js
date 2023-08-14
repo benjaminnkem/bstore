@@ -27,6 +27,7 @@ const ProductCreation = () => {
   const [alertShow, setAlertShow] = useState(false);
   const [alertText, setAlertText] = useState("");
 
+  // Others
   useEffect(() => {
     if (status.success) {
       setAlertShow(true);
@@ -98,6 +99,8 @@ const ProductCreation = () => {
 
   // Text fields
   const handleUpdateFormInput = (event) => setFormInput({ ...formInput, [event.target.name]: event.target.value });
+
+  // Main upload...
   const handleProductCreation = async (e) => {
     e.preventDefault();
     setStatus({ ...status, loading: true, success: false, err: false });

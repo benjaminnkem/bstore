@@ -9,11 +9,18 @@ const heartDefaultClass =
 const HeartReaction = ({ product }) => {
   const [favorite, setFavorite] = useState(null);
   const { favoriteItems, addFav, removeFav } = useContext(FavoriteItemContext);
+  const [favText, setFavText] = useState("Add to Fav");
 
-  useEffect(
-    () => (favoriteItems.indexOf(product._id) >= 0 ? setFavorite(true) : setFavorite(false)),
-    [favoriteItems, product._id]
-  );
+  useEffect(() => {
+    if (favoriteItems.indexOf(product._id) < 0) {
+      setFavorite(false);
+      setFavText("Add to Fav");
+      return;
+    }
+
+    setFavorite(true);
+    setFavText("Added to Fav");
+  }, [favoriteItems, product._id]);
 
   const handleHeartReaction = (e) => {
     e.preventDefault();
@@ -26,7 +33,7 @@ const HeartReaction = ({ product }) => {
     <>
       <div className="group">
         <span className="absolute p-1 text-xs text-white duration-300 bg-gray-900 rounded-md opacity-0 sm:bottom-[2.7rem] bottom-[2.4rem] right-[0.3rem] group-hover:opacity-100">
-          Add to fav
+          {favText}
         </span>
 
         <i

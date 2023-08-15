@@ -10,6 +10,7 @@ export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
   const productId = params.productId;
+
   const host = checkHost();
   const protocol = checkProtocol();
 

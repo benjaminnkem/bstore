@@ -21,7 +21,7 @@ export async function GET(req, res) {
     const recentPosts = await ProductsSchema.aggregate([
       { $match: { seller_id: new ObjectId(userId) } },
       { $limit: 5 },
-      { $project: { itemName: 1, images: 1, price: 1 } },
+      { $project: { itemName: 1, images: 1, price: 1, date_posted: 1 } },
       { $sort: { date_posted: -1 } },
     ]);
 

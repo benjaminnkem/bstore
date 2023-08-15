@@ -11,6 +11,7 @@ const RecentProductsCreated = () => {
         const res = await axios.get(`/api/recent-posts`);
         if (res.statusText.toLocaleLowerCase() !== "ok") return;
 
+        await new Promise((resolve) => setTimeout(() => resolve(), 5000));
         setRecentPosts(res.data);
       };
 
@@ -24,11 +25,15 @@ const RecentProductsCreated = () => {
       <div>
         <h2 className="font-extrabold text-2xl py-2">Recent</h2>
         <div>
-          {recentPosts &&
-            recentPosts.length > 0 &&
+          {recentPosts && recentPosts.length > 0 ? (
             recentPosts.map((post) => {
               <div key={post._id}></div>;
-            })}
+            })
+          ) : (
+            <div >
+              <p>Loading...</p>
+            </div>
+          )}
         </div>
       </div>
     </>

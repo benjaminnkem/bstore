@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useContext, useState } from "react";
 import { GlobalCartItemContext } from "@/app/context/GlobalCartItems";
 import { ShopContext } from "./ProductDisplay";
+import Link from "next/link";
 
 const ProductTemplate = ({ item }) => {
   const [itemQuantity] = useState(1);
@@ -17,6 +18,7 @@ const ProductTemplate = ({ item }) => {
 
   return (
     <>
+      <Link href={`/products/${item._id}`} passHref>
       <div className="space-y-4 duration-100 min-w-[12rem] min-h-[12rem] sm:min-w-[14rem] sm:min-h-[14rem] xl:min-w-[16rem] xl:min-h-[16rem] overflow-hidden relative rounded-lg group hover:shadow-lg dark:bg-[#212121]">
         <Image
           src={item.images[0]}
@@ -52,6 +54,7 @@ const ProductTemplate = ({ item }) => {
           <p className="text-sm font-light text-shadow">${item.price}</p>
         </div>
       </div>
+      </Link>
     </>
   );
 };

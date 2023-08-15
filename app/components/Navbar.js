@@ -114,10 +114,10 @@ const Navbar = () => {
           {/* Side Menu panel */}
           <div
             className={`fixed top-0 right-0 h-full bg-black bg-opacity-80 z-[100] duration-500 overflow-hidden md:hidden block ${
-              mobileMenuOpen ? "w-full" : "w-[.05px]"
+              mobileMenuOpen ? "w-full opacity-100" : "w-[.05px] opacity-0"
             }`}
           >
-            <div className="grid w-full h-full p-6 place-content-center">
+            <div className={`grid w-full h-full p-6 place-content-center ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'} duration-200`}>
               <div>
                 {/* Close button */}
                 <i
@@ -125,7 +125,7 @@ const Navbar = () => {
                   onClick={toggleMenu}
                 ></i>
 
-                <ul className="space-y-4 text-center">
+                <ul className={`duration-200 space-y-4 text-center`}>
                   <li>
                     <Link href={"/"} passHref onClick={toggleMenu}>
                       <p className={`text-lg font-semibold ${pathname === "/" && "text-orange-500"}`}>Home</p>

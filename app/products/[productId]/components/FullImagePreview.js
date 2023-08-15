@@ -12,7 +12,7 @@ const ProductFullImagePreview = ({ post }) => {
   return (
     <>
       <div
-        className={`absolute top-0 left-0 w-full h-screen full-prev duration-200 ease-in grid place-content-center ${
+        className={`absolute top-0 left-0 w-full h-screen full-prev duration-200 ease-in grid text-white place-content-center ${
           previewShow ? "z-50 bg-[#000000b1]" : "-z-50 bg-transparent"
         }`}
       >
@@ -22,7 +22,7 @@ const ProductFullImagePreview = ({ post }) => {
 
           <div className="text-center">
             <p
-              className="select-none text-center border-b border-red-500 opacity-80 cursor-pointer inline-block mt-4 mx-auto"
+              className="inline-block mx-auto mt-4 text-center border-b border-red-500 cursor-pointer select-none opacity-80"
               onClick={togglePreview}
             >
               Close Full Image
@@ -42,22 +42,22 @@ const ProductFullImagePreview = ({ post }) => {
       {/* Main Image */}
       <div>
         <div className="md:sticky top-4">
-          <div className="rounded-lg overflow-hidden group shadow-md max-h-96 min-h-[20rem] md:min-h-[24rem] relative flex items-center justify-center md:max-h-[auto] duration-300 ease-in-out">
+          <div className="rounded-lg overflow-hidden group shadow-md max-h-96 min-h-[20rem] md:min-h-[24rem] relative flex items-center justify-center md:max-h-[auto] duration-200">
             <Image
               src={imgSrc}
               alt={`${post.itemName}`}
               width={600}
               height={600}
               draggable="false"
-              className="object-cover w-full h-full absolute top-0 left-0 duration-300 group-hover:scale-105 group-hover:blur-sm"
+              className="absolute top-0 left-0 object-cover w-full h-full duration-200 group-hover:scale-105 group-hover:blur-sm"
             />
-            <div className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 text-white font-bold grid place-content-center bg-[#0000008a] duration-300 w-full h-full">
+            <div className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 text-white font-bold grid place-content-center bg-[#0000008a] duration-200 w-full h-full">
               <button onClick={togglePreview}>
                 View Full Image <i className=" ri-external-link-line"></i>
               </button>
             </div>
           </div>
-          <p className="text-sm mt-4">
+          <p className="mt-4 text-sm">
             Date Posted: <span className="font-light">{new Date(post.date_posted).toDateString()}</span>{" "}
           </p>
         </div>

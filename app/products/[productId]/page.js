@@ -44,7 +44,7 @@ const getPost = async (param) => {
 };
 
 // custom class
-const itemDescClass = "flex justify-between items-center py-1 border-[#666666] border-t border-opacity-50";
+const itemDescClass = "flex justify-between items-center py-2 border-[#666666] border-t border-opacity-50";
 
 const ProductDetails = async ({ params }) => {
   const [post] = await getPost(params); // Requires destructuring
@@ -57,7 +57,7 @@ const ProductDetails = async ({ params }) => {
             <HorizontalCategory />
           </header>
           <div className="md:max-w-[1488px] w-11/12 mx-auto">
-            <section className="gap-4 my-10 md:grid" style={{ gridTemplateColumns: "2fr 3fr" }}>
+            <section className="gap-16 my-10 md:grid" style={{ gridTemplateColumns: "2.5fr 3fr" }}>
               <ProductFullImagePreview post={post} />
 
               <div>
@@ -74,7 +74,7 @@ const ProductDetails = async ({ params }) => {
                 </h1>
 
                 <div className="space-y-4">
-                  <div className="mt-4 bg-[#282828] p-4 rounded-lg">
+                  <div className="mt-4 bg-white shadow-md dark:bg-[#212121] p-4 rounded-lg">
                     <h2 className="text-2xl font-semibold">Details:</h2>
                     <div className="mt-2">
                       <div className={`${itemDescClass}`}>
@@ -113,7 +113,7 @@ const ProductDetails = async ({ params }) => {
                       </div>
                     </div>
                   </div>
-                  <div className="mt-4 bg-[#282828] p-4 rounded-lg">
+                  <div className="mt-4 bg-white shadow-md dark:bg-[#212121] p-4 rounded-lg">
                     <h2 className="text-2xl font-semibold">Ratings</h2>
                     <div className="mt-2">
                       {post.rating && post.rating?.length > 0 ? (
@@ -124,7 +124,7 @@ const ProductDetails = async ({ params }) => {
                     </div>
                   </div>
 
-                  <div className="mt-4 bg-[#282828] p-4 rounded-lg max-w-2xl">
+                  <div className="mt-4 bg-white shadow-md dark:bg-[#212121] p-4 rounded-lg max-w-2xl">
                     <h2 className="text-2xl font-semibold">Description</h2>
                     <div className="mt-2">
                       <p className="font-light whitespace-pre-line">{post.description}</p>

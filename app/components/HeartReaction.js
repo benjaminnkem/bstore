@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { FavoriteItemContext } from "../context/smaller__/FavoriteManager";
 
 const heartDefaultClass =
-  "absolute text-lg font-bold duration-200 cursor-pointer bottom-2 right-2 md:text-3xl sm:text-2xl product-text shadow-md";
+  "absolute text-lg font-bold duration-200 cursor-pointer bottom-2 right-2 md:text-3xl sm:text-2xl product-text";
 
 const HeartReaction = ({ product }) => {
   const [favorite, setFavorite] = useState(null);

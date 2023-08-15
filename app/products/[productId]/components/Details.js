@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import AddProductDetCart from "./AddToCartBtn";
+import { GlobalCartItemContext } from "@/app/context/GlobalCartItems";
 
 // custom class
 const itemDescClass = "flex justify-between items-center py-2 border-[#666666] border-t border-opacity-50";
 
 const ProdDetails = ({ post }) => {
   const [customQuantity, setCustomQuantity] = useState(1);
+  const { cartItems } = useContext(GlobalCartItemContext);
 
   const changeQuantity = (type) => {
     switch (type) {
@@ -20,6 +22,13 @@ const ProdDetails = ({ post }) => {
       default:
         break;
     }
+  };
+
+  const getItemFromCart = () => {
+    if (cartItems.find((itemCheck) => itemCheck._id === post._id)) {
+      return true;
+    }
+    return false;
   };
 
   return (

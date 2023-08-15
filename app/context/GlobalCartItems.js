@@ -23,6 +23,11 @@ const GlobalCartItemsProvider = ({ children }) => {
     const itemExists = cartItems.find((itemCheck) => itemCheck._id === item._id);
     if (itemExists) {
       toggleSideCartView();
+
+      const items = cartItems.filter((inCartItem) => inCartItem._id !== item._id);
+      items.push(item);
+
+      setCartItems(items);
       return;
     }
 

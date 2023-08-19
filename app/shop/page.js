@@ -1,31 +1,26 @@
-import { headers } from "next/headers";
 import DefaultWrapper from "../DefaultWrapper";
 import ProductDisplay from "./components/ProductDisplay";
 import HorizontalCategory from "./components/HorizontalCategory";
-import "./styles/shop.css";
+import { headers } from "next/headers";
 
 export const metadata = {
-  title: "Find or Search For Products - Bstore",
+  title: "Market - Bstore",
   description: "Looking for a product? search, compare, rate any product here...",
 };
 
-async function getShopItems() {
-  try {
-    const host = headers().get("host");
-    const protocol = process?.env.NODE_ENV === "development" ? "http://" : "https://";
-    const response = await fetch(`${protocol}${host}/api/initialproducts`, { next: { revalidate: 60 } });
-    if (!response.ok) {
-      throw new Error("Failed to fetch items");
-    }
+const getInitialProducts = async () => {
+  const host = headers().get("host");
+  const protocol = process?.env.NODE_ENV === "development" ? "http" : "https";
 
-    return response.json();
-  } catch (e) {
-    console.log(e);
-  }
-}
+
+  console.log(host, protocol);
+
+  const response = await fetch(`${protocol}://${host}/api/initialproducts`, { next: { revalidate: 60 } });
+  return response.json();
+};
 
 const Shop = async () => {
-  const items = await getShopItems();
+  const items = await getInitialProducts();
 
   return (
     <>

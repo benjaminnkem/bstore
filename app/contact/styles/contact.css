@@ -1,3 +1,8 @@
+.skeleton-image {
+  opacity: .45;
+  animation: skeleton-loading .5s linear infinite alternate;
+}
+
 .skeleton {
   opacity: .75;
   animation: skeleton-loading .5s linear infinite alternate;

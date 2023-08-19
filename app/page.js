@@ -26,10 +26,10 @@ const Home = async () => {
               <div className="flex items-center text-white">
                 <div className="mt-10">
                   <div>
-                    <h1 className="text-3xl font-extrabold duration-200 lg:text-6xl md:text-5xl">
-                      Happy Shopping (<span className="cursor-pointer hover:scale-150">😊</span>)
+                    <h1 className="text-3xl font-extrabold duration-200 text-shadow lg:text-6xl md:text-5xl">
+                      BStore Marketplace
                     </h1>
-                    <p className="max-w-3xl mx-auto mt-4 text-base font-light leading-relaxed duration-200 lg:text-lg">
+                    <p className="max-w-3xl mx-auto mt-4 text-base font-light text-shadow leading-relaxed duration-200 lg:text-lg">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam ratione deleniti vitae
                       animi nemo libero! Iste voluptates amet praesentium ipsa? Et error iure ratione eaque numquam quas
                       aliquam voluptatum?

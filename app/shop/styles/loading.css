@@ -3,6 +3,11 @@
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
+.skeleton-image {
+  opacity: .20;
+  animation: skeleton-loading .5s linear infinite alternate;
+}
+
 @keyframes skeleton-loading {
   0% {
     background-color: #eaeaea;

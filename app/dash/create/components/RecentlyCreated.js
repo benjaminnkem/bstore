@@ -12,8 +12,7 @@ const RecentProductsCreated = () => {
       const getRecentPosts = async () => {
         const res = await axios.get(`/api/recent-posts/${session.user.id}`);
         if (res.statusText.toLocaleLowerCase() !== "ok") return;
-        console.log(res.data, session.user.id);
-        console.log(res.data);
+        setRecentPosts(res.data);
       };
 
       getRecentPosts();

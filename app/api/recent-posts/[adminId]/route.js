@@ -1,5 +1,4 @@
 import ProductsSchema from "@/utils/schemas/ProductsSchema";
-import { getServerSession } from "next-auth";
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
@@ -26,6 +25,4 @@ export async function GET(req, { params }) {
       statusText: "Sorry, Recent Posts could not be fetched",
     });
   }
-
-  return NextResponse.json({ msg: "something" });
 }

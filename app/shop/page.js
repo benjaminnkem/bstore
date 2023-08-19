@@ -18,7 +18,6 @@ const getInitialProducts = async () => {
 
 const Shop = async () => {
   const items = await getInitialProducts();
-  console.log(items);
 
   return (
     <>

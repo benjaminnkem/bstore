@@ -1,25 +1,27 @@
 "use client";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 const RecentProductsCreated = () => {
   const [recentPosts, setRecentPosts] = useState([]);
+  const { data: session } = useSession();
 
   useEffect(() => {
     try {
       const getRecentPosts = async () => {
-        const res = await axios.get(`/api/recent-posts`);
+        const res = await axios.get(`/api/recent-posts/${session.user.id}`);
         if (res.statusText.toLocaleLowerCase() !== "ok") return;
-
-        await new Promise((resolve) => setTimeout(() => resolve(), 5000));
-        setRecentPosts(res.data);
+        console.log(res.data, session.user.id);
+        console.log(res.data);
       };
 
       getRecentPosts();
     } catch (e) {
       console.log(e);
+      throw new Error(e);
     }
-  }, []);
+  }, [session.user.id]);
   return (
     <>
       <div>
@@ -30,7 +32,7 @@ const RecentProductsCreated = () => {
               <div key={post._id}></div>;
             })
           ) : (
-            <div >
+            <div>
               <p>Loading...</p>
             </div>
           )}

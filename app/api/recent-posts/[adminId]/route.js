@@ -4,22 +4,15 @@ import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import connectToDB from "@/utils/db";
-import { authOptions } from "../auth/[...nextauth]/route";
 
-export async function GET(req, res) {
+export async function GET(req, { params }) {
   const token = await getToken({ req });
   if (!token) return new NextResponse("You are not authorized", { status: 401 });
-
-  const session = await getServerSession(authOptions);
-  if (!session) {
-    return new NextResponse("You are not authorized", { status: 401 });
-  }
-
+  const { adminId } = params;
   try {
     await connectToDB();
-    const userId = session.user.id;
     const recentPosts = await ProductsSchema.aggregate([
-      { $match: { seller_id: new ObjectId(userId) } },
+      { $match: { seller_id: new ObjectId(adminId) } },
       { $limit: 5 },
       { $project: { itemName: 1, images: 1, price: 1, date_posted: 1 } },
       { $sort: { date_posted: -1 } },
@@ -33,4 +26,6 @@ export async function GET(req, res) {
       statusText: "Sorry, Recent Posts could not be fetched",
     });
   }
+
+  return NextResponse.json({ msg: "something" });
 }

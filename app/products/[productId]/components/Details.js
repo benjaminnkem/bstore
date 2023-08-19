@@ -35,29 +35,29 @@ const ProdDetails = ({ post }) => {
     <>
       <div className="space-y-4">
         <div className="mt-4 bg-white shadow-md dark:bg-[#212121] p-4 rounded-lg">
-          <h2 className="text-2xl font-semibold">Details:</h2>
+          <h2 className="text-2xl font-semibold">Details</h2>
           <div className="mt-2">
             <div className={`${itemDescClass}`}>
-              <p className="font-semibold">Item Name:</p>
+              <p>Item Name:</p>
               <p>
                 <span className="font-light">{post.itemName}</span>
               </p>
             </div>
             <div className={`${itemDescClass}`}>
-              <p className="font-semibold">Is Currently Available: </p>
+              <p>Is Currently Available: </p>
               <p>
                 <span className="font-light">{post.is_available ? "Yes ✅" : "Out of stock 😐❌"}</span>
               </p>
             </div>
             <div className={`${itemDescClass}`}>
-              <p className="font-semibold">Category: </p>
+              <p>Category: </p>
               <p>
                 <span className="font-light">{post.category}</span>
               </p>
             </div>
 
             <div className={`${itemDescClass}`}>
-              <p className="font-semibold">Quantity:</p>
+              <p>Quantity:</p>
               <div className="flex items-center space-x-3">
                 <i
                   className="cursor-pointer ri-restart-line"
@@ -81,10 +81,10 @@ const ProdDetails = ({ post }) => {
               </div>
             </div>
             <div className={`${itemDescClass}`}>
-              <p className="font-semibold">Price:</p>
+              <p>Price:</p>
               <p>
                 <span className="text-xl">
-                  {customQuantity} x {post.price} = ${customQuantity * parseInt(post.price)}
+                  {customQuantity} x ${post.price} = ${customQuantity * parseInt(post.price)}
                 </span>
               </p>
             </div>

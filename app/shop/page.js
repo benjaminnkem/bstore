@@ -12,15 +12,13 @@ const getInitialProducts = async () => {
   const host = headers().get("host");
   const protocol = process?.env.NODE_ENV === "development" ? "http" : "https";
 
-
-  console.log(host, protocol);
-
   const response = await fetch(`${protocol}://${host}/api/initialproducts`, { next: { revalidate: 60 } });
   return response.json();
 };
 
 const Shop = async () => {
   const items = await getInitialProducts();
+  console.log(items);
 
   return (
     <>

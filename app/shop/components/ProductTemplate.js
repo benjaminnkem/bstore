@@ -28,7 +28,7 @@ const ProductTemplate = ({ item }) => {
             className="absolute top-0 left-0 object-cover w-full h-full duration-300 ease-in-out group-hover:scale-105"
           />
 
-          <div className="absolute top-0 text-center right-3">
+          {/* <div className="absolute top-0 text-center right-3">
             <button
               className="px-3 py-2 text-sm duration-500 bg-[#31313175] hover:border-orange11-300 border border-gray-300 border-opacity-40 rounded-md opacity-0 text-gray-50 group-hover:opacity-100"
               onClick={() => {
@@ -47,7 +47,7 @@ const ProductTemplate = ({ item }) => {
             >
               {addText}
             </button>
-          </div>
+          </div> */}
 
           <div className="absolute bottom-0 w-full py-2 text-center text-white">
             <p className="font-semibold text-shadow">{item.itemName}</p>

@@ -6,7 +6,15 @@ import { getServerSession } from "next-auth/next";
 import { getToken } from "next-auth/jwt";
 import nc from "next-connect";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-// import recentPostsScheme from "@/utils/schemas/partials/recentPostsScheme";
+import fs from "fs";
+
+const cloudinary = require("cloudinary").v2;
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const handler = nc({
   onError: (err, req, res, next) => {
@@ -24,6 +32,46 @@ const upload = multer({
     filename: (req, file, cb) => cb(null, file.fieldname + "-" + Date.now() + "-" + file.originalname),
   }),
 });
+
+// handler
+//   .use(upload.single("productImage"))
+//   .post("/api/pages/create/product", async (req, res) => {
+//     const body = req.body;
+//     const productImage = req.file?.filename;
+
+//     const token = await getToken({ req });
+//     if (!token) return res.status(401).send("You are not authorized");
+
+//     await connectToDB();
+
+//     try {
+//       const { itemName, price, category, description, tags } = body;
+//       const session = await getServerSession(req, res, authOptions);
+
+//       if (!session) {
+//         return res.status(401).json({ message: "You must be logged in." });
+//       }
+
+//       const defaultProductImagePath = "/images/uploads/products/";
+//       const mainTag = tags.split(",");
+
+//       const productData = {
+//         itemName: itemName.trim(),
+//         price,
+//         tags: mainTag,
+//         category: category.trim(),
+//         description: description.trim(),
+//         images: [`${defaultProductImagePath}${productImage}`], // describing the file path
+//         seller_id: new ObjectId(session.user.id),
+//       };
+
+//       await ProductsCreateSchema.create(productData);
+//       res.status(200).json({ message: "product created successfully" });
+//     } catch (e) {
+//       console.log(e);
+//       res.status(500).json({ message: "An error occurred" });
+//     }
+//   });
 
 handler.use(upload.single("productImage")).post("/api/pages/create/product", async (req, res) => {
   const body = req.body;
@@ -45,13 +93,31 @@ handler.use(upload.single("productImage")).post("/api/pages/create/product", asy
     const defaultProductImagePath = "/images/uploads/products/";
     const mainTag = tags.split(",");
 
+    const isDevMode = process.env.NODE_ENV === "development" ? true : false;
+
+    let imageUrlCloud;
+    if (!isDevMode) {
+      await cloudinary.uploader
+        .upload(req.file.path)
+        .then((cloudImgResult) => {
+          imageUrlCloud = cloudImgResult.secure_url;
+        })
+        .catch((err) => {
+          console.log(err);
+          imageUrlCloud = "/images/default/default-img.png";
+        });
+
+      const imagePath = defaultProductImagePath + productImage;
+      fs.unlinkSync(`public${imagePath}`); // delete image from storage
+    }
+
     const productData = {
       itemName: itemName.trim(),
       price,
       tags: mainTag,
       category: category.trim(),
       description: description.trim(),
-      images: [`${defaultProductImagePath}${productImage}`], // describing the file path
+      images: [isDevMode ? `${defaultProductImagePath}${productImage}` : imageUrlCloud], // describing the file path
       seller_id: new ObjectId(session.user.id),
     };
 

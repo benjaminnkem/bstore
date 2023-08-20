@@ -9,8 +9,8 @@ import HomeToAd from "./components/ads/HomeDefaultAd";
 
 export const metadata = {
   title: "BStore - Quality Eyewear, Clothes & Accessories",
-  description: "BStore is a simple shopping website that makes payments and shopping online easier",
-  keywords: "Online Store, Online Shopping, Gadgets, Products, Appliances, Buy",
+  description: "BStore, a web application that makes online shopping and payments online easier and faster",
+  keywords: "Online Store, Online Shopping, Eyewear, Gadgets, Products, Appliances, Clothes & Accessories",
 };
 
 const getInitialProducts = async () => {

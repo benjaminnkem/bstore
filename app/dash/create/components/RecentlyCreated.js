@@ -7,25 +7,25 @@ const RecentProductsCreated = () => {
   const [recentPosts, setRecentPosts] = useState([]);
   const { data: session } = useSession();
 
-  useEffect(() => {
-    try {
-      const getRecentPosts = async () => {
-        const res = await axios.get(`/api/recent-posts/${session.user.id}`);
-        if (res.statusText.toLocaleLowerCase() !== "ok") return;
-        setRecentPosts(res.data);
-      };
+  // useEffect(() => {
+  //   try {
+  //     const getRecentPosts = async () => {
+  //       const res = await axios.get(`/api/recent-posts/${session.user.id}`);
+  //       if (res.statusText.toLocaleLowerCase() !== "ok") return;
+  //       setRecentPosts(res.data);
+  //     };
 
-      getRecentPosts();
-    } catch (e) {
-      console.log(e);
-      throw new Error(e);
-    }
-  }, [session.user.id]);
+  //     getRecentPosts();
+  //   } catch (e) {
+  //     console.log(e);
+  //     throw new Error(e);
+  //   }
+  // }, [session.user.id]);
   return (
     <>
       <div>
         <h2 className="font-extrabold text-2xl py-2">Recent</h2>
-        <div>
+        {/* <div>
           {recentPosts && recentPosts.length > 0 ? (
             recentPosts.map((post) => {
               <div key={post._id}></div>;
@@ -35,7 +35,7 @@ const RecentProductsCreated = () => {
               <p>Loading...</p>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     </>
   );

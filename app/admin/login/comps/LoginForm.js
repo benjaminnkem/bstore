@@ -83,7 +83,7 @@ const LoginForm = () => {
                       name="password"
                       id="password"
                       className="w-full p-2 bg-transparent border-b rounded-md focus:outline-none border-slate-600 bg-slate-900"
-                      placeholder="Create password"
+                      placeholder="Enter password"
                       value={password}
                       onChange={(e) => {
                         setPassword(e.target.value);

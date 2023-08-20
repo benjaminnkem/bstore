@@ -11,7 +11,7 @@ const HomeToAd = () => {
     <>
       <div
         className={`w-full bg-orange-700 text-white flex space-x-3 ease-linear justify-center items-center relative duration-300 overflow-hidden ${
-          visible ? "h-20" : "h-[.05px]"
+          visible ? "h-16" : "h-[.05px]"
         }`}
       >
         <p className="uppercase">Up to 50% off only for a limited time!</p>

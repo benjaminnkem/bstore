@@ -5,8 +5,6 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import HorizontalProductShow from "@/app/components/HorizontalProductShow";
 import HeartReaction from "./components/HeartReaction";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShop } from "@fortawesome/free-solid-svg-icons";
 import HomeToAd from "./components/ads/HomeDefaultAd";
 
 const getInitialProducts = async () => {

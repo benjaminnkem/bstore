@@ -6,7 +6,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 
 export const metadata = {
-  title: "BStore - Your Store, Our Store",
+  title: "BStore - Quality Eyewear, Clothes & Accessories",
   description: "BStore is a simple shopping website that makes payments and shopping online easier",
   keywords: "Online Store, Online Shopping, Gadgets, Products, Appliances, Buy",
 };

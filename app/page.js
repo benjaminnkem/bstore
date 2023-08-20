@@ -5,6 +5,9 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import HorizontalProductShow from "@/app/components/HorizontalProductShow";
 import HeartReaction from "./components/HeartReaction";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShop } from "@fortawesome/free-solid-svg-icons";
+import HomeToAd from "./components/ads/HomeDefaultAd";
 
 const getInitialProducts = async () => {
   const host = headers().get("host");
@@ -19,6 +22,8 @@ const Home = async () => {
 
   return (
     <>
+      <HomeToAd />
+
       <DefaultWrapper>
         <header className="relative w-full -mt-20 overflow-hidden -z-10" id="header-con">
           <div className="w-full min-h-[36rem] flex justify-center items-center">

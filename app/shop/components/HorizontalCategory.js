@@ -1,6 +1,7 @@
 "use client";
 import useCustomSlider from "@/app/hooks/useCustomSlider";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const HorizontalCategory = () => {
   const { slider, slideLeft, slideRight } = useCustomSlider();
@@ -45,7 +46,7 @@ const HorizontalCategory = () => {
             className="z-20 text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl ri-arrow-left-s-fill hover:opacity-75 dark:text-gray-300"
             onClick={slideLeft}
           ></i>
-          {/* <FontAwesomeIcon /> */}
+          {/* <FontAwesomeIcon icon={faChevronRight}/> */}
         </div>
 
         <div className="absolute -right-[14px] top-[2px]">

@@ -2,6 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import useCustomSlider from "../hooks/useCustomSlider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const HorizontalProductShow = ({ products }) => {
   const { slider, slideLeft, slideRight } = useCustomSlider();
@@ -9,14 +11,6 @@ const HorizontalProductShow = ({ products }) => {
   return (
     <>
       <div className="relative flex items-center space-x-7">
-        {/* Left arrow */}
-        <div className="absolute left-0 top-1/2">
-          <i
-            className="z-20 text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl ri-arrow-left-circle-fill hover:opacity-75 dark:text-gray-300"
-            onClick={slideLeft}
-          ></i>
-        </div>
-
         {/* Slider */}
         <div
           ref={slider}
@@ -43,12 +37,22 @@ const HorizontalProductShow = ({ products }) => {
             ))}
         </div>
 
+        {/* Left arrow */}
+        <div className="absolute -left-8 top-1/2">
+          <FontAwesomeIcon
+            icon={faChevronLeft}
+            className="z-20 text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl text-shadow hover:opacity-75 dark:text-gray-200"
+            onClick={slideLeft}
+          />
+        </div>
+
         {/* Right arrow */}
         <div className="absolute -right-2 top-1/2">
-          <i
-            className="z-20 text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl ri-arrow-right-circle-fill hover:opacity-75 dark:text-gray-300"
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            className="z-20 text-3xl text-gray-400 duration-200 cursor-pointer md:text-4xl text-shadow hover:opacity-75 dark:text-gray-200"
             onClick={slideRight}
-          ></i>
+          />
         </div>
       </div>
     </>

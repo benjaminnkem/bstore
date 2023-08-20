@@ -44,7 +44,6 @@ const LoginForm = () => {
         console.log("An error occurred");
       }
 
-      console.log("It looks okay");
       setUsername("");
       setPassword("");
       setStatus({ ...status, loading: false });

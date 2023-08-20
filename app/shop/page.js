@@ -12,9 +12,6 @@ const getInitialProducts = async () => {
   const host = headers().get("host");
   const protocol = process?.env.NODE_ENV === "development" ? "http" : "https";
 
-  // const response = await axios.get(`${protocol}://${host}/api/initialproducts`);
-  // if (response.statusText.toLocaleLowerCase() !== "ok") throw new Error(response.statusText);
-
   const response = await fetch(`${protocol}://${host}/api/initialproducts`, { next: { revalidate: 60 } });
   if (!response.ok) throw new Error(response);
   return response.json();

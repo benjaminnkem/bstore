@@ -7,12 +7,23 @@ import HorizontalProductShow from "@/app/components/HorizontalProductShow";
 import HeartReaction from "./components/HeartReaction";
 import HomeToAd from "./components/ads/HomeDefaultAd";
 
+export const metadata = {
+  title: "BStore - Quality Eyewear, Clothes & Accessories",
+  description: "BStore is a simple shopping website that makes payments and shopping online easier",
+  keywords: "Online Store, Online Shopping, Gadgets, Products, Appliances, Buy",
+};
+
 const getInitialProducts = async () => {
   const host = headers().get("host");
   const protocol = process?.env.NODE_ENV === "development" ? "http" : "https";
-
   const response = await fetch(`${protocol}://${host}/api/initialproducts`, { next: { revalidate: 60 } });
-  return response.json();
+
+  if (!response.ok) {
+    return [];
+  }
+  
+  const data = await response.json();
+  return data;
 };
 
 const Home = async () => {
@@ -49,11 +60,11 @@ const Home = async () => {
           <section className="my-24">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
               <h2 className="my-8 text-2xl font-extrabold md:text-3xl lg:text-4xl tp-text">Recommended For You</h2>
-              <HorizontalProductShow products={products} />
+              {/* <HorizontalProductShow products={products} /> */}
             </div>
           </section>
 
-          <section className="my-24">
+          {/* <section className="my-24">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
               <h2 className="my-8 text-2xl font-extrabold md:text-3xl lg:text-4xl tp-text">Top Products</h2>
               <div className="first-showcase">
@@ -81,7 +92,7 @@ const Home = async () => {
                 ))}
               </div>
             </div>
-          </section>
+          </section> */}
 
           <section className="md:my-48 my-36">
             <div className="md:max-w-[1488px] w-11/12 mx-auto">

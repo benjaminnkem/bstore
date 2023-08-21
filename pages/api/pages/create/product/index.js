@@ -18,7 +18,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const isDevMode = process.env.NODE_ENV === "production" ? true : false;
+const isDevMode = process.env.NODE_ENV === "development" ? true : false;
 
 const handler = nc({
   onError: (err, req, res, next) => {

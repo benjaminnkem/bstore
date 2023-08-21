@@ -54,7 +54,7 @@ const ProductDetails = async ({ params }) => {
             <HorizontalCategory />
           </header>
           <div className="md:max-w-[1488px] w-11/12 mx-auto">
-            <section className="gap-16 my-10 md:grid" style={{ gridTemplateColumns: "2.5fr 3fr" }}>
+            <section className="gap-40 my-10 md:grid" style={{ gridTemplateColumns: "2.5fr 3fr" }}>
               <ProductFullImagePreview post={post} />
 
               <div>

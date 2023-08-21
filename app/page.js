@@ -15,10 +15,12 @@ export const metadata = {
 
 const getInitialProducts = async () => {
   const host = headers().get("host");
-  const protocol = process?.env.NODE_ENV === "development" ? "http" : "https";
+  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+
+  console.log(host, protocol);
+
   const response = await fetch(`${protocol}://${host}/api/initialproducts`, {
-    // next: { revalidate: 60 },
-    cache: "no-cache",
+    next: { revalidate: 60 },
   });
 
   if (!response.ok) {

@@ -87,8 +87,6 @@ handler.use(upload.single("productImage")).post("/api/pages/create/product", asy
       seller_id: new ObjectId(session.user.id),
     };
 
-    console.log(productData);
-
     await ProductsCreateSchema.create(productData);
     res.status(200).json({ message: "product created successfully" });
   } catch (e) {

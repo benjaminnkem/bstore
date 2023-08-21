@@ -105,7 +105,7 @@ const ProdDetails = ({ post }) => {
           </div>
         </div>
 
-        <div className="mt-4 bg-white shadow-md dark:bg-[#212121] p-4 rounded-lg max-w-2xl">
+        <div className="mt-4 bg-white shadow-md dark:bg-[#212121] p-4 rounded-lg leading-loose">
           <h2 className="text-2xl font-semibold">Description</h2>
           <div className="mt-2">
             <p className="font-light whitespace-pre-line">{post.description}</p>

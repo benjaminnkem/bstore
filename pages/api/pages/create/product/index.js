@@ -18,7 +18,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const isDevMode = process.env.NODE_ENV === "development" ? true : false;
+const isDevMode = process.env.NODE_ENV === "production" ? true : false;
 
 const handler = nc({
   onError: (err, req, res, next) => {
@@ -74,7 +74,7 @@ handler.use(upload.single("productImage")).post("/api/pages/create/product", asy
       };
 
       const createdImage = await createImage(imageFile);
-      imageUrlCloud = createdImage.secured_url;
+      imageUrlCloud = createdImage.secure_url;
     }
 
     const productData = {
@@ -87,7 +87,9 @@ handler.use(upload.single("productImage")).post("/api/pages/create/product", asy
       seller_id: new ObjectId(session.user.id),
     };
 
-    // await ProductsCreateSchema.create(productData);
+    console.log(productData);
+
+    await ProductsCreateSchema.create(productData);
     res.status(200).json({ message: "product created successfully" });
   } catch (e) {
     console.log(e);

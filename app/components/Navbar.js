@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import ShoppingCartIcon from "@/components/ShoppingCartIcon";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -74,7 +76,7 @@ const Navbar = () => {
                       href={`${status === "authenticated" ? "/dash" : "/admin/login"}`}
                       target="_blank"
                       passHref
-                      title={`${status === "authenticated" ? "Go to dashboard" : "Login"}`}
+                      title={`${status === "authenticated" ? "Go to dashboard" : "Sign Up / Login"}`}
                     >
                       <div className="grid w-8 h-8 duration-300 bg-gray-300 border border-gray-300 border-opacity-25 rounded-full cursor-pointer dark:bg-black bg-opacity-40 place-content-center">
                         <i className="ri-user-5-fill"></i>
@@ -113,17 +115,27 @@ const Navbar = () => {
 
           {/* Side Menu panel */}
           <div
-            className={`fixed top-0 right-0 h-full bg-black bg-opacity-80 z-[100] duration-500 overflow-hidden md:hidden block ${
-              mobileMenuOpen ? "w-full opacity-100" : "w-[.05px] opacity-0"
+            className={`fixed top-0 right-0 h-full bg-black z-[100] duration-500 overflow-hidden md:hidden block ${
+              mobileMenuOpen ? "w-full opacity-90" : "w-[.05px] opacity-0"
             }`}
           >
-            <div className={`grid w-full h-full p-6 place-content-center ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'} duration-200`}>
+            <div
+              className={`grid w-full h-full p-6 place-content-center ${
+                mobileMenuOpen ? "opacity-100" : "opacity-0"
+              } duration-200`}
+            >
               <div>
                 {/* Close button */}
-                <i
+                <FontAwesomeIcon
+                  icon={faClose}
                   className="absolute mx-auto text-3xl text-center -translate-y-4 cursor-pointer ri-close-circle-line top-1/2 right-4"
                   onClick={toggleMenu}
-                ></i>
+                  title="Close"
+                />
+                {/* <i
+                  className="absolute mx-auto text-3xl text-center -translate-y-4 cursor-pointer ri-close-circle-line top-1/2 right-4"
+                  onClick={toggleMenu}
+                ></i> */}
 
                 <ul className={`duration-200 space-y-4 text-center`}>
                   <li>
@@ -147,7 +159,7 @@ const Navbar = () => {
                       passHref
                       onClick={toggleMenu}
                       target="_blank"
-                      title={`${status === "authenticated" ? "Go to dashboard" : "Login"}`}
+                      title={`${status === "authenticated" ? "Go to dashboard" : "Sign Up / Login"}`}
                     >
                       <p className="text-lg font-semibold text-gray-300">
                         Dashboard <i className="ri-external-link-line"></i>

@@ -1,3 +1,8 @@
 .full-prev {
   backdrop-filter: blur(8px);
 }
+
+.star-el {
+  background: linear-gradient(45deg, orange, yellow);
+  background-clip: text;
+}

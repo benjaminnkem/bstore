@@ -1,5 +1,5 @@
 import connectToDB from "@/utils/db";
-import User from "@/utils/schemas/UsersSchema";
+import User from "@/utils/schemas/users/UsersSchema";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {

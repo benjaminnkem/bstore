@@ -12,14 +12,14 @@ const ProductDisplay = ({ items }) => {
 
   const addItemToCart = (item) => updateCartItems(item);
 
-  useEffect(() => calculateTotalCosts(), []);
+  useEffect(() => calculateTotalCosts(), [calculateTotalCosts]);
   useEffect(() => {
     const getProductsByTag = async () => {
       const res = await fetch(`/api/products/get-by-tag/${tagSelect}`);
       if (!res.ok) return
 
       const products = await res.json()
-      console.log(products);
+      setTagProducts(products ? products : [])
     } 
 
     getProductsByTag()

@@ -47,6 +47,10 @@ body {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.783);
 }
 
+.blur-bg {
+  backdrop-filter: blur(8px);
+}
+
 .cart-ico::after {
   content: attr(data-shopping-items);
   display: flex;

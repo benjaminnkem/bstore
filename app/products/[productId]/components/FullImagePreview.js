@@ -40,8 +40,8 @@ const ProductFullImagePreview = ({ post }) => {
       </div>
 
       {/* Main Image */}
-      <div>
-        <div className="md:sticky top-4">
+      <div className="space-y-8">
+        <div>
           <div
             className="rounded-lg overflow-hidden group shadow-md max-h-96 min-h-[20rem] md:min-h-[24rem] relative flex items-center justify-center md:max-h-[auto] duration-200"
             onClick={togglePreview}
@@ -61,6 +61,13 @@ const ProductFullImagePreview = ({ post }) => {
           <p className="mt-4 text-sm">
             Date Posted: <span className="font-light">{new Date(post.date_posted).toDateString()}</span>{" "}
           </p>
+        </div>
+
+        <div className="p-4 leading-loose duration-100 bg-white rounded-lg shadow-md dark:bg-transparent dark:p-0">
+          <h2 className="text-2xl font-semibold">Product Description</h2>
+          <div className="mt-2">
+            <p className="font-light whitespace-pre-line">{post.description}</p>
+          </div>
         </div>
       </div>
     </>

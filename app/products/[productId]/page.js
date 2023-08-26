@@ -2,9 +2,9 @@ import DefaultWrapper from "@/app/DefaultWrapper";
 import HorizontalCategory from "@/app/shop/components/HorizontalCategory";
 import ProductFullImagePreview from "./components/FullImagePreview";
 import "./styles/product-details.css";
-import Link from "next/link";
 import { checkHost, checkProtocol } from "@/app/reuseable/decideProtocol";
 import ProdDetails from "./components/Details";
+import NextAuthProvider from "@/app/components/NextAuthProvider";
 
 export const dynamicParams = true;
 
@@ -57,21 +57,9 @@ const ProductDetails = async ({ params }) => {
             <section className="gap-40 my-10 md:grid" style={{ gridTemplateColumns: "2.5fr 3fr" }}>
               <ProductFullImagePreview post={post} />
 
-              <div>
-                <h1 className="my-4 text-2xl font-extrabold duration-200 md:text-4xl sm:text-3xl">
-                  {post.itemName}{" "}
-                  <span className="text-sm font-light">
-                    posted by{" "}
-                    <Link href={"https://github.com/benjaminnkem"} target="_blank" passHref>
-                      <span className="text-orange-500 duration-200 border-b border-transparent hover:border-orange-300">
-                        {post.seller[0].username}
-                      </span>
-                    </Link>
-                  </span>
-                </h1>
-
-                <ProdDetails post={post}/>
-              </div>
+              <NextAuthProvider>
+                <ProdDetails post={post} />
+              </NextAuthProvider>
             </section>
           </div>
         </main>

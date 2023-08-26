@@ -10,18 +10,18 @@ const HomeToAd = () => {
   return (
     <>
       <div
-        className={`w-full bg-orange-700 text-white flex space-x-3 ease-linear justify-center items-center relative duration-300 overflow-hidden ${
+        className={`w-full bg-green-900 text-white flex space-x-3 ease-linear justify-center items-center relative duration-300 overflow-hidden ${
           visible ? "h-16" : "h-[.05px]"
         }`}
       >
         <p className="uppercase">Up to 50% off only for a limited time!</p>
         <Link href={"/shop"} passHref>
-          <button className="py-1 px-3 bg-orange-600 border border-orange-600 duration-200 hover:bg-orange-800 rounded-md">
+          <button className="px-3 py-1 duration-200 bg-green-600 border border-green-600 rounded-md hover:bg-green-800">
             Shop Now! <FontAwesomeIcon icon={faShop} />
           </button>
         </Link>
 
-        <div className="absolute h-full right-4 grid place-content-center top-0">
+        <div className="absolute top-0 grid h-full right-4 place-content-center">
           <FontAwesomeIcon
             icon={faClose}
             title="Close"

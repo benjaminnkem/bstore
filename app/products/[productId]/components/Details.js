@@ -11,6 +11,12 @@ const itemDescClass = "flex justify-between items-center py-2 border-[#666666] b
 const ProdDetails = ({ post }) => {
   const [customQuantity, setCustomQuantity] = useState(1);
   const [aboutToReview, setAboutToReview] = useState(false);
+  const [formInputs, setFormInputs] = useState({
+    fullName: "",
+    email: "",
+    content: "",
+  });
+  const [status, setStatus] = useState({ error: false, resInfo: "", loading: false });
 
   const starIconRef = useRef();
   const [starIndex, setStarIndex] = useState(4);
@@ -20,21 +26,6 @@ const ProdDetails = ({ post }) => {
   const handleStarHovering = (starId) => setStarIndex(starId);
 
   const emojiRepChanger = () => {
-    // switch (starIndex) {
-    //   case 0:
-    //     setEmojiRep("😥");
-    //   case 1:
-    //     setEmojiRep("😐");
-    //   case 2:
-    //     setEmojiRep("🙂");
-    //   case 3:
-    //     setEmojiRep("😘");
-    //   case 4:
-    //     setEmojiRep("🥰");
-    //   default:
-    //     setEmojiRep("😶");
-    // }
-
     if (starIndex === 0) {
       setEmojiRep("😥");
     } else if (starIndex === 1) {
@@ -65,20 +56,51 @@ const ProdDetails = ({ post }) => {
     }
   };
 
+  const handleFormChange = (e) => setFormInputs({ ...formInputs, [e.target.name]: e.target.value });
+  // const formValidator = () => {
+  //   const errors = {};
+  //   if()
+  // };
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ loading: true });
+
+    const res = await fetch("/api/products/create/review", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...formInputs, stars: starIndex + 1 }),
+    });
+
+    if (!res.ok) {
+      setStatus({ error: true, loading: false, resInfo: res.statusText });
+      return;
+    }
+
+    setStatus({ error: false, loading: false,  resInfo: "Upload Successful 🎉" });
+
+    setFormInputs({
+      fullName: "",
+      email: "",
+      content: "",
+    });
+  };
+
   return (
     <>
       <div>
-        <h1 className="my-4 text-2xl font-extrabold duration-200 md:text-4xl sm:text-3xl">
-          {post.itemName}{" "}
-          <span className="text-sm font-light">
-            posted by{" "}
-            <Link href={"https://github.com/benjaminnkem"} target="_blank" passHref>
-              <span className="text-orange-500 duration-200 border-b border-transparent hover:border-orange-300">
-                {post.seller[0].username}
-              </span>
-            </Link>
-          </span>
-        </h1>
+        <div>
+          <h1 className="my-4 text-2xl font-extrabold duration-200 md:text-4xl sm:text-3xl">
+            {post.itemName}{" "}
+            <span className="text-sm font-light">
+              posted by{" "}
+              <Link href={"https://github.com/benjaminnkem"} target="_blank" passHref>
+                <span className="text-orange-500 duration-200 border-b border-transparent hover:border-orange-300">
+                  {post.seller[0].username}
+                </span>
+              </Link>
+            </span>
+          </h1>
+        </div>
 
         <div className="space-y-4">
           <div className="mt-4 bg-white shadow-md dark:bg-[#212121] p-4 rounded-lg">
@@ -175,9 +197,20 @@ const ProdDetails = ({ post }) => {
               }`}
             >
               <div>
-                <h4 className="font-semibold">
-                  <span className="text-2xl text-orange-500">Rate</span> {post.itemName}
-                </h4>
+                <div>
+                  <h4 className="font-semibold">
+                    <span className="text-2xl text-orange-500">Rate</span> {post.itemName}
+                  </h4>
+                  {status.resInfo && (
+                    <p
+                      className={`py-1 text-sm font-semibold  ${
+                        status.resInfo.startsWith("Upl") ? "text-green-500" : "text-red-500"
+                      }`}
+                    >
+                      {status.resInfo}
+                    </p>
+                  )}
+                </div>
 
                 <div className="gap-4 my-4 md:grid" style={{ gridTemplateColumns: "1fr 2fr" }}>
                   <div className="grid text-center place-content-center">
@@ -198,7 +231,7 @@ const ProdDetails = ({ post }) => {
                     </div>
                   </div>
 
-                  <form onSubmit={(e) => e.preventDefault()}>
+                  <form onSubmit={(e) => handleFormSubmit(e)}>
                     <div className="space-y-3">
                       <div>
                         <label className="text-sm" htmlFor="fullName">
@@ -208,6 +241,9 @@ const ProdDetails = ({ post }) => {
                           type="text"
                           className="w-full p-2 dark:bg-[#1b1b1b] rounded-md outline-none text-sm placeholder:text-gray-400"
                           placeholder="Enter your fine name"
+                          name="fullName"
+                          value={formInputs.fullName}
+                          onChange={(e) => handleFormChange(e)}
                           required
                         />
                       </div>
@@ -219,6 +255,9 @@ const ProdDetails = ({ post }) => {
                           type="email"
                           className="w-full p-2 dark:bg-[#1b1b1b] rounded-md outline-none text-sm placeholder:text-gray-400"
                           placeholder="Enter your email"
+                          value={formInputs.email}
+                          onChange={(e) => handleFormChange(e)}
+                          name="email"
                           required
                         />
                       </div>
@@ -227,18 +266,25 @@ const ProdDetails = ({ post }) => {
                           Content:
                         </label>
                         <textarea
+                          rows={6}
                           type="email"
                           className="w-full p-2 dark:bg-[#1b1b1b] rounded-md outline-none resize-none text-sm placeholder:text-gray-400"
                           placeholder="Your message goes here..."
-                          rows={6}
-                          maxLength={1024}
+                          name="content"
+                          value={formInputs.content}
+                          onChange={(e) => handleFormChange(e)}
+                          maxLength={2048}
                           required
                         ></textarea>
                       </div>
 
                       <input
                         type="submit"
-                        className="w-full py-1 duration-200 border border-orange-500 rounded-md shadow-md hover:bg-orange-500 hover:text-black"
+                        value={status.loading ? "Uploading..." : "Submit"}
+                        disabled={status.loading}
+                        className={`w-full py-1 duration-200 border border-orange-500 rounded-md shadow-md hover:bg-orange-500 disabled:hover:bg-transparent hover:text-black ${
+                          status.loading ? "opacity-20" : "opacity-100"
+                        }`}
                       />
                     </div>
                   </form>

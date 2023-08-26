@@ -1,9 +1,10 @@
-import { Schema, model, models } from "mongoose";
+import { Schema, Types, model, models } from "mongoose";
 
 const reviewSchema = new Schema({
   fullName: {
     type: String,
     required: true,
+    trim: true,
   },
   email: {
     type: String,
@@ -14,13 +15,17 @@ const reviewSchema = new Schema({
   content: {
     type: String,
     required: true,
-    maxLength: 2048,
+    maxLength: 1024,
     trim: true,
   },
   stars: {
     type: Number,
     required: true,
     max: 5,
+  },
+  productId: {
+    type: Types.ObjectId,
+    required: true,
   },
   date_created: {
     type: Date,

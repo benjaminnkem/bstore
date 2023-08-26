@@ -8,6 +8,10 @@
   --background-rgb: #eee;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: rgb(255, 255, 255);

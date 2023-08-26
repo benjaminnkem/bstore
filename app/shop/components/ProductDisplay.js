@@ -1,16 +1,33 @@
 "use client";
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import ProductTemplate from "./ProductTemplate";
 import { GlobalCartItemContext } from "@/app/context/GlobalCartItems";
 
 export const ShopContext = createContext();
 
 const ProductDisplay = ({ items }) => {
-  const { updateCartItems, calculateTotalCosts, sideCartItemDisplay, toggleSideCartView } =
-    useContext(GlobalCartItemContext);
+  const { updateCartItems, calculateTotalCosts } = useContext(GlobalCartItemContext);
+  const [tagSelect, setTagSelect] = useState("");
+  const [tagProducts, setTagProducts] = useState([]);
 
   const addItemToCart = (item) => updateCartItems(item);
+
   useEffect(() => calculateTotalCosts(), []);
+  useEffect(() => {
+    const getProductsByTag = async () => {
+      const res = await fetch(`/api/products/get-by-tag/${tagSelect}`);
+      if (!res.ok) return
+
+      const products = await res.json()
+      console.log(products);
+    } 
+
+    getProductsByTag()
+  });
+
+  const chooseTag = (tag) => {
+    setTagSelect(tag);
+  };
 
   const contextValue = {
     items,
@@ -31,35 +48,38 @@ const ProductDisplay = ({ items }) => {
 
               <div className="flex flex-wrap mt-2 space-x-2">
                 {[
-                  "#General",
-                  "Cloth 👚",
-                  "TV 📺",
-                  "Fish 🐟",
-                  "Motorbike 🏍",
-                  "Chair 🪑",
-                  "Fashion 💄",
-                  "Tech ⚙",
-                  "PC 📺",
-                  "Speakers 🔊",
-                  "Airpods",
-                  "Musical Instruments 🎹🎷",
-                  "Electronics ⚡",
-                  "Kitchen Utensils 🔪",
-                  "Laundry 🧺",
-                  "Sports 🏒🏅",
-                  "Cars 🚗",
-                  "Art 🎨",
-                  "Music 🎧",
-                  "Gym 💪🏋️‍♀️",
-                  "Junks 🍧",
-                  "Groceries 🍀",
-                  "Airplanes ✈🛫",
-                ].map((cat, id) => (
+                  { showcase: "#General", cursor: "general" },
+                  { showcase: "Cloth 👚", cursor: "cloth" },
+                  { showcase: "TV 📺", cursor: "tv" },
+                  { showcase: "Fish 🐟", cursor: "fish" },
+                  { showcase: "Motorbike 🏍", cursor: "motorbike" },
+                  { showcase: "Chair 🪑", cursor: "chair" },
+                  { showcase: "Fashion 💄", cursor: "fashion" },
+                  { showcase: "Tech ⚙", cursor: "tech" },
+                  { showcase: "PC 📺", cursor: "pc" },
+                  { showcase: "Speakers 🔊", cursor: "speakers" },
+                  { showcase: "Airpods", cursor: "airpods" },
+                  { showcase: "Musical Instruments 🎹🎷", cursor: "musical instruments" },
+                  { showcase: "Electronics ⚡", cursor: "eletronics" },
+                  { showcase: "Kitchen Utensils 🔪", cursor: "kitchen utensils" },
+                  { showcase: "Laundry 🧺", cursor: "laundry" },
+                  { showcase: "Sports 🏒🏅", cursor: "sports" },
+                  { showcase: "Cars 🚗", cursor: "cars" },
+                  { showcase: "Art 🎨", cursor: "art" },
+                  { showcase: "Music 🎧", cursor: "music" },
+                  { showcase: "Gym 💪🏋️‍♀️", cursor: "gym" },
+                  { showcase: "Junks 🍧", cursor: "junks" },
+                  { showcase: "Groceries 🍀", cursor: "groceries" },
+                  { showcase: "Airplanes ✈🛫", cursor: "airplanes" },
+                ].map((tag, id) => (
                   <button
                     key={id}
-                    className="px-3 py-1 my-2 sm:text-xs text-[.5rem] font-semibold text-black duration-200 border border-orange-500 rounded-lg bg-orange-50 dark:bg-transparent dark:text-white"
+                    className="px-3 py-1 my-2 sm:text-xs text-[.5rem] font-semibold text-black 
+                    duration-200 border border-orange-500 rounded-lg bg-orange-50 dark:bg-transparent dark:text-white
+                    hover:bg-orange-500 hover:text-black"
+                    onClick={() => chooseTag(tag.cursor)}
                   >
-                    {cat ? cat : "Tag"}
+                    {tag.showcase}
                   </button>
                 ))}
               </div>

@@ -1,14 +1,13 @@
-import connectToDB from "@/utils/db";
-import ProductsCreateSchema from "@/utils/schemas/ProductsSchema";
 import { ObjectId } from "mongodb";
 import multer from "multer";
 import { getServerSession } from "next-auth/next";
 import { getToken } from "next-auth/jwt";
 import nc from "next-connect";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import fs from "fs";
 import DataURIParser from "datauri/parser";
 import path from "path";
+import connectToDB from "@/utils/db";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import ProductsSchema from "@/utils/schemas/ProductsSchema";
 
 const cloudinary = require("cloudinary").v2;
 
@@ -87,7 +86,7 @@ handler.use(upload.single("productImage")).post("/api/pages/create/product", asy
       seller_id: new ObjectId(session.user.id),
     };
 
-    await ProductsCreateSchema.create(productData);
+    await ProductsSchema.create(productData);
     res.status(200).json({ message: "product created successfully" });
   } catch (e) {
     console.log(e);

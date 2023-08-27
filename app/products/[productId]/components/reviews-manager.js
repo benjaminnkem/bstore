@@ -21,10 +21,10 @@ const ReviewsManager = ({ reviews, reviewStatus }) => {
                   } duration-300`}
                 >
                   <div
-                    className={`p-4 border rounded-md border-opacity-25 dark:bg-[#262626] duration-200 cursor-pointer dark:hover:bg-[#383838] ${
+                    className={`p-4 border rounded-md border-opacity-25 dark:bg-[#262626] duration-200 dark:hover:bg-[#383838] ${
                       idx === ratingIndex
                         ? "md:max-w-xl w-11/12 mx-auto overflow-y-auto max-h-96"
-                        : "hover:-translate-x-4"
+                        : "hover:-translate-x-2 cursor-pointer"
                     }`}
                     onClick={() => setRatingIndex(idx)}
                   >

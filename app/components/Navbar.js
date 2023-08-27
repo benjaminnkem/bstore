@@ -70,7 +70,7 @@ const Navbar = () => {
                       <i className="cursor-pointer ri-search-2-line"></i>
                     </div>
 
-                    <ShoppingCartIcon />
+                    <ShoppingCartIcon size={'text-2xl'}/>
 
                     <Link
                       href={`${status === "authenticated" ? "/dash" : "/admin/login"}`}
@@ -96,6 +96,7 @@ const Navbar = () => {
                     <i className="ri-home-4-line"></i>
                   </li>
                 </Link>
+                <ShoppingCartIcon size={'text-base'} />
                 <Link passHref href={"/shop"}>
                   <li
                     className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${

@@ -10,7 +10,7 @@ const HomeToAd = () => {
   return (
     <>
       <div
-        className={`w-full bg-[#212121] text-white flex space-x-3 ease-linear justify-center items-center relative duration-300 overflow-hidden ${
+        className={`w-full bg-[#212121] text-white md:flex space-x-3 hidden ease-linear justify-center items-center relative duration-300 overflow-hidden ${
           visible ? "h-16" : "h-[.05px]"
         }`}
       >

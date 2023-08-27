@@ -14,13 +14,13 @@ const HorizontalProductShow = ({ products }) => {
         {/* Slider */}
         <div
           ref={slider}
-          className="w-full h-full px-2 py-4 space-x-8 overflow-x-scroll overflow-y-auto -z-10 scroll whitespace-nowrap scroll-smooth slider"
+          className="w-full h-full px-2 py-4 space-x-8 overflow-x-scroll overflow-y-auto scroll whitespace-nowrap scroll-smooth slider"
         >
           {products
             .slice(0, 12)
             .sort((pA, pB) => (pB.date_posted > pA.date_posted ? -1 : 1))
             .map((product) => (
-              <Link href={"#"} passHref key={product._id}>
+              <Link href={`/products/${product._id}`} passHref key={product._id}>
                 <div
                   className="relative inline-block duration-300 ease-in-out border-4 rounded-lg shadow-md w-80 h-80 hover:scale-105"
                   title={product.itemName}

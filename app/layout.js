@@ -1,5 +1,5 @@
-import "remixicon/fonts/remixicon.css";
 import "./globals.css";
+import "remixicon/fonts/remixicon.css";
 import { Poppins } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";

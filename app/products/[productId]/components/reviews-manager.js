@@ -7,7 +7,7 @@ import { useState } from "react";
 const ReviewsManager = ({ reviews, reviewStatus }) => {
   const [ratingIndex, setRatingIndex] = useState(null);
   return (
-    <>
+    <div>
       {reviews && reviews?.length > 0 ? (
         <>
           {!reviewStatus.loading && (
@@ -74,8 +74,8 @@ const ReviewsManager = ({ reviews, reviewStatus }) => {
         <>{!reviewStatus.loading && <p className="font-light">No ratings.</p>}</>
       )}
 
-      {reviewStatus.loading && <div className="ri-loader-4-line text-4xl animate-spin inline-block"></div>}
-    </>
+      {reviewStatus.loading && <i className="ri-loader-4-line text-4xl animate-spin inline-block"></i>}
+    </div>
   );
 };
 

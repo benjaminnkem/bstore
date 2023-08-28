@@ -1,7 +1,7 @@
 import { Schema, Types, model, models } from "mongoose";
 
 const reviewSchema = new Schema({
-  fullName: {
+  username: {
     type: String,
     required: true,
     trim: true,

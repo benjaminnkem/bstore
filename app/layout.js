@@ -3,6 +3,7 @@ import "remixicon/fonts/remixicon.css";
 import { Poppins } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import ProgressBarRoute from "./components/progresbar-route";
 config.autoAddCss = false;
 
 const poppins = Poppins({
@@ -14,7 +15,9 @@ const poppins = Poppins({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={poppins.className}>
-      <body>{children}</body>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }

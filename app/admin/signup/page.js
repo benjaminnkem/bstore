@@ -1,5 +1,4 @@
 "use client";
-
 import { sun3D } from "@/app/reuseable/three/solar/solar";
 import { faArrowLeft, faRocket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -33,8 +32,6 @@ const CreateAdmin = () => {
       setErr(e.response.statusText);
       return;
     }
-
-    // router.push("/admin/login")
   };
 
   useEffect(() => sun3D(), []);

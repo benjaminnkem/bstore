@@ -33,15 +33,18 @@ const ProdDetails = ({ post }) => {
   const [badge, setBadge] = useState(0);
 
   const [reviewStatus, setReviewStatus] = useState({ loading: false, error: false });
-
   const incrementBadgeNum = () => setBadge((prev) => prev + 1);
-
   const callbackUrl = encodeURI(`/products/${post._id}`);
+
+  // Textarea box
+  const [contentControl, setContentControl] = useState({ start: formInputs.content.length, max: 1024 });
+  const updateContextLength = (e) => setContentControl({ ...contentControl, start: e.target.value?.length });
 
   useEffect(() => {
     async function getProductReviews() {
       setReviewStatus({ ...reviewStatus, loading: true });
       const res = await fetch(`/api/products/reviews/${post._id}/${badge}`);
+
       if (!res.ok) {
         setReviewStatus({ ...reviewStatus, loading: false });
         return;
@@ -92,16 +95,15 @@ const ProdDetails = ({ post }) => {
   const handleFormChange = (e) => setFormInputs({ ...formInputs, [e.target.name]: e.target.value });
   const formValidator = () => {
     const errors = {};
-    if (!formInputs.fullName) errors.fullName = "Please enter your name";
-    if (!formInputs.email) {
-      errors.email = "Please enter your email";
-    } else if (
-      !formInputs.email.includes("@") ||
-      formInputs.email.substring(formInputs.email.indexOf("@"), formInputs.email.length) <= 0
-    ) {
-      // should use RegExp instead
-      errors.email = "Invalid email address";
-    }
+    // if (!formInputs.fullName) errors.fullName = "Please enter your name";
+    // if (!formInputs.email) {
+    //   errors.email = "Please enter your email";
+    // } else if (
+    //   !formInputs.email.includes("@") ||
+    //   formInputs.email.substring(formInputs.email.indexOf("@"), formInputs.email.length) <= 0
+    // ) {
+    //   errors.email = "Invalid email address";
+    // }
     if (!formInputs.content) errors.content = "Please enter review content/message";
 
     return errors;
@@ -193,7 +195,7 @@ const ProdDetails = ({ post }) => {
 
                     <form onSubmit={(e) => handleFormSubmit(e)}>
                       <div className="md:space-y-3 space-y-1">
-                        <div>
+                        {/* <div>
                           <label className="text-sm" htmlFor="fullName">
                             Full Name:
                           </label>
@@ -204,7 +206,7 @@ const ProdDetails = ({ post }) => {
                             }`}
                             placeholder="Enter your fine name"
                             name="fullName"
-                            value={formInputs.fullName}
+                            value={userInfo ? userInfo.username : formInputs.fullName}
                             onChange={(e) => handleFormChange(e)}
                           />
                           {validateError.fullName && <p className="text-xs text-red-500">{validateError.fullName}</p>}
@@ -219,18 +221,18 @@ const ProdDetails = ({ post }) => {
                               validateError.email && "border border-red-500"
                             }`}
                             placeholder="Enter your email"
-                            value={formInputs.email}
+                            value={userInfo ? userInfo.email : formInputs.email}
                             onChange={(e) => handleFormChange(e)}
                             name="email"
                           />
                           {validateError.email && <p className="text-xs text-red-500">{validateError.email}</p>}
-                        </div>
+                        </div> */}
                         <div>
-                          <label className="text-sm" htmlFor="content">
-                            Content:
+                          <label className="font-semibold" htmlFor="content">
+                            Review
                           </label>
                           <textarea
-                            rows={6}
+                            rows={10}
                             type="email"
                             className={`w-full p-2 dark:bg-[#1b1b1b] rounded-md outline-none resize-none text-sm placeholder:text-gray-400 ${
                               validateError.content && "border border-red-500"
@@ -238,10 +240,16 @@ const ProdDetails = ({ post }) => {
                             placeholder="Your message goes here..."
                             name="content"
                             value={formInputs.content}
-                            onChange={(e) => handleFormChange(e)}
+                            onChange={(e) => {
+                              handleFormChange(e);
+                              updateContextLength(e);
+                            }}
                             maxLength={1024}
                           ></textarea>
                           {validateError.content && <p className="text-xs text-red-500">{validateError.content}</p>}
+                          <p className="text-sm text-gray-400 opacity-80">
+                            {contentControl.start} / {contentControl.max}
+                          </p>
                         </div>
 
                         <input

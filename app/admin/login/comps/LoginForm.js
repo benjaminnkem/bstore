@@ -93,7 +93,7 @@ const LoginForm = () => {
 
                   <div>
                     <button
-                      className="w-full py-2 transition-colors duration-200 rounded-md bg-slate-700 hover:bg-slate-800"
+                      className="w-full py-2 transition-colors duration-200 rounded-md bg-slate-700 hover:bg-slate-800 disabled:hover:bg-slate-700"
                       disabled={status.loading}
                     >
                       {status.loading ? "Validating..." : "Login"}

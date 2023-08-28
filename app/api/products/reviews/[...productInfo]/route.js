@@ -3,16 +3,16 @@ import reviews from "@/utils/schemas/products/reviews";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
-export async function GET(_, { params }) {
+export async function GET(req, { params }) {
   try {
     const { productInfo } = params;
-    await connectToDB();
 
     const productId = productInfo[0];
     const step = Number(productInfo[1]);
 
     const baseNoOfReviews = 5;
 
+    await connectToDB();
     const reviewsForProduct = await reviews.aggregate([
       { $match: { productId: new ObjectId(productId) } },
       { $limit: 5 },

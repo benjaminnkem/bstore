@@ -1,11 +1,13 @@
 "use client";
 
 import { sun3D } from "@/app/reuseable/three/solar/solar";
-import { faAdd, faRocket } from "@fortawesome/free-solid-svg-icons";
+import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import "./styles/signup.css";
+import Link from "next/link";
 
 const CreateAdmin = () => {
   const [formInput, setFormInput] = useState({ username: "", password: "", email: "" });
@@ -34,10 +36,12 @@ const CreateAdmin = () => {
   return (
     <>
       <div>
-        <div className="fixed w-1/2 h-full grid place-content-center">
+        <div className="md:fixed md:w-1/2 w-full bg-opacity-80 duration-200 bg-[#212121] min-h-full grid place-content-center absolute">
           <div className="p-4">
             <div>
-              <h1 className="text-4xl pt-6 font-bold">Create An <span className="text-orange-500">Account</span></h1>
+              <h1 className="text-4xl pb-6 font-bold">
+                Create An <span className="text-orange-500">Account</span>
+              </h1>
             </div>
             <form onSubmit={(e) => handleSubmit(e)}>
               <div className="space-y-5">
@@ -45,7 +49,7 @@ const CreateAdmin = () => {
                   <label htmlFor="username">Username</label>
                   <input
                     type="text"
-                    className="w-full bg-transparent border-b border-slate-600 border-opacity-20 p-2 outline-none"
+                    className="w-full bg-transparent border-b border-slate-400 border-opacity-20 p-2 outline-none"
                     placeholder="Username"
                     autoComplete="off"
                     name="username"
@@ -57,7 +61,7 @@ const CreateAdmin = () => {
                   <label htmlFor="email">Email</label>
                   <input
                     type="text"
-                    className="w-full bg-transparent border-b border-slate-600 border-opacity-20 p-2 outline-none"
+                    className="w-full bg-transparent border-b border-slate-400 border-opacity-20 p-2 outline-none"
                     placeholder="Enter email"
                     name="email"
                     value={formInput.email}
@@ -69,13 +73,19 @@ const CreateAdmin = () => {
                   <label htmlFor="password">Password</label>
                   <input
                     type="password"
-                    className="w-full bg-transparent border-b border-slate-600 border-opacity-20 p-2 outline-none"
+                    className="w-full bg-transparent border-b border-slate-400 border-opacity-20 p-2 outline-none"
                     placeholder="Password"
                     autoComplete="off"
                     name="password"
                     value={formInput.password}
                     onChange={(e) => handleFormInput(e)}
                   />
+                </div>
+
+                <div>
+                  <p className="text-sm">
+                    Already have an account? <Link href={'/admin/login'} className="border-b border-orange-400">Login</Link>
+                  </p>
                 </div>
                 <button
                   role="submit"

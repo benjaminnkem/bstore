@@ -6,7 +6,9 @@ export const sun3D = () => {
     // scene, camera, light
     const scene = new THREE.Scene();
     const sizes = { width: window.innerWidth / 2, height: window.innerHeight };
-
+    if (window.innerWidth <= 768) {
+      sizes.width = window.innerWidth;
+    }
     const cubeTextureLoader = new THREE.CubeTextureLoader();
     scene.background = cubeTextureLoader.load([
       "/textures/stars.jpg",
@@ -64,6 +66,10 @@ export const sun3D = () => {
     const resizeCanvas = () => {
       sizes.width = window.innerWidth / 2;
       sizes.height = window.innerHeight;
+
+      if (window.innerWidth <= 768) {
+        sizes.width = window.innerWidth;
+      }
 
       camera.aspect = sizes.width / sizes.height;
       camera.updateProjectionMatrix();

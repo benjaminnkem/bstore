@@ -1,18 +1,8 @@
-.skeleton-image {
-  opacity: .45;
-  animation: skeleton-loading .5s linear infinite alternate;
-}
-
-.skeleton {
-  opacity: .75;
-  animation: skeleton-loading .5s linear infinite alternate;
-}
-
-@keyframes skeleton-loading {
-  0% {
-    background-color: #ecf1f8;
-  }
-  100% {
-    background-color: #777a7d;
-  }
+#canva {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
 }

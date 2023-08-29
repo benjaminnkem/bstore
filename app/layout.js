@@ -1,12 +1,12 @@
 import "./globals.css";
 import "remixicon/fonts/remixicon.css";
-import { Poppins } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import ProgressBarRoute from "./components/progresbar-route";
+import GeneralProvider from "@/lib/providers/general";
 config.autoAddCss = false;
 
-const poppins = Poppins({
+const dmSansa = DM_Sans({
   subsets: ["latin"],
   display: "swap",
   weight: ["100", "300", "500", "800"],
@@ -14,9 +14,9 @@ const poppins = Poppins({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="en" className={dmSansa.className}>
       <body>
-        {children}
+        <GeneralProvider>{children}</GeneralProvider>
       </body>
     </html>
   );

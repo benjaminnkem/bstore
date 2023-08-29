@@ -24,7 +24,7 @@ const ReviewsManager = ({ reviews, reviewStatus }) => {
                     className={`p-4 border rounded-md border-opacity-25 dark:bg-[#262626] duration-200 dark:hover:bg-[#383838] ${
                       idx === ratingIndex
                         ? "md:max-w-xl w-11/12 mx-auto overflow-y-auto max-h-96"
-                        : "hover:-translate-x-2 cursor-pointer"
+                        : "cursor-pointer"
                     }`}
                     onClick={() => setRatingIndex(idx)}
                   >

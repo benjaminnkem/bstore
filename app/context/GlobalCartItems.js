@@ -1,5 +1,6 @@
 "use client";
 import { createContext, useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 export const GlobalCartItemContext = createContext();
 const GlobalCartItemsProvider = ({ children }) => {
@@ -22,15 +23,16 @@ const GlobalCartItemsProvider = ({ children }) => {
   const updateCartItems = (item) => {
     const itemExists = cartItems.find((itemCheck) => itemCheck._id === item._id);
     if (itemExists) {
-      toggleSideCartView();
-
+      toast.success(`Updated ${item.itemName} in cart`);
+      
       const items = cartItems.filter((inCartItem) => inCartItem._id !== item._id);
       items.push(item);
 
       setCartItems(items);
       return;
     }
-
+    
+    toast.success(`Added ${item.itemName} to cart`);
     setCartItems((prev) => [...prev, item]);
     calculateTotalCosts();
   };
@@ -41,6 +43,8 @@ const GlobalCartItemsProvider = ({ children }) => {
     const updatedItems = cartItems.filter((item) => itemIndex !== cartItems.indexOf(item));
     setCartItems(updatedItems);
     calculateTotalCosts();
+
+    toast.success(`${item.itemName} removed successfully`);
   };
 
   function calculateTotalCosts() {

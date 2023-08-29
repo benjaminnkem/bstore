@@ -15,11 +15,11 @@ const DefaultWrapper = ({ children }) => {
           <FavoriteItemProvider>
             <Navbar />
             <SessionProvider>{children}</SessionProvider>
+            <Footer />
             <SelectedItemDisplay />
           </FavoriteItemProvider>
         </GlobalCartItemsProvider>
       </NextAuthProvider>
-      <Footer />
     </>
   );
 };

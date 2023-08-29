@@ -2,7 +2,7 @@ import DefaultWrapper from "../DefaultWrapper";
 import ContactClient from "./components/contact-client";
 
 export const metadata = {
-  title: "Contact Us - Bstore Enterprises",
+  title: "Get In Touch - Bstore",
 };
 
 const ContactPage = () => {

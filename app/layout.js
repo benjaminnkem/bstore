@@ -6,15 +6,14 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import GeneralProvider from "@/lib/providers/general";
 config.autoAddCss = false;
 
-const dmSansa = DM_Sans({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  display: "swap",
   weight: ["100", "300", "500", "800"],
 });
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={dmSansa.className}>
+    <html lang="en" className={dmSans.className}>
       <body>
         <GeneralProvider>{children}</GeneralProvider>
       </body>

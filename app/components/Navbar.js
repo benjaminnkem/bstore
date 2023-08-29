@@ -116,7 +116,7 @@ const Navbar = () => {
 
           {/* Side Menu panel */}
           <div
-            className={`fixed top-0 right-0 h-full bg-black z-[100] duration-500 overflow-hidden md:hidden block ${
+            className={`fixed top-0 right-0 h-full bg-black z-[100] duration-500 overflow-hidden text-white md:hidden block ${
               mobileMenuOpen ? "w-full opacity-90" : "w-[.05px] opacity-0"
             }`}
           >
@@ -163,7 +163,7 @@ const Navbar = () => {
                       title={`${status === "authenticated" ? "Go to dashboard" : "Sign Up / Login"}`}
                     >
                       <p className="text-lg font-semibold text-gray-300">
-                        Dashboard <i className="ri-external-link-line"></i>
+                        {status === "authenticated" ? 'Dashboard': 'Login/Sign up'}
                       </p>
                     </Link>
                   </li>

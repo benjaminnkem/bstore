@@ -14,6 +14,13 @@ module.exports = {
       fontFamily: {
         playFair: ["Playfair Display", "serif"],
       },
+      colors: {
+        primaryDark: "#131313",
+        primaryDarkShade: {
+          100: "#151515",
+          200: "#1e1e1e",
+        },
+      },
     },
   },
   plugins: [],

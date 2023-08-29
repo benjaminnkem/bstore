@@ -21,7 +21,7 @@ const ReviewsManager = ({ reviews, reviewStatus }) => {
                   } duration-300`}
                 >
                   <div
-                    className={`p-4 border rounded-md border-opacity-25 dark:bg-[#262626] duration-200 dark:hover:bg-[#383838] ${
+                    className={`p-4 border rounded-md border-opacity-25 dark:bg-[#262626] bg-white duration-200 dark:hover:bg-[#383838] hover:bg-gray-50 ${
                       idx === ratingIndex
                         ? "md:max-w-xl w-11/12 mx-auto overflow-y-auto max-h-96"
                         : "cursor-pointer"
@@ -58,7 +58,7 @@ const ReviewsManager = ({ reviews, reviewStatus }) => {
                   {idx === ratingIndex && (
                     <div className="text-center">
                       <button
-                        className="px-4 py-2 rounded-lg border-2 hover:bg-red-500 my-2 text-sm hover:text-black duration-200"
+                        className="px-4 py-2 rounded-lg border-2 hover:bg-orange-500 bg-orange-600 dark:bg-transparent my-2 text-sm hover:text-black duration-200"
                         onClick={() => setRatingIndex(null)}
                       >
                         Close <FontAwesomeIcon icon={faClose} />

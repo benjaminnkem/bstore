@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose, faRocket, faStar, faUser } from "@fortawesome/free-solid-svg-icons";
 import ReviewsManager from "./reviews-manager";
 import { useSession } from "next-auth/react";
+import { toast } from "react-hot-toast";
 
 const itemDescClass = "flex justify-between items-center py-2 border-[#666666] border-t border-opacity-50";
 
@@ -139,6 +140,8 @@ const ProdDetails = ({ post }) => {
       email: "",
       content: "",
     });
+
+    toast.success("Upload Successful");
   };
 
   return (
@@ -149,7 +152,7 @@ const ProdDetails = ({ post }) => {
           aboutToReview ? "h-full bg-opacity-90" : "h-0 bg-opacity-0"
         } duration-300 top-0 overflow-hidden`}
       >
-        <div className="absolute top-0 left-0 grid w-full h-full delay-[400] blur-bg place-content-center">
+        <div className="absolute top-0 left-0 grid w-full h-full place-content-center backdrop-blur-sm">
           <div className={`rounded-md p-6 relative overflow-hidden ${aboutToReview ? "opacity-100" : "opacity-0"}`}>
             <div
               className={`dark:bg-[#212121] bg-white rounded-md p-4 duration-200 delay-200 shadow-md w-full border-2 md:min-w-[40rem] sm:min-w-[30rem] min-w-[20rem] ${
@@ -190,7 +193,7 @@ const ProdDetails = ({ post }) => {
                             </div>
                           ))}
                       </div>
-                      <p className="text-xs text-gray-300 opacity-80">Hover/Click to set stars</p>
+                      <p className="text-xs dark:text-gray-300 text-gray-800 opacity-80">Hover/Click to set stars</p>
                     </div>
 
                     <form onSubmit={(e) => handleFormSubmit(e)}>
@@ -234,7 +237,7 @@ const ProdDetails = ({ post }) => {
                           <textarea
                             rows={10}
                             type="email"
-                            className={`w-full p-2 dark:bg-[#1b1b1b] rounded-md outline-none resize-none text-sm placeholder:text-gray-400 ${
+                            className={`w-full p-2 dark:bg-[#1b1b1b] bg-[#eee] rounded-md outline-none resize-none text-sm placeholder:text-gray-400 ${
                               validateError.content && "border border-red-500"
                             }`}
                             placeholder="Your message goes here..."
@@ -296,7 +299,7 @@ const ProdDetails = ({ post }) => {
             <FontAwesomeIcon
               icon={faClose}
               onClick={toggleReviewBox}
-              className="absolute top-0 right-0 text-3xl cursor-pointer hover:animate-spin"
+              className="absolute top-0 right-0 text-3xl cursor-pointer hover:animate-spin text-gray-500 dark:text-gray-50"
             />
           </div>
         </div>

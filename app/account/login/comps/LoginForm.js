@@ -3,6 +3,7 @@ import { useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import LoadingIcon from "@/partials/LoadingIcon";
+import Link from "next/link";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -51,11 +52,11 @@ const LoginForm = () => {
 
     return (
       <>
-        <div className="absolute top-0 left-0 w-full h-full bg-slate-950 text-slate-50">
+        <div className="absolute top-0 left-0 w-full h-full bg-primaryDark text-slate-50">
           <div className="grid w-full h-full place-content-center">
-            <div className="p-5 border-2 rounded-md border-slate-700">
-              <h1 className="mb-4 text-xl font-semibold">Login</h1>
-              <div className="min-w-[20rem]">
+            <div className="p-5 border-2 rounded-md border-gray-700 bg-primaryDarkShade-300">
+              <h1 className="mb-4 text-2xl font-semibold">Login</h1>
+              <div className="min-w-[24rem]">
                 <form
                   className="space-y-3"
                   onSubmit={(e) => {
@@ -63,12 +64,12 @@ const LoginForm = () => {
                   }}
                 >
                   <div>
-                    <label htmlFor="username"></label>
+                    <label htmlFor="username">Username: </label>
                     <input
                       type="text"
                       name="username"
                       id="username"
-                      className="w-full p-2 bg-transparent border-b rounded-md focus:outline-none border-slate-600 bg-slate-900"
+                      className="w-full p-2 rounded-md bg-primaryDarkShade-200 focus:outline-none border-gray-600"
                       placeholder="Enter Username"
                       value={username}
                       onChange={(e) => {
@@ -77,13 +78,13 @@ const LoginForm = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="password"></label>
+                    <label htmlFor="password">Password</label>
                     <input
                       type="password"
                       name="password"
                       id="password"
-                      className="w-full p-2 bg-transparent border-b rounded-md focus:outline-none border-slate-600 bg-slate-900"
-                      placeholder="Enter password"
+                      className="w-full p-2 rounded-md bg-primaryDarkShade-200 focus:outline-none border-gray-600"
+                      placeholder="**********"
                       value={password}
                       onChange={(e) => {
                         setPassword(e.target.value);
@@ -91,9 +92,16 @@ const LoginForm = () => {
                     />
                   </div>
 
+                  <p>
+                    Don&apos;t have an account?{" "}
+                    <Link href={"/account/signup"} className="border-b border-orange-500">
+                      Sign up
+                    </Link>
+                  </p>
+
                   <div>
                     <button
-                      className="w-full py-2 transition-colors duration-200 rounded-md bg-slate-700 hover:bg-slate-800 disabled:hover:bg-slate-700"
+                      className="w-full py-2 transition-colors duration-200 rounded-md bg-primaryDarkShade-400 hover:bg-primaryDarkShade-200 disabled:hover:bg-gray-700"
                       disabled={status.loading}
                     >
                       {status.loading ? "Validating..." : "Login"}

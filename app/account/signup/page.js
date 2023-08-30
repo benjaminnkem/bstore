@@ -57,7 +57,7 @@ const CreateAdmin = () => {
                 <h3 className="text-3xl">Account Created Successfully! 🎉</h3>
                 <button
                   className="mx-auto md:mx-0 px-4 py-2 rounded-md border border-orange-500"
-                  onClick={() => router.push("/admin/login")}
+                  onClick={() => router.push("/account/login")}
                 >
                   Login <FontAwesomeIcon icon={faRocket} />
                 </button>
@@ -129,7 +129,7 @@ const CreateAdmin = () => {
                     <div>
                       <p className="text-sm">
                         Already have an account?{" "}
-                        <Link href={"/admin/login"} className="border-b border-orange-400">
+                        <Link href={"/account/login"} className="border-b border-orange-400">
                           Login
                         </Link>
                       </p>

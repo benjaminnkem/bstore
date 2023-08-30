@@ -19,7 +19,10 @@ module.exports = {
         primaryDarkShade: {
           100: "#151515",
           200: "#1e1e1e",
+          300: "#2a2a2a",
+          400: "#393939",
         },
+        primaryLight: "#eee",
       },
     },
   },

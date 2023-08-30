@@ -272,7 +272,7 @@ const ProdDetails = ({ post }) => {
                   <div className="my-4 w-full h-full grid place-content-center">
                     <div className="space-y-4 md:py-2 py-4">
                       <div>
-                        <Link href={`/admin/signup`} passHref>
+                        <Link href={`/account/signup`} passHref>
                           <button className="px-4 py-2 mx-auto rounded-md border-2 duration-200 flex items-center space-x-2 hover:bg-orange-500">
                             <span>Create an account</span> <FontAwesomeIcon icon={faUser} />
                           </button>
@@ -284,7 +284,7 @@ const ProdDetails = ({ post }) => {
                         <span className="h-[1px] bg-white opacity-40 w-full"></span>
                       </div>
                       <div>
-                        <Link href={`/admin/login`} passHref>
+                        <Link href={`/account/login`} passHref>
                           <button className="px-4 py-2 mx-auto rounded-md border-2 duration-200 flex items-center space-x-2 hover:bg-orange-500">
                             <span>Login</span> <FontAwesomeIcon icon={faRocket} />
                           </button>

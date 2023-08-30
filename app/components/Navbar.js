@@ -73,7 +73,7 @@ const Navbar = () => {
                     <ShoppingCartIcon size={'text-2xl'}/>
 
                     <Link
-                      href={`${status === "authenticated" ? "/dash" : "/admin/login"}`}
+                      href={`${status === "authenticated" ? "/dash" : "/account/login"}`}
                       target="_blank"
                       passHref
                       title={`${status === "authenticated" ? "Go to dashboard" : "Sign Up / Login"}`}
@@ -156,7 +156,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      href={`${status === "authenticated" ? "/dash" : "/admin/login"}`}
+                      href={`${status === "authenticated" ? "/dash" : "/account/login"}`}
                       passHref
                       onClick={toggleMenu}
                       target="_blank"

@@ -5,7 +5,7 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { AnimatePresence } from "framer-motion";
-import { TransitionElement, TransitionRight } from "@/lib/utils/transition";
+import { TransitionElement, TransitionStart } from "@/lib/utils/transition";
 
 const defaultInputs = { fullName: "", email: "", subject: "", content: "" };
 const ContactClient = () => {
@@ -47,7 +47,7 @@ const ContactClient = () => {
 
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         <section className="jumbo flex md:max-w-[1488px] w-11/12 mx-auto items-center py-10">
           <div className="md:grid gap-2 grid-cols-2 items-center">
             <TransitionElement>
@@ -61,7 +61,7 @@ const ContactClient = () => {
               </div>
             </TransitionElement>
 
-            <TransitionRight>
+            <TransitionStart>
               <div>
                 <div className="sm:w-4/5 w-11/12 md:ml-auto mx-auto md:mx-0 bg-white dark:bg-primaryDarkShade-200 rounded-lg p-4">
                   <h2 className="text-2xl">Send us a message 🚀</h2>
@@ -141,7 +141,7 @@ const ContactClient = () => {
                   </div>
                 </div>
               </div>
-            </TransitionRight>
+            </TransitionStart>
           </div>
         </section>
       </AnimatePresence>

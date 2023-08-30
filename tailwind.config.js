@@ -21,6 +21,7 @@ module.exports = {
           200: "#1e1e1e",
           300: "#2a2a2a",
           400: "#393939",
+          500: "#4e4e4e",
         },
         primaryLight: "#eee",
       },

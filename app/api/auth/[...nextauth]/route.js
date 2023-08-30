@@ -14,7 +14,7 @@ export const authOptions = {
 
         try {
           await connectToDB();
-          const user = await AdminUser.findOne({ username: username }, { username: 1, password: 1 });
+          const user = await AdminUser.findOne({ username: username }, { username: 1, password: 1, email: 1 });
           if (!user) {
             throw new Error("User with username " + username + " not found");
           }
@@ -42,7 +42,7 @@ export const authOptions = {
     },
   },
   pages: {
-    signIn: "/admin/login",
+    signIn: "/account/login",
   },
 };
 

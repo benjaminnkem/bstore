@@ -5,18 +5,13 @@
   --base-background-lightish-2-color: #383946;
   --base-foreground-color: #eeeff0;
 
-  --base-accent-1-color: #6c72cb;
-  --base-accent-2-color: #cb69c1;
+  --base-accent-1-color: #c68661;
+  --base-accent-2-color: #e87f42;
 
-  --base-accent-1-darker-color: #6168c6;
-  --base-accent-2-darker-color: #bd58b3;
+  --base-accent-1-darker-color: #b07757;
+  --base-accent-2-darker-color: #ce7039;
 
   --base-padding: 1rem;
-}
-
-body {
-  background-color: var(--base-background-color);
-  color: var(--base-foreground-color);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -28,24 +23,8 @@ body {
   position: relative;
   max-width: 1688px;
   margin-inline: auto;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   overflow: hidden;
-}
-
-.sidebar-container {
-  position: relative;
-}
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: var(--base-background-lightish-color);
-}
-
-
-.dash-nav {
-  background: var(--base-background-lightish-2-color);
 }
 
 .link-container p {
@@ -64,16 +43,12 @@ body {
   border-radius: 50%;
   margin-inline: auto;
   background: linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
-  background: -o-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
-  background: -moz-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
-  background: -webkit-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
 }
 
 .bottom-profile {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: var(--base-background-lightish-2-color);
   padding: var(--base-padding);
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
@@ -122,11 +97,6 @@ body {
   font-size: 1.2rem;
 }
 
-/* Main content */
-/* .dash-main-content {
-  padding: calc(var(--base-padding) * 4.5) 0;
-} */
-
 /* Dashboard Navbar */
 .dashboard-navbar {
   position: absolute;
@@ -151,7 +121,6 @@ body {
   padding: 0.4rem 0.8rem;
   border-radius: 0.4rem;
   transition: all 0.5s;
-  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.2rem;

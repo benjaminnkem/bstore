@@ -4,6 +4,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import LoadingIcon from "@/partials/LoadingIcon";
 import Link from "next/link";
+import { toast } from "react-hot-toast";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -42,9 +43,11 @@ const LoginForm = () => {
       const res = await signIn("credentials", loginData);
 
       if (!res.ok) {
+        toast.error("Sorry, you could not login.");
         console.log("An error occurred");
       }
 
+      toast.success("Logged In Successfully");
       setUsername("");
       setPassword("");
       setStatus({ ...status, loading: false });

@@ -1,17 +1,17 @@
 "use client";
-import { usePathname } from "next/navigation";
 import "../styles/dashboard-default.css";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { CustomSessionDataContext } from "./DashboardWrapper";
-import { useRouter } from "next/navigation";
 
 const DashboardDefault = () => {
+  const sessionContext = useContext(CustomSessionDataContext);
+
   return (
     <>
       <div className="dashboard-default">
-        <div>
-          <h2 className="welcome-text">Welcome Back</h2>
-          <p className="welcome-tip">
+        <div className="space-y-4">
+          <h2 className="text-4xl font-semibold">Welcome Back, {sessionContext?.user?.name} 👋🏽</h2>
+          <p className="welcome-tip max-w-xl">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci aspernatur sed eligendi ab sit sunt
             veritatis ut fugit alias provident!
           </p>
@@ -20,7 +20,7 @@ const DashboardDefault = () => {
 
       <section className="stat1-con">
         <div className="stat1">
-          <div className="sales-con self-start">
+          <div className="sales-con self-start min-h-[20rem]">
             <div>
               <h3 className="font-extrabold text-2xl">
                 Sales Stats<span className="text-purple-500">.</span>

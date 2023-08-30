@@ -24,17 +24,21 @@ const DashboardAuthWrapper = ({ children }) => {
 
   if (status === "unauthenticated")
     return (
-      <div className="fixed z-50 top-0 left-0 w-full h-full grid place-content-center">
-        <div className="text-center p-4 rounded-md bg-[#1f2029] text-slate-100 shadow-md max-w-md mx-auto">
-          <h1 className="text-lg">You are not logged in</h1>
-          <div className="space-x-2">
+      <div className="w-full min-h-screen flex items-center justify-center">
+        <div className="md:py-0 py-5 text-slate-100 max-w-3xl mx-auto text-center">
+          <div className="space-y-4">
+            <h1 className="md:text-5xl text-3xl">It seems like you are not logged in 🤨.</h1>
+            <p className="opacity-80 md:text-lg text-base">Don&apos;t worry 😏, choose an action below.</p>
+          </div>
+
+          <div className="space-x-2 mt-4">
             <Link href={"/"} passHref>
-              <button className="mt-2 bg-[#191a23] px-2 py-1 rounded-lg duration-200 border border-transparent hover:border-[#4a4c61] hover:bg-[#22242f]">
-                Home <i className="ri-home-3-line"></i>
+              <button className="mt-2 px-2 py-1 rounded-lg duration-200 border border-orange-500 hover:bg-orange-500 hover:text-primaryDark">
+                Go Home <i className="ri-home-3-line"></i>
               </button>
             </Link>
-            <Link href={"/admin/login"} passHref>
-              <button className="mt-2 bg-[#191a23] px-2 py-1 rounded-lg duration-200 border border-transparent hover:border-[#4a4c61] hover:bg-[#22242f]">
+            <Link href={"/account/login"} passHref>
+              <button className="mt-2 px-2 py-1 rounded-lg duration-200 border border-orange-500 hover:bg-orange-500 hover:text-primaryDark">
                 Login <i className="ri-login-box-line"></i>
               </button>
             </Link>

@@ -9,7 +9,7 @@ const DashboardSidebar = () => {
   const { isMenuOpen, toggleMenu } = useContext(DashMenuContext);
 
   const links = [
-    { name: "Dashboard", href: "/dash", icon: "ri-dashboard-2-fill" },
+    { name: "Home", href: "/dash", icon: "ri-dashboard-2-fill" },
     { name: "Sales", href: "#", icon: "ri-money-dollar-circle-line" },
     { name: "Reviews", href: "#", icon: "ri-message-3-line" },
     { name: "Create", href: `/dash/create`, icon: "ri-add-line" },
@@ -17,9 +17,9 @@ const DashboardSidebar = () => {
 
   return (
     <>
-      <div className="sidebar-container">
+      <div className="relative">
         <div
-          className={`sidebar overflow-hidden duration-200 h-screen ${
+          className={`fixed top-0 left-0 overflow-hidden duration-200 h-screen bg-primaryDarkShade-200 ${
             isMenuOpen ? "w-full md:w-[240px] sm:w-[180px] z-50 right-0" : "md:w-[240px] sm:w-[180px] w-0"
           }`}
         >
@@ -35,8 +35,8 @@ const DashboardSidebar = () => {
             {links.map((link, i) => (
               <Link href={link.href} key={i} passHref onClick={toggleMenu}>
                 <div
-                  className={`py-2 px-3 duration-500 flex my-2 cursor-pointer rounded-lg hover:bg-[#383946] ${
-                    pathname === link.href && "bg-[#383946]"
+                  className={`py-2 px-3 duration-500 flex my-2 cursor-pointer rounded-lg hover:bg-primaryDarkShade-500 ${
+                    pathname === link.href && "bg-primaryDarkShade-400"
                   }`}
                 >
                   <i className={link.icon}></i>
@@ -46,7 +46,7 @@ const DashboardSidebar = () => {
             ))}
           </div>
 
-          <div className="bottom-profile">
+          <div className="bottom-profile bg-primaryDarkShade-300">
             <div className="bottom-container">
               <div className="mini-user-details-container">
                 <div className="mini-img"></div>

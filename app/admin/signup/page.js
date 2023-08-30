@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import "./styles/signup.css";
 import Link from "next/link";
+import { toast } from "react-hot-toast";
 
 const CreateAdmin = () => {
   const [formInput, setFormInput] = useState({ username: "", password: "", email: "" });
@@ -27,9 +28,11 @@ const CreateAdmin = () => {
     try {
       await axios.post("/api/create/new-user", formInput);
       setStatus({ ...status, loading: false, success: true });
+      toast.success("Account created");
     } catch (e) {
       setStatus({ ...status, loading: false, error: true });
       setErr(e.response.statusText);
+      toast.error(e.response.statusText);
       return;
     }
   };

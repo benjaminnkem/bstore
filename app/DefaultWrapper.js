@@ -6,6 +6,7 @@ import { SessionProvider } from "next-auth/react";
 import GlobalCartItemsProvider from "./context/GlobalCartItems";
 import SelectedItemDisplay from "./components/SelectedItemDisplay";
 import FavoriteItemProvider from "./context/smaller__/FavoriteManager";
+import { AnimatePresence } from "framer-motion";
 
 const DefaultWrapper = ({ children }) => {
   return (
@@ -13,9 +14,11 @@ const DefaultWrapper = ({ children }) => {
       <NextAuthProvider>
         <GlobalCartItemsProvider>
           <FavoriteItemProvider>
-            <Navbar />
-            <SessionProvider>{children}</SessionProvider>
-            <Footer />
+            <AnimatePresence mode="wait">
+              <Navbar />
+              <SessionProvider>{children}</SessionProvider>
+              <Footer />
+            </AnimatePresence>
             <SelectedItemDisplay />
           </FavoriteItemProvider>
         </GlobalCartItemsProvider>

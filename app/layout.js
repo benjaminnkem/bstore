@@ -3,7 +3,7 @@ import "remixicon/fonts/remixicon.css";
 import { DM_Sans } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import GeneralProvider from "@/lib/providers/general";
+import GeneralProvider from "@/lib/utils/general";
 config.autoAddCss = false;
 
 const dmSans = DM_Sans({

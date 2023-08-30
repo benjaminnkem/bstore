@@ -2,8 +2,19 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import ProductTemplate from "./ProductTemplate";
 import { GlobalCartItemContext } from "@/app/context/GlobalCartItems";
+import { motion } from "framer-motion";
 
 export const ShopContext = createContext();
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 const ProductDisplay = ({ items }) => {
   const { updateCartItems, calculateTotalCosts } = useContext(GlobalCartItemContext);
@@ -16,13 +27,13 @@ const ProductDisplay = ({ items }) => {
   useEffect(() => {
     const getProductsByTag = async () => {
       const res = await fetch(`/api/products/get-by-tag/${tagSelect}`);
-      if (!res.ok) return
+      if (!res.ok) return;
 
-      const products = await res.json()
-      setTagProducts(products ? products : [])
-    } 
+      const products = await res.json();
+      setTagProducts(products ? products : []);
+    };
 
-    getProductsByTag()
+    getProductsByTag();
   });
 
   const chooseTag = (tag) => {
@@ -84,11 +95,14 @@ const ProductDisplay = ({ items }) => {
                 ))}
               </div>
             </div>
-            <div
+            <motion.div
               className={`grid items-center grid-cols-1 gap-4 mb-3 md:grid-cols-2 lg:grid-cols-3 justify-evenly def-p duration-100`}
+              variants={container}
+              initial="hidden"
+              animate="show"
             >
               {items && items.map((item) => <ProductTemplate key={item._id} item={item} />)}
-            </div>
+            </motion.div>
           </div>
           <div className="py-4"></div>
         </main>

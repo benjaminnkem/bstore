@@ -6,7 +6,7 @@ import RecentProductsCreated from "./components/RecentlyCreated";
 import CategoryCreation from "./components/CategoryCreationPage";
 
 export const metadata = {
-  title: "Administrator - Create",
+  title: "BDashboard - Create",
 };
 
 const CreateNew = () => {

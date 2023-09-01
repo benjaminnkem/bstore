@@ -1,5 +1,6 @@
 "use client";
 import LoadingIcon from "@/partials/LoadingIcon";
+import { AnimatePresence } from "framer-motion";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { createContext, useEffect, useState } from "react";
@@ -50,7 +51,9 @@ const DashboardAuthWrapper = ({ children }) => {
   if (status === "authenticated") {
     return (
       <>
-        <CustomSessionDataContext.Provider value={sessionContent}>{children}</CustomSessionDataContext.Provider>
+        <CustomSessionDataContext.Provider value={sessionContent}>
+          <AnimatePresence>{children}</AnimatePresence>
+        </CustomSessionDataContext.Provider>
       </>
     );
   }

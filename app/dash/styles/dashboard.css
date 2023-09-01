@@ -84,9 +84,6 @@
   height: 50px;
   border-radius: 50%;
   background: linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
-  background: -o-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
-  background: -moz-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
-  background: -webkit-linear-gradient(45deg, var(--base-accent-1-color), var(--base-accent-2-color));
 }
 
 .setting-icon:hover {
@@ -124,10 +121,6 @@
   display: flex;
   align-items: center;
   gap: 0.2rem;
-}
-
-.nav-content > ul > li:hover {
-  background: var(--base-background-lightish-2-color);
 }
 
 .nav-search-box > input {

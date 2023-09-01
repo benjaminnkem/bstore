@@ -2,7 +2,7 @@
 import { DashMenuContext } from "@/app/context/DashboardMenu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 const DashboardSidebar = () => {
   const pathname = usePathname();

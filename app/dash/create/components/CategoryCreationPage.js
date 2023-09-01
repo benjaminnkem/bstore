@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { CustomSessionDataContext } from "../../components/DashboardWrapper";
 import CustAlert from "@/components/Alert";
 import { DashCreateContext } from "../context/CreateContextProvider";
+import { TransitionStart } from "@/lib/utils/transition";
 
 const CategoryCreation = () => {
   const [formInput, setFormInput] = useState({ name: "" });
@@ -75,56 +76,58 @@ const CategoryCreation = () => {
   if (curSelection === "category")
     return (
       <>
-        <div className="relative">
-          <h2 className="font-extrabold text-2xl py-2">Create Category</h2>
+        <TransitionStart>
+          <div className="relative">
+            <h2 className="font-extrabold text-2xl py-2">Create Category</h2>
 
-          <div className="mt-2">
-            <form onSubmit={(e) => handleCategoryCreation(e)}>
-              <div className="grid gap-4">
-                <div>
-                  <div className="space-y-1">
-                    <label htmlFor="name" className="font-semibold text-[#b4b8d8]">
-                      Category Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      placeholder="What should this category be called?"
-                      className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-[#2a2b35] focus:border-[#444554] placeholder:text-[#5e6174]"
-                      value={formInput.name}
-                      onChange={(e) => handleUpdateFormInput(e)}
-                    />
-                  </div>
-                  {serverErrMessage && (
-                    <p className="text-red-500 text-opacity-75 text-xs font-bold">{serverErrMessage}</p>
-                  )}
-                  {errors.name && <p className="text-red-500 text-opacity-75 text-xs font-bold">{errors.name}</p>}
-                </div>
-
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full py-2 rounded-md border border-[#2a2b35] duration-200 hover:bg-[#2a2b35] hover:text-inherit disabled:opacity-40 disabled:bg-[#111115] disabled:hover:bg-[#111115]"
-                    disabled={status.loading}
-                  >
-                    {!status.loading ? (
-                      <span>
-                        Create Category <i className="ri-rocket-line"></i>
-                      </span>
-                    ) : (
-                      <span>
-                        Creating... <i className="ri-loader-line"></i>
-                      </span>
+            <div className="mt-2">
+              <form onSubmit={(e) => handleCategoryCreation(e)}>
+                <div className="grid gap-4">
+                  <div>
+                    <div className="space-y-1">
+                      <label htmlFor="name" className="font-semibold text-[#b4b8d8]">
+                        Category Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="What should this category be called?"
+                        className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-[#2a2b35] focus:border-[#444554] placeholder:text-[#5e6174]"
+                        value={formInput.name}
+                        onChange={(e) => handleUpdateFormInput(e)}
+                      />
+                    </div>
+                    {serverErrMessage && (
+                      <p className="text-red-500 text-opacity-75 text-xs font-bold">{serverErrMessage}</p>
                     )}
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
+                    {errors.name && <p className="text-red-500 text-opacity-75 text-xs font-bold">{errors.name}</p>}
+                  </div>
 
-          {alertShow && <CustAlert message={alertText} status={alertText.startsWith("Sorry") ? "red" : "green"} />}
-        </div>
+                  <div>
+                    <button
+                      type="submit"
+                      className="w-full py-2 rounded-md border border-[#2a2b35] duration-200 hover:bg-[#2a2b35] hover:text-inherit disabled:opacity-40 disabled:bg-[#111115] disabled:hover:bg-[#111115]"
+                      disabled={status.loading}
+                    >
+                      {!status.loading ? (
+                        <span>
+                          Create Category <i className="ri-rocket-line"></i>
+                        </span>
+                      ) : (
+                        <span>
+                          Creating... <i className="ri-loader-line"></i>
+                        </span>
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            {alertShow && <CustAlert message={alertText} status={alertText.startsWith("Sorry") ? "red" : "green"} />}
+          </div>
+        </TransitionStart>
       </>
     );
 };

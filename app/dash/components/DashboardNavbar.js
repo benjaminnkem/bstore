@@ -14,8 +14,10 @@ const DashboardNavbar = () => {
   const [navStatus, setNavStatus] = useState({ userIcoOpen: false, notiIcoOpen: false });
   const userInfo = useContext(CustomSessionDataContext);
 
-  const toggleUserDropdown = () => setNavStatus({ ...navStatus, userIcoOpen: !navStatus.userIcoOpen });
-  const toggleNotificationDropdown = () => setNavStatus({ ...navStatus, notiIcoOpen: !navStatus.notiIcoOpen });
+  const toggleUserDropdown = () =>
+    setNavStatus({ ...navStatus, userIcoOpen: !navStatus.userIcoOpen, notiIcoOpen: false });
+  const toggleNotificationDropdown = () =>
+    setNavStatus({ ...navStatus, notiIcoOpen: !navStatus.notiIcoOpen, userIcoOpen: false });
 
   useEffect(() => console.log(userInfo), [navStatus, userInfo]);
 
@@ -30,19 +32,19 @@ const DashboardNavbar = () => {
           </h1>
 
           <ul className="sm:flex hidden space-x-1">
-            <li>
+            <li className="hover:bg-primaryDarkShade-300 cursor-pointer">
               <Link passHref href="/">
                 <i className="ri-home-3-line"></i>
               </Link>
             </li>
-            <li>
+            <li className="hover:bg-primaryDarkShade-300 cursor-pointer">
               <p>Balance</p> <FontAwesomeIcon icon={faMoneyBill} />
             </li>
-            <li>
+            <li className="hover:bg-primaryDarkShade-300 cursor-pointer">
               <p>Plan</p> <FontAwesomeIcon icon={faRocket} />
             </li>
 
-            <li>
+            <li className="hover:bg-primaryDarkShade-300 cursor-pointer">
               <div className="relative">
                 <div
                   className={`flex items-center justify-center duration-200 w-8 h-8 rounded-full cursor-pointer ${

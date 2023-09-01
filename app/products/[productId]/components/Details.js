@@ -155,7 +155,7 @@ const ProdDetails = ({ post }) => {
         <div className="absolute top-0 left-0 grid w-full h-full place-content-center backdrop-blur-sm">
           <div className={`rounded-md p-6 relative overflow-hidden ${aboutToReview ? "opacity-100" : "opacity-0"}`}>
             <div
-              className={`dark:bg-[#212121] bg-white rounded-md p-4 duration-200 delay-200 shadow-md w-full border-2 md:min-w-[40rem] sm:min-w-[30rem] min-w-[20rem] ${
+              className={`dark:bg-primaryDarkShade-100 bg-white rounded-md p-4 duration-200 delay-200 shadow-md w-full border-2 md:min-w-[40rem] sm:min-w-[30rem] min-w-[20rem] ${
                 aboutToReview ? "opacity-100" : "opacity-0"
               }`}
             >
@@ -305,6 +305,7 @@ const ProdDetails = ({ post }) => {
         </div>
       </div>
 
+      {/* Details */}
       <div>
         <div>
           <h1 className="my-4 text-2xl font-extrabold duration-200 md:text-4xl sm:text-3xl">
@@ -321,7 +322,7 @@ const ProdDetails = ({ post }) => {
         </div>
 
         <div className="space-y-4">
-          <div className="mt-4 bg-white shadow-md dark:bg-[#212121] p-4 rounded-lg">
+          <div className="mt-4 bg-white shadow-md dark:bg-primaryDarkShade-100 p-4 rounded-lg">
             <h2 className="text-2xl font-semibold">Details</h2>
             <div className="mt-2">
               <div className={`${itemDescClass}`}>
@@ -381,8 +382,20 @@ const ProdDetails = ({ post }) => {
               </div>
             </div>
           </div>
-          <div className="mt-4 bg-white shadow-md dark:bg-[#1a1a1a] p-4 rounded-lg">
-            <h2 className="text-2xl font-semibold">Reviews</h2>
+
+          {/* Tags */}
+          <div className="mt-4 bg-white shadow-md dark:bg-primaryDarkShade-100 p-4 rounded-lg">
+            <h3 className="text-2xl font-semibold">Tags</h3>
+            <div className="flex flex-wrap space-x-2 mt-3">
+              {post.tags.map((tag, idx) => (
+                <Link key={idx} href={'#'} className="px-2 py-[3px] rounded-md border border-primaryDarkShade-400 hover:bg-primaryDarkShade-300 duration-200">{tag}</Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Reviews */}
+          <div className="mt-4 bg-white shadow-md dark:bg-primaryDarkShade-100 p-4 rounded-lg">
+            <h3 className="text-2xl font-semibold">Reviews</h3>
             <div className="mt-2">
               <ReviewsManager reviews={reviews} reviewStatus={reviewStatus} />
 

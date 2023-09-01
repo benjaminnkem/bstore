@@ -26,6 +26,7 @@ const LoginForm = () => {
   }
 
   if (sessionStatus === "authenticated") {
+    toast.success("Welcome back")
     router.push("/dash");
   }
 

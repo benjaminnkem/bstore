@@ -21,7 +21,7 @@ const ReviewsManager = ({ reviews, reviewStatus }) => {
                   } duration-300`}
                 >
                   <div
-                    className={`p-4 border rounded-md border-opacity-25 dark:bg-[#262626] bg-white duration-200 dark:hover:bg-[#383838] hover:bg-gray-50 ${
+                    className={`p-4 border rounded-md border-opacity-25 border-primaryDarkShade-400 dark:bg-primaryDarkShade-200 bg-white duration-200 dark:hover:bg-primaryDarkShade-300 hover:bg-gray-50 ${
                       idx === ratingIndex
                         ? "md:max-w-xl w-11/12 mx-auto overflow-y-auto max-h-96"
                         : "cursor-pointer"

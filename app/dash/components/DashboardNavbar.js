@@ -58,7 +58,7 @@ const DashboardNavbar = () => {
                 {navStatus.notiIcoOpen && (
                   <TransitionStart>
                     <div
-                      className={`min-w-[20rem] top-10 duration-200 rounded-md right-0 absolute bg-primaryDarkShade-200 border-primaryDarkShade-400 border-4`}
+                      className={`min-w-[20rem] top-10 duration-200 rounded-md right-0 absolute bg-primaryDarkShade-200 border-primaryDarkShade-400 border-4 z-[500]`}
                     >
                       <div className="relative p-4">
                         <p className="text-center">No notifications.</p>
@@ -83,8 +83,8 @@ const DashboardNavbar = () => {
                 {navStatus.userIcoOpen && (
                   <TransitionStart>
                     <div
-                      className={`min-w-[20rem] top-10 duration-200 rounded-md right-0 absolute bg-primaryDarkShade-200 border-primaryDarkShade-400 border-4`}
-                    >
+                      className={`min-w-[20rem] top-10 duration-200 rounded-md right-0 absolute bg-primaryDarkShade-200 border-primaryDarkShade-400 border-4 z-[500]`}
+                  >
                       <div className="relative p-4">
                         <div className="text-right">
                           <FontAwesomeIcon

@@ -77,7 +77,7 @@ const CategoryCreation = () => {
     return (
       <>
         <TransitionStart>
-          <div className="relative">
+          <div>
             <h2 className="font-extrabold text-2xl py-2">Create Category</h2>
 
             <div className="mt-2">

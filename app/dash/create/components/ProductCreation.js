@@ -68,9 +68,7 @@ const ProductCreation = () => {
   // File Upload
   const hiddenFileInput = useRef(null);
 
-  const handleClick = () => {
-    hiddenFileInput.current.click();
-  };
+  const handleClick = () => hiddenFileInput.current.click();
 
   const handleFilePick = (e) => {
     const imageFiles = e.target.files;
@@ -137,8 +135,8 @@ const ProductCreation = () => {
     return (
       <>
         <TransitionStart>
-          <div className="relative">
-            <h2 className="py-2 text-2xl font-extrabold">Product Details</h2>
+          <div>
+            <h2 className="py-2 text-2xl font-extrabold">New Product</h2>
 
             <div className="mt-2">
               <form onSubmit={(e) => handleProductCreation(e)} encType="multipart/form-data">
@@ -153,7 +151,7 @@ const ProductCreation = () => {
                       onChange={(e) => handleFilePick(e)}
                     />
 
-                    <div className="w-full h-64 mx-auto overflow-hidden duration-200 border-2 rounded-md border-[#474856] focus:border-[#444554] hover:border-opacity-50">
+                    <div className="w-full h-64 mx-auto overflow-hidden duration-200 border-2 rounded-md border-[#474856] focus:border-[#444554] hover:border-opacity-50 z-0">
                       <Image
                         src={localImageUrl}
                         alt="Product Image"
@@ -162,11 +160,12 @@ const ProductCreation = () => {
                         className="object-cover w-full h-full mx-auto"
                       />
                     </div>
-                    {/* Upload buttony */}
+
+                    {/* Upload button */}
                     <div
                       className="w-40 py-2 duration-200 text-center mx-auto border-2 border-opacity-50 rounded-md border-slate-400"
                       role="button"
-                      onClick={(e) => {
+                      onClick={() => {
                         handleClick();
                       }}
                     >

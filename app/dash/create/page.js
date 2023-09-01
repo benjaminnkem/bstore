@@ -3,7 +3,7 @@ import CreateType from "./components/CreateType";
 import CreationContextProvider from "./context/CreateContextProvider";
 import ProductCreation from "./components/ProductCreation";
 import RecentProductsCreated from "./components/RecentlyCreated";
-import CategoryCreation from "./components/CategoryCreationPage";
+import CategoryCreation from "./components/CategoryCreation";
 
 export const metadata = {
   title: "BDashboard - Create",

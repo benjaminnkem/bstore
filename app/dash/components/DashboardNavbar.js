@@ -23,7 +23,7 @@ const DashboardNavbar = () => {
 
   return (
     <>
-      <div className="md:p-4 p-3 sticky top-0 w-full left-0 bg-primaryDarkShade-200">
+      <div className="md:p-4 p-3 sticky top-0 w-full left-0 dark:bg-primaryDarkShade-200 bg-gray-200">
         <div className="nav-content">
           <h1>
             <Link href={`/dashboard`} passHref>
@@ -32,19 +32,19 @@ const DashboardNavbar = () => {
           </h1>
 
           <ul className="sm:flex hidden space-x-1">
-            <li className="hover:bg-primaryDarkShade-300 cursor-pointer">
+            <li className="dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300 cursor-pointer">
               <Link passHref href="/">
                 <i className="ri-home-3-line"></i>
               </Link>
             </li>
-            <li className="hover:bg-primaryDarkShade-300 cursor-pointer">
+            <li className="dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300 cursor-pointer">
               <p>Balance</p> <FontAwesomeIcon icon={faMoneyBill} />
             </li>
-            <li className="hover:bg-primaryDarkShade-300 cursor-pointer">
+            <li className="dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300 cursor-pointer">
               <p>Plan</p> <FontAwesomeIcon icon={faRocket} />
             </li>
 
-            <li className="hover:bg-primaryDarkShade-300 cursor-pointer">
+            <li className="dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300 cursor-pointer">
               <div className="relative">
                 <div
                   className={`flex items-center justify-center duration-200 w-8 h-8 rounded-full cursor-pointer ${
@@ -58,7 +58,7 @@ const DashboardNavbar = () => {
                 {navStatus.notiIcoOpen && (
                   <TransitionStart>
                     <div
-                      className={`min-w-[20rem] top-10 duration-200 rounded-md right-0 absolute bg-primaryDarkShade-200 border-primaryDarkShade-400 border-4 z-[500]`}
+                      className={`min-w-[20rem] top-10 duration-200 rounded-md right-0 absolute dark:bg-primaryDarkShade-200 bg-gray-200 dark:border-primaryDarkShade-400 border-gray-300 border-4 z-[500]`}
                     >
                       <div className="relative p-4">
                         <p className="text-center">No notifications.</p>
@@ -72,8 +72,8 @@ const DashboardNavbar = () => {
             <li>
               <div className="relative">
                 <div
-                  className={`flex items-center justify-center duration-200 w-8 h-8 rounded-full cursor-pointer ${
-                    navStatus.userIcoOpen ? "bg-orange-500" : "bg-transparent"
+                  className={`flex items-center justify-center duration-200 w-8 h-8 rounded-full dark:hover:bg-primaryDarkShade-300 cursor-pointer ${
+                    navStatus.userIcoOpen ? "bg-orange-500" : "bg-transparent hover:bg-gray-300"
                   }`}
                   onClick={toggleUserDropdown}
                 >
@@ -83,7 +83,7 @@ const DashboardNavbar = () => {
                 {navStatus.userIcoOpen && (
                   <TransitionStart>
                     <div
-                      className={`min-w-[20rem] top-10 duration-200 rounded-md right-0 absolute bg-primaryDarkShade-200 border-primaryDarkShade-400 border-4 z-[500]`}
+                      className={`min-w-[20rem] top-10 duration-200 rounded-md right-0 absolute dark:bg-primaryDarkShade-200 bg-gray-200 dark:border-primaryDarkShade-400 border-gray-300 border-4 z-[500]`}
                   >
                       <div className="relative p-4">
                         <div className="text-right">
@@ -103,10 +103,10 @@ const DashboardNavbar = () => {
                         </div>
 
                         <div className="space-y-2">
-                          <p className="p-2 cursor-pointer bg-primaryDarkShade-300 w-full space-x-4 rounded-md duration-200 hover:bg-primaryDarkShade-400">
+                          <p className="p-2 cursor-pointer dark:bg-primaryDarkShade-300 w-full space-x-4 rounded-md duration-200 dark:hover:bg-primaryDarkShade-400 hover:bg-gray-300">
                             <FontAwesomeIcon icon={faUser} /> <span>Account</span>
                           </p>
-                          <p className="p-2 cursor-pointer bg-primaryDarkShade-300 w-full space-x-4 rounded-md duration-200 hover:bg-primaryDarkShade-400">
+                          <p className="p-2 cursor-pointer dark:bg-primaryDarkShade-300 w-full space-x-4 rounded-md duration-200 dark:hover:bg-primaryDarkShade-400 hover:bg-gray-300">
                             <i className="ri-settings-3-fill"></i> <span>Setting</span>
                           </p>
 

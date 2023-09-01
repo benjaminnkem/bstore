@@ -17,7 +17,7 @@ const SelectedItemDisplay = () => {
       ></div> */}
 
       <div
-        className={`fixed right-0 space-y-2 top-0 h-full overflow-x-hidden duration-100 z-20 dark:bg-[#212121] ${
+        className={`fixed right-0 space-y-2 top-0 h-full overflow-x-hidden duration-100 z-20 dark:bg-primaryDarkShade-200 bg-gray-100 ${
           sideCartItemDisplay ? "md:w-[420px] sm:w-[380px] w-full" : "w-0"
         }`}
       >
@@ -33,7 +33,7 @@ const SelectedItemDisplay = () => {
                   {cartItems &&
                     cartItems.map((item, idx) => (
                       <div
-                        className="p-2 duration-100 border border-orange-300 rounded-md shadow-md border-opacity-20 hover:shadow-lg"
+                        className="p-2 duration-100 border bg-white dark:bg-primaryDarkShade-300 border-orange-300 rounded-md shadow-md border-opacity-20 hover:shadow-lg"
                         key={idx}
                       >
                         <div className="flex items-center justify-between space-x-3">

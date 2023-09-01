@@ -39,7 +39,7 @@ const ContactClient = () => {
       await new Promise((resolve) => setTimeout(() => resolve(), 4000));
       setInputs(defaultInputs);
       setIsLoading(false);
-      toast.success("Uploaded Successfully!");
+      toast.success("Message sent!");
     } else {
       setIsLoading(false);
     }

@@ -388,7 +388,7 @@ const ProdDetails = ({ post }) => {
             <h3 className="text-2xl font-semibold">Tags</h3>
             <div className="flex flex-wrap space-x-2 mt-3">
               {post.tags.map((tag, idx) => (
-                <Link key={idx} href={'#'} className="px-2 py-[3px] rounded-md border border-primaryDarkShade-400 hover:bg-primaryDarkShade-300 duration-200">{tag}</Link>
+                <Link key={idx} href={'#'} className="px-2 py-[3px] rounded-md border border-primaryDarkShade-400 hover:bg-gray-100 dark:hover:bg-primaryDarkShade-300 duration-200">{tag}</Link>
               ))}
             </div>
           </div>

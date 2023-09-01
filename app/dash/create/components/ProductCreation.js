@@ -180,7 +180,7 @@ const ProductCreation = () => {
 
                   <div>
                     <div className="space-y-1">
-                      <label htmlFor="itemName" className="font-semibold text-[#d6d6d6]">
+                      <label htmlFor="itemName" className="font-semibold dark:text-[#d6d6d6]">
                         Item Name
                       </label>
                       <input
@@ -200,7 +200,7 @@ const ProductCreation = () => {
 
                   <div>
                     <div className="space-y-1">
-                      <label htmlFor="tags" className="font-semibold text-[#d6d6d6]">
+                      <label htmlFor="tags" className="font-semibold dark:text-[#d6d6d6]">
                         Tags
                       </label>
                       <div className="border-[#5c5c5c] flex space-x-1 items-center border rounded-md outline-none overflow-y-auto duration-200 focus-within:border-[#444554] bg-transparent p-2">
@@ -243,7 +243,7 @@ const ProductCreation = () => {
 
                   <div>
                     <div className="space-y-1">
-                      <label htmlFor="price" className="font-semibold text-[#d6d6d6]">
+                      <label htmlFor="price" className="font-semibold dark:text-[#d6d6d6]">
                         Price In USD ($)
                       </label>
                       <input
@@ -261,7 +261,7 @@ const ProductCreation = () => {
 
                   <div>
                     <div className="space-y-1">
-                      <label htmlFor="category" className="font-semibold text-[#d6d6d6]">
+                      <label htmlFor="category" className="font-semibold dark:text-[#d6d6d6]">
                         Category
                       </label>
                       <input
@@ -281,7 +281,7 @@ const ProductCreation = () => {
 
                   <div>
                     <div className="space-y-1">
-                      <label htmlFor="category" className="font-semibold text-[#d6d6d6]">
+                      <label htmlFor="category" className="font-semibold dark:text-[#d6d6d6]">
                         Description
                       </label>
                       <textarea

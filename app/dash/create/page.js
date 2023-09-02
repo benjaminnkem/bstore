@@ -12,15 +12,16 @@ export const metadata = {
 const CreateNew = () => {
   return (
     <>
-      <div className="create-con grid md:gap-4 gap-6 p-4 mt-2">
+      <div className="grid gap-6 p-4 mt-2 create-con">
         <CreationContextProvider>
-          <CreateType />
+          <div className="space-y-4">
+            <CreateType />
+            <RecentProductsCreated />
+          </div>
 
           {/* Renders conditionally in the component */}
           <ProductCreation />
           <CategoryCreation />
-
-          <RecentProductsCreated />
         </CreationContextProvider>
       </div>
     </>

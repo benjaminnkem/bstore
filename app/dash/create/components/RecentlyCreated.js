@@ -1,41 +1,55 @@
 "use client";
 import axios from "axios";
-import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CustomSessionDataContext } from "../../contexts/DashboardWrapper";
+import { toast } from "react-hot-toast";
 
 const RecentProductsCreated = () => {
   const [recentPosts, setRecentPosts] = useState([]);
-  const { data: session } = useSession();
+  const userInfoContext = useContext(CustomSessionDataContext);
+  const [fetchingRecentPosts, setFetchingRecentPosts] = useState(false);
 
-  // useEffect(() => {
-  //   try {
-  //     const getRecentPosts = async () => {
-  //       const res = await axios.get(`/api/recent-posts/${session.user.id}`);
-  //       if (res.statusText.toLocaleLowerCase() !== "ok") return;
-  //       setRecentPosts(res.data);
-  //     };
+  const getRecentPosts = async (userId) => {
+    try {
+      setFetchingRecentPosts(true);
+      const res = await axios.get(`/api/products/get-recent-posts/${userId ? userId : ""}`);
 
-  //     getRecentPosts();
-  //   } catch (e) {
-  //     console.log(e);
-  //     throw new Error(e);
-  //   }
-  // }, [session.user.id]);
+      if (res.statusText.toLocaleLowerCase() !== "ok") {
+        toast.error("Couldn't get recent posts");
+        setFetchingRecentPosts(false);
+        return;
+      }
+
+      toast.success("GET recent posts successful");
+      setFetchingRecentPosts(false);
+      setRecentPosts(res.data);
+    } catch (e) {
+      toast.error("Couldn't get recent posts");
+      console.log(e);
+    }
+  };
+
   return (
     <>
       <div>
-        <h2 className="font-extrabold text-2xl py-2">Recent</h2>
-        {/* <div>
-          {recentPosts && recentPosts.length > 0 ? (
-            recentPosts.map((post) => {
-              <div key={post._id}></div>;
-            })
-          ) : (
-            <div>
-              <p>Loading...</p>
-            </div>
-          )}
-        </div> */}
+        <h2 className="py-2 text-2xl font-extrabold">Recent</h2>
+        <div className="space-y-2">
+          {recentPosts &&
+            recentPosts.map((product) => (
+              <div key={product._id} className="p-2 rounded-md bg-primaryDarkShade-200">
+                <p className="">{product.itemName}</p>
+                <p className="text-sm font-semibold">{new Date(product.date_posted).toLocaleString()}</p>
+              </div>
+            ))}
+        </div>
+
+        <button
+          className="w-full py-2 mt-2 text-orange-500 duration-200 border border-orange-500 rounded-md hover:bg-orange-500 hover:text-black"
+          onClick={() => getRecentPosts(userInfoContext?.user?.id)}
+          disabled={fetchingRecentPosts}
+        >
+          {fetchingRecentPosts ? "Loading..." : "Get Recent Post"}
+        </button>
       </div>
     </>
   );

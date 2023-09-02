@@ -1,7 +1,7 @@
 "use client";
 import "../styles/dashboard-default.css";
 import { useContext } from "react";
-import { CustomSessionDataContext } from "./DashboardWrapper";
+import { CustomSessionDataContext } from "../contexts/DashboardWrapper";
 
 const DashboardDefault = () => {
   const sessionContext = useContext(CustomSessionDataContext);

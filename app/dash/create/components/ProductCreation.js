@@ -163,7 +163,7 @@ const ProductCreation = () => {
 
                     {/* Upload button */}
                     <div
-                      className="w-40 py-2 duration-200 text-center mx-auto border-2 border-opacity-50 rounded-md border-slate-400"
+                      className="w-40 py-2 mx-auto text-center duration-200 border-2 border-opacity-50 rounded-md border-slate-400"
                       role="button"
                       onClick={() => {
                         handleClick();
@@ -204,7 +204,7 @@ const ProductCreation = () => {
                         Tags
                       </label>
                       <div className="border-[#5c5c5c] flex space-x-1 items-center border rounded-md outline-none overflow-y-auto duration-200 focus-within:border-[#444554] bg-transparent p-2">
-                        <div className="flex space-x-1 items-center flex-shrink-0">
+                        <div className="flex items-center flex-shrink-0 space-x-1">
                           {tagList.map((tag, id) => (
                             <div
                               key={id}
@@ -213,7 +213,7 @@ const ProductCreation = () => {
                               <span>{tag}</span>{" "}
                               <span>
                                 <i
-                                  className="ri-close-line cursor-pointer"
+                                  className="cursor-pointer ri-close-line"
                                   title={`Remove ${tag}`}
                                   onClick={() => deleteTag(tag)}
                                 ></i>

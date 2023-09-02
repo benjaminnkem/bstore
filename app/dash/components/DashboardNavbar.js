@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoneyBill, faRocket, faUser } from "@fortawesome/free-solid-svg-icons";
 import { faBell, faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { TransitionStart } from "@/lib/utils/transition";
-import { CustomSessionDataContext } from "./DashboardWrapper";
+import { CustomSessionDataContext } from "../contexts/DashboardWrapper";
 
 const DashboardNavbar = () => {
   const { toggleMenu, isMenuOpen } = useContext(DashMenuContext);
@@ -19,11 +19,9 @@ const DashboardNavbar = () => {
   const toggleNotificationDropdown = () =>
     setNavStatus({ ...navStatus, notiIcoOpen: !navStatus.notiIcoOpen, userIcoOpen: false });
 
-  useEffect(() => console.log(userInfo), [navStatus, userInfo]);
-
   return (
     <>
-      <div className="md:p-4 p-3 sticky top-0 w-full left-0 dark:bg-primaryDarkShade-200 bg-gray-200">
+      <div className="sticky top-0 left-0 w-full p-3 bg-gray-200 md:p-4 dark:bg-primaryDarkShade-200">
         <div className="nav-content">
           <h1>
             <Link href={`/dashboard`} passHref>
@@ -31,20 +29,20 @@ const DashboardNavbar = () => {
             </Link>
           </h1>
 
-          <ul className="sm:flex hidden space-x-1">
-            <li className="dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300 cursor-pointer">
+          <ul className="hidden space-x-1 sm:flex">
+            <li className="cursor-pointer dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300">
               <Link passHref href="/">
                 <i className="ri-home-3-line"></i>
               </Link>
             </li>
-            <li className="dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300 cursor-pointer">
+            <li className="cursor-pointer dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300">
               <p>Balance</p> <FontAwesomeIcon icon={faMoneyBill} />
             </li>
-            <li className="dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300 cursor-pointer">
+            <li className="cursor-pointer dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300">
               <p>Plan</p> <FontAwesomeIcon icon={faRocket} />
             </li>
 
-            <li className="dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300 cursor-pointer">
+            <li className="cursor-pointer dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300">
               <div className="relative">
                 <div
                   className={`flex items-center justify-center duration-200 w-8 h-8 rounded-full cursor-pointer ${
@@ -95,23 +93,23 @@ const DashboardNavbar = () => {
                         </div>
 
                         <div>
-                          <div className="w-20 h-20 bg-orange-500 mx-auto rounded-full grid place-content-center">
+                          <div className="grid w-20 h-20 mx-auto bg-orange-500 rounded-full place-content-center">
                             <FontAwesomeIcon icon={faUser} className="text-2xl" />
                           </div>
 
-                          <p className="text-sm font-bold text-center my-2 opacity-60">{userInfo?.user?.name}</p>
+                          <p className="my-2 text-sm font-bold text-center opacity-60">{userInfo?.user?.name}</p>
                         </div>
 
                         <div className="space-y-2">
-                          <p className="p-2 cursor-pointer dark:bg-primaryDarkShade-300 w-full space-x-4 rounded-md duration-200 dark:hover:bg-primaryDarkShade-400 hover:bg-gray-300">
+                          <p className="w-full p-2 space-x-4 duration-200 rounded-md cursor-pointer dark:bg-primaryDarkShade-300 dark:hover:bg-primaryDarkShade-400 hover:bg-gray-300">
                             <FontAwesomeIcon icon={faUser} /> <span>Account</span>
                           </p>
-                          <p className="p-2 cursor-pointer dark:bg-primaryDarkShade-300 w-full space-x-4 rounded-md duration-200 dark:hover:bg-primaryDarkShade-400 hover:bg-gray-300">
+                          <p className="w-full p-2 space-x-4 duration-200 rounded-md cursor-pointer dark:bg-primaryDarkShade-300 dark:hover:bg-primaryDarkShade-400 hover:bg-gray-300">
                             <i className="ri-settings-3-fill"></i> <span>Setting</span>
                           </p>
 
                           <button
-                            className="w-full text-orange-500 border hover:bg-orange-500 border-orange-500 hover:text-primaryDark py-2 rounded-md"
+                            className="w-full py-2 text-orange-500 border border-orange-500 rounded-md hover:bg-orange-500 hover:text-primaryDark"
                             onClick={() => signOut()}
                           >
                             Sign out <i className="ri-logout-box-r-line"></i>
@@ -125,7 +123,7 @@ const DashboardNavbar = () => {
             </li>
           </ul>
 
-          <ul className="flex sm:hidden space-x-1">
+          <ul className="flex space-x-1 sm:hidden">
             <li>
               <Link passHref href="/">
                 <i className="ri-home-3-line"></i>

@@ -1,6 +1,6 @@
 "use client";
 import { useContext, useEffect, useState } from "react";
-import { CustomSessionDataContext } from "../../components/DashboardWrapper";
+import { CustomSessionDataContext } from "../../contexts/DashboardWrapper";
 import CustAlert from "@/components/Alert";
 import { DashCreateContext } from "../context/CreateContextProvider";
 import { TransitionStart } from "@/lib/utils/transition";

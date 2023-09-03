@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { DashCreateContext } from "../../../../../app/dash/create/context/CreateContextProvider";
 import axios from "axios";
 import { toast } from "react-hot-toast";
@@ -7,6 +7,9 @@ import { TransitionStart } from "@/lib/utils/transition";
 import ProductImageBox from "./ImageBoxManager";
 
 const uuid = require("uuid").v4;
+
+let newConCount = 0;
+let maxImageCount = 5;
 
 const ProductCreation = () => {
   const [errors, setErrors] = useState({});
@@ -17,7 +20,7 @@ const ProductCreation = () => {
     price: "",
     category: "",
     description: "",
-    productImages: [],
+    productImages: [{}],
   });
   const [images, setImages] = useState([{ id: uuid() }]); // '' represents an image - for id sake
 
@@ -72,9 +75,14 @@ const ProductCreation = () => {
   const addNewImage = () => setImages((prev) => [...prev, { id: uuid() }]);
   const removeImage = (imageId) => {
     const updatedImages = images.filter((image) => image.id !== imageId);
+    const updatedFormProductImages = formInput.productImages.filter((imgData) => imgData.id !== imageId);
+
+    setFormInput({ ...formInput, productImages: updatedFormProductImages });
     setImages(updatedImages);
 
-    if (updatedImages.length < 5) {
+    // if (updatedImages.length <= 5)
+    if (newConCount < 1) {
+      newConCount++;
       addNewImage();
     }
   };
@@ -82,18 +90,29 @@ const ProductCreation = () => {
   // Main upload...
   const handleProductCreation = async (e) => {
     e.preventDefault();
-    setStatus({ ...status, loading: true, success: false, err: false });
 
     const validator = validateForm();
     setErrors(validator);
 
+    const productImages = formInput.productImages.filter((image) => formInput.productImages.indexOf(image) !== 0);
+    if (formInput.productImages.length <= 1) {
+      toast.error("No product Image selected");
+      return;
+    }
+
     if (Object.keys(validator).length === 0) {
+      setStatus({ ...status, loading: true, success: false, err: false });
       try {
         const formData = new FormData();
-        for (const keys of Object.keys(formInput)) {
-          formData.append(keys, formInput[keys]);
-        }
+        formData.append("itemName", formInput.itemName);
+        formData.append("otherName", formInput.otherName);
+        formData.append("price", formInput.price);
+        formData.append("category", formInput.category);
+        formData.append("description", formInput.description);
         formData.append("tags", tagList);
+        productImages.forEach((prodImage) => {
+          formData.append("productImage", prodImage.img);
+        });
 
         const response = await axios.post("/api/pages/create/product", formData, {
           headers: { "Content-Type": "multipart/form-data" },
@@ -113,8 +132,9 @@ const ProductCreation = () => {
           price: "",
           category: "",
           description: "",
-          productImage: undefined,
+          productImage: [{}],
         });
+        setImages([{ id: uuid() }]);
         setTagList([]);
       } catch (e) {
         setStatus({ ...status, loading: false, err: true });

@@ -17,8 +17,6 @@ const ProductImageBox = ({
   const maxImages = 5;
   const imageBoxMainId = images[imageBoxId].id;
 
-  useEffect(() => console.log(imageBoxMainId, imageBoxId), []);
-
   // File Upload
   const hiddenFileInput = useRef(null);
   const [localImageUrl, setLocalImageUrl] = useState("");
@@ -29,7 +27,7 @@ const ProductImageBox = ({
 
     if (imageFiles && imageFiles.length > 0) {
       const img = imageFiles[0];
-      setFormInput({ ...formInput, productImages: [...formInput.productImages, img] });
+      setFormInput({ ...formInput, productImages: [...formInput.productImages, { id: images[imageBoxId].id, img }] });
       setLocalImageUrl(URL.createObjectURL(img));
       if (images.length >= maxImages) return;
       addNewImage();
@@ -44,6 +42,7 @@ const ProductImageBox = ({
           accept="image/jpeg, image/png"
           name="productImage"
           className="hidden"
+          multiple
           ref={hiddenFileInput}
           onChange={(e) => handleFilePick(e)}
         />

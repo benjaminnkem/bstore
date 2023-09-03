@@ -1,11 +1,23 @@
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const ProductImageBox = ({ errors, setFormInput, formInput, addNewImage, images }) => {
+const ProductImageBox = ({
+  errors,
+  setFormInput,
+  formInput,
+  defaultCon,
+  addNewImage,
+  images,
+  imageBoxId,
+  removeImage,
+}) => {
   // Max Images allowed
   const maxImages = 5;
+  const imageBoxMainId = images[imageBoxId].id;
+
+  useEffect(() => console.log(imageBoxMainId, imageBoxId), []);
 
   // File Upload
   const hiddenFileInput = useRef(null);
@@ -22,10 +34,6 @@ const ProductImageBox = ({ errors, setFormInput, formInput, addNewImage, images 
       if (images.length >= maxImages) return;
       addNewImage();
     }
-  };
-
-  const removeImage = () => {
-    setLocalImageUrl("");
   };
 
   return (
@@ -58,7 +66,10 @@ const ProductImageBox = ({ errors, setFormInput, formInput, addNewImage, images 
               />
             </div>
 
-            <button className="py-1 mt-2 w-full rounded-lg border border-transparent duration-200 hover:border-red-500 text-red-500 text-sm">
+            <button
+              className="py-1 mt-2 w-full rounded-lg border border-transparent duration-200 hover:border-red-500 text-red-500 text-sm"
+              onClick={() => removeImage(imageBoxMainId)}
+            >
               Delete
             </button>
           </div>

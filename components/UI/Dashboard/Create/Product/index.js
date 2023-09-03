@@ -6,6 +6,8 @@ import { toast } from "react-hot-toast";
 import { TransitionStart } from "@/lib/utils/transition";
 import ProductImageBox from "./ImageBoxManager";
 
+const uuid = require("uuid").v4;
+
 const ProductCreation = () => {
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ loading: false, success: false, err: false });
@@ -17,7 +19,7 @@ const ProductCreation = () => {
     description: "",
     productImages: [],
   });
-  const [images, setImages] = useState([""]); // '' represents an image - for id sake
+  const [images, setImages] = useState([{ id: uuid() }]); // '' represents an image - for id sake
 
   // For tag
   const [tagList, setTagList] = useState([]);
@@ -67,8 +69,15 @@ const ProductCreation = () => {
   const handleUpdateFormInput = (event) => setFormInput({ ...formInput, [event.target.name]: event.target.value });
 
   // Images
-  const addNewImage = () => setImages((prev) => [...prev, ""]);
-  const removeImage = (imageIndex) => {};
+  const addNewImage = () => setImages((prev) => [...prev, { id: uuid() }]);
+  const removeImage = (imageId) => {
+    const updatedImages = images.filter((image) => image.id !== imageId);
+    setImages(updatedImages);
+
+    if (updatedImages.length < 5) {
+      addNewImage();
+    }
+  };
 
   // Main upload...
   const handleProductCreation = async (e) => {
@@ -129,33 +138,19 @@ const ProductCreation = () => {
                 <div className="grid gap-4">
                   {/* Handling all images picked and container */}
                   <div className="flex items-start space-x-2 overflow-x-auto py-4 productImageSlider">
-                    {images.length > 0 ? (
-                      images.map((_, idx) => (
-                        <ProductImageBox
-                          errors={errors}
-                          imageBoxId={idx}
-                          formInput={formInput}
-                          addNewImage={addNewImage}
-                          removeImage={removeImage}
-                          setFormInput={setFormInput}
-                          images={images}
-                        />
-                      ))
-                    ) : (
-                      <>
-                        {/* Default image container for only one image */}
-                        <ProductImageBox
-                          errors={errors}
-                          imageBoxId={idx}
-                          formInput={formInput}
-                          addNewImage={addNewImage}
-                          removeImage={removeImage}
-                          setFormInput={setFormInput}
-                          default={true}
-                          images={images}
-                        />
-                      </>
-                    )}
+                    {images.map((_, idx) => (
+                      <ProductImageBox
+                        key={_.id}
+                        errors={errors}
+                        imageBoxId={idx}
+                        formInput={formInput}
+                        addNewImage={addNewImage}
+                        removeImage={removeImage}
+                        setFormInput={setFormInput}
+                        defaultCon={images.length === 1 ? true : false}
+                        images={images}
+                      />
+                    ))}
                   </div>
 
                   <div className="grid gap-4 md:grid-cols-2">

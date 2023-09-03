@@ -1,9 +1,9 @@
 import "../styles/create.css";
 import CreateType from "./components/CreateType";
 import CreationContextProvider from "./context/CreateContextProvider";
-import ProductCreation from "./components/ProductCreation";
 import RecentProductsCreated from "./components/RecentlyCreated";
 import CategoryCreation from "./components/CategoryCreation";
+import ProductCreation from "@/components/UI/Dashboard/Create/Product";
 
 export const metadata = {
   title: "BDashboard - Create",

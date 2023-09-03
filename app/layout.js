@@ -1,21 +1,21 @@
 import "./globals.css";
 import "remixicon/fonts/remixicon.css";
-import { DM_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import GeneralProvider from "@/lib/utils/general";
+import Providers from "@/utils/providers/providers";
 config.autoAddCss = false;
 
-const dmSans = DM_Sans({
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "300", "500", "800"],
 });
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={dmSans.className}>
+    <html lang="en" className={poppins.className}>
       <body>
-        <GeneralProvider>{children}</GeneralProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import DefaultWrapper from "../DefaultWrapper";
+import DefaultWrapper from "../../utils/providers/DefaultWrapper";
 import ContactClient from "./components/contact-client";
 
 export const metadata = {

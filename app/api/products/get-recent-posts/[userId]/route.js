@@ -19,8 +19,6 @@ export async function GET(req, { params }) {
       { $sort: { date_posted: -1 } },
     ]);
 
-    console.log(recentProducts);
-
     return NextResponse.json(recentProducts, { status: 200 });
   } catch (e) {
     throw new Error("An error occurred while fetching recent products");

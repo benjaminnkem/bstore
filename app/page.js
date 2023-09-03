@@ -1,5 +1,5 @@
 import Image from "next/image";
-import DefaultWrapper from "./DefaultWrapper";
+import DefaultWrapper from "../utils/providers/DefaultWrapper";
 import "./components/styles/Default.css";
 import Link from "next/link";
 import { headers } from "next/headers";

@@ -20,7 +20,7 @@ const RecentProductsCreated = () => {
         return;
       }
 
-      toast.success("GET recent posts successful");
+      toast.success("GET recent posts successful", { id: "successToast" });
       setFetchingRecentPosts(false);
       setRecentPosts(res.data);
     } catch (e) {
@@ -44,7 +44,7 @@ const RecentProductsCreated = () => {
         </div>
 
         <button
-          className="w-full py-2 mt-2 text-orange-500 duration-200 border border-orange-500 rounded-md hover:bg-orange-500 hover:text-black"
+          className="w-full py-2 mt-2 text-orange-500 duration-200 border border-orange-500 rounded-md hover:bg-orange-500 disabled:hover:bg-transparent disabled:hover:text-orange-500 hover:text-black"
           onClick={() => getRecentPosts(userInfoContext?.user?.id)}
           disabled={fetchingRecentPosts}
         >

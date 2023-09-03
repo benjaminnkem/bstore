@@ -1,4 +1,4 @@
-import DefaultWrapper from "../DefaultWrapper";
+import DefaultWrapper from "../../utils/providers/DefaultWrapper";
 import "./styles/loading.css";
 
 const ShopLoading = () => {

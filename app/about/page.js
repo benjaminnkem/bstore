@@ -1,4 +1,4 @@
-import DefaultWrapper from "../DefaultWrapper";
+import DefaultWrapper from "../../utils/providers/DefaultWrapper";
 import "./styles/about.css";
 
 export const metadata = {

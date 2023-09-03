@@ -1,4 +1,4 @@
-import NextAuthProvider from "../components/NextAuthProvider";
+import NextAuthProvider from "../../utils/providers/NextAuthProvider";
 import DashboardMenuProvider from "../context/DashboardMenu";
 import DashboardNavbar from "./components/DashboardNavbar";
 import DashboardAuthWrapper from "./contexts/DashboardWrapper";

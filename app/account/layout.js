@@ -1,4 +1,4 @@
-import NextAuthProvider from "../components/NextAuthProvider";
+import NextAuthProvider from "../../utils/providers/NextAuthProvider";
 
 export const metadata = {
   title: "Bstore - Administrator's page",

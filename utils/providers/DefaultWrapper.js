@@ -1,11 +1,11 @@
 "use client";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import NextAuthProvider from "./components/NextAuthProvider";
+import Footer from "../../app/components/Footer";
+import Navbar from "../../app/components/Navbar";
+import NextAuthProvider from "./NextAuthProvider";
 import { SessionProvider } from "next-auth/react";
-import GlobalCartItemsProvider from "./context/GlobalCartItems";
-import SelectedItemDisplay from "./components/SelectedItemDisplay";
-import FavoriteItemProvider from "./context/smaller__/FavoriteManager";
+import GlobalCartItemsProvider from "../../app/context/GlobalCartItems";
+import SelectedItemDisplay from "../../app/components/SelectedItemDisplay";
+import FavoriteItemProvider from "../../app/context/smaller__/FavoriteManager";
 import { AnimatePresence } from "framer-motion";
 
 const DefaultWrapper = ({ children }) => {

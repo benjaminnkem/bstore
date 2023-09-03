@@ -1,4 +1,4 @@
-import DefaultWrapper from "../DefaultWrapper";
+import DefaultWrapper from "../../utils/providers/DefaultWrapper";
 import ProductDisplay from "./components/ProductDisplay";
 import HorizontalCategory from "./components/HorizontalCategory";
 import { headers } from "next/headers";

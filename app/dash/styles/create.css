@@ -3,3 +3,7 @@
     grid-template-columns: 1fr 4fr;
   }
 }
+
+.productImageSlider::-webkit-scrollbar {
+  height: 6px;
+}

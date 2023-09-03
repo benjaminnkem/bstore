@@ -128,7 +128,7 @@ const ProductCreation = () => {
               <form onSubmit={(e) => handleProductCreation(e)} encType="multipart/form-data">
                 <div className="grid gap-4">
                   {/* Handling all images picked and container */}
-                  <div>
+                  <div className="flex items-start space-x-2 overflow-x-auto py-4 productImageSlider">
                     {images.length > 0 ? (
                       images.map((_, idx) => (
                         <ProductImageBox
@@ -138,6 +138,7 @@ const ProductCreation = () => {
                           addNewImage={addNewImage}
                           removeImage={removeImage}
                           setFormInput={setFormInput}
+                          images={images}
                         />
                       ))
                     ) : (
@@ -151,6 +152,7 @@ const ProductCreation = () => {
                           removeImage={removeImage}
                           setFormInput={setFormInput}
                           default={true}
+                          images={images}
                         />
                       </>
                     )}

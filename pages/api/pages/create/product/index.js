@@ -40,55 +40,55 @@ const upload = multer({
 
 handler.use(upload.array("productImage", 5)).post("/api/pages/create/product", async (req, res) => {
   const body = req.body;
-  const productImage = req.files;
+  const productImages = req.files;
 
-  console.log(productImage)
+  const token = await getToken({ req });
+  if (!token) return res.status(401).send("You are not authorized");
 
-  // const token = await getToken({ req });
-  // if (!token) return res.status(401).send("You are not authorized");
-
-  // await connectToDB();
+  await connectToDB();
 
   try {
-    // const { itemName, price, category, description, tags } = body;
-    // const session = await getServerSession(req, res, authOptions);
+    const { itemName, price, category, description, tags } = body;
+    const session = await getServerSession(req, res, authOptions);
 
-    // if (!session) {
-    //   return res.status(401).json({ message: "You must be logged in." });
-    // }
+    if (!session) {
+      return res.status(401).json({ message: "You must be logged in." });
+    }
 
-    // const defaultProductImagePath = "/images/uploads/products/";
-    // const mainTag = tags.split(",");
-    // const imageFile = req.file;
+    const defaultProductImagePath = "/images/uploads/products";
+    const devProductsImgUrl = productImages.map(prod => `${defaultProductImagePath}/${prod?.filename}`)
+    const mainTag = tags.split(",");
 
-    // let imageUrlCloud;
-    // if (!isDevMode) {
-    //   const parser = new DataURIParser();
+    const parser = new DataURIParser();
 
-    //   const createImage = async (img) => {
-    //     const base64Image = parser.format(path.extname(img.originalname).toString(), img.buffer);
-    //     const uploadedImageResponse = await cloudinary.uploader.upload(base64Image.content, {
-    //       folder: "products",
-    //       resource_type: "image",
-    //     });
-    //     return uploadedImageResponse;
-    //   };
+    let cloudImagesUrl = [];
+    if (!isDevMode) {
+      for (const imageFile of productImages) {
+        const createImage = async (img) => {
+          const base64Image = parser.format(path.extname(img.originalname).toString(), img.buffer);
+          const uploadedImageResponse = await cloudinary.uploader.upload(base64Image.content, {
+            folder: "products",
+            resource_type: "image",
+          });
+          return uploadedImageResponse;
+        };
 
-    //   const createdImage = await createImage(imageFile);
-    //   imageUrlCloud = createdImage.secure_url;
-    // }
+        const createdImage = await createImage(imageFile);
+        cloudImagesUrl.push(createdImage.secure_url);
+      }
+    }
 
-    // const productData = {
-    //   itemName: itemName.trim(),
-    //   price,
-    //   tags: mainTag,
-    //   category: category.trim(),
-    //   description: description.trim(),
-    //   images: [isDevMode ? `${defaultProductImagePath}${productImage}` : imageUrlCloud], // describing the file path
-    //   seller_id: new ObjectId(session.user.id),
-    // };
+    const productData = {
+      itemName: itemName.trim(),
+      price,
+      tags: mainTag,
+      category: category.trim(),
+      description: description.trim(),
+      images: isDevMode ? devProductsImgUrl : cloudImagesUrl, // describing the file path
+      seller_id: new ObjectId(session.user.id),
+    };
 
-    // await ProductsSchema.create(productData);
+    await ProductsSchema.create(productData);
     res.status(200).json({ message: "product created successfully" });
   } catch (e) {
     console.log(e);

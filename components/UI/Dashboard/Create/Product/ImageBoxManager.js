@@ -20,7 +20,7 @@ const ProductImageBox = ({
   // File Upload
   const hiddenFileInput = useRef(null);
   const [localImageUrl, setLocalImageUrl] = useState("");
-  const handleClick = () => hiddenFileInput.current.click();
+  const handleClick = () => hiddenFileInput.current.click(); // handle input click
 
   const handleFilePick = (e) => {
     const imageFiles = e.target.files;

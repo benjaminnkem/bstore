@@ -13,7 +13,7 @@ const ProductImageBox = ({
   imageBoxId,
   removeImage,
 }) => {
-  // Max Images allowed
+  // Maximum Images allowed
   const maxImages = 5;
   const imageBoxMainId = images[imageBoxId].id;
 

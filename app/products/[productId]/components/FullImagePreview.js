@@ -1,11 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ProductFullImagePreview = ({ post }) => {
-  const [imgSrc, setImgSrc] = useState(post.images[0]);
+  const [selectedImagePrev, setSelectedImagePrev] = useState(0);
+
+  const [imgSrc, setImgSrc] = useState(post.images[selectedImagePrev]);
   const [previewShow, setPreviewShow] = useState(false);
+
+  const changeSelectedImage = (id) => setSelectedImagePrev(id);
+  useEffect(() => setImgSrc(post.images[selectedImagePrev]), [selectedImagePrev]);
 
   const togglePreview = () => setPreviewShow(!previewShow);
 
@@ -58,6 +63,29 @@ const ProductFullImagePreview = ({ post }) => {
               <button>View Full Image</button>
             </div>
           </div>
+
+          {post.images.length > 1 && (
+            <div className="flex items-center gap-2 mt-2 overflow-x-auto multi-img">
+              {post.images.map((image, idx) => (
+                <div
+                  key={idx}
+                  className={`w-[5rem] h-[5rem] overflow-hidden rounded-lg duration-200 border-2 ${
+                    selectedImagePrev === idx ? "border-orange-500" : "border-transparent"
+                  }`}
+                  onClick={() => changeSelectedImage(idx)}
+                >
+                  <Image
+                    src={image}
+                    alt="More Images"
+                    width={100}
+                    height={100}
+                    className="object-cover aspect-square"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+
           <p className="mt-4 text-sm">
             Date Posted: <span className="font-light">{new Date(post.date_posted).toDateString()}</span>{" "}
           </p>

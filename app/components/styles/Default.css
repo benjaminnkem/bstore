@@ -47,7 +47,7 @@
   left: -10px;
   bottom: -12px;
   height: 14px;
-  background-color: #25c132;
+  background-color: #c15e25;
 }
 
 .tp-text::after {
@@ -57,7 +57,7 @@
   left: -8px;
   bottom: -8px;
   width: calc(100% + 8px);
-  background-color: #25c132;
+  background-color: #c15e25;
 }
 
 .para-con {

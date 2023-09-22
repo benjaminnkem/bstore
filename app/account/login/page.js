@@ -1,4 +1,4 @@
-import LoginForm from "./comps/LoginForm";
+import LoginForm from "../../../components/UI/Account/Login";
 
 export const metadata = {
   title: "Login as a seller - Bstore",

@@ -1,8 +1,8 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
-import AdminUser from "@/utils/schemas/AdminUser";
-import connectToDB from "@/utils/db";
+import AdminUser from "@/lib/schemas/users/AdminUser";
+import connectToDB from "@/lib/config/db";
 
 export const authOptions = {
   providers: [

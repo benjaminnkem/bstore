@@ -5,7 +5,7 @@ import { getToken } from "next-auth/jwt";
 import nc from "next-connect";
 import DataURIParser from "datauri/parser";
 import path from "path";
-import connectToDB from "@/utils/db";
+import connectToDB from "@/lib/config/db";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import ProductsSchema from "@/utils/schemas/ProductsSchema";
 
@@ -56,7 +56,7 @@ handler.use(upload.array("productImage", 5)).post("/api/pages/create/product", a
     }
 
     const defaultProductImagePath = "/images/uploads/products";
-    const devProductsImgUrl = productImages.map(prod => `${defaultProductImagePath}/${prod?.filename}`)
+    const devProductsImgUrl = productImages.map((prod) => `${defaultProductImagePath}/${prod?.filename}`);
     const mainTag = tags.split(",");
 
     const parser = new DataURIParser();

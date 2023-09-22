@@ -1,4 +1,4 @@
-import DashboardDefault from "./components/DashboardDefault";
+import DashboardDefault from "../../components/UI/Dashboard/Main/DashboardDefault";
 
 export const metadata = {
   title: "Dashboard",

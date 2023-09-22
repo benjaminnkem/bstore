@@ -1,5 +1,5 @@
 "use client";
-import { sun3D } from "@/app/reuseable/three/solar/solar";
+import { sun3D } from "@/lib/reuseables/THREEJS/solar";
 import { faArrowLeft, faRocket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";

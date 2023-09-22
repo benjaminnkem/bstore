@@ -1,7 +1,7 @@
-import connectToDB from "@/utils/db";
+import connectToDB from "@/lib/config/db";
 import ProductsSchema from "@/utils/schemas/ProductsSchema";
-import reviews from "@/utils/schemas/products/reviews";
-import UsersSchema from "@/utils/schemas/users/UsersSchema";
+import reviews from "@/lib/schemas/products/reviews";
+import UsersSchema from "@/lib/schemas/users/UsersSchema";
 import { ObjectId } from "mongodb";
 import { getServerSession } from "next-auth";
 import { getToken } from "next-auth/jwt";

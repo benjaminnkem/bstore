@@ -1,10 +1,10 @@
-import DefaultWrapper from "@/utils/providers/DefaultWrapper";
+import DefaultWrapper from "@/lib/utils/DefaultWrapper";
 import HorizontalCategory from "@/app/shop/components/HorizontalCategory";
 import ProductFullImagePreview from "./components/FullImagePreview";
 import "./styles/product-details.css";
-import { checkHost, checkProtocol } from "@/app/reuseable/decideProtocol";
+import { checkHost, checkProtocol } from "@/lib/reuseables/SERVERCOMPONENTS/decideProtocol";
 import ProdDetails from "./components/Details";
-import NextAuthProvider from "@/utils/providers/NextAuthProvider";
+import NextAuthProvider from "@/lib/utils/NextAuthProvider";
 
 export const dynamicParams = true;
 

@@ -1,7 +1,7 @@
-import NextAuthProvider from "../../utils/providers/NextAuthProvider";
-import DashboardMenuProvider from "../context/DashboardMenu";
+import NextAuthProvider from "../../lib/utils/NextAuthProvider";
+import DashboardMenuProvider from "../../lib/contexts/default/dashboard-menu-context";
 import DashboardNavbar from "./components/DashboardNavbar";
-import DashboardAuthWrapper from "./contexts/DashboardWrapper";
+import DashboardAuthWrapper from "../../lib/contexts/dashboard/dashboard-wrapper";
 import DashboardSidebar from "./components/DashboardSideBar";
 import "./styles/dashboard.css";
 

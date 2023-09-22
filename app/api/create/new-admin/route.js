@@ -1,5 +1,5 @@
-import connectToDB from "@/utils/db";
-import AdminUser from "@/utils/schemas/AdminUser";
+import connectToDB from "@/lib/config/db";
+import AdminUser from "@/lib/schemas/users/AdminUser";
 import { hash } from "bcryptjs";
 import { NextResponse } from "next/server";
 

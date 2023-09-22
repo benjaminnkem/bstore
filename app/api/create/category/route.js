@@ -1,4 +1,4 @@
-import connectToDB from "@/utils/db";
+import connectToDB from "@/lib/config/db";
 import CategorySchema from "@/utils/schemas/CategorySchema";
 import { NextResponse } from "next/server";
 

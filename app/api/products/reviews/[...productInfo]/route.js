@@ -1,5 +1,5 @@
-import connectToDB from "@/utils/db";
-import reviews from "@/utils/schemas/products/reviews";
+import connectToDB from "@/lib/config/db";
+import reviews from "@/lib/schemas/products/reviews";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 

@@ -2,7 +2,7 @@ import DefaultWrapper from "@/lib/utils/DefaultWrapper";
 import HorizontalCategory from "@/app/shop/components/HorizontalCategory";
 import ProductFullImagePreview from "./components/FullImagePreview";
 import "./styles/product-details.css";
-import { checkHost, checkProtocol } from "@/lib/reuseables/SERVERCOMPONENTS/decideProtocol";
+import { checkHost, checkProtocol } from "@/lib/reuseables/SERVERCOMPONENTS/getProtocol";
 import ProdDetails from "./components/Details";
 import NextAuthProvider from "@/lib/utils/NextAuthProvider";
 

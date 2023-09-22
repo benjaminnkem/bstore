@@ -1,5 +1,5 @@
 import connectToDB from "@/lib/config/db";
-import CategorySchema from "@/utils/schemas/CategorySchema";
+import CategorySchema from "@/lib/schemas/products/CategorySchema";
 import { NextResponse } from "next/server";
 
 export async function POST(req, res) {

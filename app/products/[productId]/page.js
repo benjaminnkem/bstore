@@ -2,8 +2,9 @@ import { checkHost, checkProtocol } from "@/lib/reuseables/SERVERCOMPONENTS/getP
 import "./styles/product-details.css";
 import DefaultWrapper from "@/lib/utils/DefaultWrapper";
 import HorizontalCategory from "@/components/UI/Shop/HorizontalCategory";
-import ProductFullImagePreview from "@/components/UI/ProductDetails/FullImagePreview";
+import ProductFullImagePreview from "@/components/UI/ProductDetails/img-preview-details";
 import NextAuthProvider from "@/lib/utils/NextAuthProvider";
+import SideProductDetails from "@/components/UI/ProductDetails/side-details";
 
 export const dynamicParams = true;
 
@@ -33,16 +34,15 @@ const getPost = async (param) => {
   const host = checkHost();
   const protocol = checkProtocol();
 
-  if (!param) [];
+  try {
+    const response = await fetch(`${protocol}${host}/api/products/get-product-details/${param?.productId}`, {
+      next: { revalidate: 120 },
+    });
 
-  console.log("param", param);
-  const response = await fetch(`${protocol}${host}/api/products/get-product-details/${param?.productId}`, {
-    next: { revalidate: 120 },
-  });
-
-  const body = await response.json();
-
-  return response.json();
+    return await response.json();
+  } catch (e) {
+    console.log("Error from get post: ", e.message);
+  }
 };
 
 const ProductDetails = async ({ params }) => {
@@ -50,8 +50,8 @@ const ProductDetails = async ({ params }) => {
 
   return (
     <>
-      <DefaultWrapper>
-        <main>
+      <main>
+        <DefaultWrapper>
           <header>
             <HorizontalCategory />
           </header>
@@ -60,12 +60,12 @@ const ProductDetails = async ({ params }) => {
               <ProductFullImagePreview post={post} />
 
               <NextAuthProvider>
-                <ProductDetails post={post} />
+                <SideProductDetails post={post} />
               </NextAuthProvider>
             </section>
           </div>
-        </main>
-      </DefaultWrapper>
+        </DefaultWrapper>
+      </main>
     </>
   );
 };

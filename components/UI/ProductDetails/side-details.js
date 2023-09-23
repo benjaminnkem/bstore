@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import AddProductDetCart from "./AddToCartBtn";
+import AddProductDetCart from "./add-to-cart";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose, faRocket, faStar, faUser } from "@fortawesome/free-solid-svg-icons";
 import ReviewsManager from "./reviews-manager";
 import { useSession } from "next-auth/react";
 import { toast } from "react-hot-toast";
@@ -12,7 +10,7 @@ import ReviewBox from "./review-box";
 
 const itemDescClass = "flex justify-between items-center py-2 border-[#666666] border-t border-opacity-50";
 
-const ProdDetails = ({ post }) => {
+const SideProductDetails = ({ post }) => {
   const [customQuantity, setCustomQuantity] = useState(1);
   const [aboutToReview, setAboutToReview] = useState(false);
   const [formInputs, setFormInputs] = useState({
@@ -277,4 +275,4 @@ const ProdDetails = ({ post }) => {
   );
 };
 
-export default ProdDetails;
+export default SideProductDetails;

@@ -1,14 +1,14 @@
-import NextAuthProvider from "../../lib/utils/NextAuthProvider";
+import AuthProvider from "@/lib/contexts/global/auth-provider";
 
 export const metadata = {
-  title: "Bstore - Administrator's page",
+  title: "Account - Bstore",
   robots: "noindex",
 };
 
 const RootAdminLayout = ({ children }) => {
   return (
     <>
-      <NextAuthProvider>{children}</NextAuthProvider>
+      <AuthProvider>{children}</AuthProvider>
     </>
   );
 };

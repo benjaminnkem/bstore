@@ -28,7 +28,9 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl tracking-wide font-bold">
-                <Link href={"/"}>BS.</Link>
+                <Link href={"/"}>
+                  BS<span className="text-orange-500">.</span>
+                </Link>
               </h1>
             </div>
 
@@ -37,8 +39,8 @@ const Navbar = () => {
                 {navLinks.map((link, idx) => (
                   <Link passHref href={link.path} key={idx}>
                     <li
-                      className={`relative font-semibold duration-300 tracking-wide dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
-                        pathname === link.path && "text-orange-400"
+                      className={`relative font-semibold duration-300 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
+                        pathname === link.path && "text-orange-400 font-bold"
                       }`}
                     >
                       {link.label}
@@ -47,23 +49,19 @@ const Navbar = () => {
                 ))}
 
                 <li>
-                  <div className="flex items-center space-x-4">
-                    <div>
-                      <i className="cursor-pointer ri-search-2-line"></i>
-                    </div>
-
-                    <ShoppingCartIcon size={"text-2xl"} />
-
+                  <div className="flex items-center font-semibold space-x-4">
                     <Link
                       href={`${status === "authenticated" ? "/dash" : "/account/login"}`}
                       target="_blank"
                       passHref
                       title={`${status === "authenticated" ? "Go to dashboard" : "Sign Up / Login"}`}
                     >
-                      <div className="grid w-8 h-8 duration-300 bg-gray-300 border border-gray-300 border-opacity-25 rounded-full cursor-pointer dark:bg-black bg-opacity-40 place-content-center">
-                        <i className="ri-user-5-fill"></i>
-                      </div>
+                      <p>Account</p>
                     </Link>
+                    <div>
+                      <i className="cursor-pointer ri-search-2-line"></i>
+                    </div>
+                    <ShoppingCartIcon size={"text-2xl"} />
                   </div>
                 </li>
               </ul>

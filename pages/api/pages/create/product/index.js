@@ -7,7 +7,7 @@ import DataURIParser from "datauri/parser";
 import path from "path";
 import connectToDB from "@/lib/config/db";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import ProductsSchema from "@/utils/schemas/ProductsSchema";
+import ProductsSchema from "@/lib/schemas/products/ProductsSchema";
 
 const cloudinary = require("cloudinary").v2;
 

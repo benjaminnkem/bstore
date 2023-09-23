@@ -21,7 +21,7 @@ const DashboardNavbar = () => {
 
   return (
     <>
-      <div className="sticky top-0 left-0 w-full p-3 bg-gray-200 md:p-4 dark:bg-primaryDarkShade-200">
+      <nav className="sticky top-0 left-0 w-full p-3 bg-white md:p-4 dark:bg-primaryDarkShade-200">
         <div className="nav-content">
           <h1>
             <Link href={`/dashboard`} passHref>
@@ -110,7 +110,7 @@ const DashboardNavbar = () => {
 
                           <button
                             className="w-full py-2 text-orange-500 border border-orange-500 rounded-md hover:bg-orange-500 hover:text-primaryDark"
-                            onClick={() => signOut()}
+                            onClick={() => signOut({ callbackUrl: `/login` })}
                           >
                             Sign out <i className="ri-logout-box-r-line"></i>
                           </button>
@@ -140,7 +140,7 @@ const DashboardNavbar = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </nav>
     </>
   );
 };

@@ -48,7 +48,7 @@ const ProductFullImagePreview = ({ post }) => {
       <div className="space-y-8">
         <div>
           <div
-            className="rounded-lg overflow-hidden group shadow-md max-h-96 min-h-[20rem] md:min-h-[24rem] relative flex items-center justify-center md:max-h-[auto] duration-200"
+            className="rounded-lg overflow-hidden group shadow-md max-h-96 min-h-[24rem] md:min-h-[26rem] lg:min-h-[30rem] relative flex items-center justify-center md:max-h-[auto] duration-200"
             onClick={togglePreview}
           >
             <Image

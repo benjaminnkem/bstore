@@ -10,7 +10,7 @@ import { TransitionStart } from "@/lib/utils/transition";
 import { CustomSessionDataContext } from "@/lib/contexts/dashboard/dashboard-wrapper";
 
 const DashboardNavbar = () => {
-  const { toggleMenu, isMenuOpen } = useContext(DashMenuContext);
+  const { toggleMenu } = useContext(DashMenuContext);
   const [navStatus, setNavStatus] = useState({ userIcoOpen: false, notiIcoOpen: false });
   const userInfo = useContext(CustomSessionDataContext);
 

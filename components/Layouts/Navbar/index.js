@@ -7,11 +7,14 @@ import ShoppingCartIcon from "@/components/Common/Icons/ShoppingCartIcon";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { useUserData } from "@/lib/contexts/global/auth-provider";
 
 const Navbar = () => {
   const pathname = usePathname();
-  const { status } = useSession();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const { user } = useUserData();
+
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   const navLinks = [
@@ -50,14 +53,23 @@ const Navbar = () => {
 
                 <li>
                   <div className="flex items-center font-semibold space-x-4">
-                    <Link
-                      href={`${status === "authenticated" ? "/dash" : "/account/login"}`}
-                      target="_blank"
-                      passHref
-                      title={`${status === "authenticated" ? "Go to dashboard" : "Sign Up / Login"}`}
-                    >
-                      <p>Account</p>
-                    </Link>
+                    {!user ? (
+                      <Link href={`/account/login`} target="_blank" passHref title={`Login or Signup`}>
+                        <p>Account</p>
+                      </Link>
+                    ) : (
+                      <>
+                        <Link
+                          href={`/dash`}
+                          target="_blank"
+                          passHref
+                          title={`Go to dashboard`}
+                          className="bg-orange-500 text-white px-3 py-1 rounded-3xl hover:bg-orange-600 duration-200"
+                        >
+                          <p>Dashboard</p>
+                        </Link>
+                      </>
+                    )}
                     <div>
                       <i className="cursor-pointer ri-search-2-line"></i>
                     </div>
@@ -113,10 +125,6 @@ const Navbar = () => {
                   onClick={toggleMenu}
                   title="Close"
                 />
-                {/* <i
-                  className="absolute mx-auto text-3xl text-center -translate-y-4 cursor-pointer ri-close-circle-line top-1/2 right-4"
-                  onClick={toggleMenu}
-                ></i> */}
 
                 <ul className={`duration-200 space-y-4 text-center`}>
                   <li>

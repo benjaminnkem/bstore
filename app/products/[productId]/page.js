@@ -3,13 +3,12 @@ import "./styles/product-details.css";
 import DefaultWrapper from "@/lib/utils/DefaultWrapper";
 import HorizontalCategory from "@/components/UI/Shop/HorizontalCategory";
 import ProductFullImagePreview from "@/components/UI/ProductDetails/img-preview-details";
-import NextAuthProvider from "@/lib/utils/NextAuthProvider";
 import SideProductDetails from "@/components/UI/ProductDetails/side-details";
 
 export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
-  const productId = params.productId;
+  const { productId } = params;
 
   const host = checkHost();
   const protocol = checkProtocol();
@@ -17,6 +16,7 @@ export async function generateMetadata({ params }) {
   const response = await fetch(`${protocol}${host}/api/products/get-product-metadata/${productId}`);
   try {
     const [productData] = await response.json(); // Returns a list tht needs destructuring
+    console.log(`productData`, productData);
     const {
       seller: [seller],
     } = productData;
@@ -59,9 +59,7 @@ const ProductDetails = async ({ params }) => {
             <section className="my-10 lg:gap-20 md:gap-12 md:grid" style={{ gridTemplateColumns: "2.5fr 3fr" }}>
               <ProductFullImagePreview post={post} />
 
-              <NextAuthProvider>
-                <SideProductDetails post={post} />
-              </NextAuthProvider>
+              <SideProductDetails post={post} />
             </section>
           </div>
         </DefaultWrapper>

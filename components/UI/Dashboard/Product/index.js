@@ -184,7 +184,7 @@ const ProductCreation = () => {
                           name="itemName"
                           id="itemName"
                           placeholder="What should this product be called?"
-                          className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-primaryDarkShade-300 focus:border-[#444554] placeholder:text-[#6e6e6e]"
+                          className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 dark:border-primaryDarkShade-300 border-gray-300 dark:focus:border-[#444554] focus:border-gray-400 placeholder:text-[#6e6e6e]"
                           value={formInput.itemName}
                           onChange={(e) => handleUpdateFormInput(e)}
                         />
@@ -198,12 +198,12 @@ const ProductCreation = () => {
                         <label htmlFor="tags" className="font-semibold dark:text-[#d6d6d6]">
                           Tags
                         </label>
-                        <div className="border-primaryDarkShade-300 flex space-x-1 items-center border rounded-md outline-none overflow-y-auto duration-200 focus-within:border-[#444554] bg-transparent p-2">
+                        <div className="bdark:order-primaryDarkShade-300 border-gray-300 flex space-x-1 items-center border rounded-md outline-none overflow-y-auto duration-200 dark:focus-within:border-[#444554] focus-within:border-gray-400 bg-transparent p-2">
                           <div className="flex items-center flex-shrink-0 space-x-1">
                             {tagList.map((tag, id) => (
                               <div
                                 key={id}
-                                className="px-2 py-1 rounded-md flex-shrink-0 bg-[#444554] duration-200 hover:bg-[#5b5d70]"
+                                className="px-2 py-1 rounded-md flex-shrink-0 dark:bg-[#444554] duration-200 dark:hover:bg-[#5b5d70] bg-gray-100 border-2 border-gray-400 dark:border-gray-600  hover:bg-gray-200"
                               >
                                 <span>{tag}</span>{" "}
                                 <span>
@@ -245,7 +245,7 @@ const ProductCreation = () => {
                           type="text"
                           name="price"
                           id="price"
-                          className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-primaryDarkShade-300 focus:border-[#444554] placeholder:text-[#6e6e6e]"
+                          className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 dark:border-primaryDarkShade-300 border-gray-300 dark:focus:border-[#444554] focus:border-gray-400 placeholder:text-[#6e6e6e]"
                           placeholder="Item Price e.g 1.99, 200, 129.99"
                           value={formInput.price}
                           onChange={(e) => handleUpdateFormInput(e)}
@@ -262,7 +262,7 @@ const ProductCreation = () => {
                           type="text"
                           name="category"
                           id="category"
-                          className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-primaryDarkShade-300 focus:border-[#444554] placeholder:text-[#6e6e6e]"
+                          className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 dark:border-primaryDarkShade-300 border-gray-300 dark:focus:border-[#444554] focus:border-gray-400 placeholder:text-[#6e6e6e]"
                           placeholder="Tech, Phone, Automobile"
                           value={formInput.category}
                           onChange={(e) => handleUpdateFormInput(e)}
@@ -283,7 +283,7 @@ const ProductCreation = () => {
                           cols="30"
                           rows="5"
                           placeholder="Describe the item you're selling..."
-                          className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-primaryDarkShade-300 focus:border-[#444554] placeholder:text-[#6e6e6e]"
+                          className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 dark:border-primaryDarkShade-300 border-gray-300 dark:focus:border-[#444554] focus:border-gray-400 placeholder:text-[#6e6e6e]"
                           value={formInput.description}
                           onChange={(e) => handleUpdateFormInput(e)}
                         ></textarea>
@@ -297,7 +297,7 @@ const ProductCreation = () => {
                     <div style={{ gridColumn: "1/3" }}>
                       <button
                         type="submit"
-                        className="w-full py-2 rounded-md border border-primaryDarkShade-300 duration-200 hover:bg-primaryDarkShade-300 hover:text-inherit disabled:opacity-40 disabled:bg-[#111115] disabled:hover:bg-[#111115]"
+                        className="w-full py-2 rounded-md border dark:dark:border-primaryDarkShade-300 border-gray-300 border-gray-400 duration-200 dark:hover:bg-primaryDarkShade-300 hover:bg-gray-200 hover:text-inherit disabled:opacity-40 dark:disabled:bg-[#111115] dark:disabled:hover:bg-transparent"
                         disabled={status.loading}
                       >
                         {!status.loading ? (

@@ -41,16 +41,17 @@ const LoginForm = () => {
       };
 
       setStatus({ ...status, loading: true });
-      const res = await signIn("credentials", loginData);
+      const res = await signIn("credentials", { ...loginData, redirect: false });
 
       if (!res.ok) {
         toast.error("Sorry, you could not login.");
         console.log("An error occurred");
       }
 
-      toast.success("Logged In Successfully");
       setUsername("");
       setPassword("");
+      toast.success("Logged In Successfully");
+      router.push("/dash");
       setStatus({ ...status, loading: false });
     }
 

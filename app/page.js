@@ -44,7 +44,7 @@ const Home = async () => {
                 <div className="mt-10">
                   <div>
                     <h1 className="text-3xl font-extrabold duration-200 text-shadow lg:text-6xl md:text-5xl">
-                      BStore Marketplace
+                      The World&apos;s Marketplace
                     </h1>
                     <p className="max-w-3xl mx-auto mt-4 text-base font-light leading-relaxed duration-200 text-shadow lg:text-lg">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam ratione deleniti vitae

@@ -173,7 +173,7 @@ const ProductCreation = () => {
                     ))}
                   </div>
 
-                  <div className="grid gap-4 md:grid-cols-2">
+                  <div className="md:grid flex flex-col gap-4 grid-cols-2">
                     <div>
                       <div className="space-y-1">
                         <label htmlFor="itemName" className="font-semibold dark:text-[#d6d6d6]">

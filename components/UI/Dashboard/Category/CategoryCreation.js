@@ -1,8 +1,8 @@
 "use client";
 import { useContext, useEffect, useState } from "react";
-import { CustomSessionDataContext } from "../../../../../lib/contexts/dashboard/dashboard-wrapper";
 import CustAlert from "@/components/Common/Icons/Alert";
-import { DashCreateContext } from "../../../../../lib/contexts/dashboard/create-dashboard-context";
+import { CustomSessionDataContext } from "@/lib/contexts/dashboard/dashboard-wrapper";
+import { DashCreateContext } from "@/lib/contexts/dashboard/create-dashboard-context";
 import { TransitionStart } from "@/lib/utils/transition";
 
 const CategoryCreation = () => {
@@ -34,7 +34,7 @@ const CategoryCreation = () => {
 
   const validateForm = () => {
     const errors = {};
-    if (!formInput.name) errors.name = "A Category name must be provided";
+    if (!formInput.name) errors.name = "A category name must be provided";
 
     return errors;
   };
@@ -85,7 +85,7 @@ const CategoryCreation = () => {
                 <div className="grid gap-4">
                   <div>
                     <div className="space-y-1">
-                      <label htmlFor="name" className="font-semibold text-[#b4b8d8]">
+                      <label htmlFor="name" className="font-semibold text-gray-50">
                         Category Name
                       </label>
                       <input
@@ -93,7 +93,7 @@ const CategoryCreation = () => {
                         name="name"
                         id="name"
                         placeholder="What should this category be called?"
-                        className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-[#2a2b35] focus:border-[#444554] placeholder:text-[#5e6174]"
+                        className="block w-full bg-transparent border rounded-md p-2 outline-none duration-200 border-[#2e2e2e] focus:border-[#3f3f3f] placeholder:text-[#474747]"
                         value={formInput.name}
                         onChange={(e) => handleUpdateFormInput(e)}
                       />

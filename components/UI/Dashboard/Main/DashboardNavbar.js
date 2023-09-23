@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoneyBill, faRocket, faUser } from "@fortawesome/free-solid-svg-icons";
 import { faBell, faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { TransitionStart } from "@/lib/utils/transition";
-import { CustomSessionDataContext } from "../../../lib/contexts/dashboard/dashboard-wrapper";
+import { CustomSessionDataContext } from "@/lib/contexts/dashboard/dashboard-wrapper";
 
 const DashboardNavbar = () => {
   const { toggleMenu, isMenuOpen } = useContext(DashMenuContext);

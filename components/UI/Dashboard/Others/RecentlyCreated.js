@@ -3,6 +3,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { CustomSessionDataContext } from "../../../../lib/contexts/dashboard/dashboard-wrapper";
 import { toast } from "react-hot-toast";
+import { PuffLoader } from "react-spinners";
 
 const RecentProductsCreated = () => {
   const [recentPosts, setRecentPosts] = useState([]);
@@ -12,6 +13,7 @@ const RecentProductsCreated = () => {
   const getRecentPosts = async (userId) => {
     try {
       setFetchingRecentPosts(true);
+      setRecentPosts([]);
       const res = await axios.get(`/api/products/get-recent-posts/${userId ? userId : ""}`);
 
       if (res.statusText.toLocaleLowerCase() !== "ok") {
@@ -38,10 +40,16 @@ const RecentProductsCreated = () => {
             recentPosts.map((product) => (
               <div key={product._id} className="p-2 rounded-md bg-primaryDarkShade-200">
                 <p className="">{product.itemName}</p>
-                <p className="text-sm font-semibold">{new Date(product.date_posted).toLocaleString()}</p>
+                <p className="text-sm font-semibold">{new Date(product.date_posted).toUTCString()}</p>
               </div>
             ))}
         </div>
+
+        {fetchingRecentPosts && (
+          <div className="flex items-center justify-center">
+            <PuffLoader color="#ea580c" />
+          </div>
+        )}
 
         <button
           className="w-full py-2 mt-2 text-orange-500 duration-200 border border-orange-500 rounded-md hover:bg-orange-500 disabled:hover:bg-transparent disabled:hover:text-orange-500 hover:text-black"

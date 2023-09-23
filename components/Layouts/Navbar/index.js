@@ -14,55 +14,37 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
+  const navLinks = [
+    { label: "Home", path: "/" },
+    { label: "Explore", path: "/shop" },
+    { label: "About", path: "/about" },
+    { label: "Contact", path: "/contact" },
+  ];
+
   return (
     <>
       <div className={`z-50 ${(pathname === "/" || pathname === "/about") && "text-white bg-transparent"}`}>
         <div className="md:max-w-[1488px] w-11/12 mx-auto">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold">
-                <Link href={"/"}>BStore</Link>
+              <h1 className="text-3xl tracking-wide font-bold">
+                <Link href={"/"}>BS.</Link>
               </h1>
             </div>
 
             <nav>
               <ul className="items-center hidden py-4 space-x-2 select-none sm:flex">
-                <Link passHref href={"/"}>
-                  <li
-                    className={`relative font-semibold duration-300 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
-                      pathname === "/" && "text-orange-400"
-                    }`}
-                  >
-                    Home
-                  </li>
-                </Link>
-                <Link passHref href={"/shop"}>
-                  <li
-                    className={`relative font-semibold duration-300 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
-                      pathname === "/shop" && "text-orange-400"
-                    }`}
-                  >
-                    Explore
-                  </li>
-                </Link>
-                <Link passHref href={"/about"}>
-                  <li
-                    className={`relative font-semibold duration-300 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
-                      pathname === "/about" && "text-orange-400"
-                    }`}
-                  >
-                    About
-                  </li>
-                </Link>
-                <Link passHref href={"/contact"}>
-                  <li
-                    className={`relative font-semibold duration-300 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
-                      pathname === "/contact" && "text-orange-400"
-                    }`}
-                  >
-                    Contact
-                  </li>
-                </Link>
+                {navLinks.map((link, idx) => (
+                  <Link passHref href={link.path} key={idx}>
+                    <li
+                      className={`relative font-semibold duration-300 tracking-wide dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
+                        pathname === link.path && "text-orange-400"
+                      }`}
+                    >
+                      {link.label}
+                    </li>
+                  </Link>
+                ))}
 
                 <li>
                   <div className="flex items-center space-x-4">

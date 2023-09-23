@@ -1,5 +1,5 @@
 "use client";
-import "../styles/dashboard-default.css";
+import "./styles/dashboard-default.css";
 import { useContext } from "react";
 import { CustomSessionDataContext } from "../../../../lib/contexts/dashboard/dashboard-wrapper";
 

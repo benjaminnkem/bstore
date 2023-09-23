@@ -1,28 +1,25 @@
-import NextAuthProvider from "../../lib/utils/NextAuthProvider";
-import DashboardMenuProvider from "../../lib/contexts/default/dashboard-menu-context";
-import DashboardNavbar from "./components/DashboardNavbar";
-import DashboardAuthWrapper from "../../lib/contexts/dashboard/dashboard-wrapper";
-import DashboardSidebar from "./components/DashboardSideBar";
 import "./styles/dashboard.css";
+import DashboardAuthWrapper from "@/lib/contexts/dashboard/dashboard-wrapper";
+import DashboardMenuProvider from "@/lib/contexts/default/dashboard-menu-context";
+import DashboardSidebar from "@/components/UI/Dashboard/Main/DashboardSideBar";
+import DashboardNavbar from "@/components/UI/Dashboard/Main/DashboardNavbar";
 
 const MainDashboardLayout = ({ children }) => {
   return (
     <>
-      <NextAuthProvider>
-        <div className="dash-clamper">
-          <DashboardAuthWrapper>
-            <DashboardMenuProvider>
-              <DashboardSidebar />
+      <div className="dash-clamper">
+        <DashboardAuthWrapper>
+          <DashboardMenuProvider>
+            <DashboardSidebar />
 
-              <div className="dash-container md:ml-[240px] sm:ml-[180px] duration-200">
-                <DashboardNavbar />
+            <div className="dash-container md:ml-[240px] sm:ml-[180px] duration-200">
+              <DashboardNavbar />
 
-                <div className="dash-main-content">{children}</div>
-              </div>
-            </DashboardMenuProvider>
-          </DashboardAuthWrapper>
-        </div>
-      </NextAuthProvider>
+              <div className="dash-main-content">{children}</div>
+            </div>
+          </DashboardMenuProvider>
+        </DashboardAuthWrapper>
+      </div>
     </>
   );
 };

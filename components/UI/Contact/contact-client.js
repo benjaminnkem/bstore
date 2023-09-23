@@ -1,10 +1,9 @@
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../styles/contact.css";
+import "./styles/contact.css";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { AnimatePresence } from "framer-motion";
 import { TransitionElement, TransitionStart } from "@/lib/utils/transition";
 
 const defaultInputs = { fullName: "", email: "", subject: "", content: "" };
@@ -47,11 +46,11 @@ const ContactClient = () => {
 
   return (
     <>
-      <section className="jumbo flex md:max-w-[1488px] w-11/12 mx-auto items-center py-10">
-        <div className="md:grid gap-2 grid-cols-2 items-center">
+      <section className="jumbo flex md:max-w-[1488px] w-11/12 mx-auto items-center py-16">
+        <div className="items-center grid-cols-2 gap-2 md:grid">
           <TransitionElement>
-            <div className="space-y-4 py-10 md:py-0 text-center md:text-start">
-              <h1 className="lg:text-5xl text-4xl">Get in touch with our customer care. 👋🏿</h1>
+            <div className="py-10 space-y-4 text-center md:py-0 md:text-start">
+              <h1 className="text-4xl lg:text-5xl">Get in touch with our customer care. 👋🏿</h1>
 
               <p className="dark:text-gray-400">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero natus culpa asperiores vitae
@@ -62,7 +61,7 @@ const ContactClient = () => {
 
           <TransitionStart>
             <div>
-              <div className="sm:w-4/5 w-11/12 md:ml-auto mx-auto md:mx-0 bg-white dark:bg-primaryDarkShade-200 rounded-lg p-4">
+              <div className="w-11/12 p-4 mx-auto bg-white rounded-lg sm:w-4/5 md:ml-auto md:mx-0 dark:bg-primaryDarkShade-200">
                 <h2 className="text-2xl">Send us a message 🚀</h2>
                 <div className="mt-4">
                   <form onSubmit={(e) => handleSubmit(e)}>
@@ -126,7 +125,7 @@ const ContactClient = () => {
                             Submit{" "}
                             <FontAwesomeIcon
                               icon={faPaperPlane}
-                              className="group-hover:-translate-y-1 group-hover:translate-x-1 transition ease-linear"
+                              className="transition ease-linear group-hover:-translate-y-1 group-hover:translate-x-1"
                             />
                           </>
                         ) : (

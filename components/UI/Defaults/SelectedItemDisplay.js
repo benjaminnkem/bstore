@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import { useContext } from "react";
-import { GlobalCartItemContext } from "../../lib/contexts/default/cartitems-context";
 import Link from "next/link";
+import { GlobalCartItemContext } from "@/lib/contexts/default/cartitems-context";
 
 const SelectedItemDisplay = () => {
   const { cartItems, removeCartItem, totalItemsCost, sideCartItemDisplay, toggleSideCartView } =
@@ -33,7 +33,7 @@ const SelectedItemDisplay = () => {
                   {cartItems &&
                     cartItems.map((item, idx) => (
                       <div
-                        className="p-2 duration-100 border bg-white dark:bg-primaryDarkShade-300 border-orange-300 rounded-md shadow-md border-opacity-20 hover:shadow-lg"
+                        className="p-2 duration-100 bg-white border border-orange-300 rounded-md shadow-md dark:bg-primaryDarkShade-300 border-opacity-20 hover:shadow-lg"
                         key={idx}
                       >
                         <div className="flex items-center justify-between space-x-3">

@@ -1,11 +1,11 @@
 import Image from "next/image";
-import DefaultWrapper from "../lib/utils/DefaultWrapper";
-import "./components/styles/Default.css";
+import "./styles/Default.css";
 import Link from "next/link";
 import { headers } from "next/headers";
+import HomeToAd from "@/components/UI/Ads/HomeDefaultAd";
+import DefaultWrapper from "@/lib/utils/DefaultWrapper";
 import HorizontalProductShow from "@/components/UI/Defaults/HorizontalProductShow";
-import HeartReaction from "../components/Common/Icons/HeartReaction";
-import HomeToAd from "../components/UI/Ads/HomeDefaultAd";
+import HeartReaction from "@/components/Common/Icons/HeartReaction";
 
 export const metadata = {
   title: "BStore - Quality Eyewear, Clothes & Accessories",

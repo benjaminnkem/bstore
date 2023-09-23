@@ -1,4 +1,4 @@
-import ProductsSchema from "@/utils/schemas/ProductsSchema";
+import ProductsSchema from "@/lib/schemas/products/ProductsSchema";
 import { ObjectId } from "mongodb";
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";

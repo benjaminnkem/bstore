@@ -1,5 +1,5 @@
 import connectToDB from "@/lib/config/db";
-import ProductsSchema from "@/utils/schemas/ProductsSchema";
+import ProductsSchema from "@/lib/schemas/products/ProductsSchema";
 import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {

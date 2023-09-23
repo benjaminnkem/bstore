@@ -1,6 +1,6 @@
-import DefaultWrapper from "../../lib/utils/DefaultWrapper";
-import ProductDisplay from "./components/ProductDisplay";
-import HorizontalCategory from "./components/HorizontalCategory";
+import HorizontalCategory from "@/components/UI/Shop/HorizontalCategory";
+import ProductDisplay from "@/components/UI/Shop/ProductDisplay";
+import DefaultWrapper from "@/lib/utils/DefaultWrapper";
 import { headers } from "next/headers";
 
 export const metadata = {

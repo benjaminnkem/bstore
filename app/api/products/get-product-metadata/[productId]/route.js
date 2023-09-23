@@ -1,5 +1,5 @@
 import connectToDB from "@/lib/config/db";
-import ProductsCreateSchema from "@/utils/schemas/ProductsSchema";
+import ProductsSchema from "@/lib/schemas/products/ProductsSchema";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
@@ -9,7 +9,7 @@ export async function GET(req, { params }) {
   await connectToDB();
 
   try {
-    const productDetails = await ProductsCreateSchema.aggregate([
+    const productDetails = await ProductsSchema.aggregate([
       { $match: { _id: new ObjectId(productId) } },
       { $project: { itemName: 1, date_posted: 1, seller_id: 1 } },
       {

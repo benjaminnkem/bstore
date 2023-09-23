@@ -1,8 +1,8 @@
-import ProductsSchema from "@/utils/schemas/ProductsSchema";
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import connectToDB from "@/lib/config/db";
+import ProductsSchema from "@/lib/schemas/products/ProductsSchema";
 
 export async function GET(req, { params }) {
   const token = await getToken({ req });

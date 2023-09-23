@@ -1,9 +1,8 @@
-import DefaultWrapper from "@/lib/utils/DefaultWrapper";
-import HorizontalCategory from "@/app/shop/components/HorizontalCategory";
-import ProductFullImagePreview from "./components/FullImagePreview";
-import "./styles/product-details.css";
 import { checkHost, checkProtocol } from "@/lib/reuseables/SERVERCOMPONENTS/getProtocol";
-import ProdDetails from "./components/Details";
+import "./styles/product-details.css";
+import DefaultWrapper from "@/lib/utils/DefaultWrapper";
+import HorizontalCategory from "@/components/UI/Shop/HorizontalCategory";
+import ProductFullImagePreview from "@/components/UI/ProductDetails/FullImagePreview";
 import NextAuthProvider from "@/lib/utils/NextAuthProvider";
 
 export const dynamicParams = true;
@@ -14,9 +13,7 @@ export async function generateMetadata({ params }) {
   const host = checkHost();
   const protocol = checkProtocol();
 
-  const response = await fetch(`${protocol}${host}/api/products/get-product-metadata/${productId}`, {
-    cache: "force-cache",
-  });
+  const response = await fetch(`${protocol}${host}/api/products/get-product-metadata/${productId}`);
   try {
     const [productData] = await response.json(); // Returns a list tht needs destructuring
     const {
@@ -36,9 +33,14 @@ const getPost = async (param) => {
   const host = checkHost();
   const protocol = checkProtocol();
 
-  const response = await fetch(`${protocol}${host}/api/products/get-product-details/${param.productId}`, {
+  if (!param) [];
+
+  console.log("param", param);
+  const response = await fetch(`${protocol}${host}/api/products/get-product-details/${param?.productId}`, {
     next: { revalidate: 120 },
   });
+
+  const body = await response.json();
 
   return response.json();
 };
@@ -58,7 +60,7 @@ const ProductDetails = async ({ params }) => {
               <ProductFullImagePreview post={post} />
 
               <NextAuthProvider>
-                <ProdDetails post={post} />
+                <ProductDetails post={post} />
               </NextAuthProvider>
             </section>
           </div>

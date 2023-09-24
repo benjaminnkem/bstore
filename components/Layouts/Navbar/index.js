@@ -2,27 +2,43 @@
 import Link from "next/link";
 import "./styles/Navbar.css";
 import { usePathname } from "next/navigation";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import ShoppingCartIcon from "@/components/Common/Icons/ShoppingCartIcon";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { useUserData } from "@/lib/contexts/global/auth-provider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const navLinks = [];
   const { user } = useUserData();
 
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
-  const navLinks = [
-    { label: "Home", path: "/" },
-    { label: "Explore", path: "/shop" },
-    { label: "About", path: "/about" },
-    { label: "Contact", path: "/contact" },
-  ];
+  if (user) {
+    navLinks.push(
+      { label: "Shop", path: "/shop", action: () => {} },
+      { label: "Messages", path: "/about", action: () => {} },
+      {
+        label: "Logout",
+        path: "#",
+        action: () => {
+          signOut({ redirect: false });
+          toast.success("Logged out successfully!");
+        },
+      }
+    );
+  } else {
+    navLinks.push(
+      { label: "Home", path: "/", action: () => {} },
+      { label: "Explore", path: "/shop", action: () => {} },
+      { label: "About", path: "/about", action: () => {} },
+      { label: "Contact", path: "/contact", action: () => {} }
+    );
+  }
 
   return (
     <>
@@ -45,6 +61,7 @@ const Navbar = () => {
                       className={`relative font-semibold duration-300 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
                         pathname === link.path && "text-orange-400 font-bold"
                       }`}
+                      onClick={link.action}
                     >
                       {link.label}
                     </li>
@@ -73,7 +90,7 @@ const Navbar = () => {
                     <div>
                       <i className="cursor-pointer ri-search-2-line"></i>
                     </div>
-                    <ShoppingCartIcon size={"text-2xl"} />
+                    {!user && <ShoppingCartIcon size={"text-2xl"} />}
                   </div>
                 </li>
               </ul>

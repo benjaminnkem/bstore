@@ -2,7 +2,7 @@
 import { DashMenuContext } from "@/lib/contexts/default/dashboard-menu-context";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoneyBill, faRocket, faUser } from "@fortawesome/free-solid-svg-icons";
 import { faBell, faCircleXmark } from "@fortawesome/free-regular-svg-icons";
@@ -24,8 +24,10 @@ const DashboardNavbar = () => {
       <nav className="sticky top-0 left-0 w-full p-3 bg-white md:p-4 dark:bg-primaryDarkShade-200">
         <div className="nav-content">
           <h1>
-            <Link href={`/dashboard`} passHref>
-              <span className="dash-text">BDashboard</span>
+            <Link href={`/dash`} passHref>
+              <span className="dash-text">
+                BS<span className="text-orange-500">.</span> Dashboard
+              </span>
             </Link>
           </h1>
 

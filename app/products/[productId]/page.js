@@ -16,7 +16,6 @@ export async function generateMetadata({ params }) {
   const response = await fetch(`${protocol}${host}/api/products/get-product-metadata/${productId}`);
   try {
     const [productData] = await response.json(); // Returns a list tht needs destructuring
-    console.log(`productData`, productData);
     const {
       seller: [seller],
     } = productData;

@@ -1,21 +1,34 @@
 "use client";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { CustomSessionDataContext } from "../../../../lib/contexts/dashboard/dashboard-wrapper";
+import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { PuffLoader } from "react-spinners";
+import { BarLoader } from "react-spinners";
 import { useUserData } from "@/lib/contexts/global/auth-provider";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+const parentVariant = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const childVariant = {
+  hidden: { y: "-5%", opacity: 0 },
+  show: { y: 0, opacity: 1 },
+};
 
 const RecentProductsCreated = () => {
   const [recentPosts, setRecentPosts] = useState([]);
-  const userInfoContext = useContext(CustomSessionDataContext);
   const [fetchingRecentPosts, setFetchingRecentPosts] = useState(false);
 
   const { user } = useUserData();
 
   const getRecentPosts = async (userId) => {
-    console.log(userId);
     try {
       setFetchingRecentPosts(true);
       setRecentPosts([]);
@@ -40,10 +53,11 @@ const RecentProductsCreated = () => {
     <>
       <div>
         <h2 className="py-2 text-2xl font-extrabold">Recent</h2>
-        <div className="space-y-2">
-          {recentPosts &&
-            recentPosts.map((product) => (
-              <div
+        {recentPosts && (
+          <motion.div variants={parentVariant} animate="show" initial="hidden" className="space-y-2">
+            {recentPosts.map((product) => (
+              <motion.div
+                variants={childVariant}
                 key={product._id}
                 className="p-2 rounded-2xl dark:bg-primaryDarkShade-200 bg-white shadow-md flex gap-2 items-center"
               >
@@ -60,23 +74,26 @@ const RecentProductsCreated = () => {
                   <p className="">{product.itemName}</p>
                   <p className="text-sm font-semibold">{new Date(product.date_posted).toUTCString()}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-        </div>
+          </motion.div>
+        )}
 
         {fetchingRecentPosts && (
-          <div className="flex items-center justify-center">
-            <PuffLoader color="#ea580c" />
+          <div className="py-4">
+            <BarLoader color="#ea580c" />
           </div>
         )}
 
-        <button
-          className="w-full py-2 mt-2 text-orange-500 duration-200 border border-orange-500 rounded-md hover:bg-orange-500 disabled:hover:bg-transparent disabled:hover:text-orange-500 hover:text-black"
-          onClick={() => getRecentPosts(user ? user.id : "")}
-          disabled={fetchingRecentPosts}
-        >
-          {fetchingRecentPosts ? "Loading..." : "Get Recent Post"}
-        </button>
+        {!fetchingRecentPosts && (
+          <button
+            className="w-full py-2 mt-2 text-orange-500 duration-200 border border-orange-500 rounded-md hover:bg-orange-500 disabled:hover:bg-transparent disabled:hover:text-orange-500 hover:text-black"
+            onClick={() => getRecentPosts(user ? user.id : "")}
+            disabled={fetchingRecentPosts}
+          >
+            Get Recent Post
+          </button>
+        )}
       </div>
     </>
   );

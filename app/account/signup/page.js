@@ -44,7 +44,7 @@ const CreateAdmin = () => {
   return (
     <AnimatePresence>
       <div>
-        <div className="md:fixed md:w-1/2 w-full bg-opacity-90 duration-200 bg-[#212121] min-h-full grid place-content-center absolute">
+        <div className="md:fixed md:w-1/2 w-full bg-opacity-90 duration-200 bg-[#212121] min-h-full grid place-content-center absolute text-white">
           <Link
             href={"/"}
             passHref

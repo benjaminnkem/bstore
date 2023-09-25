@@ -1,10 +1,9 @@
 "use client";
 import "./styles/dashboard-default.css";
-import { useContext } from "react";
-import { CustomSessionDataContext } from "../../../../lib/contexts/dashboard/dashboard-wrapper";
+import { useUserData } from "@/lib/contexts/global/auth-provider";
 
 const DashboardDefault = () => {
-  const sessionContext = useContext(CustomSessionDataContext);
+  const sessionContext = useUserData();
 
   return (
     <>

@@ -8,11 +8,12 @@ import { faMoneyBill, faRocket, faUser } from "@fortawesome/free-solid-svg-icons
 import { faBell, faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { TransitionStart } from "@/lib/utils/transition";
 import { CustomSessionDataContext } from "@/lib/contexts/dashboard/dashboard-wrapper";
+import { useUserData } from "@/lib/contexts/global/auth-provider";
 
 const DashboardNavbar = () => {
   const { toggleMenu } = useContext(DashMenuContext);
   const [navStatus, setNavStatus] = useState({ userIcoOpen: false, notiIcoOpen: false });
-  const userInfo = useContext(CustomSessionDataContext);
+  const userInfo = useUserData();
 
   const toggleUserDropdown = () =>
     setNavStatus({ ...navStatus, userIcoOpen: !navStatus.userIcoOpen, notiIcoOpen: false });
@@ -83,7 +84,7 @@ const DashboardNavbar = () => {
                 {navStatus.userIcoOpen && (
                   <TransitionStart>
                     <div
-                      className={`min-w-[20rem] top-10 duration-200 rounded-md right-0 absolute dark:bg-primaryDarkShade-200 bg-gray-200 dark:border-primaryDarkShade-400 border-gray-300 border-4 z-[500]`}
+                      className={`min-w-[20rem] top-10 duration-200 rounded-2xl right-0 absolute dark:bg-primaryDarkShade-200 bg-white shadow-xl dark:border-primaryDarkShade-400 border-gray-100 border-4 z-[500]`}
                     >
                       <div className="relative p-4">
                         <div className="text-right">
@@ -112,7 +113,7 @@ const DashboardNavbar = () => {
 
                           <button
                             className="w-full py-2 text-orange-500 border border-orange-500 rounded-md hover:bg-orange-500 hover:text-primaryDark"
-                            onClick={() => signOut({ callbackUrl: `/login` })}
+                            onClick={() => signOut({ callbackUrl: `/account/login` })}
                           >
                             Sign out <i className="ri-logout-box-r-line"></i>
                           </button>

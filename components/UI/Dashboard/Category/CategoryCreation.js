@@ -4,13 +4,14 @@ import CustAlert from "@/components/Common/Icons/Alert";
 import { CustomSessionDataContext } from "@/lib/contexts/dashboard/dashboard-wrapper";
 import { DashCreateContext } from "@/lib/contexts/dashboard/create-dashboard-context";
 import { TransitionStart } from "@/lib/utils/transition";
+import { useUserData } from "@/lib/contexts/global/auth-provider";
 
 const CategoryCreation = () => {
   const [formInput, setFormInput] = useState({ name: "" });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ loading: false, success: false, err: false });
 
-  const sessionContent = useContext(CustomSessionDataContext);
+  const userSession = useUserData();
   const { curSelection } = useContext(DashCreateContext);
 
   const [alertShow, setAlertShow] = useState(false);
@@ -55,7 +56,7 @@ const CategoryCreation = () => {
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({
           name,
-          creator_id: sessionContent.user.id && sessionContent.user.id,
+          creator_id: userSession.user.id && userSession.user.id,
         }),
       });
 

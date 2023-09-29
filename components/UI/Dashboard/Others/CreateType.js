@@ -22,8 +22,8 @@ const CreateType = () => {
               key={idx}
               className={`cat-el p-2 dark:bg-primaryDarkShade-200 border-2 duration-200 rounded-md w-full ${
                 curSelection === cType.tag
-                  ? "dark:bg-primaryDarkShade-300 bg-gray-200 border-gray-400"
-                  : "bg-white hover:bg-gray-50 border-gray-200"
+                  ? "dark:bg-primaryDarkShade-300 bg-gray-200 border-gray-400 dark:hover:bg-gray-800"
+                  : "bg-white hover:bg-gray-50 border-gray-200 dark:hover:bg-gray-600"
               } cursor-pointer`}
               onClick={() => setCurSelection(cType.tag)}
             >

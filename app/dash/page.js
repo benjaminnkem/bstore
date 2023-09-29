@@ -1,7 +1,7 @@
 import DashboardDefault from "../../components/UI/Dashboard/Main/DashboardDefault";
 
 export const metadata = {
-  title: "Dashboard",
+  title: "(Dashboard) - Benjamin Nkem",
 };
 
 const DefaultUserDashboard = () => {

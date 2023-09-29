@@ -1,6 +1,6 @@
 import "./styles/dashboard.css";
 import DashboardAuthWrapper from "@/lib/contexts/dashboard/dashboard-wrapper";
-import DashboardMenuProvider from "@/lib/contexts/default/dashboard-menu-context";
+import DashboardMenuProvider from "@/lib/contexts/dashboard/dashboard-menu-context";
 import DashboardSidebar from "@/components/UI/Dashboard/Main/DashboardSideBar";
 import DashboardNavbar from "@/components/UI/Dashboard/Main/DashboardNavbar";
 

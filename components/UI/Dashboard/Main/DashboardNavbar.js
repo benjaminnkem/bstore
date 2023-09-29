@@ -1,5 +1,5 @@
 "use client";
-import { DashMenuContext } from "@/lib/contexts/default/dashboard-menu-context";
+import { DashMenuContext } from "@/lib/contexts/dashboard/dashboard-menu-context";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { useContext, useState } from "react";

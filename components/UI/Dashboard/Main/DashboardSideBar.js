@@ -1,6 +1,6 @@
 "use client";
 import { useSidebar } from "@/lib/contexts/dashboard/sidebar-context";
-import { DashMenuContext } from "@/lib/contexts/default/dashboard-menu-context";
+import { DashMenuContext } from "@/lib/contexts/dashboard/dashboard-menu-context";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

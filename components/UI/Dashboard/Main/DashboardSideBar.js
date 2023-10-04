@@ -53,21 +53,23 @@ const DashboardSidebar = () => {
 
           <div className="bottom-profile dark:bg-primaryDarkShade-200 bg-gray-200">
             <div className="bottom-container">
-              <div className="mini-user-details-container">
-                <div className="mini-img overflow-hidden">
-                  <Image
-                    src={"/images/avatars/avatar-full.jpg"}
-                    alt="Avatar"
-                    width={50}
-                    height={50}
-                    className="w-full h-full object-cover"
-                  />
+              <Link href={"/dash/settings"}>
+                <div className="mini-user-details-container">
+                  <div className="mini-img overflow-hidden">
+                    <Image
+                      src={"/images/avatars/avatar-full.jpg"}
+                      alt="Avatar"
+                      width={50}
+                      height={50}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="mini-username">Benjamin Nkem</h3>
+                    <p className="mini-status">Online</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="mini-username">Benjamin Nkem</h3>
-                  <p className="mini-status">Online</p>
-                </div>
-              </div>
+              </Link>
               <i className="ri-settings-2-line setting-icon"></i>
             </div>
           </div>

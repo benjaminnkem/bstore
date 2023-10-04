@@ -5,22 +5,7 @@ import { toast } from "react-hot-toast";
 import { BarLoader } from "react-spinners";
 import { useUserData } from "@/lib/contexts/global/auth-provider";
 import Image from "next/image";
-import { motion } from "framer-motion";
-
-const parentVariant = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const childVariant = {
-  hidden: { y: "-5%", opacity: 0 },
-  show: { y: 0, opacity: 1 },
-};
+import { TransitionFromBottom, TransitionParent } from "@/lib/utils/transition";
 
 const RecentProductsCreated = () => {
   const [recentPosts, setRecentPosts] = useState([]);
@@ -54,12 +39,11 @@ const RecentProductsCreated = () => {
       <div>
         <h2 className="py-2 text-2xl font-extrabold">Recent</h2>
         {recentPosts && (
-          <motion.div variants={parentVariant} animate="show" initial="hidden" className="space-y-2">
+          <TransitionParent addClass="space-y-2">
             {recentPosts.map((product) => (
-              <motion.div
-                variants={childVariant}
+              <TransitionFromBottom
                 key={product._id}
-                className="p-2 rounded-2xl dark:bg-primaryDarkShade-200 bg-white shadow-md flex gap-2 items-center"
+                addClass="p-2 rounded-2xl dark:bg-primaryDarkShade-200 bg-white shadow-md flex gap-2 items-center"
               >
                 <div className="w-16 h-16 rounded-full overflow-hidden">
                   <Image
@@ -74,9 +58,9 @@ const RecentProductsCreated = () => {
                   <p className="">{product.itemName}</p>
                   <p className="text-sm font-semibold">{new Date(product.date_posted).toUTCString()}</p>
                 </div>
-              </motion.div>
+              </TransitionFromBottom>
             ))}
-          </motion.div>
+          </TransitionParent>
         )}
 
         {fetchingRecentPosts && (

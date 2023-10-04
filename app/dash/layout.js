@@ -1,4 +1,4 @@
-import "./styles/dashboard.css";
+import "./(dashboard)/styles/dashboard.css";
 import DashboardAuthWrapper from "@/lib/contexts/dashboard/dashboard-wrapper";
 import DashboardMenuProvider from "@/lib/contexts/dashboard/dashboard-menu-context";
 import DashboardSidebar from "@/components/UI/Dashboard/Main/DashboardSideBar";

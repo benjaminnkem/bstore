@@ -8,7 +8,7 @@ import { faMoneyBill, faRocket, faUser } from "@fortawesome/free-solid-svg-icons
 import { faBell, faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { TransitionStart } from "@/lib/utils/transition";
 import { CustomSessionDataContext } from "@/lib/contexts/dashboard/dashboard-wrapper";
-import { useUserData } from "@/lib/contexts/global/auth-provider";
+import { useUserData } from "@/lib/store/auth-provider";
 
 const DashboardNavbar = () => {
   const { toggleMenu } = useContext(DashMenuContext);

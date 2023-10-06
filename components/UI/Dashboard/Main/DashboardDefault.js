@@ -1,6 +1,6 @@
 "use client";
 import "./styles/dashboard-default.css";
-import { useUserData } from "@/lib/contexts/global/auth-provider";
+import { useUserData } from "@/lib/store/auth-provider";
 
 const DashboardDefault = () => {
   const sessionContext = useUserData();

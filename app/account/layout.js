@@ -1,4 +1,4 @@
-import AuthProvider from "@/lib/contexts/global/auth-provider";
+import AuthProvider from "@/lib/store/auth-provider";
 
 export const metadata = {
   title: "Account - Bstore",

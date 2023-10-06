@@ -7,7 +7,7 @@ import ShoppingCartIcon from "@/components/Common/Icons/ShoppingCartIcon";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
-import { useUserData } from "@/lib/contexts/global/auth-provider";
+import { useUserData } from "@/lib/store/auth-provider";
 import toast from "react-hot-toast";
 
 const Navbar = () => {

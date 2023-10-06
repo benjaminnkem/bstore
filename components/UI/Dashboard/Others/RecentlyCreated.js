@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { BarLoader } from "react-spinners";
-import { useUserData } from "@/lib/contexts/global/auth-provider";
+import { useUserData } from "@/lib/store/auth-provider";
 import Image from "next/image";
 import { TransitionFromBottom, TransitionParent } from "@/lib/utils/transition";
 

@@ -20,19 +20,19 @@ const DashboardSidebar = () => {
             isMenuOpen ? "w-full md:w-[240px] sm:w-[180px] z-50 right-0" : "md:w-[240px] sm:w-[180px] w-0"
           }`}
         >
-          <div className="user-img-con p-4">
-            <div className="flex justify-between items-center">
+          <div className="p-4 user-img-con">
+            <div className="flex items-center justify-between">
               <div></div>
-              <div className="user-img relative overflow-hidden">
+              <div className="relative overflow-hidden user-img">
                 <Image
                   src={"/images/avatars/avatar-full.jpg"}
                   alt="Avatar"
                   width={100}
                   height={100}
-                  className="w-full h-full object-cover"
+                  className="object-cover w-full h-full"
                 />
               </div>
-              <i className="ri-close-line text-2xl opacity-80 sm:hidden hover:cursor-pointer" onClick={toggleMenu}></i>
+              <i className="text-2xl ri-close-line opacity-80 sm:hidden hover:cursor-pointer" onClick={toggleMenu}></i>
             </div>
           </div>
 
@@ -51,26 +51,26 @@ const DashboardSidebar = () => {
             ))}
           </div>
 
-          <div className="bottom-profile dark:bg-primaryDarkShade-200 bg-gray-200">
+          <div className="bg-gray-200 bottom-profile dark:bg-primaryDarkShade-200">
             <div className="bottom-container">
-              <Link href={"/dash/settings"}>
-                <div className="mini-user-details-container">
-                  <div className="mini-img overflow-hidden">
-                    <Image
-                      src={"/images/avatars/avatar-full.jpg"}
-                      alt="Avatar"
-                      width={50}
-                      height={50}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="mini-username">Benjamin Nkem</h3>
-                    <p className="mini-status">Online</p>
-                  </div>
+              <div className="mini-user-details-container">
+                <div className="overflow-hidden mini-img">
+                  <Image
+                    src={"/images/avatars/avatar-full.jpg"}
+                    alt="Avatar"
+                    width={50}
+                    height={50}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
+                <div>
+                  <h3 className="mini-username">Benjamin Nkem</h3>
+                  <p className="mini-status">Online</p>
+                </div>
+              </div>
+              <Link href={"/dash/settings"}>
+                <i className="ri-settings-2-line setting-icon"></i>
               </Link>
-              <i className="ri-settings-2-line setting-icon"></i>
             </div>
           </div>
         </div>

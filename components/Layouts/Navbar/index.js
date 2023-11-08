@@ -43,7 +43,7 @@ const Navbar = () => {
   return (
     <>
       <div className={`z-[2000] fixed w-full top-0 left-0 mt-4`}>
-        <div className="md:max-w-[1488px] bg-white rounded-full px-6 py-3 shadow-lg w-11/12 mx-auto">
+        <div className="md:max-w-[1488px] bg-white dark:bg-primaryDarkShade-300 dark:text-white rounded-full px-6 py-3 shadow-lg w-11/12 mx-auto">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold tracking-wide">

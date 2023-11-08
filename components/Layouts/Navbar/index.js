@@ -42,19 +42,19 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`z-50 ${(pathname === "/" || pathname === "/about") && "text-white bg-transparent"}`}>
-        <div className="md:max-w-[1488px] w-11/12 mx-auto">
+      <div className={`z-[2000] fixed w-full top-0 left-0 mt-4`}>
+        <div className="md:max-w-[1488px] bg-white rounded-full px-6 py-3 shadow-lg w-11/12 mx-auto">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl tracking-wide font-bold">
+              <h1 className="text-3xl font-bold tracking-wide">
                 <Link href={"/"}>
-                  BS<span className="text-orange-500">.</span>
+                  B<span className="text-orange-500">.</span>
                 </Link>
               </h1>
             </div>
 
             <nav>
-              <ul className="items-center hidden py-4 space-x-2 select-none sm:flex">
+              <ul className="items-center hidden space-x-2 select-none sm:flex">
                 {navLinks.map((link, idx) => (
                   <Link passHref href={link.path} key={idx}>
                     <li
@@ -69,7 +69,7 @@ const Navbar = () => {
                 ))}
 
                 <li>
-                  <div className="flex items-center font-semibold space-x-4">
+                  <div className="flex items-center space-x-4 font-semibold">
                     {!user ? (
                       <Link href={`/account/login`} target="_blank" passHref title={`Login or Signup`}>
                         <p>Account</p>
@@ -81,7 +81,7 @@ const Navbar = () => {
                           target="_blank"
                           passHref
                           title={`Go to dashboard`}
-                          className="bg-orange-500 text-white px-3 py-1 rounded-3xl hover:bg-orange-600 duration-200"
+                          className="px-3 py-1 text-white duration-200 bg-orange-500 rounded-3xl hover:bg-orange-600"
                         >
                           <p>Dashboard</p>
                         </Link>
@@ -95,14 +95,14 @@ const Navbar = () => {
                 </li>
               </ul>
 
-              <ul className="flex items-center py-4 space-x-1 select-none sm:hidden">
+              <ul className="flex items-center space-x-1 select-none sm:hidden">
                 <Link passHref href={"/"}>
                   <li
                     className={`relative font-semibold duration-100 dark:hover:text-orange-200 px-2 py-[6px] rounded-md hover:text-orange-500 ${
                       pathname === "/" && "text-orange-400"
                     }`}
                   >
-                    <i className="ri-home-4-line"></i>
+                    <i className="ri-home-2-line"></i>
                   </li>
                 </Link>
                 <ShoppingCartIcon size={"text-base"} />
@@ -117,7 +117,7 @@ const Navbar = () => {
                 </Link>
 
                 <li>
-                  <i className="text-2xl cursor-pointer ri-menu-3-line" onClick={toggleMenu}></i>
+                  <i className="text-2xl cursor-pointer ri-menu-line" onClick={toggleMenu}></i>
                 </li>
               </ul>
             </nav>

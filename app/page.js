@@ -34,23 +34,41 @@ const Home = async () => {
 
   return (
     <>
-      <HomeToAd />
+      {/* <HomeToAd /> */}
 
       <DefaultWrapper>
-        <header className="relative w-full -mt-20 overflow-hidden -z-10" id="header-con">
-          <div className="w-full min-h-[36rem] flex justify-center items-center">
+        <header className="w-full">
+          <div className="w-full min-h-[44rem] flex justify-center items-center relative overflow-hidden">
+            <Image
+              src={"/images/bg/home-bg.jpg"}
+              alt="header cover"
+              width={1920}
+              height={1000}
+              className="absolute top-0 left-0 object-cover w-full h-full -z-20"
+            />
+
+            <div className="absolute top-0 left-0 w-full h-full -z-10 bg-gradient-to-t from-black to-transparent"></div>
+
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
               <div className="flex items-center text-white">
                 <div className="mt-10">
-                  <div>
-                    <h1 className="text-3xl font-extrabold duration-200 text-shadow lg:text-6xl md:text-5xl">
+                  <div className="space-y-4 text-center md:text-start">
+                    <h1 className="text-4xl font-extrabold duration-200 text-shadow lg:text-6xl md:text-5xl">
                       The World&apos;s Marketplace
                     </h1>
-                    <p className="max-w-3xl mx-auto mt-4 text-base font-light leading-relaxed duration-200 text-shadow lg:text-lg">
+
+                    <p className="max-w-2xl mx-auto text-base leading-relaxed duration-200 text-white/90 md:mx-0 text-shadow lg:text-lg">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam ratione deleniti vitae
-                      animi nemo libero! Iste voluptates amet praesentium ipsa? Et error iure ratione eaque numquam quas
-                      aliquam voluptatum?
+                      animi nemo libero! Iste voluptates amet praesentium ipsa? Et error iure ratio.
                     </p>
+
+                    <div>
+                      <Link href={"/shop"}>
+                        <button className="px-6 py-2 text-orange-500 transition-colors border border-orange-500 rounded-lg hover:bg-orange-500 hover:text-black">
+                          Explore
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                   <div></div>
                 </div>
@@ -120,7 +138,7 @@ const Home = async () => {
                       impedit magnam earum!
                     </p>
                     <div>
-                      <button className="px-4 py-2 duration-200 border-2 border-green-500 rounded-md hover:bg-green-500">
+                      <button className="px-4 py-2 duration-200 border-2 border-orange-500 rounded-md hover:bg-orange-500">
                         Tech, Gadgets & Accessories <i className="ri-menu-unfold-line"></i>
                       </button>
                     </div>
@@ -165,7 +183,7 @@ const Home = async () => {
                       suscipit sed illum? Nulla facilis, minima labore nesciunt, mollitia, et dolorum velit nostrum
                       impedit magnam earum!
                     </p>
-                    <button className="px-4 py-2 duration-200 border-2 border-green-500 rounded-md hover:bg-green-500">
+                    <button className="px-4 py-2 duration-200 border-2 border-orange-500 rounded-md hover:bg-orange-500">
                       Kitchen Utensils & Gadgets <i className="ri-menu-unfold-line"></i>
                     </button>
                   </div>
@@ -186,7 +204,7 @@ const Home = async () => {
                       veritatis consequatur debitis? Quidem.
                     </p>
                     <div>
-                      <button className="px-4 py-2 duration-200 border-2 border-green-500 rounded-md hover:bg-green-500">
+                      <button className="px-4 py-2 duration-200 border-2 border-orange-500 rounded-md hover:bg-orange-500">
                         Food & Groceries <i className="ri-menu-unfold-line"></i>
                       </button>
                     </div>

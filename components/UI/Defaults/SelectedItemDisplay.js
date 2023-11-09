@@ -17,7 +17,7 @@ const SelectedItemDisplay = () => {
       ></div> */}
 
       <div
-        className={`fixed right-0 space-y-2 top-0 h-full overflow-x-hidden duration-100 z-20 dark:bg-primaryDarkShade-200 bg-gray-100 ${
+        className={`fixed right-0 space-y-2 top-0 h-full overflow-x-hidden duration-100 z-[3000] dark:bg-primaryDarkShade-200 bg-gray-100 ${
           sideCartItemDisplay ? "md:w-[420px] sm:w-[380px] w-full" : "w-0"
         }`}
       >

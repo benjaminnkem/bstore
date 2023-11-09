@@ -2,7 +2,6 @@ import Image from "next/image";
 import "./styles/Default.css";
 import Link from "next/link";
 import { headers } from "next/headers";
-import HomeToAd from "@/components/UI/Ads/HomeDefaultAd";
 import DefaultWrapper from "@/lib/utils/DefaultWrapper";
 import HorizontalProductShow from "@/components/UI/Defaults/HorizontalProductShow";
 import HeartReaction from "@/components/Common/Icons/HeartReaction";
@@ -47,7 +46,7 @@ const Home = async () => {
               className="absolute top-0 left-0 object-cover w-full h-full -z-20"
             />
 
-            <div className="absolute top-0 left-0 w-full h-full -z-10 bg-gradient-to-t from-black to-transparent"></div>
+            <div className="absolute top-0 left-0 w-full h-full -z-10 bg-gradient-to-t from-[#131313] to-transparent"></div>
 
             <div className="md:max-w-[1488px] w-11/12 mx-auto">
               <div className="flex items-center text-white">

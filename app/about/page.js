@@ -1,3 +1,4 @@
+import Image from "next/image";
 import DefaultWrapper from "../../lib/utils/DefaultWrapper";
 import "./styles/about.css";
 
@@ -10,17 +11,29 @@ const About = () => {
     <>
       <div className="wrapper">
         <DefaultWrapper>
-          <header className="min-h-[40rem] flex items-center -mt-[5rem] about-header">
-            <div className="md:max-w-[1488px] w-11/12 mx-auto mt-[2.5rem]">
-              <div className="space-y-4 text-white">
-                <h1 className="inline-block text-3xl font-extrabold duration-200 md:text-5xl sm:text-4xl bstore">
-                  Bstore: Your Store
-                </h1>
-                <p className="max-w-3xl text-lg text-shadow">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas ratione nihil, voluptatem nam quae
-                  esse sint consequuntur debitis cum optio ea pariatur nostrum dolor culpa tempore harum impedit, velit
-                  ad?
-                </p>
+          <header className="min-h-[40rem] flex items-center -mt-[5rem] relative">
+            <Image
+              src={"/images/bg/about-bg.jpg"}
+              alt="header cover"
+              width={1920}
+              height={1000}
+              className="absolute top-0 left-0 object-cover w-full h-full -z-20"
+            />
+
+            <div className="absolute top-0 left-0 w-full h-full -z-10 bg-gradient-to-t from-[#131313] to-transparent"></div>
+
+            <div className="absolute top-0 left-0 h-full w-full flex items-center">
+              <div className="md:max-w-[1488px] w-11/12 mx-auto mt-[2.5rem]">
+                <div className="space-y-4 text-white">
+                  <h1 className="inline-block text-3xl font-extrabold duration-200 md:text-5xl sm:text-4xl bstore">
+                    About Us
+                  </h1>
+                  <p className="max-w-3xl text-lg text-shadow">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas ratione nihil, voluptatem nam
+                    quae esse sint consequuntur debitis cum optio ea pariatur nostrum dolor culpa tempore harum impedit,
+                    velit ad?
+                  </p>
+                </div>
               </div>
             </div>
           </header>

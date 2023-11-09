@@ -16,6 +16,7 @@
   background: -webkit-linear-gradient(left, rgb(246, 187, 246), rgb(138, 224, 239), rgb(234, 122, 32));
   -webkit-background-clip: text;
   background-clip: text;
+  font-weight: 800;
   -webkit-text-fill-color: transparent;
 }
 

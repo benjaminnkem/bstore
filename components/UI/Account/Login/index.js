@@ -37,6 +37,7 @@ const LoginForm = () => {
       if (!res.ok) {
         toast.error("Sorry, you could not login.");
         console.log("An error occurred");
+        return;
       }
 
       setUsername("");
@@ -52,7 +53,7 @@ const LoginForm = () => {
           <div className="grid w-full h-full place-content-center">
             <TransitionElement>
               <TransitionStart>
-                <div className="p-5 border-2 rounded-md border-gray-700 bg-primaryDarkShade-300">
+                <div className="p-5 border-2 border-gray-700 rounded-md bg-primaryDarkShade-300">
                   <h1 className="mb-4 text-2xl font-semibold">Login</h1>
                   <div className="min-w-[24rem]">
                     <form
@@ -67,7 +68,7 @@ const LoginForm = () => {
                           type="text"
                           name="username"
                           id="username"
-                          className="w-full p-2 rounded-md bg-primaryDarkShade-200 focus:outline-none border-gray-600"
+                          className="w-full p-2 border-gray-600 rounded-md bg-primaryDarkShade-200 focus:outline-none"
                           placeholder="Enter Username"
                           value={username}
                           onChange={(e) => {
@@ -81,7 +82,7 @@ const LoginForm = () => {
                           type="password"
                           name="password"
                           id="password"
-                          className="w-full p-2 rounded-md bg-primaryDarkShade-200 focus:outline-none border-gray-600"
+                          className="w-full p-2 border-gray-600 rounded-md bg-primaryDarkShade-200 focus:outline-none"
                           placeholder="**********"
                           value={password}
                           onChange={(e) => {

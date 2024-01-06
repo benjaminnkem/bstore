@@ -36,7 +36,7 @@ const LoginForm = () => {
 
       if (!res.ok) {
         toast.error("Sorry, you could not login.");
-        console.log("An error occurred");
+        setStatus({ ...status, loading: false });
         return;
       }
 
@@ -103,7 +103,7 @@ const LoginForm = () => {
                           className="w-full py-2 transition-colors duration-200 rounded-md bg-primaryDarkShade-400 hover:bg-primaryDarkShade-200 disabled:hover:bg-gray-700"
                           disabled={status.loading}
                         >
-                          {status.loading ? "Validating..." : "Login"}
+                          {status.loading ? "..." : "Login"}
                         </button>
                       </div>
                     </form>

@@ -1,7 +1,5 @@
 "use client";
 import useCustomSlider from "@/lib/hooks/useCustomSlider";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const HorizontalCategory = () => {
   const { slider, slideLeft, slideRight } = useCustomSlider();

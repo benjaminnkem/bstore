@@ -24,6 +24,7 @@ const Shop = async () => {
 
   return (
     <>
+      <div className="h-[7rem]"></div>
       <DefaultWrapper>
         <header>
           <HorizontalCategory />

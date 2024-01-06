@@ -4,7 +4,7 @@ import CustAlert from "@/components/Common/Icons/Alert";
 import { CustomSessionDataContext } from "@/lib/contexts/dashboard/dashboard-wrapper";
 import { DashCreateContext } from "@/lib/contexts/dashboard/create-dashboard-context";
 import { TransitionStart } from "@/lib/utils/transition";
-import { useUserData } from "@/lib/store/auth-provider";
+import { useUserData } from "@/lib/utils/auth-provider";
 
 const CategoryCreation = () => {
   const [formInput, setFormInput] = useState({ name: "" });

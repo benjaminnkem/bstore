@@ -4,11 +4,10 @@ import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoneyBill, faRocket, faUser } from "@fortawesome/free-solid-svg-icons";
 import { faBell, faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { TransitionStart } from "@/lib/utils/transition";
-import { CustomSessionDataContext } from "@/lib/contexts/dashboard/dashboard-wrapper";
-import { useUserData } from "@/lib/store/auth-provider";
+import { useUserData } from "@/lib/utils/auth-provider";
+import { User, Rocket, DollarSign } from "lucide-react";
 
 const DashboardNavbar = () => {
   const { toggleMenu } = useContext(DashMenuContext);
@@ -39,10 +38,10 @@ const DashboardNavbar = () => {
               </Link>
             </li>
             <li className="cursor-pointer dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300">
-              <p>Balance</p> <FontAwesomeIcon icon={faMoneyBill} />
+              <p>Balance</p> <DollarSign />
             </li>
             <li className="cursor-pointer dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300">
-              <p>Plan</p> <FontAwesomeIcon icon={faRocket} />
+              <p>Plan</p> <Rocket />
             </li>
 
             <li className="cursor-pointer dark:hover:bg-primaryDarkShade-300 hover:bg-gray-300">
@@ -78,7 +77,7 @@ const DashboardNavbar = () => {
                   }`}
                   onClick={toggleUserDropdown}
                 >
-                  <FontAwesomeIcon icon={faUser} />
+                  <User />
                 </div>
 
                 {navStatus.userIcoOpen && (
@@ -97,7 +96,7 @@ const DashboardNavbar = () => {
 
                         <div>
                           <div className="grid w-20 h-20 mx-auto bg-orange-500 rounded-full place-content-center">
-                            <FontAwesomeIcon icon={faUser} className="text-2xl" />
+                            <User />
                           </div>
 
                           <p className="my-2 text-sm font-bold text-center opacity-60">{userInfo?.user?.name}</p>
@@ -105,7 +104,7 @@ const DashboardNavbar = () => {
 
                         <div className="space-y-2">
                           <p className="w-full p-2 space-x-4 duration-200 rounded-md cursor-pointer dark:bg-primaryDarkShade-300 dark:hover:bg-primaryDarkShade-400 hover:bg-gray-300">
-                            <FontAwesomeIcon icon={faUser} /> <span>Account</span>
+                            <User /> <span>Account</span>
                           </p>
                           <p className="w-full p-2 space-x-4 duration-200 rounded-md cursor-pointer dark:bg-primaryDarkShade-300 dark:hover:bg-primaryDarkShade-400 hover:bg-gray-300">
                             <i className="ri-settings-3-fill"></i> <span>Setting</span>

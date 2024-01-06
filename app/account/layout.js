@@ -1,7 +1,7 @@
 import AuthProvider from "@/lib/utils/auth-provider";
 
 export const metadata = {
-  title: "Account - Bstore",
+  title: "Account",
   robots: "noindex",
 };
 

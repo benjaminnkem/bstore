@@ -1,54 +1,59 @@
-import { checkHost, checkProtocol } from "@/lib/reuseables/SERVERCOMPONENTS/getProtocol";
 import "./styles/product-details.css";
 import DefaultWrapper from "@/lib/utils/DefaultWrapper";
 import HorizontalCategory from "@/components/UI/Shop/HorizontalCategory";
 import ProductFullImagePreview from "@/components/UI/ProductDetails/img-preview-details";
 import SideProductDetails from "@/components/UI/ProductDetails/side-details";
+import { publicApi } from "@/lib/config/axiosInstance";
 
 export const dynamicParams = true;
 
-export async function generateMetadata({ params }) {
+interface Params {
+  productId: string;
+}
+
+interface ParamsObj {
+  params: Params;
+}
+
+export async function generateMetadata({ params }: ParamsObj) {
   const { productId } = params;
 
-  const host = checkHost();
-  const protocol = checkProtocol();
-
-  const response = await fetch(`${protocol}${host}/api/products/get-product-metadata/${productId}`);
   try {
-    const [productData] = await response.json(); // Returns a list tht needs destructuring
+    const response = await publicApi.get(`/api/products/get-product-details/${productId}`);
+
+    const [productData] = response.data; // Returns a list tht needs destructuring
     const {
       seller: [seller],
     } = productData;
 
     return {
-      title: `${productData.itemName} by ${seller.username} - Bstore`,
+      title: `${productData.itemName} ${seller ? `by ${seller?.username}` : ""}`,
       description: productData.description,
     };
   } catch (e) {
-    return null;
+    console.log(e);
+    return {
+      title: "Product Not Found",
+    };
   }
 }
 
-const getPost = async (param) => {
-  const host = checkHost();
-  const protocol = checkProtocol();
-
+const getPost = async (param: Params) => {
   try {
-    const response = await fetch(`${protocol}${host}/api/products/get-product-details/${param?.productId}`, {
-      next: { revalidate: 120 },
-    });
+    const response = await publicApi.get(`/api/products/get-product-details/${param?.productId}`);
 
-    return await response.json();
+    return response.data;
   } catch (e) {
     console.log("Error from get post: ", e.message);
   }
 };
 
-const ProductDetails = async ({ params }) => {
+const ProductDetails = async ({ params }: ParamsObj) => {
   const [post] = await getPost(params); // Requires destructuring
 
   return (
     <>
+      <div className="h-[7rem]"></div>
       <main>
         <DefaultWrapper>
           <header>

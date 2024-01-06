@@ -20,6 +20,7 @@ export async function GET(req, { params }) {
         },
       },
     ]);
+
     if (!productDetails) return new NextResponse("", { status: 404, statusText: "Product not found" });
 
     return NextResponse.json(productDetails);

@@ -3,7 +3,7 @@ import DefaultWrapper from "../../lib/utils/DefaultWrapper";
 import "./styles/about.css";
 
 export const metadata = {
-  title: "About - BStore",
+  title: "About",
 };
 
 const About = () => {
@@ -22,7 +22,7 @@ const About = () => {
 
             <div className="absolute top-0 left-0 w-full h-full -z-10 bg-gradient-to-t from-[#131313] to-transparent"></div>
 
-            <div className="absolute top-0 left-0 h-full w-full flex items-center">
+            <div className="absolute top-0 left-0 flex items-center w-full h-full">
               <div className="md:max-w-[1488px] w-11/12 mx-auto mt-[2.5rem]">
                 <div className="space-y-4 text-white">
                   <h1 className="inline-block text-3xl font-extrabold duration-200 md:text-5xl sm:text-4xl bstore">

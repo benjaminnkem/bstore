@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { toast } from "react-hot-toast";
-import { useUserData } from "@/lib/utils/auth-provider";
+import { useUserData } from "@/lib/store/auth-provider";
 import { TransitionElement, TransitionStart } from "@/lib/utils/transition";
 import { AnimatePresence } from "framer-motion";
 

@@ -6,7 +6,7 @@ import ShoppingCartIcon from "@/components/Common/Icons/ShoppingCartIcon";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
-import { useUserData } from "@/lib/utils/auth-provider";
+import { useUserData } from "@/lib/store/auth-provider";
 
 const Navbar = () => {
   const pathname = usePathname();

@@ -31,6 +31,7 @@ const ContactClient = () => {
     setIsLoading(true);
 
     const validator = handleFormValidation();
+    console.log(validator);
     setErrors(validator);
 
     if (Object.keys(validator).length === 0) {

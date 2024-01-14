@@ -4,7 +4,7 @@ import DefaultWrapper from "@/lib/utils/DefaultWrapper";
 import { headers } from "next/headers";
 
 export const metadata = {
-  title: "Market",
+  title: "Market - Bstore",
   description: "Looking for a product? search, compare, rate any product here...",
 };
 

@@ -11,6 +11,7 @@ export async function GET(req, { params }) {
   try {
     const productDetails = await ProductsSchema.aggregate([
       { $match: { _id: new ObjectId(productId) } },
+      { $project: { itemName: 1, date_posted: 1, seller_id: 1 } },
       {
         $lookup: {
           from: "adminusers",

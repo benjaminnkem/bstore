@@ -6,18 +6,13 @@ import Providers from "../lib/utils/providers";
 import { dmSans } from "@/lib/fonts";
 config.autoAddCss = false;
 
-export const metadata = {
-  title: {
-    default: "BStore",
-    template: `%s | Bstore`,
-  },
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={dmSans.className}>
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

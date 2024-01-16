@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { opacityVariant, parentVariant } from "@/lib/utils/variants";
 
 const HomeHeader = () => {
   return (
@@ -20,24 +22,36 @@ const HomeHeader = () => {
         <div className="md:max-w-[1488px] w-11/12 mx-auto">
           <div className="flex items-center text-white">
             <div className="mt-10">
-              <div className="space-y-4 text-center md:text-start">
-                <h1 className="text-4xl font-extrabold duration-200 text-shadow lg:text-6xl md:text-5xl">
+              <motion.div
+                variants={parentVariant}
+                initial="initial"
+                animate="animate"
+                transition={{ delay: 0.4 }}
+                className="space-y-4 text-center md:text-start"
+              >
+                <motion.h1
+                  variants={opacityVariant}
+                  className="text-4xl font-extrabold duration-200 text-shadow lg:text-6xl md:text-5xl"
+                >
                   The World&apos;s Marketplace
-                </h1>
+                </motion.h1>
 
-                <p className="max-w-2xl mx-auto text-base leading-relaxed duration-200 text-white/90 md:mx-0 text-shadow lg:text-lg">
+                <motion.p
+                  variants={opacityVariant}
+                  className="max-w-2xl mx-auto text-base leading-relaxed duration-200 text-white/90 md:mx-0 text-shadow lg:text-lg"
+                >
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam ratione deleniti vitae animi
                   nemo libero! Iste voluptates amet praesentium ipsa? Et error iure ratio.
-                </p>
+                </motion.p>
 
-                <div>
+                <motion.div variants={opacityVariant}>
                   <Link href={"/shop"}>
                     <button className="px-6 py-2 text-orange-500 transition-colors border border-orange-500 rounded-lg hover:bg-orange-500 hover:text-black">
                       Explore
                     </button>
                   </Link>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
               <div></div>
             </div>
           </div>

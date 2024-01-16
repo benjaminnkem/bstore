@@ -61,27 +61,26 @@ const Navbar = () => {
 
                 <li>
                   <div className="flex items-center space-x-4 font-semibold">
-                    {!user ? (
+                    {!user && (
                       <Link href={`/account/login`} target="_blank" passHref title={`Login or Signup`}>
                         <p>Login</p>
                       </Link>
-                    ) : (
-                      <>
-                        <Link
-                          href={`/dashboard`}
-                          target="_blank"
-                          passHref
-                          title={`Go to dashboard`}
-                          className="px-3 py-1 text-white duration-200 bg-orange-500 rounded-3xl hover:bg-orange-600"
-                        >
-                          <span>Dashboard</span>
-                        </Link>
-                      </>
                     )}
                     <div>
                       <i className="cursor-pointer ri-search-2-line"></i>
                     </div>
                     <ShoppingCartIcon size={"text-2xl"} />
+                    {user && (
+                      <Link
+                        href={`/dashboard`}
+                        target="_blank"
+                        passHref
+                        title={`Go to dashboard`}
+                        className="px-3 py-1 text-white duration-200 bg-orange-500 rounded-3xl hover:bg-orange-600"
+                      >
+                        <span>Dashboard</span>
+                      </Link>
+                    )}
                   </div>
                 </li>
               </ul>

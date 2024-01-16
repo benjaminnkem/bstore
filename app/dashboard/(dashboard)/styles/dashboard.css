@@ -16,7 +16,7 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background: linear-gradient(to top, var(--base-accent-1-color), var(--base-accent-2-color));
+  background: rgb(217, 100, 50);
 }
 
 .dash-clamper {

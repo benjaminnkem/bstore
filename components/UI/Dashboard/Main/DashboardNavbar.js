@@ -26,7 +26,7 @@ const DashboardNavbar = () => {
       <nav className="sticky top-0 left-0 w-full p-3 bg-white md:p-4 dark:bg-primaryDarkShade-200">
         <div className="nav-content">
           <h1>
-            Hello <span className="capitalize">{state.user.name}</span> 👋🏽
+            Hello <span className="capitalize">{state.user?.name}</span> 👋🏽
           </h1>
 
           <ul className="hidden space-x-1 sm:flex">

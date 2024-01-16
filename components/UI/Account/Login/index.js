@@ -18,7 +18,7 @@ const LoginForm = () => {
 
   if (user) {
     toast.success("Welcome back");
-    router.push("/dash");
+    router.push("/dashboard");
   }
 
   if (!user) {
@@ -43,7 +43,7 @@ const LoginForm = () => {
       setUsername("");
       setPassword("");
       toast.success("Logged In Successfully");
-      router.push("/dash");
+      router.push("/dashboard");
       setStatus({ ...status, loading: false });
     }
 

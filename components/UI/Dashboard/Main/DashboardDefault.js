@@ -3,17 +3,15 @@ import "./styles/dashboard-default.css";
 import { useStore } from "@/lib/store/auth-provider";
 
 const DashboardDefault = () => {
-  const sessionContext = useStore();
+  const { user } = useStore();
 
   return (
     <>
-      <div className="dashboard-default">
-        <div className="space-y-4">
-          <h2 className="text-4xl font-semibold">Welcome Back, {sessionContext?.user?.name} 👋🏽</h2>
-          <p className="welcome-tip max-w-xl">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci aspernatur sed eligendi ab sit sunt
-            veritatis ut fugit alias provident!
-          </p>
+      <div className="flex items-center px-4">
+        <div className="grid w-full grid-cols-3 gap-6 my-5">
+          <div className="border rounded-lg border-zinc-600 min-h-[10rem]"></div>
+          <div className="border rounded-lg border-zinc-600 min-h-[10rem]"></div>
+          <div className="border rounded-lg border-zinc-600 min-h-[10rem]"></div>
         </div>
       </div>
 
@@ -21,14 +19,14 @@ const DashboardDefault = () => {
         <div className="stat1">
           <div className="sales-con self-start min-h-[20rem]">
             <div>
-              <h3 className="font-extrabold text-2xl">
+              <h3 className="text-2xl font-extrabold">
                 Sales Stats<span className="text-purple-500">.</span>
               </h3>
             </div>
           </div>
           <div className="grid grid-rows-2 gap-4">
-            <div className="p-1 self-start">
-              <h4 className="font-extrabold text-xl">
+            <div className="self-start p-1">
+              <h4 className="text-xl font-extrabold">
                 Today Stats<span className="text-purple-500">.</span>
               </h4>
 
@@ -38,8 +36,8 @@ const DashboardDefault = () => {
                 Minus?
               </p>
             </div>
-            <div className="p-1 self-start">
-              <h4 className="font-extrabold text-xl">
+            <div className="self-start p-1">
+              <h4 className="text-xl font-extrabold">
                 This Week Stats<span className="text-purple-500">.</span>
               </h4>
 

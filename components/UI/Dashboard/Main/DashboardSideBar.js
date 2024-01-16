@@ -68,7 +68,7 @@ const DashboardSidebar = () => {
                   <p className="mini-status">Online</p>
                 </div>
               </div>
-              <Link href={"/dash/settings"}>
+              <Link href={"/dashboard/settings"}>
                 <i className="ri-settings-2-line setting-icon"></i>
               </Link>
             </div>

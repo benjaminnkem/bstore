@@ -18,8 +18,9 @@ const Navbar = () => {
 
   if (user) {
     navLinks.push(
-      { label: "Shop", path: "/shop", action: () => {} },
-      { label: "About", path: "/about", action: () => {} }
+      { label: "Explore", path: "/shop", action: () => {} },
+      { label: "About", path: "/about", action: () => {} },
+      { label: "Contact", path: "/contact", action: () => {} }
     );
   } else {
     navLinks.push(
@@ -62,12 +63,12 @@ const Navbar = () => {
                   <div className="flex items-center space-x-4 font-semibold">
                     {!user ? (
                       <Link href={`/account/login`} target="_blank" passHref title={`Login or Signup`}>
-                        <p>Account</p>
+                        <p>Login</p>
                       </Link>
                     ) : (
                       <>
                         <Link
-                          href={`/dash`}
+                          href={`/dashboard`}
                           target="_blank"
                           passHref
                           title={`Go to dashboard`}
@@ -151,7 +152,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      href={`${status === "authenticated" ? "/dash" : "/account/login"}`}
+                      href={`${status === "authenticated" ? "/dashboard" : "/account/login"}`}
                       passHref
                       onClick={toggleMenu}
                       target="_blank"

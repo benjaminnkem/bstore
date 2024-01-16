@@ -4,14 +4,14 @@ import CustAlert from "@/components/Common/Icons/Alert";
 import { CustomSessionDataContext } from "@/lib/contexts/dashboard/dashboard-wrapper";
 import { DashCreateContext } from "@/lib/contexts/dashboard/create-dashboard-context";
 import { TransitionStart } from "@/lib/utils/transition";
-import { useUserData } from "@/lib/store/auth-provider";
+import { useStore } from "@/lib/store/auth-provider";
 
 const CategoryCreation = () => {
   const [formInput, setFormInput] = useState({ name: "" });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ loading: false, success: false, err: false });
 
-  const userSession = useUserData();
+  const userSession = useStore();
   const { curSelection } = useContext(DashCreateContext);
 
   const [alertShow, setAlertShow] = useState(false);

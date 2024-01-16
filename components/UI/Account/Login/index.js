@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { toast } from "react-hot-toast";
-import { useUserData } from "@/lib/store/auth-provider";
+import { useStore } from "@/lib/store/auth-provider";
 import { TransitionElement, TransitionStart } from "@/lib/utils/transition";
 import { AnimatePresence } from "framer-motion";
 
@@ -14,7 +14,7 @@ const LoginForm = () => {
   const [status, setStatus] = useState({ loading: false });
 
   const router = useRouter();
-  const { user } = useUserData();
+  const { user } = useStore();
 
   if (user) {
     toast.success("Welcome back");

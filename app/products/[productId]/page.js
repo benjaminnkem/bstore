@@ -1,5 +1,5 @@
-import { checkHost, checkProtocol } from "@/lib/reuseables/SERVERCOMPONENTS/getProtocol";
 import "./styles/product-details.css";
+import { checkHost, checkProtocol } from "@/lib/reuseables/SERVERCOMPONENTS/getProtocol";
 import DefaultWrapper from "@/lib/utils/DefaultWrapper";
 import HorizontalCategory from "@/components/UI/Shop/HorizontalCategory";
 import ProductFullImagePreview from "@/components/UI/ProductDetails/img-preview-details";
@@ -49,11 +49,12 @@ const ProductDetails = async ({ params }) => {
 
   return (
     <>
+      <header className="mt-[5.5rem]">
+        <HorizontalCategory />
+      </header>
+
       <main>
         <DefaultWrapper>
-          <header>
-            <HorizontalCategory />
-          </header>
           <div className="md:max-w-[1488px] w-11/12 mx-auto">
             <section className="my-10 lg:gap-20 md:gap-12 md:grid" style={{ gridTemplateColumns: "2.5fr 3fr" }}>
               <ProductFullImagePreview post={post} />

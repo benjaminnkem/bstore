@@ -74,14 +74,14 @@ const Navbar = () => {
                           title={`Go to dashboard`}
                           className="px-3 py-1 text-white duration-200 bg-orange-500 rounded-3xl hover:bg-orange-600"
                         >
-                          <p>Dashboard</p>
+                          <span>Dashboard</span>
                         </Link>
                       </>
                     )}
                     <div>
                       <i className="cursor-pointer ri-search-2-line"></i>
                     </div>
-                    {!user && <ShoppingCartIcon size={"text-2xl"} />}
+                    <ShoppingCartIcon size={"text-2xl"} />
                   </div>
                 </li>
               </ul>

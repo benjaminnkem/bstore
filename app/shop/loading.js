@@ -5,7 +5,7 @@ const ShopLoading = () => {
   return (
     <>
       <DefaultWrapper>
-        <div className="md:max-w-[1488px] w-11/12 mx-auto">
+        <div className="md:max-w-[1488px] w-11/12 mx-auto mt-[5.5rem]">
           <div className="flex items-center p-2 space-x-4 overflow-y-auto scroll-smooth horizontal-cat">
             {Array(14)
               .fill()
@@ -37,13 +37,13 @@ const ShopLoading = () => {
                 .fill()
                 .map((_, id) => (
                   <div className="p-6 space-y-4 bg-white rounded-lg dark:bg-[#212121]" key={id}>
-                    <div className="text-center py-4">
-                      <i className="ri-image-line text-9xl skeleton rounded-md"></i>
+                    <div className="py-4 text-center">
+                      <i className="rounded-md ri-image-line text-9xl skeleton"></i>
                     </div>
 
                     <div className="mt-6 space-y-2">
-                      <div className="py-1 w-3/5 mx-auto bg-white rounded-md skeleton"></div>
-                      <div className="py-1 w-2/5 mx-auto bg-white rounded-md skeleton"></div>
+                      <div className="w-3/5 py-1 mx-auto bg-white rounded-md skeleton"></div>
+                      <div className="w-2/5 py-1 mx-auto bg-white rounded-md skeleton"></div>
                     </div>
                   </div>
                 ))}

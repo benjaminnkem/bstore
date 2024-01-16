@@ -9,9 +9,11 @@ const DashboardDefault = () => {
     <>
       <div className="flex items-center px-4">
         <div className="grid w-full grid-cols-3 gap-6 my-5">
-          <div className="border rounded-lg border-zinc-600 min-h-[10rem]"></div>
-          <div className="border rounded-lg border-zinc-600 min-h-[10rem]"></div>
-          <div className="border rounded-lg border-zinc-600 min-h-[10rem]"></div>
+          <div className="border rounded-lg border-zinc-600 min-h-[10rem] p-5">
+            <p className="text-3xl font-bold"></p>
+          </div>
+          <div className="border rounded-lg border-zinc-600 min-h-[10rem] p-5"></div>
+          <div className="border rounded-lg border-zinc-600 min-h-[10rem] p-5"></div>
         </div>
       </div>
 

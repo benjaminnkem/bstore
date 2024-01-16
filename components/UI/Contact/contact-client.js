@@ -46,7 +46,7 @@ const ContactClient = () => {
 
   return (
     <>
-      <section className="jumbo flex md:max-w-[1488px] w-11/12 mx-auto items-center py-16">
+      <section className="jumbo flex md:max-w-[1488px] mt-[5rem] w-11/12 mx-auto items-center py-16">
         <div className="items-center grid-cols-2 gap-2 md:grid">
           <TransitionElement>
             <div className="py-10 space-y-4 text-center md:py-0 md:text-start">

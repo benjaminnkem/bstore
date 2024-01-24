@@ -1,25 +1,28 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
-import AdminUser from "@/lib/schemas/users/AdminUser";
 import connectToDB from "@/lib/config/db";
+import UsersSchema from "@/lib/schemas/users/UsersSchema";
 
 export const authOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
-      credentials: {},
+      credentials: {
+        username: { type: "text", placeholder: "username", label: "username" },
+        password: { type: "text", placeholder: "password", label: "password" },
+      },
       async authorize(credentials, _req) {
         const { username, password } = credentials;
 
         try {
           await connectToDB();
-          const user = await AdminUser.findOne({ username: username }, { username: 1, password: 1, email: 1 });
-          if (!user) {
-            throw new Error("User with username " + username + " not found");
-          }
+          const user = await UsersSchema.findOne({ username }, { username: 1, password: 1, email: 1 });
+
+          if (!user) throw new Error("User with username " + username + " not found");
 
           const isPassword = await compare(password, user.password);
+
           if (!isPassword) {
             throw new Error("Invalid credentials");
           }

@@ -15,7 +15,9 @@ const ReviewBox = ({
   validateError,
   post,
   loginStatus,
-  starIconRef
+  starIconRef,
+  handleFormChange,
+  updateContextLength,
 }) => {
   return (
     <div
@@ -47,8 +49,8 @@ const ReviewBox = ({
               </div>
 
               {loginStatus === "authenticated" ? (
-                <div className="gap-4 my-4 md:grid z-50" style={{ gridTemplateColumns: "1fr 2fr" }}>
-                  <div className="grid text-center place-content-center py-4 md:py-0 select-none">
+                <div className="z-50 gap-4 my-4 md:grid" style={{ gridTemplateColumns: "1fr 2fr" }}>
+                  <div className="grid py-4 text-center select-none place-content-center md:py-0">
                     <span className="text-5xl duration-200">{emojiRep}</span>
                     <div className="flex flex-wrap my-3 space-x-2 text-lg duration-200 cursor-pointer justify-evenly">
                       {Array(5)
@@ -64,43 +66,11 @@ const ReviewBox = ({
                           </div>
                         ))}
                     </div>
-                    <p className="text-xs dark:text-gray-300 text-gray-800 opacity-80">Hover/Click to set stars</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300 opacity-80">Hover/Click to set stars</p>
                   </div>
 
                   <form onSubmit={(e) => handleFormSubmit(e)}>
-                    <div className="md:space-y-3 space-y-1">
-                      {/* <div>
-                          <label className="text-sm" htmlFor="fullName">
-                            Full Name:
-                          </label>
-                          <input
-                            type="text"
-                            className={`w-full p-2 dark:bg-[#1b1b1b] rounded-md outline-none text-sm placeholder:text-gray-400 ${
-                              validateError.fullName && "border border-red-500"
-                            }`}
-                            placeholder="Enter your fine name"
-                            name="fullName"
-                            value={userInfo ? userInfo.username : formInputs.fullName}
-                            onChange={(e) => handleFormChange(e)}
-                          />
-                          {validateError.fullName && <p className="text-xs text-red-500">{validateError.fullName}</p>}
-                        </div>
-                        <div>
-                          <label className="text-sm" htmlFor="email">
-                            Email:
-                          </label>
-                          <input
-                            type="email"
-                            className={`w-full p-2 dark:bg-[#1b1b1b] rounded-md outline-none text-sm placeholder:text-gray-400 ${
-                              validateError.email && "border border-red-500"
-                            }`}
-                            placeholder="Enter your email"
-                            value={userInfo ? userInfo.email : formInputs.email}
-                            onChange={(e) => handleFormChange(e)}
-                            name="email"
-                          />
-                          {validateError.email && <p className="text-xs text-red-500">{validateError.email}</p>}
-                        </div> */}
+                    <div className="space-y-1 md:space-y-3">
                       <div>
                         <label className="font-semibold" htmlFor="content">
                           Review
@@ -140,23 +110,23 @@ const ReviewBox = ({
               ) : loginStatus === "loading" ? (
                 <div>loading...</div>
               ) : (
-                <div className="my-4 w-full h-full grid place-content-center">
-                  <div className="space-y-4 md:py-2 py-4">
+                <div className="grid w-full h-full my-4 place-content-center">
+                  <div className="py-4 space-y-4 md:py-2">
                     <div>
                       <Link href={`/account/signup`} passHref>
-                        <button className="px-4 py-2 mx-auto rounded-md border-2 duration-200 flex items-center space-x-2 hover:bg-orange-500">
+                        <button className="flex items-center px-4 py-2 mx-auto space-x-2 duration-200 border-2 rounded-md hover:bg-orange-500">
                           <span>Create an account</span> <FontAwesomeIcon icon={faUser} />
                         </button>
                       </Link>
                     </div>
-                    <div className="flex justify-between items-center space-x-2">
+                    <div className="flex items-center justify-between space-x-2">
                       <span className="h-[1px] bg-white opacity-40 w-full"></span>
                       <span>Or</span>
                       <span className="h-[1px] bg-white opacity-40 w-full"></span>
                     </div>
                     <div>
                       <Link href={`/account/login`} passHref>
-                        <button className="px-4 py-2 mx-auto rounded-md border-2 duration-200 flex items-center space-x-2 hover:bg-orange-500">
+                        <button className="flex items-center px-4 py-2 mx-auto space-x-2 duration-200 border-2 rounded-md hover:bg-orange-500">
                           <span>Login</span> <FontAwesomeIcon icon={faRocket} />
                         </button>
                       </Link>
@@ -170,7 +140,7 @@ const ReviewBox = ({
           <FontAwesomeIcon
             icon={faClose}
             onClick={toggleReviewBox}
-            className="absolute top-0 right-0 text-3xl cursor-pointer hover:animate-spin text-gray-500 dark:text-gray-50"
+            className="absolute top-0 right-0 text-3xl text-gray-500 cursor-pointer hover:animate-spin dark:text-gray-50"
           />
         </div>
       </div>

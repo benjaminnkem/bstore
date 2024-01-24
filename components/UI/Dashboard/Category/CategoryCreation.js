@@ -1,7 +1,6 @@
 "use client";
 import { useContext, useEffect, useState } from "react";
 import CustAlert from "@/components/Common/Icons/Alert";
-import { CustomSessionDataContext } from "@/lib/contexts/dashboard/dashboard-wrapper";
 import { DashCreateContext } from "@/lib/contexts/dashboard/create-dashboard-context";
 import { TransitionStart } from "@/lib/utils/transition";
 import { useStore } from "@/lib/store/auth-provider";
@@ -79,7 +78,7 @@ const CategoryCreation = () => {
       <>
         <TransitionStart>
           <div>
-            <h2 className="font-extrabold text-2xl py-2">Create Category</h2>
+            <h2 className="py-2 text-2xl font-extrabold">Create Category</h2>
 
             <div className="mt-2">
               <form onSubmit={(e) => handleCategoryCreation(e)}>
@@ -100,9 +99,9 @@ const CategoryCreation = () => {
                       />
                     </div>
                     {serverErrMessage && (
-                      <p className="text-red-500 text-opacity-75 text-xs font-bold">{serverErrMessage}</p>
+                      <p className="text-xs font-bold text-red-500 text-opacity-75">{serverErrMessage}</p>
                     )}
-                    {errors.name && <p className="text-red-500 text-opacity-75 text-xs font-bold">{errors.name}</p>}
+                    {errors.name && <p className="text-xs font-bold text-red-500 text-opacity-75">{errors.name}</p>}
                   </div>
 
                   <div>

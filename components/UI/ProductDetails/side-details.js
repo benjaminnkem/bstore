@@ -157,8 +157,10 @@ const SideProductDetails = ({ post }) => {
         contentControl={contentControl}
         validateError={validateError}
         loginStatus={loginStatus}
+        handleFormChange={handleFormChange}
         post={post}
         starIconRef={starIconRef}
+        updateContextLength={updateContextLength}
       />
 
       {/* Details */}
@@ -178,7 +180,7 @@ const SideProductDetails = ({ post }) => {
         </div>
 
         <div className="space-y-4">
-          <div className="mt-4 bg-white shadow-md dark:bg-primaryDarkShade-100 p-4 rounded-lg">
+          <div className="p-4 mt-4 bg-white rounded-lg shadow-md dark:bg-primaryDarkShade-100">
             <h2 className="text-2xl font-semibold">Details</h2>
             <div className="mt-2">
               <div className={`${itemDescClass}`}>
@@ -240,9 +242,9 @@ const SideProductDetails = ({ post }) => {
           </div>
 
           {/* Tags */}
-          <div className="mt-4 bg-white shadow-md dark:bg-primaryDarkShade-100 p-4 rounded-lg">
+          <div className="p-4 mt-4 bg-white rounded-lg shadow-md dark:bg-primaryDarkShade-100">
             <h3 className="text-2xl font-semibold">Tags</h3>
-            <div className="flex flex-wrap space-x-2 mt-3">
+            <div className="flex flex-wrap mt-3 space-x-2">
               {post.tags.map((tag, idx) => (
                 <Link
                   key={idx}
@@ -256,13 +258,13 @@ const SideProductDetails = ({ post }) => {
           </div>
 
           {/* Reviews */}
-          <div className="mt-4 bg-white shadow-md dark:bg-primaryDarkShade-100 p-4 rounded-lg">
+          <div className="p-4 mt-4 bg-white rounded-lg shadow-md dark:bg-primaryDarkShade-100">
             <h3 className="text-2xl font-semibold">Reviews</h3>
             <div className="mt-2">
               <ReviewsManager reviews={reviews} reviewStatus={reviewStatus} />
 
               <button
-                className="px-4 py-1 mt-4 duration-100 block border border-orange-500 rounded-md hover:bg-orange-500 hover:text-black"
+                className="block px-4 py-1 mt-4 duration-100 border border-orange-500 rounded-md hover:bg-orange-500 hover:text-black"
                 onClick={toggleReviewBox}
               >
                 Drop a review

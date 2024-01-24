@@ -157,7 +157,7 @@ const ProductCreation = () => {
               <form onSubmit={(e) => handleProductCreation(e)} encType="multipart/form-data">
                 <div className="grid gap-4">
                   {/* Handling all images picked and container */}
-                  <div className="flex items-start space-x-2 overflow-x-auto py-4 productImageSlider">
+                  <div className="flex items-start py-4 space-x-2 overflow-x-auto productImageSlider">
                     {images.map((_, idx) => (
                       <ProductImageBox
                         key={_.id}
@@ -173,7 +173,7 @@ const ProductCreation = () => {
                     ))}
                   </div>
 
-                  <div className="md:grid flex flex-col gap-4 grid-cols-2">
+                  <div className="flex flex-col grid-cols-2 gap-4 md:grid">
                     <div>
                       <div className="space-y-1">
                         <label htmlFor="itemName" className="font-semibold dark:text-[#d6d6d6]">
@@ -198,7 +198,7 @@ const ProductCreation = () => {
                         <label htmlFor="tags" className="font-semibold dark:text-[#d6d6d6]">
                           Tags
                         </label>
-                        <div className="bdark:order-primaryDarkShade-300 border-gray-300 flex space-x-1 items-center border rounded-md outline-none overflow-y-auto duration-200 dark:focus-within:border-[#444554] focus-within:border-gray-400 bg-transparent p-2">
+                        <div className="bdark:order-primaryDarkShade-300 border-gray-300 dark:border-primaryDarkShade flex space-x-1 items-center border rounded-md outline-none overflow-y-auto duration-200 dark:focus-within:border-[#444554] focus-within:border-gray-400 bg-transparent p-2">
                           <div className="flex items-center flex-shrink-0 space-x-1">
                             {tagList.map((tag, id) => (
                               <div

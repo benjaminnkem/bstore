@@ -205,11 +205,7 @@ const SideProductDetails = ({ post }) => {
               <div className={`${itemDescClass}`}>
                 <p>Quantity:</p>
                 <div className="flex items-center space-x-3">
-                  <i
-                    className="cursor-pointer ri-restart-line"
-                    onClick={() => setCustomQuantity(1)}
-                    title="Reset Quantity"
-                  ></i>
+                <p className="text-xs font-semibold" onClick={() => setCustomQuantity(1)}>Clear</p>
 
                   <div
                     className="flex items-center justify-center w-8 h-8 text-gray-800 duration-200 bg-orange-200 rounded-md shadow-md cursor-pointer select-none hover:bg-orange-300"

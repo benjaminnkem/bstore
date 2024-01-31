@@ -6,6 +6,7 @@ import DefaultWrapper from "@/lib/utils/DefaultWrapper";
 import HorizontalProductShow from "@/components/UI/Defaults/HorizontalProductShow";
 import HeartReaction from "@/components/Common/Icons/HeartReaction";
 import HomeHeader from "@/components/UI/Home/header";
+import { publicApi } from "@/lib/config/axios-instance";
 
 export const metadata = {
   title: "BStore - Quality Eyewear, Clothes & Accessories",
@@ -34,8 +35,6 @@ const Home = async () => {
 
   return (
     <>
-      {/* <HomeToAd /> */}
-
       <DefaultWrapper>
         <HomeHeader />
 

@@ -4,16 +4,13 @@ import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {
   try {
-    const tag = params.tagCursor;
+    const randomSize = params.size;
+
+    if (!randomSize) return NextResponse.json([]);
 
     await connectToDB();
 
-    if (!tag) return NextResponse.json(await ProductsSchema.find({}));
-
-    const tagProduct = await ProductsSchema.find({
-      tags: "gym",
-    });
-    return NextResponse.json(tagProduct);
+    return NextResponse.json(await ProductsSchema.aggregate([{ $sample: { size } }]));
   } catch (e) {
     return new NextResponse("Sorry, an error occurred while getting product", { status: 500 });
   }

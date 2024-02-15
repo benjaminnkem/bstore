@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import ProductTemplate from "./ProductTemplate";
 import { GlobalCartItemContext } from "@/lib/contexts/default/cartitems-context";
 import { motion } from "framer-motion";
+import { tags } from "@/lib/data/tags";
 
 export const ShopContext = createContext();
 
@@ -23,16 +24,17 @@ const ProductDisplay = ({ items }) => {
 
   const addItemToCart = (item) => updateCartItems(item);
 
+  const getProductsByTag = async () => {
+    const res = await fetch(`/api/products/get-by-tag/${tagSelect}`);
+    if (!res.ok) return;
+
+    const products = await res.json();
+    setTagProducts(products ? products : []);
+  };
+
   useEffect(() => calculateTotalCosts(), [calculateTotalCosts]);
+
   useEffect(() => {
-    const getProductsByTag = async () => {
-      const res = await fetch(`/api/products/get-by-tag/${tagSelect}`);
-      if (!res.ok) return;
-
-      const products = await res.json();
-      setTagProducts(products ? products : []);
-    };
-
     getProductsByTag();
   });
 
@@ -58,31 +60,7 @@ const ProductDisplay = ({ items }) => {
               <h2 className="text-xl font-semibold">Categories</h2>
 
               <div className="flex flex-wrap mt-2 space-x-2">
-                {[
-                  { showcase: "#General", cursor: "general" },
-                  { showcase: "Cloth 👚", cursor: "cloth" },
-                  { showcase: "TV 📺", cursor: "tv" },
-                  { showcase: "Fish 🐟", cursor: "fish" },
-                  { showcase: "Motorbike 🏍", cursor: "motorbike" },
-                  { showcase: "Chair 🪑", cursor: "chair" },
-                  { showcase: "Fashion 💄", cursor: "fashion" },
-                  { showcase: "Tech ⚙", cursor: "tech" },
-                  { showcase: "PC 📺", cursor: "pc" },
-                  { showcase: "Speakers 🔊", cursor: "speakers" },
-                  { showcase: "Airpods", cursor: "airpods" },
-                  { showcase: "Musical Instruments 🎹🎷", cursor: "musical instruments" },
-                  { showcase: "Electronics ⚡", cursor: "eletronics" },
-                  { showcase: "Kitchen Utensils 🔪", cursor: "kitchen utensils" },
-                  { showcase: "Laundry 🧺", cursor: "laundry" },
-                  { showcase: "Sports 🏒🏅", cursor: "sports" },
-                  { showcase: "Cars 🚗", cursor: "cars" },
-                  { showcase: "Art 🎨", cursor: "art" },
-                  { showcase: "Music 🎧", cursor: "music" },
-                  { showcase: "Gym 💪🏋️‍♀️", cursor: "gym" },
-                  { showcase: "Junks 🍧", cursor: "junks" },
-                  { showcase: "Groceries 🍀", cursor: "groceries" },
-                  { showcase: "Airplanes ✈🛫", cursor: "airplanes" },
-                ].map((tag, id) => (
+                {tags.map((tag, id) => (
                   <button
                     key={id}
                     className="px-3 py-1 my-2 sm:text-xs text-[.5rem] font-semibold text-black 

@@ -18,7 +18,7 @@ const ProductFullImagePreview = ({ post }) => {
     <>
       <div
         className={`fixed top-0 left-0 w-full h-screen full-prev duration-200 ease-in grid text-white place-content-center ${
-          previewShow ? "z-50 bg-[#000000b1]" : "-z-50 bg-transparent"
+          previewShow ? "z-[9000] bg-[#000000b1]" : "-z-50 bg-transparent"
         }`}
       >
         {/* Image preview */}

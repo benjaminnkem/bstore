@@ -1,8 +1,7 @@
 import AuthProvider from "@/lib/store/auth-provider";
 
 export const metadata = {
-  title: "Account - Bstore",
-  robots: "noindex",
+  title: "Account",
 };
 
 const RootAdminLayout = ({ children }) => {

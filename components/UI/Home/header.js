@@ -40,8 +40,9 @@ const HomeHeader = () => {
                   variants={opacityVariant}
                   className="max-w-2xl mx-auto text-base leading-relaxed duration-200 text-white/90 md:mx-0 text-shadow lg:text-lg"
                 >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam ratione deleniti vitae animi
-                  nemo libero! Iste voluptates amet praesentium ipsa? Et error iure ratio.
+                  Bstore is a leading E-commerce platform for both Vendors and consectetur adipisicing elit. Tempore
+                  veniam ratione deleniti vitae animi nemo libero! Iste voluptates amet praesentium ipsa? Et error iure
+                  ratio.
                 </motion.p>
 
                 <motion.div variants={opacityVariant}>

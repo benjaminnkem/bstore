@@ -11,15 +11,15 @@ export async function GET(req, { params }) {
   try {
     const productDetails = await ProductsSchema.aggregate([
       { $match: { _id: new ObjectId(productId) } },
-      { $project: { itemName: 1, date_posted: 1, seller_id: 1 } },
-      {
-        $lookup: {
-          from: "adminusers",
-          localField: "seller_id",
-          foreignField: "_id",
-          as: "seller",
-        },
-      },
+      { $project: { itemName: 1, date_posted: 1, seller_id: 1, price: 1 } },
+      // {
+      //   $lookup: {
+      //     from: "adminusers",
+      //     localField: "seller_id",
+      //     foreignField: "_id",
+      //     as: "seller",
+      //   },
+      // },
     ]);
     if (!productDetails) return new NextResponse("", { status: 404, statusText: "Product not found" });
 

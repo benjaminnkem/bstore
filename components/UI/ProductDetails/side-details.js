@@ -7,6 +7,7 @@ import ReviewsManager from "./reviews-manager";
 import { useSession } from "next-auth/react";
 import { toast } from "react-hot-toast";
 import ReviewBox from "./review-box";
+import { publicApi } from "@/lib/config/axios-instance";
 
 const itemDescClass = "flex justify-between items-center py-2 border-[#666666] border-t border-opacity-50";
 
@@ -33,28 +34,26 @@ const SideProductDetails = ({ post }) => {
   const [badge, setBadge] = useState(0);
 
   const [reviewStatus, setReviewStatus] = useState({ loading: false, error: false });
-  const incrementBadgeNum = () => setBadge((prev) => prev + 1);
-  const callbackUrl = encodeURI(`/products/${post._id}`);
 
   // Textarea box
   const [contentControl, setContentControl] = useState({ start: formInputs.content.length, max: 1024 });
   const updateContextLength = (e) => setContentControl({ ...contentControl, start: e.target.value?.length });
 
-  useEffect(() => {
-    async function getProductReviews() {
-      setReviewStatus({ ...reviewStatus, loading: true });
-      const res = await fetch(`/api/products/reviews/${post._id}/${badge}`);
+  const getProductReviews = async () => {
+    setReviewStatus({ ...reviewStatus, loading: true });
+    const res = await fetch(`/api/products/reviews/${post._id}/${badge}`);
 
-      if (!res.ok) {
-        setReviewStatus({ ...reviewStatus, loading: false });
-        return;
-      }
-
-      const reviewsData = await res.json();
+    if (!res.ok) {
       setReviewStatus({ ...reviewStatus, loading: false });
-      setReviews(reviewsData);
+      return;
     }
 
+    const reviewsData = await res.json();
+    setReviewStatus({ ...reviewStatus, loading: false });
+    setReviews(reviewsData);
+  };
+
+  useEffect(() => {
     getProductReviews();
   }, [badge]);
 
@@ -82,10 +81,8 @@ const SideProductDetails = ({ post }) => {
   const changeQuantity = (type) => {
     switch (type) {
       case "sub":
-        if (customQuantity <= 0) return;
-        setCustomQuantity((prev) => prev - 1);
+        setCustomQuantity((prev) => (prev <= 0 ? prev : prev - 1));
       case "add":
-        if (customQuantity > 100) return;
         setCustomQuantity((prev) => prev + 1);
       default:
         break;
@@ -121,26 +118,29 @@ const SideProductDetails = ({ post }) => {
       return;
     }
 
-    const res = await fetch("/api/products/create/review", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...formInputs, stars: starIndex + 1, productId: post._id }),
-    });
+    try {
+      await publicApi.post("/products/create/review", {
+        ...formInputs,
+        stars: starIndex + 1,
+        productId: post._id,
+      });
 
-    if (!res.ok) {
-      setStatus({ error: true, loading: false, resInfo: res.statusText });
-      return;
+      setStatus({ error: false, loading: false, resInfo: "Upload Successful 🎉" });
+
+      setFormInputs({
+        fullName: "",
+        email: "",
+        content: "",
+      });
+
+      toast.success("Upload Successful");
+      setAboutToReview(false);
+    } catch {
+      setStatus({ ...status, error: true });
+    } finally {
+      setStatus({ ...status, loading: false });
+      getProductReviews();
     }
-
-    setStatus({ error: false, loading: false, resInfo: "Upload Successful 🎉" });
-
-    setFormInputs({
-      fullName: "",
-      email: "",
-      content: "",
-    });
-
-    toast.success("Upload Successful");
   };
 
   return (
@@ -205,17 +205,19 @@ const SideProductDetails = ({ post }) => {
               <div className={`${itemDescClass}`}>
                 <p>Quantity:</p>
                 <div className="flex items-center space-x-3">
-                <p className="text-xs font-semibold" onClick={() => setCustomQuantity(1)}>Clear</p>
+                  <p className="text-xs font-semibold" onClick={() => setCustomQuantity(1)}>
+                    Clear
+                  </p>
 
                   <div
-                    className="flex items-center justify-center w-8 h-8 text-gray-800 duration-200 bg-orange-200 rounded-md shadow-md cursor-pointer select-none hover:bg-orange-300"
+                    className="flex items-center justify-center w-8 h-8 text-white duration-200 rounded-md cursor-pointer select-none border border-white/10 hover:border-white/50"
                     onClick={() => changeQuantity("sub")}
                   >
                     -
                   </div>
                   <p>{customQuantity}</p>
                   <div
-                    className="flex items-center justify-center w-8 h-8 text-gray-800 duration-200 bg-orange-300 rounded-md shadow-md cursor-pointer select-none hover:bg-orange-400"
+                    className="flex items-center justify-center w-8 h-8 text-white duration-200 rounded-md cursor-pointer select-none border border-white/10 hover:border-white/50"
                     onClick={() => changeQuantity("add")}
                   >
                     +
@@ -225,7 +227,7 @@ const SideProductDetails = ({ post }) => {
               <div className={`${itemDescClass}`}>
                 <p>Price:</p>
                 <p>
-                  <span className="text-xl">
+                  <span className="text-lg">
                     {customQuantity} x ${post.price} = ${customQuantity * parseInt(post.price)}
                   </span>
                 </p>

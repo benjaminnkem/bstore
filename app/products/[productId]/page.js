@@ -4,25 +4,24 @@ import DefaultWrapper from "@/lib/utils/DefaultWrapper";
 import HorizontalCategory from "@/components/UI/Shop/HorizontalCategory";
 import ProductFullImagePreview from "@/components/UI/ProductDetails/img-preview-details";
 import SideProductDetails from "@/components/UI/ProductDetails/side-details";
+import { publicApi } from "@/lib/config/axios-instance";
 
 export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
   const { productId } = params;
 
-  const host = checkHost();
-  const protocol = checkProtocol();
-
-  const response = await fetch(`${protocol}${host}/api/products/get-product-metadata/${productId}`);
+  const response = await publicApi.get(`/products/get-product-metadata/${productId}`);
   try {
-    const [productData] = await response.json(); // Returns a list tht needs destructuring
-    const {
-      seller: [seller],
-    } = productData;
+    const [product] = await response.data; // Returns a list that needs destructuring
+
+    // const {
+    //   seller: [seller],
+    // } = product;
 
     return {
-      title: `${productData.itemName} by ${seller.username} - Bstore`,
-      description: productData.description,
+      title: `${product.itemName} ($${product.price})`,
+      description: product.description,
     };
   } catch (e) {
     return null;

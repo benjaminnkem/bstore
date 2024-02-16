@@ -23,7 +23,7 @@ const ProductTemplate = ({ item }) => {
   };
 
   return (
-    <>
+    <div>
       <Link href={`/products/${item._id}`} passHref>
         <motion.div
           variants={childrenVariant}
@@ -43,7 +43,7 @@ const ProductTemplate = ({ item }) => {
           </div>
         </motion.div>
       </Link>
-    </>
+    </div>
   );
 };
 

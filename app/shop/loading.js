@@ -5,7 +5,7 @@ const ShopLoading = () => {
   return (
     <>
       <DefaultWrapper>
-        <div className="md:max-w-[1488px] w-11/12 mx-auto mt-[5.5rem]">
+        <div className="container  mt-[5.5rem]">
           <div className="flex items-center p-2 space-x-4 overflow-y-auto scroll-smooth horizontal-cat">
             {Array(14)
               .fill()

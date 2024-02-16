@@ -10,8 +10,18 @@ export async function GET(req, { params }) {
 
     if (!tag) return NextResponse.json(await ProductsSchema.find({}));
 
+    if (tag?.toLowerCase() === "general") {
+      return NextResponse.json(
+        await ProductsSchema.aggregate([
+          {
+            $sample: { size: 10 },
+          },
+        ])
+      );
+    }
+
     const tagProduct = await ProductsSchema.find({
-      tags: "gym",
+      tags: tag,
     });
     return NextResponse.json(tagProduct);
   } catch (e) {

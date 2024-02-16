@@ -40,14 +40,14 @@ const Home = async () => {
 
         <main className="py-12">
           <section className="my-24">
-            <div className="md:max-w-[1488px] w-11/12 mx-auto">
+            <div className="container ">
               <h2 className="my-8 text-2xl font-extrabold md:text-3xl lg:text-4xl tp-text">Recommended For You</h2>
               <HorizontalProductShow products={products} />
             </div>
           </section>
 
           <section className="my-24">
-            <div className="md:max-w-[1488px] w-11/12 mx-auto">
+            <div className="container ">
               <h2 className="my-8 text-2xl font-extrabold md:text-3xl lg:text-4xl tp-text">Top Products</h2>
               <div className="first-showcase">
                 {products.map((product) => (
@@ -77,7 +77,7 @@ const Home = async () => {
           </section>
 
           <section className="md:my-48 my-36">
-            <div className="md:max-w-[1488px] w-11/12 mx-auto">
+            <div className="container ">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
                   <h3 className="text-2xl font-extrabold lg:text-4xl md:text-3xl tp-text">
@@ -119,7 +119,7 @@ const Home = async () => {
           </section>
 
           <section className="md:my-48 my-36">
-            <div className="md:max-w-[1488px] w-11/12 mx-auto">
+            <div className="container ">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="overflow-hidden rounded-md md:max-h-96 max-h-56 category-image">
                   <Image
@@ -153,7 +153,7 @@ const Home = async () => {
             </div>
           </section>
           <section className="md:my-48 my-36">
-            <div className="md:max-w-[1488px] w-11/12 mx-auto">
+            <div className="container ">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
                   <h3 className="text-2xl font-extrabold lg:text-4xl md:text-3xl tp-text">Food & Groceries</h3>

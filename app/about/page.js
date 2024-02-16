@@ -23,7 +23,7 @@ const About = () => {
             <div className="absolute top-0 left-0 w-full h-full -z-10 bg-gradient-to-t from-[#131313] to-transparent"></div>
 
             <div className="absolute top-0 left-0 h-full w-full flex items-center">
-              <div className="md:max-w-[1488px] w-11/12 mx-auto mt-[2.5rem]">
+              <div className="container  mt-[2.5rem]">
                 <div className="space-y-4 text-white">
                   <h1 className="inline-block text-3xl font-extrabold duration-200 md:text-5xl sm:text-4xl bstore">
                     About Us
@@ -39,7 +39,7 @@ const About = () => {
           </header>
 
           <main>
-            <div className="md:max-w-[1488px] w-11/12 mx-auto">
+            <div className="container ">
               <div className="mb-16 -mt-8">
                 <div className="flex flex-wrap justify-evenly">
                   <div className="grid max-w-xs p-6 m-4 mx-auto text-center duration-300 bg-white shadow-md cursor-default hover:-translate-y-3 ease-in-out rounded-2xl dark:bg-[#272727] place-content-center hover:shadow-2xl">

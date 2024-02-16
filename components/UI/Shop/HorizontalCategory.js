@@ -6,7 +6,7 @@ const HorizontalCategory = () => {
 
   return (
     <>
-      <div className="relative md:max-w-[1488px] w-11/12 mx-auto -mt-2">
+      <div className="relative container  -mt-2">
         <div className="flex items-center p-2 space-x-4 overflow-y-auto scroll-smooth horizontal-cat" ref={slider}>
           {[
             "Games",

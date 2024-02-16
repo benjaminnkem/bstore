@@ -19,7 +19,7 @@ const HomeHeader = () => {
 
         <div className="absolute top-0 left-0 w-full h-full -z-10 bg-gradient-to-t from-[#131313] to-transparent"></div>
 
-        <div className="md:max-w-[1488px] w-11/12 mx-auto">
+        <div className="container ">
           <div className="flex items-center text-white">
             <div className="mt-10">
               <motion.div

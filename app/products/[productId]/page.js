@@ -55,7 +55,7 @@ const ProductDetails = async ({ params }) => {
 
       <main>
         <DefaultWrapper>
-          <div className="md:max-w-[1488px] w-11/12 mx-auto">
+          <div className="container ">
             <section className="my-10 lg:gap-20 md:gap-12 md:grid" style={{ gridTemplateColumns: "2.5fr 3fr" }}>
               <ProductFullImagePreview post={post} />
 

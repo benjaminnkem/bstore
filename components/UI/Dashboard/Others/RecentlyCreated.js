@@ -15,10 +15,7 @@ const RecentProductsCreated = () => {
 
   const getRecentPosts = async (userId) => {
     try {
-      setFetchingRecentPosts(true);
-      console.log("process.env", process.env);
-
-      const res = await publicApi.get(`/get-recent-posts/${userId ?? ""}`);
+      const res = await publicApi.get(`/products/get-recent-posts/${userId ?? ""}`);
 
       setRecentPosts(res.data);
     } catch (e) {
@@ -65,11 +62,11 @@ const RecentProductsCreated = () => {
 
         {!fetchingRecentPosts && (
           <button
-            className="w-full py-2 mt-2 text-orange-500 duration-200 border border-orange-500 rounded-md hover:bg-orange-500 disabled:hover:bg-transparent disabled:hover:text-orange-500 hover:text-black"
+            className="w-full py-2 mt-2 text-orange-500 duration-200 border border-orange-500 rounded-md hover:bg-orange-500 disabled:hover:bg-transparent disabled:hover:text-orange-500 hover:text-black disabled:opacity-50"
             onClick={() => getRecentPosts(user.id ?? "")}
             disabled={fetchingRecentPosts}
           >
-            Get Recent Post
+            {!fetchingRecentPosts ? "Get Recent Post" : "loading..."}
           </button>
         )}
       </div>

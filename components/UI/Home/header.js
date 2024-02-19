@@ -20,7 +20,7 @@ const HomeHeader = () => {
     const interval = setInterval(() => {
       console.log(imgIndex);
       setImgIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -30,7 +30,7 @@ const HomeHeader = () => {
       <div className="w-full min-h-[44rem] flex justify-center items-center relative overflow-hidden">
         {images.map((data, id) => (
           <>
-            <div key={id} className={`duration-300 -z-20 ${imgIndex === id ? "opacity-100" : "opacity-0"}`}>
+            <div key={id} className={`duration-50 -z-20 ${imgIndex === id ? "opacity-100" : "opacity-0"}`}>
               <Image
                 src={`/images/bg/${data.path}`}
                 alt="header cover"

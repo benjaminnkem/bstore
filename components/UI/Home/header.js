@@ -30,7 +30,7 @@ const HomeHeader = () => {
       <div className="w-full min-h-[44rem] flex justify-center items-center relative overflow-hidden">
         {images.map((data, id) => (
           <>
-            <div key={id} className={`duration-50 -z-20 ${imgIndex === id ? "opacity-100" : "opacity-0"}`}>
+            <div key={id} className={`duration-500 -z-20 ${imgIndex === id ? "opacity-100" : "opacity-0"}`}>
               <Image
                 src={`/images/bg/${data.path}`}
                 alt="header cover"
